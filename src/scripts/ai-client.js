@@ -117,10 +117,10 @@ export const PROVIDERS = {
   sumopod: {
     name: 'SumoPod',
     type: 'openai',
-    url: 'https://api.sumopod.com/v1/chat/completions', // Placeholder URL, can be configured later
-    defaultModel: 'sumopod-model',
-    models: ['sumopod-model'],
-    signupUrl: '#',
+    url: 'https://ai.sumopod.com/v1/chat/completions',
+    defaultModel: 'gpt-4o-mini', // typical default model
+    models: ['gpt-4o-mini'],
+    signupUrl: 'https://ai.sumopod.com/',
   },
 };
 
