@@ -77,10 +77,10 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
       </div>
     </section>
 
-    <!-- STEP 2: Pilih Framework & Format -->
+    <!-- STEP 2: Pilih Framework -->
     <section id="step-2" class="step-panel hidden">
-      <h2 class="text-2xl font-bold text-slate-800 mb-1">🧭 Pilih Framework & Format</h2>
-      <p class="text-slate-500 mb-6">Framework menentukan struktur cerita. Format menentukan bentuk output.</p>
+      <h2 class="text-2xl font-bold text-slate-800 mb-1">🧭 Pilih Framework Storytelling</h2>
+      <p class="text-slate-500 mb-6">Framework menentukan alur dan struktur psikologi ceritamu.</p>
 
       <!-- Framework Selection -->
       <h3 class="text-lg font-semibold text-slate-700 mb-3">Framework Storytelling</h3>
@@ -104,17 +104,7 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
         ))}
       </div>
 
-      <!-- Format Selection -->
-      <h3 class="text-lg font-semibold text-slate-700 mb-3">Format Output</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="format-options">
-        {OUTPUT_FORMATS.map((format, index) => (
-          <label class={`format-option border-2 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300 ${index === 0 ? 'border-blue-500 bg-blue-50' : 'border-slate-200'}`}>
-            <input type="radio" name="format" value={format.id} checked={index === 0} class="sr-only" />
-            <span class="text-2xl block mb-1">{format.icon}</span>
-            <span class="text-sm font-medium text-slate-700">{format.label}</span>
-          </label>
-        ))}
-      </div>
+      <!-- Format Selection Removed -->
 
       <div class="mt-8 flex justify-between">
         <button onclick="goToStep(1)" class="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
@@ -194,20 +184,35 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
         </button>
 
         <!-- Generated Prompt Display -->
-        <div id="prompt-output" class="hidden mt-6">
+        <div id="prompt-output" class="mt-8 hidden animate-fade-in">
           <div class="flex items-center justify-between mb-2">
-            <h3 class="font-semibold text-slate-700">Prompt yang Dihasilkan:</h3>
+            <label class="block text-sm font-semibold text-slate-700">Hasil Prompt (Siap Copy-Paste):</label>
             <button onclick="copyPrompt()" class="text-sm text-blue-500 hover:text-blue-600 font-medium flex items-center gap-1">
               📋 Copy Prompt
             </button>
           </div>
           <textarea id="prompt-text" rows="12" readonly class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-700 font-mono resize-none"></textarea>
-          <p class="mt-2 text-sm text-slate-500">
+          <p class="mt-2 text-sm text-slate-500 mb-6">
             Copy prompt di atas, lalu paste ke
             <a href="https://chat.openai.com" target="_blank" class="text-blue-500 hover:underline">ChatGPT</a>,
             <a href="https://aistudio.google.com" target="_blank" class="text-blue-500 hover:underline">Gemini</a>, atau
             <a href="https://claude.ai" target="_blank" class="text-blue-500 hover:underline">Claude</a>.
           </p>
+
+          <!-- Actions (Repurpose Prompt) -->
+          <div class="border-t border-slate-200 pt-5">
+            <h4 class="text-sm font-semibold text-slate-800 mb-3">🔄 Generate Ulang Prompt Untuk Format Lain:</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <button onclick="generatePrompt('carousel')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">📱 Carousel IG</button>
+              <button onclick="generatePrompt('thread')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">🐦 X Thread</button>
+              <button onclick="generatePrompt('caption')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">💬 Caption</button>
+              <button onclick="generatePrompt('video')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">🎬 Video Script</button>
+              <button onclick="generatePrompt('quote')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">💡 Quote Image</button>
+              <button onclick="generatePrompt('linkedin')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">💼 LinkedIn Post</button>
+              <button onclick="generatePrompt('pinterest')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">📌 Pinterest Pin</button>
+              <button onclick="generatePrompt('blog')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">📝 Artikel Blog</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -258,13 +263,37 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
           <div id="output-text" class="px-4 py-4 prose prose-sm max-w-none text-slate-700 whitespace-pre-wrap leading-relaxed"></div>
         </div>
 
-        <!-- Actions -->
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
-          <button onclick="goToStep(2)" class="flex-1 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
-            🔄 Generate Format Lain
-          </button>
-          <button onclick="goToStep(1)" class="flex-1 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
-            ✏️ Ubah Input
+        <!-- Actions (Repurpose) -->
+        <div class="mt-6 border-t border-slate-200 pt-5">
+          <h4 class="text-sm font-semibold text-slate-800 mb-3">🔄 Repurpose Konten Ini Ke:</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+            <button onclick="generateWithAPI('carousel')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+              📱 Carousel IG
+            </button>
+            <button onclick="generateWithAPI('thread')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+              🐦 X Thread
+            </button>
+            <button onclick="generateWithAPI('caption')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+              💬 Caption
+            </button>
+            <button onclick="generateWithAPI('video')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+              🎬 Video Script
+            </button>
+            <button onclick="generateWithAPI('quote')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+              💡 Quote Image
+            </button>
+            <button onclick="generateWithAPI('linkedin')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+              💼 LinkedIn Post
+            </button>
+            <button onclick="generateWithAPI('pinterest')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+              📌 Pinterest Pin
+            </button>
+            <button onclick="generateWithAPI('blog')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+              📝 Artikel Blog
+            </button>
+          </div>
+          <button onclick="goToStep(1)" class="w-full py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors text-sm">
+            ✏️ Buat Ide Baru (Mulai dari Awal)
           </button>
         </div>
       </div>
@@ -385,14 +414,14 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
   };
 
   // --- Gather Form Data ---
-  function getFormData() {
+  function getFormData(formatOverride = null) {
     return {
       topik: document.getElementById('topik').value.trim(),
       audiens: document.getElementById('audiens').value.trim() || 'Umum',
       tujuan: document.getElementById('tujuan').value.trim() || 'Edukasi',
       tone: document.getElementById('tone').value,
       framework: document.querySelector('input[name="framework"]:checked')?.value || 'storiq10',
-      format: document.querySelector('input[name="format"]:checked')?.value || 'blog',
+      format: formatOverride || document.querySelector('input[name="format"]:checked')?.value || 'blog',
     };
   }
 
@@ -406,8 +435,8 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
   }
 
   // --- Mode 2: Generate Prompt ---
-  window.generatePrompt = function() {
-    const data = getFormData();
+  window.generatePrompt = function(formatOverride = null) {
+    const data = getFormData(formatOverride);
     if (!data.topik) {
       showToast('⚠️ Tulis topik dulu ya!');
       goToStep(1);
@@ -425,8 +454,8 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
   };
 
   // --- Mode 1: Generate with API ---
-  window.generateWithAPI = async function() {
-    const data = getFormData();
+  window.generateWithAPI = async function(formatOverride = null) {
+    const data = getFormData(formatOverride);
     if (!data.topik) {
       showToast('⚠️ Tulis topik dulu ya!');
       goToStep(1);
