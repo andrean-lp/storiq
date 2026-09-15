@@ -5,575 +5,206 @@ import Footer from '../components/Footer.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
-const tenElements = [
+const frameworksList = [
   {
-    number: "01",
-    name: "Context",
-    role: "Fase Fondasi",
-    tagline: "Memahami dunia customer",
-    question: "Apa kondisi mereka saat ini?",
-    desc: "Sebelum mengenalkan solusi, kita harus memahami dan memvalidasi realitas harian audiens. Apa rutinitas mereka? Apa tekanan yang sedang mereka hadapi di tempat kerja atau kehidupan pribadi?",
-    example: "Setiap hari Anda menghabiskan 3 jam memikirkan ide konten, tapi saat diposting, hanya mendapat 2 likes dan nol leads.",
+    id: 'storiq10',
+    title: 'STORIQ 10 Elemen',
+    creator: 'STORIQ Original',
+    badge: 'Paling Lengkap',
+    color: 'blue',
+    desc: 'Framework komprehensif yang dirancang khusus dengan menggabungkan psikologi bercerita dan arsitektur konversi (CRO). Framework ini memandu audiens dari kondisi tidak sadar masalah (unaware) hingga mantap mengambil tindakan.',
+    usage: 'Paling efektif untuk artikel blog, landing page, dan presentasi bisnis yang bertujuan langsung pada konversi/penjualan.',
+    steps: [
+      { num: '1', title: 'Context', detail: 'Pahami dunia dan kondisi audiens saat ini' },
+      { num: '2', title: 'Character', detail: 'Posisikan audiens sebagai protagonis/tokoh utama' },
+      { num: '3', title: 'Conflict', detail: 'Tunjukkan gap atau masalah nyata yang mereka rasakan' },
+      { num: '4', title: 'Desire', detail: 'Gambarkan kondisi ideal yang mereka inginkan' },
+      { num: '5', title: 'Discovery', detail: 'Buka perspektif baru ("Oh, ternyata ada cara!")' },
+      { num: '6', title: 'Mechanism', detail: 'Jelaskan cara kerja solusi secara sederhana' },
+      { num: '7', title: 'Proof', detail: 'Berikan bukti nyata (data, testimoni, studi kasus)' },
+      { num: '8', title: 'Transformation', detail: 'Tunjukkan perubahan before → after yang konkret' },
+      { num: '9', title: 'Risk Reduction', detail: 'Kurangi persepsi risiko (garansi, ekspektasi jelas)' },
+      { num: '10', title: 'Action', detail: 'Berikan langkah selanjutnya yang natural dan relevan' }
+    ]
   },
   {
-    number: "02",
-    name: "Character",
-    role: "Fase Fondasi",
-    tagline: "Customer sebagai protagonis",
-    question: "Siapa mereka sebenarnya?",
-    desc: "Audiens adalah pahlawan dalam cerita ini, bukan brand kita. Definisikan identitas mereka: apa peran mereka, apa nilai yang mereka perjuangkan, dan apa beban identitas yang mereka pikul.",
-    example: "Sebagai solopreneur atau content creator pemula, Anda punya keahlian berharga, tetapi belum punya tim kreatif atau budget iklan besar.",
+    id: 'heros_journey',
+    title: "The Hero's Journey",
+    creator: 'Joseph Campbell / Christopher Vogler',
+    badge: 'Legendaris',
+    color: 'amber',
+    desc: 'Kerangka naratif paling terkenal di dunia yang memetakan pola cerita mitologi hingga film Hollywood (seperti Star Wars). Dalam bisnis, framework ini menempatkan pelanggan sebagai Pahlawan (Hero) dan Brand sebagai Pemandu (Mentor).',
+    usage: 'Sangat cocok untuk konten inspiratif, studi kasus pelanggan, atau menceritakan kisah perjalanan hidup founder.',
+    steps: [
+      { num: '1', title: 'Status Quo', detail: 'Audiens berada di zona nyaman mereka, namun ada yang kurang.' },
+      { num: '2', title: 'Call to Adventure', detail: 'Tantangan, masalah, atau krisis mendadak muncul.' },
+      { num: '3', title: 'Meeting the Mentor', detail: 'Brand Anda hadir sebagai mentor pembawa alat/insight baru.' },
+      { num: '4', title: 'Crossing the Threshold', detail: 'Audiens mulai melangkah dan mencoba solusi yang ditawarkan.' },
+      { num: '5', title: 'The Ordeal', detail: 'Tantangan terbesar yang dihadapai dan berhasil diatasi.' },
+      { num: '6', title: 'The Reward', detail: 'Hasil gemilang dan transformasi positif yang dibawa pulang.' }
+    ]
   },
   {
-    number: "03",
-    name: "Conflict",
-    role: "Fase Katalis",
-    tagline: "Gap yang nyata",
-    question: "Apa masalah yang menghambat mereka?",
-    desc: "Konflik adalah mesin penggerak perhatian. Tanpa konflik yang dirasakan mendalam, tidak ada urgensi untuk berubah. Paparkan jurang pemisah antara kondisi sekarang dan apa yang mereka cita-citakan.",
-    example: "Anda ingin konsisten berkarya di LinkedIn dan Instagram, tetapi waktu habis untuk pekerjaan operasional sehingga konten selalu jadi korban nomor satu.",
+    id: 'storybrand',
+    title: 'The StoryBrand Framework',
+    creator: 'Donald Miller',
+    badge: 'Terpopuler di B2B',
+    color: 'emerald',
+    desc: 'Framework pemasaran yang sangat populer. Memadatkan perjalanan panjang pahlawan menjadi 7 elemen kunci yang langsung fokus pada pesan pemasaran agar tidak membingungkan audiens.',
+    usage: 'Sangat direkomendasikan untuk copywriting website, bio profil, dan skrip elevator pitch.',
+    steps: [
+      { num: '1', title: 'A Character', detail: 'Siapa pahlawannya (audiens) dan apa yang mereka inginkan?' },
+      { num: '2', title: 'Has a Problem', detail: 'Jelaskan masalah eksternal, internal, dan filosofis mereka.' },
+      { num: '3', title: 'And Meets a Guide', detail: 'Hadirkan brand Anda sebagai pemandu yang empati & berotoritas.' },
+      { num: '4', title: 'Who Gives a Plan', detail: 'Berikan 3 langkah yang sangat mudah untuk memulai.' },
+      { num: '5', title: 'Calls to Action', detail: 'Tantang mereka untuk bertindak secara langsung (beli/daftar).' },
+      { num: '6', title: 'Avoids Failure', detail: 'Bantu mereka menghindari konsekuensi buruk/kegagalan.' },
+      { num: '7', title: 'Ends in Success', detail: 'Gambarkan secara visual kesuksesan yang akan mereka raih.' }
+    ]
   },
   {
-    number: "04",
-    name: "Desire",
-    role: "Fase Katalis",
-    tagline: "Masa depan lebih baik",
-    question: "Apa yang mereka inginkan?",
-    desc: "Visualisasikan kondisi ideal yang didambakan pahlawan kita. Ini bukan sekadar fitur produk, melainkan perasaan lega, status baru, dan pencapaian bermakna yang ingin diraih.",
-    example: "Bisa memproduksi 1 minggu materi konten berkualitas tinggi hanya dalam waktu 45 menit, tanpa burnout atau kehabisan bahan obrolan.",
+    id: 'andy_raskin',
+    title: 'Normal, Explosion, New Normal',
+    creator: 'Andy Raskin',
+    badge: 'Strategic Narrative',
+    color: 'violet',
+    desc: 'Bukan sekadar framework konten, melainkan kerangka "Strategic Narrative" level korporasi. Fokus utamanya bukan pada produk, melainkan pada pergeseran besar (shift) yang sedang terjadi di dunia.',
+    usage: 'Pilihan terbaik untuk pitch deck startup, presentasi visi perusahaan, atau manifesto brand.',
+    steps: [
+      { num: '1', title: 'The Old Normal', detail: 'Cara lama orang melakukan sesuatu (Status Quo).' },
+      { num: '2', title: 'The Explosion', detail: 'Perubahan/disrupsi besar di dunia yang membuat cara lama usang.' },
+      { num: '3', title: 'The New Normal', detail: 'Kondisi ideal (Promised Land) yang tercipta berkat disrupsi.' },
+      { num: '4', title: 'Magic Gifts', detail: 'Fitur/produk Anda yang membantu orang bertahan di New Normal.' },
+      { num: '5', title: 'The Proof', detail: 'Bukti nyata bahwa strategi dan alat ini benar-benar bekerja.' }
+    ]
   },
   {
-    number: "05",
-    name: "Discovery",
-    role: "Fase Titik Balik",
-    tagline: "Perspektif baru",
-    question: "Oh, ternyata ada cara!",
-    desc: "Momen 'Aha!' yang mematahkan asumsi lama. Tunjukkan kenapa cara-cara konvensional gagal dan ungkap sudut pandang segar yang belum pernah mereka sadari sebelumnya.",
-    example: "Masalahnya bukan Anda kurang kreatif atau malas. Masalahnya adalah Anda mencoba membuat 10 ide berbeda dari nol, bukannya me-repurpose 1 ide inti ke 10 format.",
+    id: 'pixar',
+    title: "Pixar's Story Spine",
+    creator: 'Kenn Adams / Pixar',
+    badge: 'Animasi & Emosi',
+    color: 'rose',
+    desc: 'Tulang punggung dari setiap film animasi Pixar (Toy Story, Finding Nemo, dll). Framework ini memaksakan hubungan sebab-akibat yang kuat sehingga cerita terasa mengalir lancar secara emosional.',
+    usage: 'Sempurna untuk format pendek seperti video script TikTok/Reels, atau carousel Instagram.',
+    steps: [
+      { num: '1', title: 'Once upon a time...', detail: 'Bangun konteks: Siapa mereka dan di mana mereka berada?' },
+      { num: '2', title: 'Every day...', detail: 'Rutinitas atau masalah yang mereka hadapi terus berulang.' },
+      { num: '3', title: 'Until one day...', detail: 'Titik balik atau penemuan baru yang mengubah segalanya.' },
+      { num: '4', title: 'Because of that...', detail: 'Dampak pertama atau langkah aksi dari penemuan tersebut.' },
+      { num: '5', title: 'Because of that...', detail: 'Dampak lanjutan atau rintangan yang berhasil dilalui.' },
+      { num: '6', title: 'Until finally...', detail: 'Resolusi akhir, transformasi, dan pesan moral cerita.' }
+    ]
   },
   {
-    number: "06",
-    name: "Mechanism",
-    role: "Fase Titik Balik",
-    tagline: "Cara kerja solusi",
-    question: "Bagaimana ini bisa menyelesaikan masalah?",
-    desc: "Beri penjelasan logis dan transparan mengenai sistem di balik solusi. Ketika audiens mengerti mekanismenya, keraguan intelektual mereka langsung berubah menjadi rasa percaya.",
-    example: "Engine STORIQ membedah ide Anda menjadi 10 blok narasi terstruktur, lalu secara otomatis menyusun ulang pesan tersebut sesuai arsitektur psikologi setiap channel.",
+    id: 'three_act',
+    title: 'The Three-Act Structure',
+    creator: 'Klasik Yunani / Aristoteles',
+    badge: 'Dasar Literasi',
+    color: 'slate',
+    desc: 'Struktur bercerita tertua dan paling mendasar. Sederhana namun sangat kokoh untuk membagi informasi ke dalam urutan logis (Awal, Tengah, Akhir).',
+    usage: 'Pilihan yang aman untuk segala jenis tulisan, mulai dari artikel opini, thread X/Twitter, hingga email newsletter.',
+    steps: [
+      { num: 'I', title: 'Setup (Babak 1)', detail: 'Kenalkan karakter utama, setting, dan "Inciting Incident" (pemicu masalah).' },
+      { num: 'II', title: 'Confrontation (Babak 2)', detail: 'Bagian terpanjang: Perjuangan mencari solusi, hambatan, dan ketegangan (rising action).' },
+      { num: 'III', title: 'Resolution (Babak 3)', detail: 'Klimaks tercapai, masalah terselesaikan, dan perubahan permanen terjadi.' }
+    ]
   },
   {
-    number: "07",
-    name: "Proof",
-    role: "Fase Validasi",
-    tagline: "Bukti nyata",
-    question: "Testimoni, case study, data",
-    desc: "Klaim tanpa bukti adalah bualan kosong. Hadirkan bukti empiris: tangkapan layar hasil, angka pertumbuhan, studi kasus nyata, atau testimoni tulus dari orang yang serupa dengan mereka.",
-    example: "Lebih dari 1.200 creator Indonesia telah memangkas 70% waktu produksi konten mereka dan melipatgandakan rasio klik penawaran landing page mereka.",
-  },
-  {
-    number: "08",
-    name: "Transformation",
-    role: "Fase Validasi",
-    tagline: "Perubahan before → after",
-    question: "Apa yang berubah?",
-    desc: "Bandingkan secara kontras hidup mereka sebelum bertemu solusi dan setelah menjalankannya. Kontras before-after memperjelas nilai (value) konkret yang akan mereka bawa pulang.",
-    example: "Dari kreator yang stres menatap layar kosong setiap malam, menjadi strategist percaya diri dengan kalender konten terisi penuh dan lead masuk konsisten.",
-  },
-  {
-    number: "09",
-    name: "Risk Reduction",
-    role: "Fase Konversi",
-    tagline: "Kurangi persepsi risiko",
-    question: "Garansi, transparansi",
-    desc: "Sebelum audiens mengambil langkah, ketakutan akan salah pilih atau kerugian finansial/waktu akan muncul. Turunkan dinding risiko dengan transparansi dan garansi kenyamanan.",
-    example: "100% gratis, open-source, dan berjalan langsung di browsermu. API key disimpan di local storage perambanmu sendiri, tanpa biaya langganan siluman.",
-  },
-  {
-    number: "10",
-    name: "Action",
-    role: "Fase Konversi",
-    tagline: "Langkah berikutnya",
-    question: "CTA yang natural dan relevan",
-    desc: "Ajakan bertindak yang jelas, sederhana, dan tidak mengintimidasi. Berikan satu langkah konkret yang logis diambil saat ini juga sebagai kulminasi dari seluruh perjalanan cerita.",
-    example: "Mulai ubah 1 ide pertamamu hari ini. Masukkan topik di Generator STORIQ dan rasakan bedanya dalam 60 detik.",
-  },
-];
-
-const hierarchySteps = [
-  {
-    step: "01",
-    name: "Big Idea",
-    badge: "Hook Awal",
-    desc: "Gagasan payung yang memikat perhatian dan memicu rasa penasaran dalam 3 detik pertama.",
-    why: "Tanpa Big Idea yang tajam, pembaca akan langsung scroll melewati halaman Anda.",
-  },
-  {
-    step: "02",
-    name: "Core Problem",
-    badge: "Validasi Emosi",
-    desc: "Pengakuan jujur atas masalah terdalam yang selama ini dipendam dan dirasakan pembaca.",
-    why: "Membangun koneksi instan bahwa Anda benar-benar mengerti penderitaan mereka.",
-  },
-  {
-    step: "03",
-    name: "Insight",
-    badge: "Akar Masalah",
-    desc: "Mengapa cara-cara yang mereka coba sebelumnya selalu berujung buntu atau mengecewakan.",
-    why: "Membebaskan pembaca dari rasa bersalah atas kegagalan masa lalu mereka.",
-  },
-  {
-    step: "04",
-    name: "New Perspective",
-    badge: "Titik Balik",
-    desc: "Paradigma baru yang membuka wawasan: sebuah sudut pandang segar yang masuk akal.",
-    why: "Memberikan harapan baru bahwa ada jalur alternatif yang lebih efektif.",
-  },
-  {
-    step: "05",
-    name: "Proof",
-    badge: "Validasi Logika",
-    desc: "Bukti nyata, data terukur, dan studi kasus yang memvalidasi bahwa perspektif baru ini berhasil.",
-    why: "Memuaskan otak rasional skeptis pembaca sebelum penawaran diberikan.",
-  },
-  {
-    step: "06",
-    name: "Offer",
-    badge: "Solusi Nyata",
-    desc: "Presentasi solusi atau alat bantu yang dirancang khusus untuk mewujudkan perspektif baru tadi.",
-    why: "Solusi hadir tepat saat pembaca telah menginginkan dan mempercayai pendekatannya.",
-  },
-  {
-    step: "07",
-    name: "Risk Reduction",
-    badge: "Hapus Keraguan",
-    desc: "Menghilangkan friksi, kekhawatiran, dan rasa takut salah mengambil keputusan.",
-    why: "Membuat keputusan bertindak terasa sangat aman, masuk akal, dan mudah dilakukan.",
-  },
-  {
-    step: "08",
-    name: "Action",
-    badge: "Konversi Alami",
-    desc: "Call to Action yang tegas, spesifik, dan bebas tekanan intimidatif.",
-    why: "Langkah akhir yang terasa sebagai kesimpulan logis dari seluruh cerita yang telah dibaca.",
-  },
-];
-
-const psychologicalStates = [
-  {
-    stage: "01",
-    state: "Unaware",
-    title: "Belum Sadar Masalah",
-    thought: "“Rasanya konten gue oke-oke aja, kenapa harus repot pakai framework segala?”",
-    objective: "Membuka mata mereka terhadap gejala halus yang sering diabaikan.",
-    contentApproach: "Cerita relatable, analogi hidup sehari-hari, data tren industri terkini.",
-  },
-  {
-    stage: "02",
-    state: "Problem Aware",
-    title: "Sadar Ada Masalah",
-    thought: "“Kok rasanya capek banget bikin konten tiap hari tapi follow-up & penjualannya sepi ya?”",
-    objective: "Membantu mereka menamai masalah spesifik tanpa menyalahkan diri sendiri.",
-    contentApproach: "Validasi keluhan, bedah anatomi masalah, tunjukkan bahwa mereka tidak sendirian.",
-  },
-  {
-    stage: "03",
-    state: "Pain Aware",
-    title: "Merasakan Dampak Masalah",
-    thought: "“Kalau tiap bulan buang waktu 60 jam bikin konten tanpa hasil, bisnis gue bisa gulung tikar.”",
-    objective: "Membantu mereka menyadari opportunity cost dan bahaya menunda perbaikan.",
-    contentApproach: "Eksplorasi konsekuensi jangka panjang dan frustrasi tersembunyi dengan empati.",
-  },
-  {
-    stage: "04",
-    state: "Solution Aware",
-    title: "Sadar Ada Jenis Solusi",
-    thought: "“Katanya metode Content Repurposing berbasis Storytelling itu efektif, tapi gimana caranya?”",
-    objective: "Mengedukasi kategori solusi dan mengapa pendekatan berbasis cerita adalah yang terbaik.",
-    contentApproach: "Panduan metode, framework berpikir, komparasi efisiensi cara lama vs cara baru.",
-  },
-  {
-    stage: "05",
-    state: "Product Aware",
-    title: "Sadar Keberadaan STORIQ",
-    thought: "“Gue tahu ada STORIQ. Tapi apakah engine ini beneran cocok buat kebutuhan saya?”",
-    objective: "Memperlihatkan keunikan fitur, kecepatan kerja, dan kemudahan penggunaan engine.",
-    contentApproach: "Demo produk, tur fitur, contoh output sebelum dan sesudah diproses.",
-  },
-  {
-    stage: "06",
-    state: "Trust",
-    title: "Membangun Keyakinan",
-    thought: "“Metode Mas Andre ini grounded banget di CRO nyata. Framework-nya masuk akal dan transparan.”",
-    objective: "Menghilangkan keraguan terakhir terkait kredibilitas sistem dan penciptanya.",
-    contentApproach: "Studi kasus riil, testimoni pengguna, filosofi di balik arsitektur konversi.",
-  },
-  {
-    stage: "07",
-    state: "Action",
-    title: "Siap Bertindak",
-    thought: "“Alatnya gratis, nggak butuh kartu kredit, dan langsung bisa dicoba sekarang. Gas!”",
-    objective: "Memberikan jalan masuk termudah dengan zero-friction untuk memulai.",
-    contentApproach: "CTA spesifik satu klik, instruksi sederhana 1-2-3, jaminan kemudahan akses.",
-  },
-];
-
-const corePrinciples = [
-  {
-    id: "01",
-    title: "Customer first",
-    desc: "Audiens adalah protagonis yang sedang berjuang. Jadikan kebutuhan, luka, dan harapan mereka sebagai pusat gravitasi tulisanmu.",
-  },
-  {
-    id: "02",
-    title: "Relevance before persuasion",
-    desc: "Tanpa relevansi, kata-kata paling manis sekalipun dianggap kebisingan. Buktikan kamu memahami dunia mereka sebelum mencoba meyakinkan.",
-  },
-  {
-    id: "03",
-    title: "Story before selling",
-    desc: "Cerita menembus filter defensif di otak audiens. Jangan buru-buru berjualan sebelum kamu membangun empati dan relasi emosional.",
-  },
-  {
-    id: "04",
-    title: "Conflict creates attention",
-    desc: "Kisah tanpa rintangan membosankan pembaca. Buka gap nyata antara kenyataan pahit hari ini dan ekspektasi yang belum terwujud.",
-  },
-  {
-    id: "05",
-    title: "Desire creates movement",
-    desc: "Ketakutan menghentikan orang, tetapi kerinduan akan masa depan yang lebih baik memicu inisiatif untuk melangkah maju.",
-  },
-  {
-    id: "06",
-    title: "Mechanism creates understanding",
-    desc: "Keajaiban tanpa penjelasan memicu skeptisisme. Tunjukkan mekanisme logis kenapa solusi ini sanggup menyelesaikan konflik mereka.",
-  },
-  {
-    id: "07",
-    title: "Proof creates belief",
-    desc: "Klaim sepihak adalah beban; bukti otentik adalah mata uang kepercayaan. Dukung setiap janji besar dengan bukti nyata.",
-  },
-  {
-    id: "08",
-    title: "Transformation creates value",
-    desc: "Orang tidak membeli produk, format, atau tombol. Mereka membeli versi diri mereka yang lebih tenang, kompeten, dan berhasil.",
-  },
-  {
-    id: "09",
-    title: "Reduce risk before asking action",
-    desc: "Setiap ajakan bertindak menimbulkan kecemasan. Redakan risiko terlebih dahulu agar tombol CTA menjadi pintu keluar yang melegakan.",
-  },
-  {
-    id: "10",
-    title: "Every message must move psychology",
-    desc: "Tidak boleh ada kalimat pemanis atau filler. Setiap paragraf harus memindahkan status psikologis audiens satu langkah lebih dekat ke keputusan.",
-  },
+    id: 'golden_circle',
+    title: 'Golden Circle',
+    creator: 'Simon Sinek',
+    badge: 'Kepemimpinan',
+    color: 'yellow',
+    desc: 'Banyak bisnis berkomunikasi dari "luar ke dalam" (Apa → Bagaimana → Kenapa). Framework ini membalik urutan tersebut untuk langsung menyasar bagian otak pengambil keputusan dan perasaan.',
+    usage: 'Gunakan saat menulis halaman "Tentang Kami", merekrut karyawan, atau mengumumkan peluncuran brand.',
+    steps: [
+      { num: '1', title: 'WHY', detail: 'Mulailah dengan tujuan, alasan, atau keyakinan utama Anda. (Inspirasi)' },
+      { num: '2', title: 'HOW', detail: 'Jelaskan proses, nilai-nilai, atau bagaimana Anda mewujudkan WHY tersebut. (Diferensiasi)' },
+      { num: '3', title: 'WHAT', detail: 'Sebutkan apa bentuk nyata/produk/layanan yang Anda tawarkan. (Hasil)' }
+    ]
+  }
 ];
 ---
 
-<Base
-  title="STORIQ Framework — Metodologi Storytelling & Konversi"
-  description="Strategic framework yang menggabungkan storytelling, copywriting, psychology, dan conversion untuk merancang perjalanan psikologi menuju action."
->
+<Base title="Framework Storytelling — STORIQ" description="Pelajari 7 Framework Storytelling Kelas Dunia yang digunakan oleh brand raksasa dan copywriter top dunia.">
   <Header slot="header" />
 
-  <!-- 1. HERO SECTION -->
-  <section class="relative bg-navy-800 text-white pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-navy-700">
-    <!-- Subtle background accent circles -->
-    <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute bottom-0 -left-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-medium mb-6">
-        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-        Metodologi & Arsitektur Konversi
+  <!-- HERO SECTION -->
+  <section class="bg-navy-900 pt-16 pb-20 relative overflow-hidden border-b border-navy-800">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-semibold mb-6">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+        Direktori Framework
       </div>
-
-      <!-- Main Title -->
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4">
-        STORIQ <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-200">Framework</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-5 leading-tight">
+        7 Framework Storytelling Dunia
       </h1>
-
-      <!-- Subtitle -->
-      <p class="text-lg sm:text-xl md:text-2xl font-semibold text-blue-300 max-w-2xl mx-auto mb-6">
-        Mengubah storytelling menjadi conversion
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Pelajari struktur narasi yang digunakan oleh <i>brand</i> raksasa, penulis naskah Hollywood, hingga pimpinan bisnis top dunia. Semuanya terintegrasi langsung dalam <strong class="text-white">STORIQ Engine</strong>.
       </p>
-
-      <!-- Description -->
-      <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10">
-        Strategic framework yang menggabungkan storytelling, copywriting, psychology, dan conversion untuk merancang perjalanan psikologi menuju action.
-      </p>
-
-      <!-- Educational context box -->
-      <div class="max-w-3xl mx-auto bg-navy-900/80 border border-navy-700/80 rounded-2xl p-5 sm:p-6 text-left mb-10 shadow-xl backdrop-blur-sm">
-        <div class="flex items-start gap-3.5">
-          <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold text-sm">
-            💡
-          </div>
-          <div>
-            <h2 class="text-sm sm:text-base font-semibold text-white mb-1">
-              Kenapa Storytelling Saja Tidak Cukup?
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Banyak cerita menarik di media sosial yang disukai banyak orang, tetapi berakhir dengan nol konversi. Cerita tanpa struktur psikologi hanyalah hiburan. STORIQ Framework merancang setiap babak narasi sebagai jembatan kognitif terukur: dari rasa ragu menuju keyakinan penuh untuk bertindak.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quick Section Anchor Links -->
-      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm">
-        <a href="#filosofi" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors">
-          Filosofi
-        </a>
-        <a href="#10-elemen" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors">
-          10 Elemen Inti
-        </a>
-        <a href="#hierarki-pesan" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors">
-          Hierarki Pesan
-        </a>
-        <a href="#psikologi" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors">
-          7 State Psikologis
-        </a>
-        <a href="#prinsip" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors">
-          Prinsip Inti
-        </a>
-      </div>
     </div>
   </section>
 
-  <!-- 2. PHILOSOPHY SECTION (white bg) -->
-  <section id="filosofi" class="bg-white py-16 sm:py-20 md:py-24 border-b border-slate-200">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-xs sm:text-sm font-semibold text-blue-600 tracking-wider uppercase">
-          Filosofi Dasar
-        </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mt-2">
-          Landing Page Bukan Sekadar Lembaran Informasi
-        </h2>
-        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
-      </div>
-
-      <!-- Quote Card -->
-      <div class="relative bg-slate-50 border-l-4 border-blue-500 rounded-r-2xl p-6 sm:p-8 md:p-10 mb-14 shadow-sm">
-        <svg class="absolute top-4 right-4 sm:top-6 sm:right-6 w-12 h-12 text-slate-200 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-        </svg>
-        <blockquote class="relative z-10">
-          <p class="text-lg sm:text-xl md:text-2xl font-medium text-slate-800 italic leading-relaxed mb-4">
-            “Setiap landing page bukan sekadar menyampaikan pesan. Ia harus membawa seseorang melewati sebuah journey.”
-          </p>
-          <footer class="text-sm sm:text-base font-semibold text-slate-700">
-            — Andre Wahyu Hermawan <span class="text-xs sm:text-sm text-slate-500 font-normal block sm:inline sm:ml-2">Landing Page Strategist & CRO</span>
-          </footer>
-        </blockquote>
-      </div>
-
-      <!-- Protagonist vs Guide Concept -->
-      <div class="grid md:grid-cols-2 gap-8 mb-16 items-stretch">
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold mb-4">
-              Pahlawan Cerita
-            </div>
-            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
-              Customer sebagai Protagonis
-            </h3>
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
-              Banyak copywriter terjebak menjadikan brand sebagai pahlawan yang serba hebat. Dalam STORIQ Framework, protagonis sejati adalah customer Anda.
-            </p>
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Merekalah yang memiliki rintangan, keraguan, dan cita-cita besar. Tulisan Anda harus berfokus pada apa yang mereka alami, bukan berapa lama perusahaan Anda telah berdiri.
-            </p>
-          </div>
-          <div class="mt-6 pt-6 border-t border-slate-200 flex items-center gap-3 text-xs sm:text-sm text-slate-500">
-            <span class="text-blue-500 font-bold">Prinsip:</span> Fokus pada perjuangan dan transformasi sang pembaca.
-          </div>
-        </div>
-
-        <div class="bg-navy-800 text-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold mb-4 border border-blue-400/30">
-              Pemandu Tepercaya
-            </div>
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">
-              Brand sebagai Guide (Mentor)
-            </h3>
-            <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
-              Jika customer adalah Luke Skywalker, brand Anda adalah Yoda. Jika customer adalah Frodo, Anda adalah Gandalf.
-            </p>
-            <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Peran Anda bukan mencuri panggung, melainkan membekali sang protagonis dengan peta jalan yang jelas, empati tulus, dan alat yang tepat agar mereka mampu mengalahkan naga masalah mereka sendiri.
-            </p>
-          </div>
-          <div class="mt-6 pt-6 border-t border-navy-700 flex items-center gap-3 text-xs sm:text-sm text-blue-300">
-            <span class="text-white font-bold">Prinsip:</span> Guide hadir dengan empati dan otoritas teruji.
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 Big Jobs -->
-      <div class="mt-12">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
-            3 Pekerjaan Besar (Big Jobs) Konten & Landing Page
-          </h3>
-          <p class="text-sm text-slate-600 mt-2">
-            Sebelum seseorang bersedia mengklik tombol atau membeli produk, pikiran mereka harus menyelesaikan 3 fase kognitif ini secara berurutan:
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-3 gap-6">
-          <!-- Job 1: Recognition -->
-          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-400 transition-colors">
-            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 font-bold flex items-center justify-center text-base mb-4">
-              01
-            </div>
-            <h4 class="text-lg font-bold text-slate-900 mb-2">Recognition</h4>
-            <p class="text-xs font-semibold text-blue-600 mb-3">Mengenali Masalah</p>
-            <p class="text-sm text-slate-600 leading-relaxed mb-4">
-              Audiens harus merasa dipahami secara personal. Reaksi pertama yang wajib dipicu adalah: <em class="text-slate-800 font-medium">"Ini persis seperti apa yang lagi gue rasain!"</em>
-            </p>
-            <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-500">
-              Validasi realitas mereka tanpa terburu-buru menawarkan produk.
-            </div>
-          </div>
-
-          <!-- Job 2: Belief -->
-          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-400 transition-colors">
-            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 font-bold flex items-center justify-center text-base mb-4">
-              02
-            </div>
-            <h4 class="text-lg font-bold text-slate-900 mb-2">Belief</h4>
-            <p class="text-xs font-semibold text-blue-600 mb-3">Percaya Ada Solusi</p>
-            <p class="text-sm text-slate-600 leading-relaxed mb-4">
-              Setelah masalah diakui, audiens butuh keyakinan logis bahwa jalan keluar memang eksis melalui mekanisme baru yang belum pernah mereka coba.
-            </p>
-            <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-500">
-              Kombinasi mekanisme yang masuk akal dan bukti nyata di lapangan.
-            </div>
-          </div>
-
-          <!-- Job 3: Action -->
-          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-400 transition-colors">
-            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 font-bold flex items-center justify-center text-base mb-4">
-              03
-            </div>
-            <h4 class="text-lg font-bold text-slate-900 mb-2">Action</h4>
-            <p class="text-xs font-semibold text-blue-600 mb-3">Siap Bertindak</p>
-            <p class="text-sm text-slate-600 leading-relaxed mb-4">
-              Ketika rasa takut akan risiko sudah diredam dan nilai hasil tampak nyata, pembaca merasa mantap mengambil langkah berikutnya tanpa paksaan.
-            </p>
-            <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-500">
-              CTA yang jelas, frictionless, dan terasa menguntungkan bagi audiens.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. 10 ELEMEN INTI (numbered cards, alternating bg) -->
-  <section id="10-elemen" class="bg-slate-100/70 py-16 sm:py-20 md:py-24 border-b border-slate-200">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-xs sm:text-sm font-semibold text-blue-600 tracking-wider uppercase">
-          Building Blocks
-        </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mt-2">
-          10 Elemen Inti STORIQ Framework
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 mt-3 max-w-2xl mx-auto">
-          Sepuluh pilar terstruktur yang menyusun setiap materi konten atau landing page bertenaga konversi tinggi. Setiap elemen memegang peran spesifik dalam narasi.
-        </p>
-        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
-      </div>
-
-      <!-- 10 Numbered Cards with Alternating Backgrounds -->
-      <div class="space-y-6">
-        {tenElements.map((item, index) => {
-          const isEven = index % 2 === 1;
+  <!-- CONTENT SECTION -->
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="space-y-12">
+        {frameworksList.map((fw) => {
+          const colorMap = {
+            blue: 'bg-blue-100 text-blue-700 border-blue-200',
+            amber: 'bg-amber-100 text-amber-700 border-amber-200',
+            emerald: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+            violet: 'bg-violet-100 text-violet-700 border-violet-200',
+            rose: 'bg-rose-100 text-rose-700 border-rose-200',
+            slate: 'bg-slate-200 text-slate-700 border-slate-300',
+            yellow: 'bg-yellow-100 text-yellow-700 border-yellow-200'
+          };
+          
           return (
-            <div
-              class:list={[
-                'rounded-2xl p-6 sm:p-8 transition-all duration-200 border',
-                isEven
-                  ? 'bg-navy-800 text-white border-navy-700 shadow-md'
-                  : 'bg-white text-slate-800 border-slate-200 shadow-sm hover:border-slate-300',
-              ]}
-            >
-              <div class="flex flex-col md:flex-row md:items-start gap-5">
-                <!-- Big Number & Badge -->
-                <div class="flex items-center md:flex-col gap-3 md:gap-1 shrink-0 md:w-24">
-                  <span
-                    class:list={[
-                      'text-3xl sm:text-4xl md:text-5xl font-black font-mono tracking-tighter',
-                      isEven ? 'text-blue-400' : 'text-blue-600',
-                    ]}
-                  >
-                    {item.number}
+            <div id={fw.id} class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden scroll-mt-24">
+              <!-- Card Header -->
+              <div class="p-6 sm:p-8 border-b border-slate-100">
+                <div class="flex flex-wrap gap-2 items-center mb-3">
+                  <span class={`text-xs font-bold px-2.5 py-1 rounded-full border uppercase tracking-wider ${colorMap[fw.color as keyof typeof colorMap]}`}>
+                    {fw.badge}
                   </span>
-                  <span
-                    class:list={[
-                      'text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full',
-                      isEven
-                        ? 'bg-blue-500/20 text-blue-300 border border-blue-400/30'
-                        : 'bg-blue-50 text-blue-700 border border-blue-100',
-                    ]}
-                  >
-                    {item.role}
+                  <span class="text-sm font-medium text-slate-500">
+                    Oleh: {fw.creator}
                   </span>
                 </div>
-
-                <!-- Main Content Body -->
-                <div class="flex-1">
-                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                    <h3 class:list={['text-xl sm:text-2xl font-bold', isEven ? 'text-white' : 'text-slate-900']}>
-                      {item.name}
-                      <span class:list={['text-sm sm:text-base font-normal ml-2', isEven ? 'text-slate-300' : 'text-slate-500']}>
-                        — {item.tagline}
-                      </span>
-                    </h3>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">{fw.title}</h2>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">{fw.desc}</p>
+                
+                <div class="mt-4 inline-flex items-start gap-2 bg-slate-50 p-3 rounded-lg border border-slate-200 text-sm">
+                  <span class="text-lg">💡</span>
+                  <div>
+                    <strong class="text-slate-800 block mb-0.5">Kapan sebaiknya digunakan?</strong>
+                    <span class="text-slate-600">{fw.usage}</span>
                   </div>
+                </div>
+              </div>
 
-                  <!-- Guiding Question Highlight -->
-                  <div
-                    class:list={[
-                      'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium mb-4',
-                      isEven
-                        ? 'bg-navy-900/90 text-blue-300 border border-navy-700'
-                        : 'bg-blue-50/80 text-blue-800 border border-blue-200/70',
-                    ]}
-                  >
-                    <span class="font-bold">Pertanyaan Pemandu:</span>
-                    <span class="italic font-normal">“{item.question}”</span>
-                  </div>
-
-                  <!-- Description -->
-                  <p class:list={['text-sm sm:text-base leading-relaxed mb-4', isEven ? 'text-slate-300' : 'text-slate-600']}>
-                    {item.desc}
-                  </p>
-
-                  <!-- Real World Copywriting Example -->
-                  <div
-                    class:list={[
-                      'rounded-xl p-4 text-xs sm:text-sm',
-                      isEven
-                        ? 'bg-navy-900/60 border border-navy-700/60 text-slate-300'
-                        : 'bg-slate-50 border border-slate-200 text-slate-700',
-                    ]}
-                  >
-                    <div class="flex items-center gap-2 mb-1.5">
-                      <span class:list={['text-[11px] font-bold uppercase tracking-wider', isEven ? 'text-blue-400' : 'text-blue-600']}>
-                        Contoh Penerapan Copywriting:
-                      </span>
+              <!-- Card Steps -->
+              <div class="p-6 sm:p-8 bg-slate-50/50">
+                <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Struktur Framework</h3>
+                <div class="space-y-4">
+                  {fw.steps.map((step, index) => (
+                    <div class="flex gap-4">
+                      <div class="flex flex-col items-center">
+                        <div class="w-8 h-8 rounded-full bg-navy-800 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-sm">
+                          {step.num}
+                        </div>
+                        {index !== fw.steps.length - 1 && (
+                          <div class="w-px h-full bg-slate-200 my-1 min-h-[1.5rem]"></div>
+                        )}
+                      </div>
+                      <div class="pb-4 pt-1">
+                        <h4 class="text-base font-bold text-slate-800 mb-1">{step.title}</h4>
+                        <p class="text-sm text-slate-600">{step.detail}</p>
+                      </div>
                     </div>
-                    <p class="italic leading-relaxed">
-                      “{item.example}”
-                    </p>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -583,226 +214,14 @@ const corePrinciples = [
     </div>
   </section>
 
-  <!-- 4. MESSAGE HIERARCHY (slate-50 bg) -->
-  <section id="hierarki-pesan" class="bg-slate-50 py-16 sm:py-20 md:py-24 border-b border-slate-200">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-xs sm:text-sm font-semibold text-blue-600 tracking-wider uppercase">
-          Urutan Logis & Alur Pesan
-        </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mt-2">
-          Message Hierarchy
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 mt-3 max-w-2xl mx-auto">
-          Alur visual penyampaian pesan dari awal hingga akhir. Mengubah urutan ini adalah penyebab paling umum konversi anjlok.
-        </p>
-        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
-      </div>
-
-      <!-- Visual Flow Summary Chain (Horizontal on desktop, stacked on mobile) -->
-      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-12">
-        <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 mb-6 text-center">
-          Peta Alur Rangkaian Pesan (Linear Flow)
-        </h3>
-        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium">
-          <span class="px-3 py-1.5 rounded-lg bg-blue-600 text-white shadow-sm">Big Idea</span>
-          <span class="text-slate-400">→</span>
-          <span class="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">Core Problem</span>
-          <span class="text-slate-400">→</span>
-          <span class="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">Insight</span>
-          <span class="text-slate-400">→</span>
-          <span class="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">New Perspective</span>
-          <span class="text-slate-400">→</span>
-          <span class="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">Proof</span>
-          <span class="text-slate-400">→</span>
-          <span class="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">Offer</span>
-          <span class="text-slate-400">→</span>
-          <span class="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">Risk Reduction</span>
-          <span class="text-slate-400">→</span>
-          <span class="px-3 py-1.5 rounded-lg bg-blue-600 text-white shadow-sm">Action</span>
-        </div>
-      </div>
-
-      <!-- Step by Step Hierarchy Breakdown -->
-      <div class="grid md:grid-cols-2 gap-6">
-        {hierarchySteps.map((step) => (
-          <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 transition-all shadow-sm">
-            <div class="flex items-center justify-between gap-3 mb-3">
-              <div class="flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 font-bold font-mono text-sm flex items-center justify-center">
-                  {step.step}
-                </span>
-                <h4 class="text-lg font-bold text-slate-900">{step.name}</h4>
-              </div>
-              <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
-                {step.badge}
-              </span>
-            </div>
-
-            <p class="text-sm text-slate-600 leading-relaxed mb-4">
-              {step.desc}
-            </p>
-
-            <div class="pt-3 border-t border-slate-100 text-xs text-slate-500">
-              <span class="font-semibold text-slate-700">Kenapa esensial:</span> {step.why}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- Hierarchy Takeaway Tip -->
-      <div class="mt-10 bg-blue-50 border border-blue-200 rounded-2xl p-5 sm:p-6 flex items-start gap-4">
-        <span class="text-2xl shrink-0">⚠️</span>
-        <div>
-          <h4 class="text-sm sm:text-base font-bold text-blue-900 mb-1">
-            Kesalahan Paling Fatal: Melempar "Offer" Terlalu Dini
-          </h4>
-          <p class="text-xs sm:text-sm text-blue-800 leading-relaxed">
-            Ketika Anda langsung menyajikan penawaran (Offer) sebelum audiens memahami Core Problem dan Insight di baliknya, otak mereka otomatis menganggap Anda "hanya ingin uang mereka". Hormati urutan hierarki pesan agar penawaran terasa seperti bantuan yang sangat dinanti.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. PSYCHOLOGICAL JOURNEY (white bg) -->
-  <section id="psikologi" class="bg-white py-16 sm:py-20 md:py-24 border-b border-slate-200">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-xs sm:text-sm font-semibold text-blue-600 tracking-wider uppercase">
-          Peta Mental Audiens
-        </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mt-2">
-          7 States of Psychological Journey
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 mt-3 max-w-2xl mx-auto">
-          Keputusan konversi tidak terjadi secara instan. Ini adalah evolusi bertahap status pikiran dari titik buta (unaware) hingga siap bertindak (action).
-        </p>
-        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
-      </div>
-
-      <!-- State Cards Flow -->
-      <div class="relative space-y-6">
-        {psychologicalStates.map((item) => (
-          <div class="relative bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-7 hover:border-blue-400 transition-all shadow-sm">
-            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
-              <!-- Header info: State + Number -->
-              <div class="flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-navy-800 text-white font-mono font-bold text-sm flex items-center justify-center shrink-0">
-                  {item.stage}
-                </span>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <span class="text-xs font-mono font-bold uppercase text-blue-600 tracking-wider">
-                      {item.state}
-                    </span>
-                  </div>
-                  <h3 class="text-lg sm:text-xl font-bold text-slate-900">
-                    {item.title}
-                  </h3>
-                </div>
-              </div>
-
-              <!-- Thought Bubble (What goes on in their mind) -->
-              <div class="bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-xs sm:text-sm italic text-slate-700 md:max-w-md shadow-xs">
-                <span class="font-bold text-slate-500 not-italic block text-[11px] uppercase mb-1">
-                  Pikiran di kepala audiens:
-                </span>
-                {item.thought}
-              </div>
-            </div>
-
-            <!-- Action plan for creator -->
-            <div class="mt-4 pt-4 border-t border-slate-200 grid sm:grid-cols-2 gap-4 text-xs sm:text-sm">
-              <div>
-                <span class="font-semibold text-slate-700 block mb-1">Tujuan Kognitif:</span>
-                <p class="text-slate-600">{item.objective}</p>
-              </div>
-              <div>
-                <span class="font-semibold text-slate-700 block mb-1">Bentuk Konten yang Tepat:</span>
-                <p class="text-slate-600">{item.contentApproach}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. CORE PRINCIPLES (navy-800 bg, white text) -->
-  <section id="prinsip" class="bg-navy-800 text-white py-16 sm:py-20 md:py-24 border-b border-navy-700">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-xs sm:text-sm font-semibold text-blue-400 tracking-wider uppercase">
-          Fondasi Etika & Strategi
-        </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2">
-          10 Prinsip Inti STORIQ
-        </h2>
-        <p class="text-sm sm:text-base text-slate-300 mt-3 max-w-2xl mx-auto">
-          Prinsip pegangan agar setiap baris kata yang Anda tulis tetap jujur, berbobot, dan bermuara pada hasil nyata.
-        </p>
-        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
-      </div>
-
-      <!-- Grid of Principles -->
-      <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
-        {corePrinciples.map((item) => (
-          <div class="bg-navy-900/80 border border-navy-700/80 rounded-2xl p-5 sm:p-6 hover:border-blue-400/50 transition-colors flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-3 mb-3">
-                <span class="font-mono text-sm font-bold px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-400/30">
-                  {item.id}
-                </span>
-                <h3 class="text-lg font-bold text-white">
-                  {item.title}
-                </h3>
-              </div>
-              <p class="text-sm text-slate-300 leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. CTA SECTION -->
-  <section class="bg-gradient-to-b from-navy-800 to-navy-900 text-white py-16 sm:py-20 text-center relative overflow-hidden">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-      <div class="w-12 h-12 rounded-2xl bg-blue-500/20 border border-blue-400/30 text-blue-400 font-bold flex items-center justify-center mx-auto text-xl mb-6">
-        🚀
-      </div>
-
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4">
-        Siap Menggunakan Framework Ini?
-      </h2>
-
-      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
-        Anda tidak perlu menghafal semua 10 elemen ini secara manual setiap kali menulis. Engine STORIQ telah mengotomatisasi seluruh struktur narasi ini untuk Anda.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-        <a
-          href={`${baseUrl}generator/`}
-          class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all text-base gap-2 group"
-        >
-          <span>Buka STORIQ Generator</span>
-          <span class="group-hover:translate-x-1 transition-transform">→</span>
-        </a>
-
-        <a
-          href={`${baseUrl}panduan/`}
-          class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-base"
-        >
-          Lihat Panduan Lengkap
-        </a>
-      </div>
-
-      <p class="text-xs sm:text-sm text-slate-400">
-        100% Gratis & Open Source • Client-side AI • Tanpa Pendaftaran Akun
-      </p>
+  <!-- CTA -->
+  <section class="bg-blue-600 text-white py-16 text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Mulai Bereksperimen</h2>
+      <p class="text-blue-100 mb-8 text-lg">Pilih salah satu dari 7 framework di atas dan hasilkan berbagai format konten dalam hitungan detik menggunakan AI.</p>
+      <a href={`${baseUrl}generator/`} class="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+        Buka STORIQ Generator →
+      </a>
     </div>
   </section>
 
