@@ -1,0 +1,11 @@
+feat: STORIQ v0.1 MVP - Content Repurposing Engine
+
+- Content generator dengan 4-step UI (mobile-first stepper)
+- 8 format output: blog, carousel, caption, video, thread, quote, linkedin, pinterest
+- 4 framework storytelling: STORIQ 10 Elemen, PAS, AIDA, Before-After-Bridge
+- Mode 1: AI API streaming (Gemini, Groq, OpenRouter, Cerebras)
+- Mode 2: Prompt Generator (tanpa API key)
+- 5 halaman: Home, Generator, Framework, Panduan, Tentang
+- Panduan lengkap + daftar API key gratis
+- GitHub Actions auto deploy ke GitHub Pages
+- Astro.js + Tailwind CSS v4 + Vanilla JS

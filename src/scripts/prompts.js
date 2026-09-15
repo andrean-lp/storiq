@@ -4,6 +4,7 @@
  */
 
 /** Build the STORIQ framework context section */
+/** Build the STORIQ framework context section */
 function frameworkContext(framework) {
   const frameworks = {
     storiq10: `Gunakan STORIQ Framework 10 Elemen:
@@ -18,21 +19,47 @@ function frameworkContext(framework) {
 9. Risk Reduction — Kurangi persepsi risiko (garansi, transparansi, ekspektasi jelas)
 10. Action — Berikan langkah selanjutnya yang natural dan relevan`,
 
-    pas: `Gunakan framework PAS (Problem-Agitate-Solve):
-1. Problem — Identifikasi masalah spesifik yang dirasakan audiens
-2. Agitate — Perbesar rasa urgensi, tunjukkan dampak jika tidak ditangani
-3. Solve — Tawarkan solusi yang jelas dan actionable`,
+    heros_journey: `Gunakan framework The Hero's Journey (Joseph Campbell):
+1. Status Quo — Audiens di zona nyaman mereka tapi ada yang kurang
+2. Call to Adventure — Sebuah tantangan atau masalah muncul
+3. Meeting the Mentor — Kenalkan dirimu/brand sebagai mentor yang memberi alat/insight
+4. Crossing the Threshold — Audiens mulai mencoba solusi baru
+5. The Ordeal — Tantangan terbesar yang berhasil diatasi
+6. The Reward — Hasil atau transformasi positif yang didapatkan`,
 
-    aida: `Gunakan framework AIDA:
-1. Attention — Tarik perhatian dengan hook yang kuat
-2. Interest — Bangun ketertarikan dengan fakta atau cerita relevan
-3. Desire — Ciptakan keinginan untuk bertindak
-4. Action — Berikan CTA yang jelas`,
+    storybrand: `Gunakan The StoryBrand Framework (Donald Miller):
+1. A Character — Siapa audiens (sebagai hero) dan apa yang mereka inginkan?
+2. Has a Problem — Masalah eksternal, internal, dan filosofis yang mereka hadapi
+3. And Meets a Guide — Posisikan dirimu/brand sebagai pemandu yang empati dan punya otoritas
+4. Who Gives Them a Plan — Berikan 3 langkah mudah untuk menyelesaikan masalah
+5. And Calls Them to Action — Ajakan bertindak yang sangat jelas
+6. That Helps Them Avoid Failure — Apa kerugiannya jika mereka tidak bertindak?
+7. And Ends in a Success — Gambarkan kesuksesan yang mereka capai`,
 
-    bab: `Gunakan framework Before-After-Bridge:
-1. Before — Gambarkan kondisi saat ini (pain point)
-2. After — Gambarkan kondisi ideal setelah masalah teratasi
-3. Bridge — Jelaskan bagaimana cara mencapainya`,
+    andy_raskin: `Gunakan framework Normal, Explosion, New Normal (Andy Raskin / Strategic Narrative):
+1. The Old Normal (Status Quo) — Cara lama melakukan sesuatu
+2. The Explosion (Disruption) — Perubahan besar di dunia yang membuat cara lama usang/berbahaya
+3. The New Normal (Promised Land) — Kondisi ideal yang baru (bukan produkmu, tapi masa depan)
+4. The Magic Gifts — Fitur/solusi dari produkmu yang membantu mereka bertahan di New Normal
+5. The Proof — Bukti bahwa ini berhasil (contoh nyata)`,
+
+    pixar: `Gunakan Pixar's Story Spine (Formula Bercerita Pixar):
+1. Once upon a time... (Konteks audiens)
+2. Every day... (Rutinitas atau masalah yang terus berulang)
+3. Until one day... (Titik balik/insight baru ditemukan)
+4. Because of that... (Langkah pertama dari solusi)
+5. Because of that... (Dampak lanjutan dari solusi)
+6. Until finally... (Transformasi akhir yang dicapai)`,
+
+    three_act: `Gunakan The Three-Act Structure (Struktur 3 Babak klasik):
+1. Babak 1: Setup — Kenalkan karakter (audiens), situasi, dan "Inciting Incident" (masalah utama)
+2. Babak 2: Confrontation — Perjuangan mencari solusi, hambatan yang dihadapi, tension yang memuncak
+3. Babak 3: Resolution — Masalah terselesaikan, pelajaran yang dipetik, perubahan yang terjadi`,
+
+    golden_circle: `Gunakan framework Golden Circle (Simon Sinek):
+1. WHY — Mulai dari tujuan, keyakinan, atau "kenapa" hal ini penting (Inspirasi)
+2. HOW — Jelaskan proses, nilai-nilai, atau "bagaimana" cara mencapainya (Diferensiasi)
+3. WHAT — Jelaskan "apa" bentuk nyata/solusi/produknya secara konkret (Hasil)`
   };
   return frameworks[framework] || frameworks.storiq10;
 }
@@ -167,9 +194,12 @@ export const OUTPUT_FORMATS = [
 /** Available frameworks */
 export const FRAMEWORKS = [
   { id: 'storiq10', label: 'STORIQ 10 Elemen', desc: 'Framework lengkap berbasis storytelling psychology (recommended)' },
-  { id: 'pas', label: 'PAS (Problem-Agitate-Solve)', desc: 'Fokus pada masalah dan solusi — simpel dan efektif' },
-  { id: 'aida', label: 'AIDA', desc: 'Attention → Interest → Desire → Action — klasik dan terbukti' },
-  { id: 'bab', label: 'Before-After-Bridge', desc: 'Tunjukkan transformasi dari kondisi sekarang ke kondisi ideal' },
+  { id: 'heros_journey', label: "The Hero's Journey", desc: 'Perjalanan hero mengatasi tantangan dan bertransformasi (Joseph Campbell)' },
+  { id: 'storybrand', label: 'The StoryBrand Framework', desc: 'Karakter punya masalah, bertemu guide, dapat plan, menuju sukses (Donald Miller)' },
+  { id: 'andy_raskin', label: 'Normal, Explosion, New Normal', desc: 'Status quo yang terganggu menuju masa depan ideal (Andy Raskin)' },
+  { id: 'pixar', label: "Pixar's Story Spine", desc: 'Formula bercerita ikonik Pixar: Once upon a time... Until finally...' },
+  { id: 'three_act', label: 'The Three-Act Structure', desc: 'Struktur klasik 3 babak: Setup, Confrontation, Resolution' },
+  { id: 'golden_circle', label: 'Golden Circle', desc: 'Mulai dari tujuan utama: Why, How, What (Simon Sinek)' },
 ];
 
 /** Available tones */

@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
 ---
 
 <Base title="Generator — STORIQ" description="Generate konten berbasis storytelling. Satu ide, banyak format.">
@@ -84,93 +85,35 @@ import Footer from '../components/Footer.astro';
       <!-- Framework Selection -->
       <h3 class="text-lg font-semibold text-slate-700 mb-3">Framework Storytelling</h3>
       <div class="grid gap-3 mb-8" id="framework-options">
-        <label class="framework-option border-2 border-blue-500 bg-blue-50 rounded-lg p-4 cursor-pointer">
-          <input type="radio" name="framework" value="storiq10" checked class="sr-only" />
-          <div class="flex items-start gap-3">
-            <span class="w-5 h-5 mt-0.5 rounded-full border-2 border-blue-500 flex items-center justify-center flex-shrink-0">
-              <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-            </span>
-            <div>
-              <p class="font-semibold text-slate-800">STORIQ 10 Elemen <span class="text-xs text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full ml-1">Recommended</span></p>
-              <p class="text-sm text-slate-500 mt-0.5">Framework lengkap berbasis storytelling psychology — dari context sampai action</p>
+        {FRAMEWORKS.map((fw, index) => (
+          <label class={`framework-option border-2 rounded-lg p-4 cursor-pointer hover:border-slate-300 ${index === 0 ? 'border-blue-500 bg-blue-50' : 'border-slate-200'}`}>
+            <input type="radio" name="framework" value={fw.id} checked={index === 0} class="sr-only" />
+            <div class="flex items-start gap-3">
+              <span class={`w-5 h-5 mt-0.5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${index === 0 ? 'border-blue-500' : 'border-slate-300'}`}>
+                {index === 0 && <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>}
+              </span>
+              <div>
+                <p class="font-semibold text-slate-800">
+                  {fw.label} 
+                  {index === 0 && <span class="text-xs text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full ml-1">Recommended</span>}
+                </p>
+                <p class="text-sm text-slate-500 mt-0.5">{fw.desc}</p>
+              </div>
             </div>
-          </div>
-        </label>
-        <label class="framework-option border-2 border-slate-200 rounded-lg p-4 cursor-pointer hover:border-slate-300">
-          <input type="radio" name="framework" value="pas" class="sr-only" />
-          <div class="flex items-start gap-3">
-            <span class="w-5 h-5 mt-0.5 rounded-full border-2 border-slate-300 flex items-center justify-center flex-shrink-0"></span>
-            <div>
-              <p class="font-semibold text-slate-800">PAS (Problem-Agitate-Solve)</p>
-              <p class="text-sm text-slate-500 mt-0.5">Fokus pada masalah dan solusi — simpel dan efektif</p>
-            </div>
-          </div>
-        </label>
-        <label class="framework-option border-2 border-slate-200 rounded-lg p-4 cursor-pointer hover:border-slate-300">
-          <input type="radio" name="framework" value="aida" class="sr-only" />
-          <div class="flex items-start gap-3">
-            <span class="w-5 h-5 mt-0.5 rounded-full border-2 border-slate-300 flex items-center justify-center flex-shrink-0"></span>
-            <div>
-              <p class="font-semibold text-slate-800">AIDA</p>
-              <p class="text-sm text-slate-500 mt-0.5">Attention → Interest → Desire → Action — klasik dan terbukti</p>
-            </div>
-          </div>
-        </label>
-        <label class="framework-option border-2 border-slate-200 rounded-lg p-4 cursor-pointer hover:border-slate-300">
-          <input type="radio" name="framework" value="bab" class="sr-only" />
-          <div class="flex items-start gap-3">
-            <span class="w-5 h-5 mt-0.5 rounded-full border-2 border-slate-300 flex items-center justify-center flex-shrink-0"></span>
-            <div>
-              <p class="font-semibold text-slate-800">Before-After-Bridge</p>
-              <p class="text-sm text-slate-500 mt-0.5">Tunjukkan transformasi dari kondisi sekarang ke kondisi ideal</p>
-            </div>
-          </div>
-        </label>
+          </label>
+        ))}
       </div>
 
       <!-- Format Selection -->
       <h3 class="text-lg font-semibold text-slate-700 mb-3">Format Output</h3>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="format-options">
-        <label class="format-option border-2 border-blue-500 bg-blue-50 rounded-lg p-3 cursor-pointer text-center">
-          <input type="radio" name="format" value="blog" checked class="sr-only" />
-          <span class="text-2xl block mb-1">📝</span>
-          <span class="text-sm font-medium text-slate-700">Artikel Blog</span>
-        </label>
-        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
-          <input type="radio" name="format" value="carousel" class="sr-only" />
-          <span class="text-2xl block mb-1">📱</span>
-          <span class="text-sm font-medium text-slate-700">Carousel IG</span>
-        </label>
-        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
-          <input type="radio" name="format" value="caption" class="sr-only" />
-          <span class="text-2xl block mb-1">💬</span>
-          <span class="text-sm font-medium text-slate-700">Caption</span>
-        </label>
-        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
-          <input type="radio" name="format" value="video" class="sr-only" />
-          <span class="text-2xl block mb-1">🎬</span>
-          <span class="text-sm font-medium text-slate-700">Video Script</span>
-        </label>
-        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
-          <input type="radio" name="format" value="thread" class="sr-only" />
-          <span class="text-2xl block mb-1">🐦</span>
-          <span class="text-sm font-medium text-slate-700">X Thread</span>
-        </label>
-        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
-          <input type="radio" name="format" value="quote" class="sr-only" />
-          <span class="text-2xl block mb-1">💡</span>
-          <span class="text-sm font-medium text-slate-700">Quote</span>
-        </label>
-        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
-          <input type="radio" name="format" value="linkedin" class="sr-only" />
-          <span class="text-2xl block mb-1">💼</span>
-          <span class="text-sm font-medium text-slate-700">LinkedIn</span>
-        </label>
-        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
-          <input type="radio" name="format" value="pinterest" class="sr-only" />
-          <span class="text-2xl block mb-1">📌</span>
-          <span class="text-sm font-medium text-slate-700">Pinterest</span>
-        </label>
+        {OUTPUT_FORMATS.map((format, index) => (
+          <label class={`format-option border-2 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300 ${index === 0 ? 'border-blue-500 bg-blue-50' : 'border-slate-200'}`}>
+            <input type="radio" name="format" value={format.id} checked={index === 0} class="sr-only" />
+            <span class="text-2xl block mb-1">{format.icon}</span>
+            <span class="text-sm font-medium text-slate-700">{format.label}</span>
+          </label>
+        ))}
       </div>
 
       <div class="mt-8 flex justify-between">

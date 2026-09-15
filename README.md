@@ -47,7 +47,7 @@ Ide → Framework → Story Blueprint → Generate → Content Atoms → Repurpo
 ### 6 Langkah Mudah
 
 1. **💡 Masukkan Ide** — Tulis topik, target audiens, tujuan, dan tone konten
-2. **🧭 Pilih Framework** — STORIQ 10 Elemen, PAS, AIDA, atau Before-After-Bridge
+2. **🧭 Pilih Framework** — STORIQ 10 Elemen, The Hero's Journey, StoryBrand, Pixar's Spine, dll.
 3. **📐 Buat Story Blueprint** — Dapatkan struktur cerita yang jelas dan terarah
 4. **⚡ Generate Konten** — AI menghasilkan konten berbasis storytelling
 5. **🧩 Pecah ke Content Atoms** — Artikel dipecah jadi hook, insight, quote, CTA, dll
@@ -158,7 +158,7 @@ Browser (Client-Side):
 - [x] 8 format output (blog, carousel, caption, video, thread, quote, linkedin, pinterest)
 - [x] Mode 1: AI API (Gemini, Groq, OpenRouter, Cerebras)
 - [x] Mode 2: Prompt Generator (tanpa API key)
-- [x] 4 framework storytelling (STORIQ 10, PAS, AIDA, BAB)
+- [x] 7 framework storytelling (STORIQ 10, Hero's Journey, StoryBrand, dll)
 - [x] STORIQ Framework documentation
 - [x] Panduan lengkap + daftar API gratis
 - [x] Mobile-first responsive UI
