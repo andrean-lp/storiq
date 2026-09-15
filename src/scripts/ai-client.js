@@ -114,40 +114,13 @@ export async function streamGemini({ apiKey, model = 'gemini-2.5-flash', prompt,
 
 /** Provider configs — endpoint URLs and default models */
 export const PROVIDERS = {
-  gemini: {
-    name: 'Google Gemini',
-    type: 'gemini',
-    defaultModel: 'gemini-2.5-flash',
-    models: ['gemini-2.5-flash', 'gemini-1.5-flash'],
-    signupUrl: 'https://aistudio.google.com/',
-  },
-  groq: {
-    name: 'Groq',
+  sumopod: {
+    name: 'SumoPod',
     type: 'openai',
-    url: 'https://api.groq.com/openai/v1/chat/completions',
-    defaultModel: 'llama-3.3-70b-versatile',
-    models: ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant', 'mixtral-8x7b-32768'],
-    signupUrl: 'https://console.groq.com/',
-  },
-  openrouter: {
-    name: 'OpenRouter',
-    type: 'openai',
-    url: 'https://openrouter.ai/api/v1/chat/completions',
-    defaultModel: 'meta-llama/llama-3.3-70b-instruct:free',
-    models: [
-      'meta-llama/llama-3.3-70b-instruct:free',
-      'google/gemini-2.0-flash-exp:free',
-      'deepseek/deepseek-r1:free',
-    ],
-    signupUrl: 'https://openrouter.ai/',
-  },
-  cerebras: {
-    name: 'Cerebras',
-    type: 'openai',
-    url: 'https://api.cerebras.ai/v1/chat/completions',
-    defaultModel: 'llama-3.3-70b',
-    models: ['llama-3.3-70b', 'llama-3.1-8b'],
-    signupUrl: 'https://cloud.cerebras.ai/',
+    url: 'https://api.sumopod.com/v1/chat/completions', // Placeholder URL, can be configured later
+    defaultModel: 'sumopod-model',
+    models: ['sumopod-model'],
+    signupUrl: '#',
   },
 };
 

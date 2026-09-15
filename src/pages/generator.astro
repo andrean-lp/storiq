@@ -124,10 +124,10 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
       <!-- Mode Tabs -->
       <div class="flex border-b border-slate-200 mb-6">
         <button id="tab-prompt" onclick="switchMode('prompt')" class="px-4 py-2.5 text-sm font-medium border-b-2 border-blue-500 text-blue-600">
-          📋 Mode 1: Prompt Generator
+          📋 Prompt Generator
         </button>
         <button id="tab-api" onclick="switchMode('api')" class="px-4 py-2.5 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700">
-          🤖 Mode 2: Pakai AI API
+          🤖 API Key SumoPod
         </button>
       </div>
 
@@ -179,41 +179,32 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
 
       <!-- Mode 2: AI API -->
       <div id="mode-api" class="hidden">
-        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-          <p class="text-sm text-blue-800">
-            <strong>Cara kerja:</strong> Masukkan API key kamu → STORIQ generate konten langsung di sini.
-            API key disimpan di browser kamu, tidak pernah dikirim ke server kami.
-          </p>
-        </div>
-
-        <div class="space-y-4">
-          <div>
-            <label for="provider" class="block text-sm font-medium text-slate-700 mb-1">Provider AI</label>
-            <select id="provider" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white text-slate-800">
-              <option value="gemini">🌟 Google Gemini (Recommended — free tier terbesar)</option>
-              <option value="groq">⚡ Groq (Tercepat)</option>
-              <option value="openrouter">🌐 OpenRouter (Banyak model gratis)</option>
-              <option value="cerebras">🧠 Cerebras (1M tokens/hari gratis)</option>
-            </select>
+        <div class="border border-slate-200 rounded-xl p-5 mb-6 bg-white shadow-sm">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="font-bold text-slate-800 text-lg">SumoPod BYOK</h3>
+            <span id="sumopod-status" class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Belum terhubung</span>
           </div>
-
+          <p class="text-sm text-slate-500 mb-5">
+            Gunakan API key SumoPod sendiri. STORIQ memakai model yang Anda pilih tanpa fallback diam-diam.
+          </p>
+          
+          <input type="hidden" id="provider" value="sumopod" />
+          
           <div>
-            <label for="apikey" class="block text-sm font-medium text-slate-700 mb-1">API Key</label>
-            <div class="flex gap-2">
-              <input id="apikey" type="password" placeholder="Paste API key kamu di sini..." class="flex-1 px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-slate-800" />
-              <button onclick="toggleKeyVisibility()" class="px-3 py-3 border border-slate-300 rounded-lg hover:bg-slate-50 text-slate-500" title="Tampilkan/sembunyikan">
-                👁️
+            <label for="apikey" class="block text-sm font-semibold text-slate-700 mb-2">API Key SumoPod</label>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <div class="relative flex-1">
+                <input id="apikey" type="password" placeholder="Masukkan API key" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-400 outline-none text-slate-800 transition-shadow" />
+                <button onclick="toggleKeyVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1" title="Tampilkan/sembunyikan">
+                  👁️
+                </button>
+              </div>
+              <button id="btn-generate-api" onclick="generateWithAPI()" class="px-6 py-3 bg-slate-400 hover:bg-slate-500 text-white rounded-lg font-semibold text-sm transition-colors whitespace-nowrap">
+                Hubungkan SumoPod
               </button>
             </div>
-            <p class="mt-1.5 text-xs text-slate-400">
-              Belum punya API key? <a href={`${import.meta.env.BASE_URL}panduan/#api-gratis`} class="text-blue-500 hover:underline">Lihat panduan dapat API key gratis →</a>
-            </p>
           </div>
         </div>
-
-        <button id="btn-generate-api" onclick="generateWithAPI()" class="mt-6 w-full py-3.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2">
-          <span>⚡</span> Generate Otomatis
-        </button>
       </div>
 
       <div class="mt-8 flex justify-between">
