@@ -179,30 +179,31 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
 
       <!-- Mode 2: AI API -->
       <div id="mode-api" class="hidden">
-        <div class="border border-slate-200 rounded-xl p-5 mb-6 bg-white shadow-sm">
-          <div class="flex items-center justify-between mb-2">
-            <h3 class="font-bold text-slate-800 text-lg">SumoPod BYOK</h3>
-            <span id="sumopod-status" class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Belum terhubung</span>
+        <div class="border border-slate-200 rounded-xl p-5 mb-6 bg-white shadow-sm flex flex-col items-center text-center">
+          <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-3xl mb-4 text-blue-500">⚡</div>
+          <h3 class="font-bold text-slate-800 text-lg mb-2">SumoPod BYOK (Otomatis)</h3>
+          
+          <div id="sumopod-state-connected" class="hidden flex-col items-center">
+            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider rounded-full mb-3 border border-green-200">Terhubung</span>
+            <p class="text-sm text-slate-500 mb-6 max-w-sm">
+              Koneksi API SumoPod kamu sudah aktif. Klik tombol di bawah untuk langsung men-generate konten.
+            </p>
+            <input type="hidden" id="provider" value="sumopod" />
+            <input type="hidden" id="apikey" value="" />
+            <button id="btn-generate-api" onclick="generateWithAPI()" class="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-colors shadow-lg shadow-blue-500/30 flex items-center gap-2">
+              <span>⚡</span> Mulai Generate
+            </button>
+            <a href={`${import.meta.env.BASE_URL}pengaturan/`} class="mt-4 text-sm text-slate-400 hover:text-slate-600 underline">Kelola koneksi API</a>
           </div>
-          <p class="text-sm text-slate-500 mb-5">
-            Gunakan API key SumoPod sendiri. STORIQ memakai model yang Anda pilih tanpa fallback diam-diam.
-          </p>
-          
-          <input type="hidden" id="provider" value="sumopod" />
-          
-          <div>
-            <label for="apikey" class="block text-sm font-semibold text-slate-700 mb-2">API Key SumoPod</label>
-            <div class="flex flex-col sm:flex-row gap-3">
-              <div class="relative flex-1">
-                <input id="apikey" type="password" placeholder="Masukkan API key" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-400 outline-none text-slate-800 transition-shadow" />
-                <button onclick="toggleKeyVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1" title="Tampilkan/sembunyikan">
-                  👁️
-                </button>
-              </div>
-              <button id="btn-generate-api" onclick="generateWithAPI()" class="px-6 py-3 bg-slate-400 hover:bg-slate-500 text-white rounded-lg font-semibold text-sm transition-colors whitespace-nowrap">
-                Hubungkan SumoPod
-              </button>
-            </div>
+
+          <div id="sumopod-state-disconnected" class="flex flex-col items-center">
+            <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs font-bold uppercase tracking-wider rounded-full mb-3 border border-slate-200">Belum Terhubung</span>
+            <p class="text-sm text-slate-500 mb-6 max-w-sm">
+              Hubungkan API Key SumoPod kamu terlebih dahulu di halaman Pengaturan untuk menggunakan fitur generate otomatis.
+            </p>
+            <a href={`${import.meta.env.BASE_URL}pengaturan/`} class="px-6 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-semibold text-sm transition-colors flex items-center gap-2">
+              ⚙️ Buka Pengaturan API
+            </a>
           </div>
         </div>
       </div>
@@ -444,7 +445,7 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
     navigator.clipboard.writeText(text).then(() => showToast('📋 Prompt berhasil di-copy!'));
   };
 
-  // --- Mode 1: Generate with API ---
+  // --- Mode 2: Generate with API (SumoPod) ---
   window.generateWithAPI = async function(formatOverride = null) {
     const data = getFormData(formatOverride);
     if (!data.topik) {
@@ -457,13 +458,9 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
     const apiKey = document.getElementById('apikey').value.trim();
 
     if (!apiKey) {
-      showToast('⚠️ Masukkan API key dulu!');
-      document.getElementById('apikey').focus();
+      showToast('⚠️ Hubungkan API Key SumoPod di Pengaturan terlebih dahulu!');
       return;
     }
-
-    // Save API key
-    saveApiKey(provider, apiKey);
 
     // Go to output step
     goToStep(4);
@@ -525,12 +522,6 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
     showToast('💾 File berhasil didownload!');
   };
 
-  // --- API Key Visibility Toggle ---
-  window.toggleKeyVisibility = function() {
-    const input = document.getElementById('apikey');
-    input.type = input.type === 'password' ? 'text' : 'password';
-  };
-
   // --- Toast ---
   function showToast(msg) {
     const toast = document.getElementById('toast');
@@ -539,14 +530,21 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
     setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 2500);
   }
 
-  // --- Restore saved API key ---
-  document.getElementById('provider')?.addEventListener('change', (e) => {
-    const saved = getApiKey(e.target.value);
-    if (saved) document.getElementById('apikey').value = saved;
-    else document.getElementById('apikey').value = '';
-  });
+  // --- Load SumoPod State on Load ---
+  document.addEventListener('DOMContentLoaded', () => {
+    const sumopodKey = getApiKey('sumopod');
+    const connectedPanel = document.getElementById('sumopod-state-connected');
+    const disconnectedPanel = document.getElementById('sumopod-state-disconnected');
+    const apiKeyInput = document.getElementById('apikey');
 
-  // Restore on load
-  const savedKey = getApiKey('gemini');
-  if (savedKey) document.getElementById('apikey').value = savedKey;
+    if (sumopodKey) {
+      if (apiKeyInput) apiKeyInput.value = sumopodKey;
+      if (connectedPanel) connectedPanel.classList.replace('hidden', 'flex');
+      if (disconnectedPanel) disconnectedPanel.classList.replace('flex', 'hidden');
+    } else {
+      if (apiKeyInput) apiKeyInput.value = '';
+      if (connectedPanel) connectedPanel.classList.replace('flex', 'hidden');
+      if (disconnectedPanel) disconnectedPanel.classList.replace('hidden', 'flex');
+    }
+  });
 </script>

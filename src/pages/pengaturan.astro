@@ -1,0 +1,177 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Base title="Pengaturan & Integrasi API - STORIQ">
+  <Header slot="header" />
+
+  <!-- HERO -->
+  <section class="bg-navy-800 text-white pt-24 pb-12 px-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-blue-600/10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent"></div>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <div class="flex items-center gap-3 text-blue-400 mb-4">
+        <a href={`${baseUrl}`} class="hover:text-white transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-slate-300">Pengaturan</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">Pengaturan API</h1>
+      <p class="text-lg md:text-xl text-slate-300 max-w-2xl font-light">
+        Kelola integrasi dan konfigurasi API key kamu secara aman. Data hanya disimpan di perangkatmu.
+      </p>
+    </div>
+  </section>
+
+  <!-- KONTEN -->
+  <section class="py-12 sm:py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      
+      <div class="bg-white border-2 border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="p-6 sm:p-8 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-bold text-slate-800 mb-1">Integrasi SumoPod BYOK</h2>
+            <p class="text-sm text-slate-500">Gunakan API key SumoPod kamu untuk generate konten otomatis (Mode 2).</p>
+          </div>
+          <span id="sumopod-status-badge" class="px-3 py-1 bg-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-full">
+            Belum Terhubung
+          </span>
+        </div>
+        
+        <div class="p-6 sm:p-8">
+          <form id="sumopod-form" onsubmit="saveSumopodKey(event)">
+            <label for="apikey-sumopod" class="block text-sm font-semibold text-slate-700 mb-2">API Key SumoPod</label>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <div class="relative flex-1">
+                <input 
+                  id="apikey-sumopod" 
+                  type="password" 
+                  placeholder="Masukkan API key SumoPod kamu..." 
+                  class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-slate-800 transition-shadow bg-slate-50 focus:bg-white" 
+                />
+                <button 
+                  type="button"
+                  onclick="toggleKeyVisibility('apikey-sumopod')" 
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1" 
+                  title="Tampilkan/sembunyikan"
+                >
+                  👁️
+                </button>
+              </div>
+              <button 
+                type="submit" 
+                class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-sm transition-colors whitespace-nowrap shadow-sm shadow-blue-500/30"
+              >
+                Simpan & Hubungkan
+              </button>
+            </div>
+            <p id="sumopod-message" class="mt-3 text-sm hidden"></p>
+          </form>
+
+          <div class="mt-8 pt-6 border-t border-slate-100">
+            <h3 class="text-sm font-semibold text-slate-700 mb-3">Keamanan Privasi 🔒</h3>
+            <ul class="text-sm text-slate-600 space-y-2">
+              <li class="flex items-start gap-2">
+                <span class="text-green-500">✓</span>
+                API key disimpan secara lokal di browser kamu (localStorage).
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500">✓</span>
+                STORIQ tidak pernah mengirimkan API key kamu ke server kami.
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500">✓</span>
+                Kamu bisa menghapus kunci API kapan saja dengan mengosongkan form dan menyimpannya.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-3 text-slate-800">API Key Sudah Siap?</h2>
+      <p class="text-slate-600 mb-6">Kembali ke Generator untuk mulai membuat konten dengan otomatis.</p>
+      <a href={`${baseUrl}generator/`} class="inline-block px-8 py-3.5 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-semibold text-lg transition-colors shadow-lg shadow-slate-900/20">
+        Buka Generator →
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+
+  <script>
+    import { saveApiKey, getApiKey, removeApiKey } from '../scripts/storage.js';
+
+    // Password visibility toggle
+    window.toggleKeyVisibility = function(inputId) {
+      const input = document.getElementById(inputId) as HTMLInputElement;
+      if (input.type === 'password') {
+        input.type = 'text';
+      } else {
+        input.type = 'password';
+      }
+    };
+
+    // Save logic
+    window.saveSumopodKey = function(e) {
+      e.preventDefault();
+      const input = document.getElementById('apikey-sumopod') as HTMLInputElement;
+      const key = input.value.trim();
+      const msg = document.getElementById('sumopod-message');
+      
+      if (!key) {
+        removeApiKey('sumopod');
+        updateStatusBadge(false);
+        if(msg) {
+          msg.textContent = 'API Key berhasil dihapus.';
+          msg.className = 'mt-3 text-sm text-amber-600 block';
+        }
+      } else {
+        saveApiKey('sumopod', key);
+        updateStatusBadge(true);
+        if(msg) {
+          msg.textContent = 'Berhasil! API Key telah tersimpan di browser.';
+          msg.className = 'mt-3 text-sm text-green-600 block font-medium';
+        }
+      }
+      
+      // Hide message after 3 seconds
+      setTimeout(() => {
+        if(msg) msg.classList.add('hidden');
+      }, 3000);
+    };
+
+    // UI updater
+    function updateStatusBadge(isConnected) {
+      const badge = document.getElementById('sumopod-status-badge');
+      if (!badge) return;
+      
+      if (isConnected) {
+        badge.textContent = 'Terhubung';
+        badge.className = 'px-3 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider rounded-full border border-green-200';
+      } else {
+        badge.textContent = 'Belum Terhubung';
+        badge.className = 'px-3 py-1 bg-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-full border border-slate-300';
+      }
+    }
+
+    // Load initial state
+    document.addEventListener('DOMContentLoaded', () => {
+      const key = getApiKey('sumopod');
+      const input = document.getElementById('apikey-sumopod') as HTMLInputElement;
+      if (key && input) {
+        input.value = key;
+        updateStatusBadge(true);
+      } else {
+        updateStatusBadge(false);
+      }
+    });
+  </script>
+</Base>
