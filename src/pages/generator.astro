@@ -1,0 +1,589 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Generator — STORIQ" description="Generate konten berbasis storytelling. Satu ide, banyak format.">
+  <Header slot="header" />
+
+  <!-- Step Indicator -->
+  <div class="bg-navy-800 text-white py-4 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center justify-between text-xs sm:text-sm" id="step-indicators">
+        <button data-step="1" class="step-dot active flex flex-col items-center gap-1">
+          <span class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center font-bold">1</span>
+          <span class="hidden sm:block">Ide</span>
+        </button>
+        <div class="flex-1 h-0.5 bg-navy-600 mx-2"></div>
+        <button data-step="2" class="step-dot flex flex-col items-center gap-1">
+          <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">2</span>
+          <span class="hidden sm:block">Framework</span>
+        </button>
+        <div class="flex-1 h-0.5 bg-navy-600 mx-2"></div>
+        <button data-step="3" class="step-dot flex flex-col items-center gap-1">
+          <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">3</span>
+          <span class="hidden sm:block">Mode</span>
+        </button>
+        <div class="flex-1 h-0.5 bg-navy-600 mx-2"></div>
+        <button data-step="4" class="step-dot flex flex-col items-center gap-1">
+          <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">4</span>
+          <span class="hidden sm:block">Hasil</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 py-8">
+
+    <!-- STEP 1: Input Ide -->
+    <section id="step-1" class="step-panel">
+      <h2 class="text-2xl font-bold text-slate-800 mb-1">💡 Masukkan Ide Kontenmu</h2>
+      <p class="text-slate-500 mb-6">Ceritakan apa yang ingin kamu sampaikan. Tidak perlu sempurna — tulis apa adanya.</p>
+
+      <div class="space-y-5">
+        <div>
+          <label for="topik" class="block text-sm font-medium text-slate-700 mb-1">Topik / Ide Utama</label>
+          <textarea id="topik" rows="3" placeholder="Contoh: Kenapa landing page yang bagus belum tentu menghasilkan konversi?" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none text-slate-800"></textarea>
+        </div>
+
+        <div>
+          <label for="audiens" class="block text-sm font-medium text-slate-700 mb-1">Target Audiens</label>
+          <input id="audiens" type="text" placeholder="Contoh: Pemilik bisnis online, marketer pemula" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-slate-800" />
+        </div>
+
+        <div>
+          <label for="tujuan" class="block text-sm font-medium text-slate-700 mb-1">Tujuan Konten</label>
+          <input id="tujuan" type="text" placeholder="Contoh: Edukasi + personal branding" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-slate-800" />
+        </div>
+
+        <div>
+          <label for="tone" class="block text-sm font-medium text-slate-700 mb-1">Tone / Gaya Bahasa</label>
+          <select id="tone" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white text-slate-800">
+            <option value="santai">🗣️ Santai & Friendly</option>
+            <option value="profesional">💼 Profesional</option>
+            <option value="edukatif">📚 Edukatif & Informatif</option>
+            <option value="inspiratif">✨ Inspiratif & Motivasi</option>
+            <option value="storytelling">📖 Storytelling (bercerita)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-8 flex justify-end">
+        <button onclick="goToStep(2)" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
+          Lanjut: Pilih Framework →
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 2: Pilih Framework & Format -->
+    <section id="step-2" class="step-panel hidden">
+      <h2 class="text-2xl font-bold text-slate-800 mb-1">🧭 Pilih Framework & Format</h2>
+      <p class="text-slate-500 mb-6">Framework menentukan struktur cerita. Format menentukan bentuk output.</p>
+
+      <!-- Framework Selection -->
+      <h3 class="text-lg font-semibold text-slate-700 mb-3">Framework Storytelling</h3>
+      <div class="grid gap-3 mb-8" id="framework-options">
+        <label class="framework-option border-2 border-blue-500 bg-blue-50 rounded-lg p-4 cursor-pointer">
+          <input type="radio" name="framework" value="storiq10" checked class="sr-only" />
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 mt-0.5 rounded-full border-2 border-blue-500 flex items-center justify-center flex-shrink-0">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+            </span>
+            <div>
+              <p class="font-semibold text-slate-800">STORIQ 10 Elemen <span class="text-xs text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full ml-1">Recommended</span></p>
+              <p class="text-sm text-slate-500 mt-0.5">Framework lengkap berbasis storytelling psychology — dari context sampai action</p>
+            </div>
+          </div>
+        </label>
+        <label class="framework-option border-2 border-slate-200 rounded-lg p-4 cursor-pointer hover:border-slate-300">
+          <input type="radio" name="framework" value="pas" class="sr-only" />
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 mt-0.5 rounded-full border-2 border-slate-300 flex items-center justify-center flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-slate-800">PAS (Problem-Agitate-Solve)</p>
+              <p class="text-sm text-slate-500 mt-0.5">Fokus pada masalah dan solusi — simpel dan efektif</p>
+            </div>
+          </div>
+        </label>
+        <label class="framework-option border-2 border-slate-200 rounded-lg p-4 cursor-pointer hover:border-slate-300">
+          <input type="radio" name="framework" value="aida" class="sr-only" />
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 mt-0.5 rounded-full border-2 border-slate-300 flex items-center justify-center flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-slate-800">AIDA</p>
+              <p class="text-sm text-slate-500 mt-0.5">Attention → Interest → Desire → Action — klasik dan terbukti</p>
+            </div>
+          </div>
+        </label>
+        <label class="framework-option border-2 border-slate-200 rounded-lg p-4 cursor-pointer hover:border-slate-300">
+          <input type="radio" name="framework" value="bab" class="sr-only" />
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 mt-0.5 rounded-full border-2 border-slate-300 flex items-center justify-center flex-shrink-0"></span>
+            <div>
+              <p class="font-semibold text-slate-800">Before-After-Bridge</p>
+              <p class="text-sm text-slate-500 mt-0.5">Tunjukkan transformasi dari kondisi sekarang ke kondisi ideal</p>
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <!-- Format Selection -->
+      <h3 class="text-lg font-semibold text-slate-700 mb-3">Format Output</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="format-options">
+        <label class="format-option border-2 border-blue-500 bg-blue-50 rounded-lg p-3 cursor-pointer text-center">
+          <input type="radio" name="format" value="blog" checked class="sr-only" />
+          <span class="text-2xl block mb-1">📝</span>
+          <span class="text-sm font-medium text-slate-700">Artikel Blog</span>
+        </label>
+        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
+          <input type="radio" name="format" value="carousel" class="sr-only" />
+          <span class="text-2xl block mb-1">📱</span>
+          <span class="text-sm font-medium text-slate-700">Carousel IG</span>
+        </label>
+        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
+          <input type="radio" name="format" value="caption" class="sr-only" />
+          <span class="text-2xl block mb-1">💬</span>
+          <span class="text-sm font-medium text-slate-700">Caption</span>
+        </label>
+        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
+          <input type="radio" name="format" value="video" class="sr-only" />
+          <span class="text-2xl block mb-1">🎬</span>
+          <span class="text-sm font-medium text-slate-700">Video Script</span>
+        </label>
+        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
+          <input type="radio" name="format" value="thread" class="sr-only" />
+          <span class="text-2xl block mb-1">🐦</span>
+          <span class="text-sm font-medium text-slate-700">X Thread</span>
+        </label>
+        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
+          <input type="radio" name="format" value="quote" class="sr-only" />
+          <span class="text-2xl block mb-1">💡</span>
+          <span class="text-sm font-medium text-slate-700">Quote</span>
+        </label>
+        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
+          <input type="radio" name="format" value="linkedin" class="sr-only" />
+          <span class="text-2xl block mb-1">💼</span>
+          <span class="text-sm font-medium text-slate-700">LinkedIn</span>
+        </label>
+        <label class="format-option border-2 border-slate-200 rounded-lg p-3 cursor-pointer text-center hover:border-slate-300">
+          <input type="radio" name="format" value="pinterest" class="sr-only" />
+          <span class="text-2xl block mb-1">📌</span>
+          <span class="text-sm font-medium text-slate-700">Pinterest</span>
+        </label>
+      </div>
+
+      <div class="mt-8 flex justify-between">
+        <button onclick="goToStep(1)" class="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
+          ← Kembali
+        </button>
+        <button onclick="goToStep(3)" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
+          Lanjut: Pilih Mode →
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 3: Pilih Mode & Generate -->
+    <section id="step-3" class="step-panel hidden">
+      <h2 class="text-2xl font-bold text-slate-800 mb-1">⚡ Pilih Mode & Generate</h2>
+      <p class="text-slate-500 mb-6">Dua cara pakai — pilih yang paling nyaman buat kamu.</p>
+
+      <!-- Mode Tabs -->
+      <div class="flex border-b border-slate-200 mb-6">
+        <button id="tab-api" onclick="switchMode('api')" class="px-4 py-2.5 text-sm font-medium border-b-2 border-blue-500 text-blue-600">
+          🤖 Mode 1: AI API (Otomatis)
+        </button>
+        <button id="tab-prompt" onclick="switchMode('prompt')" class="px-4 py-2.5 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700">
+          📋 Mode 2: Prompt Generator
+        </button>
+      </div>
+
+      <!-- Mode 1: AI API -->
+      <div id="mode-api">
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+          <p class="text-sm text-blue-800">
+            <strong>Cara kerja:</strong> Masukkan API key kamu → STORIQ generate konten langsung di sini.
+            API key disimpan di browser kamu, tidak pernah dikirim ke server kami.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label for="provider" class="block text-sm font-medium text-slate-700 mb-1">Provider AI</label>
+            <select id="provider" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white text-slate-800">
+              <option value="gemini">🌟 Google Gemini (Recommended — free tier terbesar)</option>
+              <option value="groq">⚡ Groq (Tercepat)</option>
+              <option value="openrouter">🌐 OpenRouter (Banyak model gratis)</option>
+              <option value="cerebras">🧠 Cerebras (1M tokens/hari gratis)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="apikey" class="block text-sm font-medium text-slate-700 mb-1">API Key</label>
+            <div class="flex gap-2">
+              <input id="apikey" type="password" placeholder="Paste API key kamu di sini..." class="flex-1 px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-slate-800" />
+              <button onclick="toggleKeyVisibility()" class="px-3 py-3 border border-slate-300 rounded-lg hover:bg-slate-50 text-slate-500" title="Tampilkan/sembunyikan">
+                👁️
+              </button>
+            </div>
+            <p class="mt-1.5 text-xs text-slate-400">
+              Belum punya API key? <a href={`${import.meta.env.BASE_URL}panduan/#api-gratis`} class="text-blue-500 hover:underline">Lihat panduan dapat API key gratis →</a>
+            </p>
+          </div>
+        </div>
+
+        <button id="btn-generate-api" onclick="generateWithAPI()" class="mt-6 w-full py-3.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2">
+          <span>⚡</span> Generate Otomatis
+        </button>
+      </div>
+
+      <!-- Mode 2: Prompt Generator -->
+      <div id="mode-prompt" class="hidden">
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+          <p class="text-sm text-amber-800">
+            <strong>Cara kerja:</strong> STORIQ membuat prompt terstruktur → kamu copy → paste ke ChatGPT, Gemini, atau Claude → tempel hasilnya kembali (opsional).
+            <strong>Tidak perlu API key!</strong>
+          </p>
+        </div>
+
+        <button id="btn-generate-prompt" onclick="generatePrompt()" class="w-full py-3.5 bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2">
+          <span>📋</span> Generate Prompt
+        </button>
+
+        <!-- Generated Prompt Display -->
+        <div id="prompt-output" class="hidden mt-6">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="font-semibold text-slate-700">Prompt yang Dihasilkan:</h3>
+            <button onclick="copyPrompt()" class="text-sm text-blue-500 hover:text-blue-600 font-medium flex items-center gap-1">
+              📋 Copy Prompt
+            </button>
+          </div>
+          <textarea id="prompt-text" rows="12" readonly class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-700 font-mono resize-none"></textarea>
+          <p class="mt-2 text-sm text-slate-500">
+            Copy prompt di atas, lalu paste ke
+            <a href="https://chat.openai.com" target="_blank" class="text-blue-500 hover:underline">ChatGPT</a>,
+            <a href="https://aistudio.google.com" target="_blank" class="text-blue-500 hover:underline">Gemini</a>, atau
+            <a href="https://claude.ai" target="_blank" class="text-blue-500 hover:underline">Claude</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex justify-between">
+        <button onclick="goToStep(2)" class="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
+          ← Kembali
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 4: Output -->
+    <section id="step-4" class="step-panel hidden">
+      <div class="flex items-center justify-between mb-1">
+        <h2 class="text-2xl font-bold text-slate-800">✨ Hasil Konten</h2>
+        <span id="output-format-badge" class="text-xs bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full font-medium"></span>
+      </div>
+      <p class="text-slate-500 mb-6">Kontenmu sudah jadi! Copy, download, atau generate format lain.</p>
+
+      <!-- Loading State -->
+      <div id="output-loading" class="hidden text-center py-12">
+        <div class="inline-block w-8 h-8 border-3 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <p class="mt-3 text-slate-500">Sedang generate konten...</p>
+        <p class="text-xs text-slate-400 mt-1">Ini mungkin butuh 10-30 detik</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="output-error" class="hidden bg-red-50 border border-red-200 rounded-lg p-4">
+        <p class="text-red-700 font-medium">❌ Terjadi kesalahan</p>
+        <p id="error-message" class="text-sm text-red-600 mt-1"></p>
+        <button onclick="goToStep(3)" class="mt-3 text-sm text-red-600 hover:text-red-700 font-medium">← Coba lagi</button>
+      </div>
+
+      <!-- Output Content -->
+      <div id="output-content" class="hidden">
+        <!-- Main Output -->
+        <div class="bg-white border border-slate-200 rounded-lg">
+          <div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+            <span class="text-sm font-medium text-slate-500">Output</span>
+            <div class="flex gap-2">
+              <button onclick="copyOutput()" class="text-xs px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md transition-colors flex items-center gap-1">
+                📋 Copy
+              </button>
+              <button onclick="downloadOutput()" class="text-xs px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md transition-colors flex items-center gap-1">
+                💾 Download .md
+              </button>
+            </div>
+          </div>
+          <div id="output-text" class="px-4 py-4 prose prose-sm max-w-none text-slate-700 whitespace-pre-wrap leading-relaxed"></div>
+        </div>
+
+        <!-- Actions -->
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <button onclick="goToStep(2)" class="flex-1 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
+            🔄 Generate Format Lain
+          </button>
+          <button onclick="goToStep(1)" class="flex-1 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
+            ✏️ Ubah Input
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-4 right-4 bg-slate-800 text-white px-4 py-2.5 rounded-lg text-sm shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50"></div>
+
+  <Footer slot="footer" />
+</Base>
+
+<style>
+  .step-dot.active span:first-child { background-color: #3b82f6; }
+  .step-dot.completed span:first-child { background-color: #22c55e; }
+</style>
+
+<script>
+  import { buildPrompt } from '../scripts/prompts.js';
+  import { generate, PROVIDERS } from '../scripts/ai-client.js';
+  import { saveApiKey, getApiKey } from '../scripts/storage.js';
+
+  // --- State ---
+  let currentStep = 1;
+  let abortController = null;
+
+  // --- Step Navigation ---
+  window.goToStep = function(step) {
+    // Validate step 1 before moving forward
+    if (step > 1 && currentStep === 1) {
+      const topik = document.getElementById('topik').value.trim();
+      if (!topik) {
+        showToast('⚠️ Tulis topik dulu ya!');
+        document.getElementById('topik').focus();
+        return;
+      }
+    }
+
+    document.querySelectorAll('.step-panel').forEach(p => p.classList.add('hidden'));
+    document.getElementById(`step-${step}`)?.classList.remove('hidden');
+
+    // Update indicators
+    document.querySelectorAll('.step-dot').forEach(dot => {
+      const s = parseInt(dot.dataset.step);
+      const circle = dot.querySelector('span:first-child');
+      dot.classList.remove('active', 'completed');
+      if (s < step) {
+        dot.classList.add('completed');
+        circle.style.backgroundColor = '#22c55e';
+      } else if (s === step) {
+        dot.classList.add('active');
+        circle.style.backgroundColor = '#3b82f6';
+      } else {
+        circle.style.backgroundColor = '';
+      }
+    });
+
+    currentStep = step;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // --- Framework & Format Selection UI ---
+  document.getElementById('framework-options')?.addEventListener('change', (e) => {
+    document.querySelectorAll('.framework-option').forEach(opt => {
+      opt.classList.remove('border-blue-500', 'bg-blue-50');
+      opt.classList.add('border-slate-200');
+      const dot = opt.querySelector('.w-2\\.5');
+      if (dot) dot.remove();
+    });
+    const label = e.target.closest('label');
+    if (label) {
+      label.classList.remove('border-slate-200');
+      label.classList.add('border-blue-500', 'bg-blue-50');
+      const circle = label.querySelector('.w-5');
+      if (circle && !circle.querySelector('.w-2\\.5')) {
+        const inner = document.createElement('span');
+        inner.className = 'w-2.5 h-2.5 rounded-full bg-blue-500';
+        circle.appendChild(inner);
+      }
+    }
+  });
+
+  document.getElementById('format-options')?.addEventListener('change', (e) => {
+    document.querySelectorAll('.format-option').forEach(opt => {
+      opt.classList.remove('border-blue-500', 'bg-blue-50');
+      opt.classList.add('border-slate-200');
+    });
+    const label = e.target.closest('label');
+    if (label) {
+      label.classList.remove('border-slate-200');
+      label.classList.add('border-blue-500', 'bg-blue-50');
+    }
+  });
+
+  // --- Mode Switching ---
+  window.switchMode = function(mode) {
+    const apiTab = document.getElementById('tab-api');
+    const promptTab = document.getElementById('tab-prompt');
+    const apiPanel = document.getElementById('mode-api');
+    const promptPanel = document.getElementById('mode-prompt');
+
+    if (mode === 'api') {
+      apiTab.classList.add('border-blue-500', 'text-blue-600');
+      apiTab.classList.remove('border-transparent', 'text-slate-500');
+      promptTab.classList.remove('border-blue-500', 'text-blue-600');
+      promptTab.classList.add('border-transparent', 'text-slate-500');
+      apiPanel.classList.remove('hidden');
+      promptPanel.classList.add('hidden');
+    } else {
+      promptTab.classList.add('border-blue-500', 'text-blue-600');
+      promptTab.classList.remove('border-transparent', 'text-slate-500');
+      apiTab.classList.remove('border-blue-500', 'text-blue-600');
+      apiTab.classList.add('border-transparent', 'text-slate-500');
+      promptPanel.classList.remove('hidden');
+      apiPanel.classList.add('hidden');
+    }
+  };
+
+  // --- Gather Form Data ---
+  function getFormData() {
+    return {
+      topik: document.getElementById('topik').value.trim(),
+      audiens: document.getElementById('audiens').value.trim() || 'Umum',
+      tujuan: document.getElementById('tujuan').value.trim() || 'Edukasi',
+      tone: document.getElementById('tone').value,
+      framework: document.querySelector('input[name="framework"]:checked')?.value || 'storiq10',
+      format: document.querySelector('input[name="format"]:checked')?.value || 'blog',
+    };
+  }
+
+  function getFormatLabel(format) {
+    const labels = {
+      blog: '📝 Artikel Blog', carousel: '📱 Carousel IG', caption: '💬 Caption',
+      video: '🎬 Video Script', thread: '🐦 X Thread', quote: '💡 Quote',
+      linkedin: '💼 LinkedIn', pinterest: '📌 Pinterest',
+    };
+    return labels[format] || format;
+  }
+
+  // --- Mode 2: Generate Prompt ---
+  window.generatePrompt = function() {
+    const data = getFormData();
+    if (!data.topik) {
+      showToast('⚠️ Tulis topik dulu ya!');
+      goToStep(1);
+      return;
+    }
+    const prompt = buildPrompt(data);
+    document.getElementById('prompt-text').value = prompt;
+    document.getElementById('prompt-output').classList.remove('hidden');
+    showToast('✅ Prompt berhasil dibuat! Copy dan paste ke AI favoritmu.');
+  };
+
+  window.copyPrompt = function() {
+    const text = document.getElementById('prompt-text').value;
+    navigator.clipboard.writeText(text).then(() => showToast('📋 Prompt berhasil di-copy!'));
+  };
+
+  // --- Mode 1: Generate with API ---
+  window.generateWithAPI = async function() {
+    const data = getFormData();
+    if (!data.topik) {
+      showToast('⚠️ Tulis topik dulu ya!');
+      goToStep(1);
+      return;
+    }
+
+    const provider = document.getElementById('provider').value;
+    const apiKey = document.getElementById('apikey').value.trim();
+
+    if (!apiKey) {
+      showToast('⚠️ Masukkan API key dulu!');
+      document.getElementById('apikey').focus();
+      return;
+    }
+
+    // Save API key
+    saveApiKey(provider, apiKey);
+
+    // Go to output step
+    goToStep(4);
+    document.getElementById('output-format-badge').textContent = getFormatLabel(data.format);
+    document.getElementById('output-loading').classList.remove('hidden');
+    document.getElementById('output-content').classList.add('hidden');
+    document.getElementById('output-error').classList.add('hidden');
+
+    const prompt = buildPrompt(data);
+    const outputEl = document.getElementById('output-text');
+    outputEl.textContent = '';
+
+    // Cancel previous request if any
+    if (abortController) abortController.abort();
+    abortController = new AbortController();
+
+    try {
+      await generate({
+        provider,
+        apiKey,
+        prompt,
+        signal: abortController.signal,
+        onChunk: (chunk) => {
+          document.getElementById('output-loading').classList.add('hidden');
+          document.getElementById('output-content').classList.remove('hidden');
+          outputEl.textContent += chunk;
+        },
+      });
+
+      document.getElementById('output-loading').classList.add('hidden');
+      document.getElementById('output-content').classList.remove('hidden');
+      if (!outputEl.textContent) {
+        outputEl.textContent = '(Tidak ada output yang dihasilkan. Coba lagi atau ganti provider.)';
+      }
+    } catch (err) {
+      if (err.name === 'AbortError') return;
+      document.getElementById('output-loading').classList.add('hidden');
+      document.getElementById('output-error').classList.remove('hidden');
+      document.getElementById('error-message').textContent = err.message || 'Gagal terhubung ke AI. Cek API key dan koneksi internet.';
+    }
+  };
+
+  // --- Copy & Download Output ---
+  window.copyOutput = function() {
+    const text = document.getElementById('output-text').textContent;
+    navigator.clipboard.writeText(text).then(() => showToast('📋 Konten berhasil di-copy!'));
+  };
+
+  window.downloadOutput = function() {
+    const text = document.getElementById('output-text').textContent;
+    const data = getFormData();
+    const blob = new Blob([text], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `storiq-${data.format}-${Date.now()}.md`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('💾 File berhasil didownload!');
+  };
+
+  // --- API Key Visibility Toggle ---
+  window.toggleKeyVisibility = function() {
+    const input = document.getElementById('apikey');
+    input.type = input.type === 'password' ? 'text' : 'password';
+  };
+
+  // --- Toast ---
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.remove('translate-y-20', 'opacity-0');
+    setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 2500);
+  }
+
+  // --- Restore saved API key ---
+  document.getElementById('provider')?.addEventListener('change', (e) => {
+    const saved = getApiKey(e.target.value);
+    if (saved) document.getElementById('apikey').value = saved;
+    else document.getElementById('apikey').value = '';
+  });
+
+  // Restore on load
+  const savedKey = getApiKey('gemini');
+  if (savedKey) document.getElementById('apikey').value = savedKey;
+</script>

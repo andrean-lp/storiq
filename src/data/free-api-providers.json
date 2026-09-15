@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Google AI Studio (Gemini)",
+    "provider": "gemini",
+    "url": "https://aistudio.google.com/",
+    "models": ["Gemini 2.5 Flash", "Gemini 1.5 Flash"],
+    "freeLimit": "1,500 request/hari, 1M tokens/menit",
+    "requirements": "Cukup login dengan Google Account",
+    "recommended": true,
+    "steps": [
+      "Buka aistudio.google.com",
+      "Login dengan Google Account",
+      "Klik 'Get API Key' di sidebar kiri",
+      "Klik 'Create API Key'",
+      "Copy API key yang muncul",
+      "Paste di STORIQ pada bagian pengaturan API"
+    ]
+  },
+  {
+    "name": "Groq",
+    "provider": "groq",
+    "url": "https://console.groq.com/",
+    "models": ["Llama 3.3 70B", "Llama 3.1 8B", "Mixtral 8x7B"],
+    "freeLimit": "1,000 request/hari (Llama 3.3), sangat cepat",
+    "requirements": "Sign up gratis, tanpa kartu kredit",
+    "recommended": true,
+    "steps": [
+      "Buka console.groq.com",
+      "Sign up atau login",
+      "Klik 'API Keys' di sidebar",
+      "Klik 'Create API Key'",
+      "Beri nama dan copy key-nya",
+      "Paste di STORIQ"
+    ]
+  },
+  {
+    "name": "OpenRouter",
+    "provider": "openrouter",
+    "url": "https://openrouter.ai/",
+    "models": ["Llama 3.3 70B (free)", "Gemini 2.0 Flash (free)", "DeepSeek R1 (free)"],
+    "freeLimit": "50 request/hari (gratis), banyak model tersedia",
+    "requirements": "Sign up gratis, tanpa kartu kredit",
+    "recommended": false,
+    "steps": [
+      "Buka openrouter.ai",
+      "Sign up atau login",
+      "Klik 'Keys' di menu",
+      "Klik 'Create Key'",
+      "Copy key-nya",
+      "Paste di STORIQ — pilih model dengan label ':free'"
+    ]
+  },
+  {
+    "name": "Cerebras",
+    "provider": "cerebras",
+    "url": "https://cloud.cerebras.ai/",
+    "models": ["Llama 3.3 70B", "Llama 3.1 8B"],
+    "freeLimit": "1M tokens/hari, sangat cepat (Wafer-Scale Engine)",
+    "requirements": "Sign up gratis, tanpa kartu kredit",
+    "recommended": false,
+    "steps": [
+      "Buka cloud.cerebras.ai",
+      "Sign up atau login",
+      "Buat API key di dashboard",
+      "Copy key-nya",
+      "Paste di STORIQ"
+    ]
+  },
+  {
+    "name": "Mistral AI",
+    "provider": "mistral",
+    "url": "https://console.mistral.ai/",
+    "models": ["Mistral Small", "Codestral", "Mistral NeMo"],
+    "freeLimit": "~60 request/menit (Experiment plan)",
+    "requirements": "Sign up + verifikasi nomor HP",
+    "recommended": false,
+    "steps": [
+      "Buka console.mistral.ai",
+      "Sign up dan verifikasi nomor HP",
+      "Buat API key di menu 'API Keys'",
+      "Copy key-nya",
+      "Paste di STORIQ"
+    ]
+  },
+  {
+    "name": "SambaNova",
+    "provider": "sambanova",
+    "url": "https://cloud.sambanova.ai/",
+    "models": ["Llama 3.3 70B", "Qwen 2.5 72B", "DeepSeek R1"],
+    "freeLimit": "200K tokens/hari",
+    "requirements": "Sign up gratis, tanpa kartu kredit",
+    "recommended": false,
+    "steps": [
+      "Buka cloud.sambanova.ai",
+      "Sign up atau login",
+      "Buat API key di dashboard",
+      "Copy key-nya",
+      "Paste di STORIQ"
+    ]
+  }
+]

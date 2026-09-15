@@ -1,0 +1,82 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: `${baseUrl}`, label: 'Home' },
+  { href: `${baseUrl}generator/`, label: 'Generator' },
+  { href: `${baseUrl}framework/`, label: 'Framework' },
+  { href: `${baseUrl}panduan/`, label: 'Panduan' },
+  { href: `${baseUrl}tentang/`, label: 'Tentang' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-navy-800/95 backdrop-blur-sm border-b border-navy-700">
+  <nav class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+    <!-- Logo -->
+    <a href={baseUrl} class="flex items-center gap-2 text-white font-bold text-lg">
+      <svg class="w-7 h-7" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="6" fill="#3b82f6"/>
+        <text x="16" y="23" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700" font-size="20" fill="white">S</text>
+      </svg>
+      STORIQ
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex items-center gap-1">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              'px-3 py-1.5 rounded-md text-sm transition-colors',
+              currentPath === link.href || (link.href !== baseUrl && currentPath.startsWith(link.href))
+                ? 'bg-blue-500/20 text-blue-400'
+                : 'text-slate-300 hover:text-white hover:bg-white/5',
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-slate-300 hover:text-white p-1"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-navy-700 bg-navy-800">
+    <ul class="px-4 py-3 space-y-1">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              'block px-3 py-2 rounded-md text-sm transition-colors',
+              currentPath === link.href || (link.href !== baseUrl && currentPath.startsWith(link.href))
+                ? 'bg-blue-500/20 text-blue-400'
+                : 'text-slate-300 hover:text-white hover:bg-white/5',
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

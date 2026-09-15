@@ -1,0 +1,1038 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="Panduan Lengkap STORIQ — Tutorial & Cara Dapat API Key Gratis"
+  description="Panduan langkah demi langkah menggunakan STORIQ dan cara mendapatkan API key gratis dari Google Gemini, Groq, OpenRouter, Cerebras, dan SambaNova."
+>
+  <Header slot="header" />
+
+  <!-- ==================== 1. HERO SECTION (navy-800) ==================== -->
+  <section class="bg-navy-800 text-white py-14 sm:py-20 relative overflow-hidden border-b border-navy-700">
+    <!-- Background subtle glow -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-400 text-xs sm:text-sm font-medium mb-6">
+        <span>📖</span>
+        <span>Tutorial & Panduan Praktis</span>
+      </div>
+
+      <!-- Title & Subtitle -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white">
+        Panduan Lengkap <span class="text-blue-400">STORIQ</span>
+      </h1>
+      <p class="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mt-4 leading-relaxed">
+        Dari nol sampai bisa generate konten pertamamu. Pelajari cara pakai engine dan dapatkan API key AI gratis tanpa kartu kredit!
+      </p>
+
+      <!-- Quick Benefit Badges -->
+      <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-4 mt-8 text-xs sm:text-sm text-slate-300">
+        <span class="inline-flex items-center gap-1.5 bg-navy-700/80 px-3 py-1.5 rounded-lg border border-navy-600">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          100% Gratis Selamanya
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-navy-700/80 px-3 py-1.5 rounded-lg border border-navy-600">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          Tanpa Perlu Login
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-navy-700/80 px-3 py-1.5 rounded-lg border border-navy-600">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          Privasi Aman (Browser Local)
+        </span>
+      </div>
+
+      <!-- Quick Nav Buttons -->
+      <div class="flex flex-wrap justify-center items-center gap-3 mt-8">
+        <a
+          href="#cara-pakai"
+          class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-all duration-200 border border-white/10"
+        >
+          👇 Cara Pakai STORIQ
+        </a>
+        <a
+          href="#api-key-gratis"
+          class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-all duration-200 shadow-sm"
+        >
+          🔑 Dapatkan API Key Gratis
+        </a>
+        <a
+          href="#tips-pemula"
+          class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-all duration-200 border border-white/10"
+        >
+          💡 Tips & FAQ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. CARA PAKAI STORIQ (white bg) ==================== -->
+  <section id="cara-pakai" class="bg-white py-16 sm:py-20 text-slate-800">
+    <div class="max-w-5xl mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60">
+          Langkah Demi Langkah
+        </span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-900 mt-3">
+          Cara Pakai STORIQ
+        </h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+          Ubah satu ide kasar di kepala menjadi aneka format konten berstruktur storytelling yang siap dipublikasikan dalam 7 langkah mudah.
+        </p>
+      </div>
+
+      <!-- Steps Timeline Grid -->
+      <div class="relative">
+        <!-- Connecting vertical line on desktop -->
+        <div class="hidden md:block absolute left-8 top-8 bottom-8 w-0.5 bg-slate-200"></div>
+
+        <div class="space-y-6 sm:space-y-8">
+          <!-- Step 1 -->
+          <div class="relative flex flex-col md:flex-row items-start gap-4 md:gap-6 bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/80 hover:border-blue-300 transition-all duration-200">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600 text-white font-bold text-lg flex items-center justify-center shadow-md shadow-blue-500/20 z-10">
+              1
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg sm:text-xl font-bold text-navy-900">Buka Halaman Generator</h3>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700">Langkah Awal</span>
+              </div>
+              <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                Kunjungi menu <a href={`${baseUrl}generator/`} class="text-blue-600 hover:text-blue-700 font-medium underline underline-offset-2">Generator</a> pada navigasi atas atau klik tombol CTA. Kamu langsung masuk ke workspace generator tanpa perlu pendaftaran akun, tanpa kartu kredit, dan tanpa antrean.
+              </p>
+              <div class="mt-3 p-3 bg-blue-50/70 border border-blue-100 rounded-lg text-xs sm:text-sm text-blue-900 flex items-start gap-2">
+                <span class="text-blue-600 font-bold">💡 Pro Tip:</span>
+                <span>Kamu bisa langsung mem-bookmark tautan Generator di browser ponsel atau laptopmu untuk akses cepat saat ide mendadak muncul!</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative flex flex-col md:flex-row items-start gap-4 md:gap-6 bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/80 hover:border-blue-300 transition-all duration-200">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600 text-white font-bold text-lg flex items-center justify-center shadow-md shadow-blue-500/20 z-10">
+              2
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg sm:text-xl font-bold text-navy-900">Isi Topik, Audiens, Tujuan, dan Tone Konten</h3>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800">Brief Konten</span>
+              </div>
+              <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                Tuliskan informasi dasar konten pada form yang tersedia:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 text-xs sm:text-sm">
+                <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-2xs">
+                  <span class="font-semibold text-navy-900 block">📌 Topik Utama</span>
+                  <span class="text-slate-600">Ide pokok atau masalah yang ingin kamu bahas (contoh: "Kenapa pemula sering gagal konsisten bikin konten").</span>
+                </div>
+                <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-2xs">
+                  <span class="font-semibold text-navy-900 block">🎯 Target Audiens</span>
+                  <span class="text-slate-600">Siapa pembacanya (contoh: "Karyawan 9-to-5 yang baru mulai bangun personal brand").</span>
+                </div>
+                <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-2xs">
+                  <span class="font-semibold text-navy-900 block">🚀 Tujuan Konten</span>
+                  <span class="text-slate-600">Dampak yang diharapkan: mengedukasi, memotivasi, mengubah sudut pandang, atau call-to-action (CTA).</span>
+                </div>
+                <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-2xs">
+                  <span class="font-semibold text-navy-900 block">🗣️ Tone of Voice</span>
+                  <span class="text-slate-600">Pilih gaya bahasa: Santai & bersahabat, Tegas & to-the-point, atau Edukatif inspiratif.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative flex flex-col md:flex-row items-start gap-4 md:gap-6 bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/80 hover:border-blue-300 transition-all duration-200">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600 text-white font-bold text-lg flex items-center justify-center shadow-md shadow-blue-500/20 z-10">
+              3
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg sm:text-xl font-bold text-navy-900">Pilih Framework Storytelling</h3>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Rekomendasi Utama</span>
+              </div>
+              <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                Pilih arsitektur narasi yang paling cocok untuk pesanmu. Kami sangat menyarankan memilih <strong class="text-navy-900 font-semibold">STORIQ 10 Elemen (Recommended)</strong> — formula khusus berbasis psikologi pembaca dan konversi yang memandu alur dari hook emosional hingga ajakan aksi natural.
+              </p>
+              <p class="text-slate-600 mt-1 text-xs sm:text-sm">
+                Kamu juga bisa memilih framework klasik lain seperti <span class="font-medium text-slate-800">Hook-Story-Offer</span>, <span class="font-medium text-slate-800">BAB (Before-After-Bridge)</span>, atau <span class="font-medium text-slate-800">PAS (Problem-Agitate-Solve)</span>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative flex flex-col md:flex-row items-start gap-4 md:gap-6 bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/80 hover:border-blue-300 transition-all duration-200">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600 text-white font-bold text-lg flex items-center justify-center shadow-md shadow-blue-500/20 z-10">
+              4
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg sm:text-xl font-bold text-navy-900">Pilih Mode — AI API (Otomatis) atau Prompt Generator (Manual)</h3>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800">Dua Pilihan Fleksibel</span>
+              </div>
+              <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                Tentukan bagaimana kamu ingin STORIQ bekerja:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+                <div class="p-3.5 bg-white rounded-xl border border-slate-200">
+                  <div class="flex items-center gap-2 text-sm font-bold text-navy-900">
+                    <span class="text-blue-600">⚡</span> Mode 1: AI API (Otomatis)
+                  </div>
+                  <p class="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                    Masukkan API key gratis (seperti Google Gemini atau Groq). Hasil konten langsung di-generate seketika di dalam layar STORIQ dalam beberapa detik!
+                  </p>
+                </div>
+                <div class="p-3.5 bg-white rounded-xl border border-slate-200">
+                  <div class="flex items-center gap-2 text-sm font-bold text-navy-900">
+                    <span class="text-emerald-600">📋</span> Mode 2: Prompt Generator (Manual)
+                  </div>
+                  <p class="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                    Tidak punya API key? Tenang! STORIQ akan merangkai prompt sakti yang siap kamu salin (copy) dan paste ke ChatGPT, Claude, atau Gemini web.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="relative flex flex-col md:flex-row items-start gap-4 md:gap-6 bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/80 hover:border-blue-300 transition-all duration-200">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600 text-white font-bold text-lg flex items-center justify-center shadow-md shadow-blue-500/20 z-10">
+              5
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg sm:text-xl font-bold text-navy-900">Pilih Format Output yang Kamu Mau</h3>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800">Multi-Format</span>
+              </div>
+              <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                Pilih satu atau centang beberapa format sekaligus untuk mendaur ulang ide utamamu ke berbagai channel:
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3 text-xs sm:text-sm">
+                <span class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium">📝 Artikel Panjang / Blog</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium">🖼️ Carousel Slide (IG / LinkedIn)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium">📱 Caption Pendek & Hook</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium">💬 Quote Card / Tweet Thread</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium">🎬 Script Video Pendek (Reels / TikTok)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="relative flex flex-col md:flex-row items-start gap-4 md:gap-6 bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/80 hover:border-blue-300 transition-all duration-200">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-600 text-white font-bold text-lg flex items-center justify-center shadow-md shadow-blue-500/20 z-10">
+              6
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg sm:text-xl font-bold text-navy-900">Klik Generate dan Tunggu Hasilnya!</h3>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800">Eksekusi Cepat</span>
+              </div>
+              <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                Tekan tombol biru <strong class="text-navy-900">"Generate Konten"</strong>. Jika kamu memakai Mode AI API, sistem akan streaming teks hasil secara real-time. Jika memakai Mode Prompt Generator, formula prompt siap pakai langsung muncul di layar.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="relative flex flex-col md:flex-row items-start gap-4 md:gap-6 bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/80 hover:border-blue-300 transition-all duration-200">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-600 text-white font-bold text-lg flex items-center justify-center shadow-md shadow-emerald-500/20 z-10">
+              7
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg sm:text-xl font-bold text-navy-900">Copy Hasil atau Download sebagai Markdown</h3>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Selesai & Publish</span>
+              </div>
+              <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                Kamu bisa langsung mengklik tombol <strong class="text-navy-900">"Salin / Copy"</strong> per format konten, atau klik <strong class="text-navy-900">"Download Markdown (.md)"</strong> untuk menyimpan seluruh paket konten ke komputermu, Google Docs, atau Notion. Berikan sentuhan gaya aslimu, lalu publish!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. CARA DAPAT API KEY GRATIS (slate-50 bg) ==================== -->
+  <section id="api-key-gratis" class="bg-slate-50 py-16 sm:py-20 text-slate-800 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-600 bg-blue-100/60 px-3 py-1 rounded-full border border-blue-200">
+          Panduan Lengkap Provider
+        </span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-900 mt-3">
+          Cara Dapat API Key Gratis
+        </h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+          100% legal, resmi, dan tanpa kartu kredit! Semua provider di bawah ini menyediakan free tier yang sangat berlimpah untuk kebutuhan bikin konten harianmu.
+        </p>
+      </div>
+
+      <!-- Security Guarantee Banner -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl border border-blue-200 shadow-sm mb-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 text-2xl border border-blue-100">
+          🔒
+        </div>
+        <div class="flex-1 text-sm sm:text-base">
+          <h4 class="font-bold text-navy-900">Apakah API Key Kamu Aman di STORIQ?</h4>
+          <p class="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">
+            <strong>Ya, 100% aman!</strong> STORIQ adalah aplikasi static open-source tanpa server backend penyimpan data. Kunci API kamu hanya disimpan di memori browser lokalmu (<code class="bg-slate-100 px-1 py-0.5 rounded text-slate-700 font-mono text-xs">localStorage</code>) dan langsung berkomunikasi ke server provider AI resmi. Tidak ada pihak ketiga yang bisa melihatnya.
+          </p>
+        </div>
+      </div>
+
+      <!-- Providers Cards List -->
+      <div class="space-y-8">
+        <!-- 3.a Google AI Studio (Gemini) ⭐ RECOMMENDED -->
+        <div class="bg-white rounded-2xl border-2 border-blue-500 shadow-md p-6 sm:p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-gradient-to-l from-blue-600 to-blue-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider flex items-center gap-1 shadow-sm">
+            <span>⭐</span> Rekomendasi Utama (Paling Mudah)
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mt-2">
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl border border-blue-200 flex-shrink-0">
+                🤖
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-xl sm:text-2xl font-bold text-navy-900">Google AI Studio</h3>
+                  <span class="px-2 py-0.5 text-xs font-semibold rounded bg-blue-100 text-blue-800">Gemini</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Penyedia: Google DeepMind</p>
+              </div>
+            </div>
+            <a
+              href="https://aistudio.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-all duration-200 shadow-sm"
+            >
+              Buka Google AI Studio
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <!-- Specs Badges -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-6">
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Model yang Didukung:</span>
+              <span class="font-semibold text-navy-900">Gemini 2.5 Flash, Gemini 1.5 Flash</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Batas Kuota Gratis:</span>
+              <span class="font-semibold text-emerald-600">1,500 request/hari, 1M tokens/menit</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm sm:col-span-2 md:col-span-1">
+              <span class="text-slate-500 block text-xs">Syarat Pendaftaran:</span>
+              <span class="font-semibold text-navy-900">Hanya butuh Google Account (Gmail)</span>
+            </div>
+          </div>
+
+          <!-- Steps -->
+          <div class="mt-6">
+            <h4 class="text-sm font-bold text-navy-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+              <span>📋</span> Langkah-langkah Mendapatkan Key:
+            </h4>
+            <ol class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                <span>Buka website resmi di <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">aistudio.google.com</a>.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                <span>Login menggunakan akun Google / Gmail yang biasa kamu pakai.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                <span>Klik tombol <strong class="text-navy-900">"Get API Key"</strong> di bilah navigasi sebelah kiri atas.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                <span>Klik tombol biru <strong class="text-navy-900">"Create API Key"</strong>. Bila diminta project, pilih "Create key in new project".</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">5</span>
+                <span>Klik tombol <strong class="text-navy-900">Copy</strong> pada kode string API key yang muncul.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">6</span>
+                <span>Buka STORIQ Generator, pilih provider Google Gemini, dan tempelkan (paste) key tersebut.</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Highlight Note -->
+          <div class="mt-5 p-3.5 bg-blue-50 border border-blue-200/80 rounded-xl text-xs sm:text-sm text-blue-950 flex items-start gap-2.5">
+            <span class="text-base">⭐</span>
+            <p>
+              <strong class="font-semibold">Catatan:</strong> "Paling mudah! Cukup punya Google Account. Kuota 1.500 request per hari sangat berlimpah untuk bikin puluhan bahkan ratusan konten setiap hari."
+            </p>
+          </div>
+        </div>
+
+        <!-- 3.b Groq ⚡ TERCEPAT -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 hover:border-amber-400 transition-all duration-200">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-3xl border border-amber-200 flex-shrink-0">
+                ⚡
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-xl sm:text-2xl font-bold text-navy-900">Groq Cloud</h3>
+                  <span class="px-2 py-0.5 text-xs font-semibold rounded bg-amber-100 text-amber-800">Tercepat di Dunia</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Penyedia: Groq LPU™ Inference Engine</p>
+              </div>
+            </div>
+            <a
+              href="https://console.groq.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-900 text-white font-semibold text-sm transition-all duration-200 shadow-sm"
+            >
+              Buka Groq Console
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <!-- Specs Badges -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-6">
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Model yang Didukung:</span>
+              <span class="font-semibold text-navy-900">Llama 3.3 70B, Mixtral 8x7B</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Batas Kuota Gratis:</span>
+              <span class="font-semibold text-emerald-600">1,000 request/hari (Sangat Cepat)</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm sm:col-span-2 md:col-span-1">
+              <span class="text-slate-500 block text-xs">Syarat Pendaftaran:</span>
+              <span class="font-semibold text-navy-900">Sign up akun (Email / GitHub)</span>
+            </div>
+          </div>
+
+          <!-- Steps -->
+          <div class="mt-6">
+            <h4 class="text-sm font-bold text-navy-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+              <span>📋</span> Langkah-langkah Mendapatkan Key:
+            </h4>
+            <ol class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                <span>Buka <a href="https://console.groq.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">console.groq.com</a>.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                <span>Sign up gratis menggunakan email, Google, atau GitHub.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                <span>Buka tab menu <strong class="text-navy-900">API Keys</strong> di sidebar sebelah kiri.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                <span>Klik <strong class="text-navy-900">"Create API Key"</strong>, beri nama (misal: "STORIQ"), lalu klik Create.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">5</span>
+                <span>Copy API key yang muncul dan paste ke pengaturan STORIQ Generator.</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Highlight Note -->
+          <div class="mt-5 p-3.5 bg-amber-50/70 border border-amber-200 rounded-xl text-xs sm:text-sm text-amber-950 flex items-start gap-2.5">
+            <span class="text-base">⚡</span>
+            <p>
+              <strong class="font-semibold">Keunggulan Utama:</strong> Kecepatan generasi mencapai ratusan token per detik. Teks muncul seketika tanpa ada jeda menunggu!
+            </p>
+          </div>
+        </div>
+
+        <!-- 3.c OpenRouter 🌐 -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 hover:border-purple-300 transition-all duration-200">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-3xl border border-purple-200 flex-shrink-0">
+                🌐
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-xl sm:text-2xl font-bold text-navy-900">OpenRouter</h3>
+                  <span class="px-2 py-0.5 text-xs font-semibold rounded bg-purple-100 text-purple-800">Multi Model Hub</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Akses berbagai AI model dalam 1 pintu API</p>
+              </div>
+            </div>
+            <a
+              href="https://openrouter.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-900 text-white font-semibold text-sm transition-all duration-200 shadow-sm"
+            >
+              Buka OpenRouter
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <!-- Specs Badges -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-6">
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Model yang Didukung:</span>
+              <span class="font-semibold text-navy-900">Llama, Gemini, DeepSeek (label :free)</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Batas Kuota Gratis:</span>
+              <span class="font-semibold text-emerald-600">50 request/hari (model gratis)</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm sm:col-span-2 md:col-span-1">
+              <span class="text-slate-500 block text-xs">Syarat Pendaftaran:</span>
+              <span class="font-semibold text-navy-900">Sign up gratis tanpa kartu kredit</span>
+            </div>
+          </div>
+
+          <!-- Steps -->
+          <div class="mt-6">
+            <h4 class="text-sm font-bold text-navy-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+              <span>📋</span> Langkah-langkah Mendapatkan Key:
+            </h4>
+            <ol class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                <span>Buka <a href="https://openrouter.ai/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">openrouter.ai</a> dan daftar akun baru.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                <span>Buka menu <strong class="text-navy-900">Keys</strong> di navigasi atas atau dashboard pengguna.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                <span>Klik <strong class="text-navy-900">"Create Key"</strong>, isi nama label, lalu simpan.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                <span>Salin API key tersebut dan tempelkan ke STORIQ. Pastikan memilih model yang berakhiran <code class="bg-purple-50 text-purple-700 px-1 py-0.5 rounded font-mono text-xs">:free</code> agar selalu bebas biaya!</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- 3.d Cerebras 🧠 -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 hover:border-emerald-300 transition-all duration-200">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl border border-emerald-200 flex-shrink-0">
+                🧠
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-xl sm:text-2xl font-bold text-navy-900">Cerebras Cloud</h3>
+                  <span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-100 text-emerald-800">Wafer-Scale Engine</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Kecepatan tinggi berbasis arsitektur chip Wafer-Scale</p>
+              </div>
+            </div>
+            <a
+              href="https://cloud.cerebras.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-900 text-white font-semibold text-sm transition-all duration-200 shadow-sm"
+            >
+              Buka Cerebras Cloud
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <!-- Specs Badges -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-6">
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Model yang Didukung:</span>
+              <span class="font-semibold text-navy-900">Llama 3.3 70B, Llama 3.1 8B</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Batas Kuota Gratis:</span>
+              <span class="font-semibold text-emerald-600">1.000.000 tokens/hari</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm sm:col-span-2 md:col-span-1">
+              <span class="text-slate-500 block text-xs">Syarat Pendaftaran:</span>
+              <span class="font-semibold text-navy-900">Sign up developer gratis</span>
+            </div>
+          </div>
+
+          <!-- Steps -->
+          <div class="mt-6">
+            <h4 class="text-sm font-bold text-navy-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+              <span>📋</span> Langkah-langkah Mendapatkan Key:
+            </h4>
+            <ol class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                <span>Buka <a href="https://cloud.cerebras.ai/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">cloud.cerebras.ai</a>.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                <span>Daftar akun baru dengan email dan konfirmasi pendaftaran.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                <span>Masuk ke dashboard pengembang dan pilih menu <strong class="text-navy-900">API Keys</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                <span>Klik <strong class="text-navy-900">Create Key</strong>, salin kodenya, lalu gunakan di STORIQ.</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- 3.e SambaNova -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 hover:border-cyan-300 transition-all duration-200">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-3xl border border-cyan-200 flex-shrink-0">
+                🚀
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-xl sm:text-2xl font-bold text-navy-900">SambaNova Cloud</h3>
+                  <span class="px-2 py-0.5 text-xs font-semibold rounded bg-cyan-100 text-cyan-800">Enterprise Scale</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Penyedia infrastruktur AI dengan model reasoning mutakhir</p>
+              </div>
+            </div>
+            <a
+              href="https://cloud.sambanova.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-900 text-white font-semibold text-sm transition-all duration-200 shadow-sm"
+            >
+              Buka SambaNova
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <!-- Specs Badges -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-6">
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Model yang Didukung:</span>
+              <span class="font-semibold text-navy-900">Llama 3.3 70B, DeepSeek R1</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm">
+              <span class="text-slate-500 block text-xs">Batas Kuota Gratis:</span>
+              <span class="font-semibold text-emerald-600">200.000 tokens/hari</span>
+            </div>
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs sm:text-sm sm:col-span-2 md:col-span-1">
+              <span class="text-slate-500 block text-xs">Syarat Pendaftaran:</span>
+              <span class="font-semibold text-navy-900">Daftar akun gratis</span>
+            </div>
+          </div>
+
+          <!-- Steps -->
+          <div class="mt-6">
+            <h4 class="text-sm font-bold text-navy-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+              <span>📋</span> Langkah-langkah Mendapatkan Key:
+            </h4>
+            <ol class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                <span>Buka <a href="https://cloud.sambanova.ai/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">cloud.sambanova.ai</a>.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                <span>Sign up dan verifikasi email kamu.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                <span>Klik tab <strong class="text-navy-900">API Keys</strong> di dashboard.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                <span>Buat API key baru, copy, dan tempelkan ke STORIQ.</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Comparison Table -->
+      <div class="mt-14 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <h3 class="text-lg sm:text-xl font-bold text-navy-900 mb-2">Tabel Ringkasan Provider AI Gratis</h3>
+        <p class="text-xs sm:text-sm text-slate-600 mb-6">Pilih provider yang paling pas dengan preferensimu:</p>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 bg-slate-50 text-navy-900 font-semibold">
+                <th class="py-3 px-4 rounded-l-lg">Provider</th>
+                <th class="py-3 px-4">Model Unggulan</th>
+                <th class="py-3 px-4">Batas Free Tier</th>
+                <th class="py-3 px-4">Kemudahan</th>
+                <th class="py-3 px-4 rounded-r-lg">Biaya</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr class="bg-blue-50/40 font-medium">
+                <td class="py-3.5 px-4 flex items-center gap-2">
+                  <span>🤖</span> <strong>Google AI Studio</strong>
+                  <span class="text-2xs bg-blue-100 text-blue-800 font-bold px-1.5 py-0.5 rounded">Rekomendasi</span>
+                </td>
+                <td class="py-3.5 px-4">Gemini 2.5 Flash</td>
+                <td class="py-3.5 px-4 font-semibold text-emerald-600">1,500 req/hari</td>
+                <td class="py-3.5 px-4">⭐⭐⭐⭐⭐ (Cukup Gmail)</td>
+                <td class="py-3.5 px-4 font-bold text-emerald-600">100% Gratis</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 flex items-center gap-2">
+                  <span>⚡</span> <strong>Groq Cloud</strong>
+                  <span class="text-2xs bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">Tercepat</span>
+                </td>
+                <td class="py-3.5 px-4">Llama 3.3 70B</td>
+                <td class="py-3.5 px-4 font-semibold text-emerald-600">1,000 req/hari</td>
+                <td class="py-3.5 px-4">⭐⭐⭐⭐ (Sign up cepat)</td>
+                <td class="py-3.5 px-4 font-bold text-emerald-600">100% Gratis</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 flex items-center gap-2">
+                  <span>🌐</span> <strong>OpenRouter</strong>
+                </td>
+                <td class="py-3.5 px-4">Llama / Gemini (:free)</td>
+                <td class="py-3.5 px-4 font-semibold text-emerald-600">50 req/hari</td>
+                <td class="py-3.5 px-4">⭐⭐⭐ (Banyak model)</td>
+                <td class="py-3.5 px-4 font-bold text-emerald-600">100% Gratis</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 flex items-center gap-2">
+                  <span>🧠</span> <strong>Cerebras</strong>
+                </td>
+                <td class="py-3.5 px-4">Llama 3.3 70B</td>
+                <td class="py-3.5 px-4 font-semibold text-emerald-600">1M tokens/hari</td>
+                <td class="py-3.5 px-4">⭐⭐⭐⭐ (Developer friendly)</td>
+                <td class="py-3.5 px-4 font-bold text-emerald-600">100% Gratis</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 flex items-center gap-2">
+                  <span>🚀</span> <strong>SambaNova</strong>
+                </td>
+                <td class="py-3.5 px-4">DeepSeek / Llama 3.3</td>
+                <td class="py-3.5 px-4 font-semibold text-emerald-600">200K tokens/hari</td>
+                <td class="py-3.5 px-4">⭐⭐⭐ (Akun baru)</td>
+                <td class="py-3.5 px-4 font-bold text-emerald-600">100% Gratis</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. TIPS UNTUK PEMULA (white bg) ==================== -->
+  <section id="tips-pemula" class="bg-white py-16 sm:py-20 text-slate-800">
+    <div class="max-w-5xl mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60">
+          Praktik Terbaik
+        </span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-900 mt-3">
+          Tips Ampuh untuk Konten Kreator Pemula
+        </h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+          Agar kontenmu tidak kaku seperti robot dan benar-benar berdampak pada audiens, terapkan 5 prinsip emas ini.
+        </p>
+      </div>
+
+      <!-- Tips Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Tip 1 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between hover:border-blue-300 hover:shadow-sm transition-all duration-200">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 font-bold text-xl flex items-center justify-center mb-4">
+              1
+            </div>
+            <h3 class="text-lg font-bold text-navy-900 mb-2">Mulai dari Mode 2 (Prompt Generator) Dulu</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Kalau kamu belum sempat membuat API key, jangan ragu untuk memilih <strong>Mode 2 (Prompt Generator)</strong>. Formula prompt yang diracik STORIQ siap disalin ke ChatGPT atau Gemini web yang biasa kamu pakai sehari-hari.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-2xs uppercase tracking-wider font-semibold text-blue-600">
+            Tanpa Hambatan Teknis
+          </div>
+        </div>
+
+        <!-- Tip 2 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between hover:border-blue-300 hover:shadow-sm transition-all duration-200">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 font-bold text-xl flex items-center justify-center mb-4">
+              2
+            </div>
+            <h3 class="text-lg font-bold text-navy-900 mb-2">Gunakan Framework STORIQ 10 Elemen</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Framework ini dirancang langsung oleh Landing Page Strategist & CRO specialist. Bukan sekadar merangkum teks, melainkan menyusun narasi psikologis: dari <em>Hook penasaran</em>, <em>Empati masalah</em>, <em>Solusi konkret</em>, hingga <em>Call-to-Action</em> persuasif.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-2xs uppercase tracking-wider font-semibold text-blue-600">
+            Formula Bernilai Konversi
+          </div>
+        </div>
+
+        <!-- Tip 3 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between hover:border-blue-300 hover:shadow-sm transition-all duration-200">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 font-bold text-xl flex items-center justify-center mb-4">
+              3
+            </div>
+            <h3 class="text-lg font-bold text-navy-900 mb-2">Jangan Puas dengan Draf Pertama — Iterasi!</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              AI adalah asisten penulis draf pertamamu, bukan dirimu. Sisipkan minimal 1 pengalaman pribadimu, kegagalan nyata, atau analogi lokal khas gayamu agar ceritamu otentik dan memiliki sentuhan manusiawi yang kuat.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-2xs uppercase tracking-wider font-semibold text-blue-600">
+            Personal Touch Adalah Kunci
+          </div>
+        </div>
+
+        <!-- Tip 4 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between hover:border-blue-300 hover:shadow-sm transition-all duration-200">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 font-bold text-xl flex items-center justify-center mb-4">
+              4
+            </div>
+            <h3 class="text-lg font-bold text-navy-900 mb-2">Sesuaikan Tone dengan Platformnya</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Gunakan nada santai, luwes, dan visual untuk Instagram Carousel & TikTok Script. Gunakan nada profesional, berbobot, dan berbasis data untuk artikel LinkedIn atau Medium. Satu ide bisa punya kepribadian beda di setiap kanal!
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-2xs uppercase tracking-wider font-semibold text-blue-600">
+            Konteks Menentukan Respon
+          </div>
+        </div>
+
+        <!-- Tip 5 -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between hover:border-blue-300 hover:shadow-sm transition-all duration-200 md:col-span-2 lg:col-span-1">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 font-bold text-xl flex items-center justify-center mb-4">
+              5
+            </div>
+            <h3 class="text-lg font-bold text-navy-900 mb-2">Simpan Hasil Bagus Jadi "Content Vault"</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Gunakan fitur download Markdown untuk menyimpan bank konten di Notion atau Google Drive. Ide konten yang performanya bagus bisa kamu daur ulang kembali 2-3 bulan kemudian dengan sudut pandang yang lebih segar.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-2xs uppercase tracking-wider font-semibold text-blue-600">
+            Investasi Jangka Panjang
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. FAQ (slate-50 bg) ==================== -->
+  <section id="faq" class="bg-slate-50 py-16 sm:py-20 text-slate-800 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-600 bg-blue-100/60 px-3 py-1 rounded-full border border-blue-200">
+          Tanya Jawab
+        </span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-900 mt-3">
+          Pertanyaan yang Sering Diajukan (FAQ)
+        </h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+          Punya pertanyaan seputar keamanan data, biaya, atau fitur STORIQ? Temukan jawabannya di sini.
+        </p>
+      </div>
+
+      <!-- FAQ Accordion List -->
+      <div class="space-y-4">
+        <!-- Q1 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-2xs transition-all duration-200 open:border-blue-500 open:shadow-sm">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-navy-900 cursor-pointer list-none select-none">
+            <span class="flex items-center gap-2.5">
+              <span class="text-blue-600">❓</span>
+              Apakah STORIQ benar-benar gratis?
+            </span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 group-open:text-blue-600 transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-slate-100 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p>
+              <strong>Ya, 100% gratis selamanya!</strong> Tidak ada biaya langganan, tidak ada biaya tersembunyi, dan tidak ada paywall fitur. Kamu bahkan tidak diwajibkan mendaftar akun atau login. Siapa pun bisa langsung membuka web dan memakainya.
+            </p>
+          </div>
+        </details>
+
+        <!-- Q2 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-2xs transition-all duration-200 open:border-blue-500 open:shadow-sm">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-navy-900 cursor-pointer list-none select-none">
+            <span class="flex items-center gap-2.5">
+              <span class="text-blue-600">🔒</span>
+              Apakah API key saya aman?
+            </span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 group-open:text-blue-600 transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-slate-100 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p>
+              <strong>Sangat aman!</strong> STORIQ dibangun sebagai aplikasi static client-side (hosted di GitHub Pages). Seluruh data dan kunci API kamu hanya disimpan di memori browser lokal (<code class="bg-slate-100 px-1 py-0.5 rounded font-mono text-xs">localStorage</code>) di perangkatmu sendiri. API key tidak pernah dikirim atau disimpan ke server kami karena kami sama sekali tidak mengelola server database. Komunikasi hanya terjadi antara browsermu dan API resmi penyedia (Google/Groq/dll).
+            </p>
+          </div>
+        </details>
+
+        <!-- Q3 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-2xs transition-all duration-200 open:border-blue-500 open:shadow-sm">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-navy-900 cursor-pointer list-none select-none">
+            <span class="flex items-center gap-2.5">
+              <span class="text-blue-600">⚙️</span>
+              Kenapa perlu API key jika aplikasinya gratis?
+            </span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 group-open:text-blue-600 transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-slate-100 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p>
+              API key <strong>hanya diperlukan untuk Mode 1 (AI API Otomatis)</strong> jika kamu ingin proses generasi berjalan otomatis di layar STORIQ. Jika kamu belum punya atau tidak ingin repot membuat API key, gunakan saja <strong>Mode 2 (Prompt Generator)</strong> yang tidak membutuhkan API key sama sekali!
+            </p>
+          </div>
+        </details>
+
+        <!-- Q4 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-2xs transition-all duration-200 open:border-blue-500 open:shadow-sm">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-navy-900 cursor-pointer list-none select-none">
+            <span class="flex items-center gap-2.5">
+              <span class="text-blue-600">⭐</span>
+              AI mana yang paling bagus untuk pemula?
+            </span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 group-open:text-blue-600 transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-slate-100 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p>
+              Kami sangat merekomendasikan <strong>Google AI Studio (Gemini)</strong> karena:
+            </p>
+            <ul class="list-disc list-inside mt-2 space-y-1 text-xs sm:text-sm">
+              <li>Paling gampang didaftar: cukup login pakai akun Google/Gmail biasamu.</li>
+              <li>Free tier terbesar di dunia: 1.500 kali generate per hari tanpa biaya.</li>
+              <li>Pemahaman bahasa Indonesia yang sangat luwes dan natural.</li>
+            </ul>
+            <p class="mt-2">
+              Pilihan kedua adalah <strong>Groq</strong> jika kamu mendambakan kecepatan generate yang luar biasa kilat.
+            </p>
+          </div>
+        </details>
+
+        <!-- Q5 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-2xs transition-all duration-200 open:border-blue-500 open:shadow-sm">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-navy-900 cursor-pointer list-none select-none">
+            <span class="flex items-center gap-2.5">
+              <span class="text-blue-600">📱</span>
+              Apakah STORIQ bisa dipakai di HP (Smartphone)?
+            </span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 group-open:text-blue-600 transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-slate-100 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p>
+              <strong>Tentu saja bisa!</strong> Seluruh desain antarmuka STORIQ dirancang dengan pendekatan <em>mobile-first responsive</em>. Kamu bisa leluasa mengisi ide, memilih framework, dan menyalin hasil konten langsung lewat browser Chrome atau Safari di ponselmu.
+            </p>
+          </div>
+        </details>
+
+        <!-- Q6 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-2xs transition-all duration-200 open:border-blue-500 open:shadow-sm">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-navy-900 cursor-pointer list-none select-none">
+            <span class="flex items-center gap-2.5">
+              <span class="text-blue-600">🤝</span>
+              Bagaimana cara berkontribusi ke project STORIQ?
+            </span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 group-open:text-blue-600 transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-slate-100 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p>
+              STORIQ adalah proyek <em>open-source</em> berlisensi MIT. Kamu bisa berkontribusi dengan cara:
+            </p>
+            <ol class="list-decimal list-inside mt-2 space-y-1 text-xs sm:text-sm">
+              <li>Kunjungi repository di <a href="https://github.com/andrean-lp/storiq" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-medium hover:underline">GitHub andrean-lp/storiq</a>.</li>
+              <li>Fork repository tersebut ke akun GitHub kamu.</li>
+              <li>Buat branch baru untuk perbaikan bug atau penambahan template/fitur baru.</li>
+              <li>Kirimkan <strong>Pull Request (PR)</strong> agar bisa kami review dan gabungkan!</li>
+            </ol>
+            <p class="mt-2 text-xs sm:text-sm text-slate-500">
+              Jangan lupa memberikan Star ⭐ di repo jika aplikasi ini membantumu ya!
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. CTA SECTION (navy-800 bg) ==================== -->
+  <section class="bg-navy-800 text-white py-16 sm:py-20 relative overflow-hidden border-t border-navy-700">
+    <!-- Decorative background glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs sm:text-sm font-semibold mb-5">
+        🚀 Waktunya Eksekusi
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        Sudah Siap Mengubah Ide Menjadi Konten Berkualitas?
+      </h2>
+      
+      <p class="text-slate-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto mt-4 leading-relaxed">
+        Buka halaman generator sekarang, pilih framework storytelling favoritmu, dan hasilkan konten pertamamu dalam kurang dari 3 menit!
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+        <a
+          href={`${baseUrl}generator/`}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-base transition-all duration-200 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transform hover:-translate-y-0.5"
+        >
+          Buka Generator Sekarang
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+        <a
+          href={`${baseUrl}framework/`}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-navy-700 hover:bg-navy-600 text-slate-200 hover:text-white font-semibold text-base transition-all duration-200 border border-navy-600"
+        >
+          Pelajari 10 Framework Storytelling
+        </a>
+      </div>
+
+      <div class="mt-8 flex items-center justify-center gap-6 text-xs text-slate-400">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          Gratis Tanpa Biaya
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          Tanpa Kartu Kredit
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          Langsung Pakai
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>
