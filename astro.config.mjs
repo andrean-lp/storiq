@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://andrean-lp.github.io',
-  base: '/storiq',
+  base: '/storiq/',
   vite: {
     plugins: [tailwindcss()],
   },
