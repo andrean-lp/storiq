@@ -244,6 +244,18 @@ const baseUrl = import.meta.env.BASE_URL;
 2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.
 3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram.</p>
         </div>
+
+        <!-- Threads -->
+        <div class="border border-slate-200 rounded-lg p-4 bg-white">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold text-sm text-slate-800">🧵 Threads</span>
+            <button onclick="copyVisualPrompt('threads')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
+          </div>
+          <p id="prompt-threads" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten di atas:
+1. Rangkum dan pecah menjadi serial postingan Threads (3-5 post ringkas, padat insight, dan tidak terlalu panjang).
+2. Buat Hook yang memikat di post pertama, 2-3 post inti (maksimal 2-3 kalimat per post agar nyaman dibaca cepat), dan 1 post penutup yang mengundang diskusi/komentar.
+3. LANGSUNG GENERATE GAMBAR: Buatkan dan render langsung 1 gambar visual pendukung yang relevan untuk post pertama Threads (rasio 1:1 square, gaya clean & modern) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.</p>
+        </div>
       </div>
 
       <!-- Instruksi Chat yang Sama & Tombol AI -->
