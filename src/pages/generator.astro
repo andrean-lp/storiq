@@ -103,7 +103,7 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
 
     <!-- STEP 2: Pilih Mode & Generate -->
     <section id="step-2" class="step-panel hidden">
-      <h2 class="text-2xl font-bold text-slate-800 mb-1">⚡ Pilih Mode & Generate</h2>
+      <h2 class="text-2xl font-bold text-slate-800 mb-1">⚡ Pilih Mode</h2>
       <p class="text-slate-500 mb-6">Dua cara pakai — pilih yang paling nyaman buat kamu.</p>
 
       <!-- Mode Tabs -->
@@ -125,12 +125,8 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
           </p>
         </div>
 
-        <button id="btn-generate-prompt" onclick="generatePrompt()" class="w-full py-3.5 bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2">
-          <span>📋</span> Generate Prompt
-        </button>
-
         <!-- Generated Prompt Display -->
-        <div id="prompt-output" class="mt-8 hidden animate-fade-in">
+        <div id="prompt-output" class="animate-fade-in">
           <div class="mb-2">
             <label class="block text-sm font-semibold text-slate-700">Hasil Prompt (Siap Copy-Paste):</label>
           </div>
@@ -350,6 +346,11 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
     document.querySelectorAll('.step-panel').forEach(p => p.classList.add('hidden'));
     document.getElementById(`step-${step}`)?.classList.remove('hidden');
 
+    // Auto-generate prompt when entering Step 2
+    if (step === 2) {
+      generatePrompt(null, true);
+    }
+
     // Update indicators
     document.querySelectorAll('.step-dot').forEach(dot => {
       const s = parseInt(dot.dataset.step);
@@ -424,6 +425,7 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
       apiTab.classList.add('border-transparent', 'text-slate-500');
       promptPanel.classList.remove('hidden');
       apiPanel.classList.add('hidden');
+      generatePrompt(null, true);
     }
   };
 
@@ -449,17 +451,16 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
   }
 
   // --- Mode 2: Generate Prompt ---
-  window.generatePrompt = function(formatOverride = null) {
+  window.generatePrompt = function(formatOverride = null, silent = false) {
     const data = getFormData(formatOverride);
     if (!data.topik) {
-      showToast('⚠️ Tulis topik dulu ya!');
+      if (!silent) showToast('⚠️ Tulis topik dulu ya!');
       goToStep(1);
       return;
     }
     const prompt = buildPrompt(data);
     document.getElementById('prompt-text').value = prompt;
-    document.getElementById('prompt-output').classList.remove('hidden');
-    showToast('✅ Prompt berhasil dibuat! Copy dan paste ke AI favoritmu.');
+    if (!silent) showToast('✨ Prompt berhasil dibuat! Copy dan paste ke AI favoritmu.');
   };
 
   window.copyPrompt = function() {
