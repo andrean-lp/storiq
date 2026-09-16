@@ -16,19 +16,24 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
           <span class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center font-bold">1</span>
           <span class="hidden sm:block">Ide</span>
         </button>
-        <div class="flex-1 h-0.5 bg-navy-600 mx-2"></div>
+        <div class="flex-1 h-0.5 bg-navy-600 mx-1 sm:mx-2"></div>
         <button data-step="2" class="step-dot flex flex-col items-center gap-1">
           <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">2</span>
           <span class="hidden sm:block">Framework</span>
         </button>
-        <div class="flex-1 h-0.5 bg-navy-600 mx-2"></div>
+        <div class="flex-1 h-0.5 bg-navy-600 mx-1 sm:mx-2"></div>
         <button data-step="3" class="step-dot flex flex-col items-center gap-1">
           <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">3</span>
           <span class="hidden sm:block">Mode</span>
         </button>
-        <div class="flex-1 h-0.5 bg-navy-600 mx-2"></div>
+        <div class="flex-1 h-0.5 bg-navy-600 mx-1 sm:mx-2"></div>
         <button data-step="4" class="step-dot flex flex-col items-center gap-1">
           <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">4</span>
+          <span class="hidden sm:block">Proses</span>
+        </button>
+        <div class="flex-1 h-0.5 bg-navy-600 mx-1 sm:mx-2"></div>
+        <button data-step="5" class="step-dot flex flex-col items-center gap-1">
+          <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">5</span>
           <span class="hidden sm:block">Hasil</span>
         </button>
       </div>
@@ -232,8 +237,28 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
       </div>
     </section>
 
-    <!-- STEP 4: Output -->
+    <!-- STEP 4: Proses -->
     <section id="step-4" class="step-panel hidden">
+      <h2 class="text-2xl font-bold text-slate-800 mb-1">⚙️ Proses Konten</h2>
+      <p class="text-slate-500 mb-6">Jika kamu menggunakan AI eksternal, paste hasil kontenmu di bawah ini untuk melihat hasil akhir dan me-repurpose-nya.</p>
+      
+      <div class="mb-6">
+        <label for="pasted-content" class="block text-sm font-medium text-slate-700 mb-1">Hasil Konten AI</label>
+        <textarea id="pasted-content" rows="12" placeholder="Paste konten dari AI di sini..." class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-slate-800 font-mono text-sm resize-none"></textarea>
+      </div>
+
+      <div class="mt-8 flex justify-between items-center">
+        <button onclick="goToStep(3)" class="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
+          ← Kembali
+        </button>
+        <button onclick="processPastedContent()" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
+          Lanjut ke Hasil →
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 5: Output -->
+    <section id="step-5" class="step-panel hidden">
       <div class="flex items-center justify-between mb-1">
         <h2 class="text-2xl font-bold text-slate-800">✨ Hasil Konten</h2>
         <span id="output-format-badge" class="text-xs bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full font-medium"></span>
@@ -276,28 +301,28 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
         <div class="mt-6 border-t border-slate-200 pt-5">
           <h4 class="text-sm font-semibold text-slate-800 mb-3">🔄 Repurpose Konten Ini Ke:</h4>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
-            <button onclick="generateWithAPI('carousel')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="repurposeContent('carousel')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
               📱 Carousel IG
             </button>
-            <button onclick="generateWithAPI('thread')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="repurposeContent('thread')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
               🐦 X Thread
             </button>
-            <button onclick="generateWithAPI('caption')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="repurposeContent('caption')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
               💬 Caption
             </button>
-            <button onclick="generateWithAPI('video')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="repurposeContent('video')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
               🎬 Video Script
             </button>
-            <button onclick="generateWithAPI('quote')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="repurposeContent('quote')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
               💡 Quote Image
             </button>
-            <button onclick="generateWithAPI('linkedin')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="repurposeContent('linkedin')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
               💼 LinkedIn Post
             </button>
-            <button onclick="generateWithAPI('pinterest')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="repurposeContent('pinterest')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
               📌 Pinterest Pin
             </button>
-            <button onclick="generateWithAPI('blog')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
+            <button onclick="repurposeContent('blog')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
               📝 Artikel Blog
             </button>
           </div>
@@ -462,6 +487,39 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
     navigator.clipboard.writeText(text).then(() => showToast('📋 Prompt berhasil di-copy!'));
   };
 
+  // --- Proses Paste Content ---
+  window.processPastedContent = function() {
+    const pasted = document.getElementById('pasted-content').value.trim();
+    if (!pasted) {
+      showToast('⚠️ Paste dulu konten dari AI kalian ya!');
+      return;
+    }
+    const data = getFormData();
+    
+    // Go to step 5
+    goToStep(5);
+    document.getElementById('output-format-badge').textContent = getFormatLabel(data.format);
+    
+    // Hide loading/error, show content directly
+    document.getElementById('output-loading').classList.add('hidden');
+    document.getElementById('output-error').classList.add('hidden');
+    document.getElementById('output-content').classList.remove('hidden');
+    
+    // Display pasted text
+    document.getElementById('output-text').textContent = pasted;
+  };
+
+  // --- Repurpose Content ---
+  window.repurposeContent = function(format) {
+    const apiKey = document.getElementById('apikey').value.trim();
+    if (apiKey) {
+      generateWithAPI(format);
+    } else {
+      generatePrompt(format);
+      goToStep(3); // Kembali ke step 3 untuk copy prompt baru
+    }
+  };
+
   // --- Mode 2: Generate with API (SumoPod) ---
   window.generateWithAPI = async function(formatOverride = null) {
     const data = getFormData(formatOverride);
@@ -480,7 +538,7 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
     }
 
     // Go to output step
-    goToStep(4);
+    goToStep(5);
     document.getElementById('output-format-badge').textContent = getFormatLabel(data.format);
     document.getElementById('output-loading').classList.remove('hidden');
     document.getElementById('output-content').classList.add('hidden');
