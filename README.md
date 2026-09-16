@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="public/logo-128.webp" alt="STORIQ Logo" width="100" height="100" style="border-radius: 22px; margin-bottom: 12px;" />
+
 # STORIQ
 
 ### Content Repurposing Engine

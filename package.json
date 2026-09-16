@@ -25,5 +25,8 @@
   ],
   "author": "Andre Wahyu Hermawan",
   "license": "MIT",
-  "homepage": "https://andrean-lp.github.io/storiq/"
+  "homepage": "https://andrean-lp.github.io/storiq/",
+  "devDependencies": {
+    "sharp": "^0.35.4"
+  }
 }

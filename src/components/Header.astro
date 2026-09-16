@@ -15,9 +15,15 @@ const navLinks = [
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
     <!-- Logo -->
     <a href={baseUrl} class="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg tracking-tight group">
-      <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-black shadow-xs shadow-indigo-500/20 group-hover:bg-indigo-700 transition-colors">
-        S
-      </div>
+      <img
+        src={`${baseUrl}logo-128.webp`}
+        alt="STORIQ Logo"
+        width="32"
+        height="32"
+        class="w-8 h-8 rounded-xl shadow-xs shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-150 object-cover"
+        loading="eager"
+        decoding="async"
+      />
       <span class="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">STORIQ</span>
     </a>
 
