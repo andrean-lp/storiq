@@ -182,20 +182,6 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
             </div>
           </div>
 
-          <!-- Actions (Repurpose Prompt) -->
-          <div class="border-t border-slate-200 pt-5">
-            <h4 class="text-sm font-semibold text-slate-800 mb-3">🔄 Generate Ulang Prompt Untuk Format Lain:</h4>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              <button onclick="generatePrompt('carousel')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">📱 Carousel IG</button>
-              <button onclick="generatePrompt('thread')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">🐦 X Thread</button>
-              <button onclick="generatePrompt('caption')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">💬 Caption</button>
-              <button onclick="generatePrompt('video')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">🎬 Video Script</button>
-              <button onclick="generatePrompt('quote')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">💡 Quote Image</button>
-              <button onclick="generatePrompt('linkedin')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">💼 LinkedIn Post</button>
-              <button onclick="generatePrompt('pinterest')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">📌 Pinterest Pin</button>
-              <button onclick="generatePrompt('blog')" class="p-2 border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">📝 Artikel Blog</button>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -230,9 +216,12 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
         </div>
       </div>
 
-      <div class="mt-8 flex justify-between">
+      <div class="mt-8 flex justify-between items-center">
         <button onclick="goToStep(2)" class="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
           ← Kembali
+        </button>
+        <button onclick="goToStep(4)" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
+          Lanjut →
         </button>
       </div>
     </section>
