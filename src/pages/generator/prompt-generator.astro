@@ -106,7 +106,7 @@ const baseUrl = import.meta.env.BASE_URL;
       </div>
 
       <div class="mt-8 flex justify-end">
-        <button onclick="goToStep(2)" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
+        <button id="btn-next-step-1" onclick="goToStep(2)" disabled class="px-6 py-3 bg-slate-200 text-slate-400 cursor-not-allowed rounded-lg font-medium transition-all">
           Lanjut: Salin Prompt →
         </button>
       </div>
@@ -190,7 +190,7 @@ const baseUrl = import.meta.env.BASE_URL;
         <button onclick="goToStep(1)" class="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
           ← Kembali
         </button>
-        <button onclick="processPastedContent()" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
+        <button id="btn-next-step-2" onclick="processPastedContent()" disabled class="px-6 py-3 bg-slate-200 text-slate-400 cursor-not-allowed rounded-lg font-medium transition-all">
           Lanjut ke Hasil Visual →
         </button>
       </div>
@@ -427,4 +427,47 @@ const baseUrl = import.meta.env.BASE_URL;
     toast.classList.remove('translate-y-20', 'opacity-0');
     setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 2500);
   }
+
+  // --- Real-time Form Validation (Disable Button until Filled) ---
+  function checkStep1Validation() {
+    const topik = document.getElementById('topik')?.value.trim();
+    const audiens = document.getElementById('audiens')?.value.trim();
+    const tujuan = document.getElementById('tujuan')?.value.trim();
+    const btn = document.getElementById('btn-next-step-1');
+    
+    const isValid = !!(topik && audiens && tujuan);
+    if (btn) {
+      btn.disabled = !isValid;
+      if (isValid) {
+        btn.className = 'px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all shadow-md hover:shadow-blue-500/25 cursor-pointer';
+      } else {
+        btn.className = 'px-6 py-3 bg-slate-200 text-slate-400 cursor-not-allowed rounded-lg font-medium transition-all';
+      }
+    }
+  }
+
+  function checkStep2Validation() {
+    const pasted = document.getElementById('pasted-content')?.value.trim();
+    const btn = document.getElementById('btn-next-step-2');
+    const isValid = !!pasted;
+    if (btn) {
+      btn.disabled = !isValid;
+      if (isValid) {
+        btn.className = 'px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all shadow-md hover:shadow-blue-500/25 cursor-pointer';
+      } else {
+        btn.className = 'px-6 py-3 bg-slate-200 text-slate-400 cursor-not-allowed rounded-lg font-medium transition-all';
+      }
+    }
+  }
+
+  ['topik', 'audiens', 'tujuan'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', checkStep1Validation);
+  });
+  document.getElementById('pasted-content')?.addEventListener('input', checkStep2Validation);
+
+  // Check on load
+  document.addEventListener('DOMContentLoaded', () => {
+    checkStep1Validation();
+    checkStep2Validation();
+  });
 </script>

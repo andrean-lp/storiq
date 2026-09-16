@@ -114,7 +114,7 @@ const baseUrl = import.meta.env.BASE_URL;
           <p class="text-sm text-emerald-700 mb-5 max-w-md">
             Koneksi API SumoPod aktif. Klik tombol di bawah untuk langsung men-generate konten storytelling.
           </p>
-          <button id="btn-generate-api" onclick="generateWithAPI()" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-blue-500/30 flex items-center gap-2 hover:scale-[1.02]">
+          <button id="btn-generate-api" onclick="generateWithAPI()" disabled class="px-8 py-4 bg-slate-200 text-slate-400 cursor-not-allowed rounded-xl font-bold text-lg transition-all shadow-md flex items-center gap-2">
             <span>⚡</span> Mulai Generate Otomatis
           </button>
           <a href={`${baseUrl}pengaturan/`} class="mt-4 text-xs text-slate-500 hover:text-slate-700 underline">
@@ -426,8 +426,31 @@ const baseUrl = import.meta.env.BASE_URL;
     setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 2500);
   }
 
+  // --- Form Validation (Disable Button until Filled) ---
+  function checkFormValidation() {
+    const topik = document.getElementById('topik')?.value.trim();
+    const audiens = document.getElementById('audiens')?.value.trim();
+    const tujuan = document.getElementById('tujuan')?.value.trim();
+    const btn = document.getElementById('btn-generate-api');
+    const isValid = !!(topik && audiens && tujuan);
+
+    if (btn) {
+      btn.disabled = !isValid;
+      if (isValid) {
+        btn.className = 'px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-blue-500/30 flex items-center gap-2 hover:scale-[1.02] cursor-pointer';
+      } else {
+        btn.className = 'px-8 py-4 bg-slate-200 text-slate-400 cursor-not-allowed rounded-xl font-bold text-lg transition-all shadow-md flex items-center gap-2';
+      }
+    }
+  }
+
+  ['topik', 'audiens', 'tujuan'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', checkFormValidation);
+  });
+
   // --- Check API Key on Load ---
   document.addEventListener('DOMContentLoaded', () => {
+    checkFormValidation();
     const sumopodKey = getApiKey('sumopod');
     const connectedPanel = document.getElementById('sumopod-state-connected');
     const disconnectedPanel = document.getElementById('sumopod-state-disconnected');
