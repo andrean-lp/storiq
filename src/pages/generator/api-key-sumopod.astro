@@ -217,10 +217,10 @@ const baseUrl = import.meta.env.BASE_URL;
                 <span class="font-semibold text-sm text-slate-800">📱 Carousel</span>
                 <button onclick="copyVisualPrompt('carousel')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
               </div>
-              <p id="prompt-carousel" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas, tolong pecah menjadi 5-7 slide Carousel. Untuk setiap slide, berikan:
-1. Teks Headline (max 10 kata)
-2. Teks Body (max 2 kalimat)
-3. Visual Direction (ide visual/ikon pendukung yang relevan)</p>
+              <p id="prompt-carousel" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas:
+1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
+2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), rasio 1:1 atau 4:5 portrait, gaya clean & modern.
+3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu.</p>
             </div>
 
             <!-- Infografis -->
@@ -229,7 +229,10 @@ const baseUrl = import.meta.env.BASE_URL;
                 <span class="font-semibold text-sm text-slate-800">📊 Infografis</span>
                 <button onclick="copyVisualPrompt('infografis')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
               </div>
-              <p id="prompt-infografis" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas, tolong ekstrak data, langkah-langkah, atau poin utama untuk dijadikan desain Infografis. Berikan struktur hierarki informasinya (Judul utama, sub-judul, poin-poin singkat) agar mudah didesain secara visual.</p>
+              <p id="prompt-infografis" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas:
+1. Rangkum poin-poin utama, data, atau langkah-langkah secara terstruktur dan ringkas.
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram.</p>
             </div>
           </div>
 
