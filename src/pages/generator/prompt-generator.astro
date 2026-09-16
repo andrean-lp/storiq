@@ -208,6 +208,71 @@ const baseUrl = import.meta.env.BASE_URL;
                 </div>
               </label>
             </div>
+
+            <!-- Fitur Warna Utama Brand (Primary Brand Color) -->
+            <div class="mt-3 p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
+              <label class="flex items-start gap-3.5 cursor-pointer select-none">
+                <div class="flex items-center h-5 mt-0.5">
+                  <input
+                    type="checkbox"
+                    id="toggle-brand-color-step2"
+                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer transition-all"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                      🎨 Warna Utama Brand (Primary Brand Color)
+                    </span>
+                    <span class="text-[11px] font-semibold px-2.5 py-0.5 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200/60">
+                      Seragamkan Feed Sosmed
+                    </span>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                    Centang untuk menetapkan <strong>kode warna utama brand</strong> (contoh: <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-[11px] font-mono">#4F46E5</code> atau <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-[11px] font-mono">#0055A5</code>) agar seluruh gambar dan cover memiliki nuansa warna yang seragam di Instagram, LinkedIn, & blog.
+                  </p>
+                </div>
+              </label>
+
+              <!-- Color Input Area (Muncul saat dicentang) -->
+              <div id="brand-color-container-step2" class="mt-3 pt-3 border-t border-slate-100 hidden">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                  <div class="flex items-center gap-2.5">
+                    <div class="relative w-10 h-10 rounded-lg overflow-hidden border border-slate-300 shadow-2xs shrink-0 cursor-pointer">
+                      <input
+                        type="color"
+                        id="color-picker-step2"
+                        value="#4F46E5"
+                        class="absolute -top-2 -left-2 w-14 h-14 cursor-pointer border-0 p-0"
+                        title="Klik untuk memilih warna dari palet"
+                      />
+                    </div>
+                    <div class="relative">
+                      <input
+                        type="text"
+                        id="color-hex-step2"
+                        value="#4F46E5"
+                        placeholder="#4F46E5"
+                        maxlength="7"
+                        class="w-28 px-3 py-2 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Quick Presets -->
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="text-[11px] text-slate-400 mr-1 font-medium">Preset:</span>
+                    <button type="button" onclick="setBrandColorPreset('#4F46E5')" class="w-6 h-6 rounded-full bg-[#4F46E5] hover:scale-110 transition-transform shadow-xs" title="Indigo (#4F46E5)"></button>
+                    <button type="button" onclick="setBrandColorPreset('#2563EB')" class="w-6 h-6 rounded-full bg-[#2563EB] hover:scale-110 transition-transform shadow-xs" title="Royal Blue (#2563EB)"></button>
+                    <button type="button" onclick="setBrandColorPreset('#0284C7')" class="w-6 h-6 rounded-full bg-[#0284C7] hover:scale-110 transition-transform shadow-xs" title="Sky Cyan (#0284C7)"></button>
+                    <button type="button" onclick="setBrandColorPreset('#059669')" class="w-6 h-6 rounded-full bg-[#059669] hover:scale-110 transition-transform shadow-xs" title="Emerald (#059669)"></button>
+                    <button type="button" onclick="setBrandColorPreset('#EA580C')" class="w-6 h-6 rounded-full bg-[#EA580C] hover:scale-110 transition-transform shadow-xs" title="Orange (#EA580C)"></button>
+                    <button type="button" onclick="setBrandColorPreset('#DC2626')" class="w-6 h-6 rounded-full bg-[#DC2626] hover:scale-110 transition-transform shadow-xs" title="Red (#DC2626)"></button>
+                    <button type="button" onclick="setBrandColorPreset('#0F172A')" class="w-6 h-6 rounded-full bg-[#0F172A] hover:scale-110 transition-transform shadow-xs" title="Dark Slate (#0F172A)"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -234,26 +299,75 @@ const baseUrl = import.meta.env.BASE_URL;
         <p class="text-xs text-indigo-700">Pecah artikel/konten di atas menjadi format visual. Copy prompt di bawah ini dan paste ke chat AI yang sama untuk mendapatkan ide desainnya.</p>
       </div>
 
-      <!-- Status & Toggle Mode Faceless di Step 3 -->
-      <div class="bg-white border border-slate-200 rounded-xl p-3.5 sm:p-4 mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
-        <label class="flex items-center gap-3 cursor-pointer select-none">
-          <input
-            type="checkbox"
-            id="toggle-faceless-step3"
-            class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer"
-          />
-          <div>
-            <span class="text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-1.5">
-              👤 Mode Karakter Tanpa Wajah (Faceless)
-            </span>
-            <span class="text-[11px] text-slate-500 block sm:inline">
-              Otomatis hilangkan alis, mata, hidung, & mulut pada prompt visual
-            </span>
+      <!-- Pengaturan Desain Visual (Faceless & Warna Brand) di Step 3 -->
+      <div class="bg-white border border-slate-200 rounded-xl p-4 mb-5 shadow-2xs space-y-3.5">
+        <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Pengaturan Desain Visual (Opsional)</span>
+          <span class="text-[11px] text-slate-500 hidden sm:inline">Prompt di bawah ter-update otomatis</span>
+        </div>
+
+        <!-- Faceless Toggle -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <label class="flex items-center gap-3 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              id="toggle-faceless-step3"
+              class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer"
+            />
+            <div>
+              <span class="text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                👤 Karakter Tanpa Wajah (Faceless)
+              </span>
+              <span class="text-[11px] text-slate-500 block sm:inline">
+                Tanpa alis, mata, hidung & mulut
+              </span>
+            </div>
+          </label>
+          <span id="faceless-badge-step3" class="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-slate-100 text-slate-600 self-start sm:self-center">
+            Standar (Wajah Utuh)
+          </span>
+        </div>
+
+        <!-- Brand Color Toggle -->
+        <div class="pt-3 border-t border-slate-100">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <label class="flex items-center gap-3 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                id="toggle-brand-color-step3"
+                class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer"
+              />
+              <div>
+                <span class="text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                  🎨 Warna Utama Brand (Primary Color)
+                </span>
+                <span class="text-[11px] text-slate-500 block sm:inline">
+                  Seragamkan nuansa feed sosmed
+                </span>
+              </div>
+            </label>
+
+            <!-- Color Picker & Input di Step 3 -->
+            <div id="brand-color-controls-step3" class="flex items-center gap-2 hidden">
+              <div class="relative w-8 h-8 rounded-lg overflow-hidden border border-slate-300 shadow-2xs shrink-0 cursor-pointer">
+                <input
+                  type="color"
+                  id="color-picker-step3"
+                  value="#4F46E5"
+                  class="absolute -top-2 -left-2 w-12 h-12 cursor-pointer border-0 p-0"
+                />
+              </div>
+              <input
+                type="text"
+                id="color-hex-step3"
+                value="#4F46E5"
+                placeholder="#4F46E5"
+                maxlength="7"
+                class="w-24 px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none"
+              />
+            </div>
           </div>
-        </label>
-        <span id="faceless-badge-step3" class="text-xs px-2.5 py-1 rounded-full font-semibold bg-slate-100 text-slate-600 self-start sm:self-center">
-          Standar (Wajah Utuh)
-        </span>
+        </div>
       </div>
       
       <div class="space-y-4 mb-6">
@@ -491,44 +605,80 @@ const baseUrl = import.meta.env.BASE_URL;
     goToStep(3);
   };
 
-  // --- Faceless Mode & Visual Prompts ---
-  const visualPromptTemplates = {
-    single: {
-      normal: `Berdasarkan konten di atas:
-1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
-2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, rasio 1:1 (square), gaya modern, clean, dan relatable.
-3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram.`,
-      faceless: `Berdasarkan konten di atas:
-1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
-2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, rasio 1:1 (square), gaya modern, clean, dan relatable.
-* PENTING (ATURAN WAJAH): Jika terdapat karakter / figur manusia dalam gambar, WAJIB dibuat TANPA fitur wajah (FACELESS: hilangkan alis, mata, hidung, dan mulut — permukaan wajah polos mulus / blank smooth face, hanya rambut, telinga, pakaian, dan gestur tubuh yang tampak, gaya 3D clay / clean vector seperti poster infografis edukatif).
-3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (tambahkan deskripsi: "faceless minimalist character, blank smooth face, no facial features, no eyes, no eyebrows, no nose, no mouth, modern 3D clay illustration, clean aesthetic").`
-    },
-    carousel: {
-      normal: `Berdasarkan konten di atas:
-1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
-2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), rasio 1:1 atau 4:5 portrait, gaya clean & modern.
-3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu.`,
-      faceless: `Berdasarkan konten di atas:
-1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
-2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), rasio 1:1 atau 4:5 portrait, gaya clean & modern.
-* PENTING (ATURAN WAJAH): Jika ada ilustrasi karakter manusia pada cover/slide, WAJIB dibuat TANPA fitur wajah (FACELESS: hilangkan alis, mata, hidung, dan mulut — wajah polos mulus / blank smooth face, gaya 3D infografis modern).
-3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu (sertakan: "faceless character, blank smooth face, no eyes, no eyebrows, no nose, no mouth, 3D clay style").`
-    },
-    infografis: {
-      normal: `Berdasarkan konten di atas:
-1. Rangkum poin-poin utama, data, atau langkah-langkah secara terstruktur dan ringkas.
-2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.
-3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram.`,
-      faceless: `Berdasarkan konten di atas:
-1. Rangkum poin-poin utama, data, atau langkah-langkah secara terstruktur dan ringkas.
-2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.
-* PENTING (ATURAN WAJAH): Jika terdapat karakter / figur manusia pada poster infografis, WAJIB dibuat TANPA fitur wajah (FACELESS: hilangkan alis, mata, hidung, dan mulut — permukaan wajah polos mulus / blank smooth face, hanya rambut dan gestur tubuh, gaya 3D infografis edukatif).
-3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (sertakan: "faceless 3D character, blank smooth face, no facial features, no eyes, no nose, no mouth, no eyebrows, educational infographic poster design").`
-    }
-  };
-
+  // --- Visual Settings (Faceless & Brand Color) ---
   let isFacelessActive = false;
+  let isBrandColorActive = false;
+  let brandColorHex = '#4F46E5';
+
+  function sanitizeHex(val) {
+    let cleaned = val.trim();
+    if (!cleaned.startsWith('#')) cleaned = '#' + cleaned;
+    if (cleaned.length > 7) cleaned = cleaned.slice(0, 7);
+    return cleaned.toUpperCase();
+  }
+
+  function getVisualPrompt(type, isFaceless, isColorActive, colorHex, isSumopod = false) {
+    const prefix = isSumopod ? 'Berdasarkan konten artikel di atas:' : 'Berdasarkan konten di atas:';
+    const colorInstruction = isColorActive
+      ? `\n* WARNA UTAMA BRAND: Wajib terapkan warna primer brand kode hex ${colorHex} (beserta palet aksen turunan senada) sebagai warna dominan pada elemen grafis, badge teks, latar/frame, atau pakaian karakter agar feed media sosial seragam dan konsisten.`
+      : '';
+    const colorEnglish = isColorActive
+      ? `, primary brand color hex ${colorHex}, cohesive brand visual identity palette`
+      : '';
+
+    if (type === 'single') {
+      const faceInstruction = isFaceless
+        ? `\n* PENTING (ATURAN WAJAH): Jika terdapat karakter / figur manusia dalam gambar, WAJIB dibuat TANPA fitur wajah (FACELESS: hilangkan alis, mata, hidung, dan mulut — permukaan wajah polos mulus / blank smooth face, hanya rambut, telinga, pakaian, dan gestur tubuh yang tampak, gaya 3D clay / clean vector seperti poster infografis edukatif).`
+        : '';
+      const faceEnglish = isFaceless
+        ? ', faceless minimalist character, blank smooth face, no facial features, no eyes, no eyebrows, no nose, no mouth'
+        : '';
+
+      return `${prefix}
+1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, rasio 1:1 (square), gaya modern, clean, dan relatable.${faceInstruction}${colorInstruction}
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (tambahkan deskripsi: "modern 3D clay illustration, clean aesthetic${faceEnglish}${colorEnglish}").`;
+    }
+
+    if (type === 'carousel') {
+      const faceInstruction = isFaceless
+        ? `\n* PENTING (ATURAN WAJAH): Jika ada ilustrasi karakter manusia pada cover/slide, WAJIB dibuat TANPA fitur wajah (FACELESS: hilangkan alis, mata, hidung, dan mulut — wajah polos mulus / blank smooth face, gaya 3D infografis modern).`
+        : '';
+      const faceEnglish = isFaceless
+        ? ', faceless character, blank smooth face, no eyes, no eyebrows, no nose, no mouth'
+        : '';
+
+      return `${prefix}
+1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
+2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), rasio 1:1 atau 4:5 portrait, gaya clean & modern.${faceInstruction}${colorInstruction}
+3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu (sertakan: "clean modern carousel cover, 3D clay style${faceEnglish}${colorEnglish}").`;
+    }
+
+    if (type === 'infografis') {
+      const faceInstruction = isFaceless
+        ? `\n* PENTING (ATURAN WAJAH): Jika terdapat karakter / figur manusia pada poster infografis, WAJIB dibuat TANPA fitur wajah (FACELESS: hilangkan alis, mata, hidung, dan mulut — permukaan wajah polos mulus / blank smooth face, hanya rambut dan gestur tubuh, gaya 3D infografis edukatif).`
+        : '';
+      const faceEnglish = isFaceless
+        ? ', faceless 3D character, blank smooth face, no facial features, no eyes, no nose, no mouth, no eyebrows'
+        : '';
+
+      return `${prefix}
+1. Rangkum poin-poin utama, data, atau langkah-langkah secara terstruktur dan ringkas.
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.${faceInstruction}${colorInstruction}
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (sertakan: "educational infographic poster design, modern 3D vector illustration${faceEnglish}${colorEnglish}").`;
+    }
+
+    return '';
+  }
+
+  function renderVisualPrompts() {
+    ['single', 'carousel', 'infografis'].forEach(type => {
+      const el = document.getElementById(`prompt-${type}`);
+      if (el) {
+        el.innerText = getVisualPrompt(type, isFacelessActive, isBrandColorActive, brandColorHex, false);
+      }
+    });
+  }
 
   function updateFacelessMode(active, notify = true) {
     isFacelessActive = active;
@@ -542,20 +692,14 @@ const baseUrl = import.meta.env.BASE_URL;
     if (badgeStep3) {
       if (active) {
         badgeStep3.textContent = '✓ Tanpa Wajah Aktif';
-        badgeStep3.className = 'text-xs px-2.5 py-1 rounded-full font-semibold bg-amber-100 text-amber-800 border border-amber-300 shrink-0';
+        badgeStep3.className = 'text-xs px-2.5 py-0.5 rounded-full font-semibold bg-amber-100 text-amber-800 border border-amber-300 shrink-0';
       } else {
         badgeStep3.textContent = 'Standar (Wajah Utuh)';
-        badgeStep3.className = 'text-xs px-2.5 py-1 rounded-full font-semibold bg-slate-100 text-slate-600 shrink-0';
+        badgeStep3.className = 'text-xs px-2.5 py-0.5 rounded-full font-semibold bg-slate-100 text-slate-600 shrink-0';
       }
     }
 
-    const mode = active ? 'faceless' : 'normal';
-    ['single', 'carousel', 'infografis'].forEach(type => {
-      const el = document.getElementById(`prompt-${type}`);
-      if (el && visualPromptTemplates[type]) {
-        el.innerText = visualPromptTemplates[type][mode];
-      }
-    });
+    renderVisualPrompts();
 
     if (notify) {
       showToast(active 
@@ -565,11 +709,103 @@ const baseUrl = import.meta.env.BASE_URL;
     }
   }
 
+  function updateBrandColorMode(active, notify = true) {
+    isBrandColorActive = active;
+    const chkStep2 = document.getElementById('toggle-brand-color-step2');
+    const chkStep3 = document.getElementById('toggle-brand-color-step3');
+    const containerStep2 = document.getElementById('brand-color-container-step2');
+    const controlsStep3 = document.getElementById('brand-color-controls-step3');
+
+    if (chkStep2) chkStep2.checked = active;
+    if (chkStep3) chkStep3.checked = active;
+
+    if (containerStep2) {
+      if (active) containerStep2.classList.remove('hidden');
+      else containerStep2.classList.add('hidden');
+    }
+    if (controlsStep3) {
+      if (active) controlsStep3.classList.remove('hidden');
+      else controlsStep3.classList.add('hidden');
+    }
+
+    renderVisualPrompts();
+
+    if (notify) {
+      showToast(active 
+        ? `🎨 Warna brand (${brandColorHex}) diaktifkan pada prompt visual!` 
+        : '🎨 Warna brand dinonaktifkan'
+      );
+    }
+  }
+
+  function applyBrandColorChange(hex, notify = false) {
+    const sanitized = sanitizeHex(hex);
+    brandColorHex = sanitized;
+
+    const inputHex2 = document.getElementById('color-hex-step2');
+    const picker2 = document.getElementById('color-picker-step2');
+    const inputHex3 = document.getElementById('color-hex-step3');
+    const picker3 = document.getElementById('color-picker-step3');
+
+    if (inputHex2 && inputHex2.value !== sanitized) inputHex2.value = sanitized;
+    if (inputHex3 && inputHex3.value !== sanitized) inputHex3.value = sanitized;
+
+    if (/^#[0-9A-Fa-f]{6}$/.test(sanitized)) {
+      if (picker2) picker2.value = sanitized;
+      if (picker3) picker3.value = sanitized;
+    }
+
+    renderVisualPrompts();
+    if (notify) {
+      showToast(`🎨 Warna brand diubah ke ${sanitized}`);
+    }
+  }
+
+  window.setBrandColorPreset = function(hex) {
+    applyBrandColorChange(hex, true);
+    if (!isBrandColorActive) {
+      updateBrandColorMode(true, false);
+    }
+  };
+
   document.getElementById('toggle-faceless-step2')?.addEventListener('change', (e) => {
     updateFacelessMode(e.target.checked);
   });
   document.getElementById('toggle-faceless-step3')?.addEventListener('change', (e) => {
     updateFacelessMode(e.target.checked);
+  });
+
+  document.getElementById('toggle-brand-color-step2')?.addEventListener('change', (e) => {
+    updateBrandColorMode(e.target.checked);
+  });
+  document.getElementById('toggle-brand-color-step3')?.addEventListener('change', (e) => {
+    updateBrandColorMode(e.target.checked);
+  });
+
+  ['color-picker-step2', 'color-picker-step3'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', (e) => {
+      applyBrandColorChange(e.target.value);
+    });
+  });
+
+  ['color-hex-step2', 'color-hex-step3'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', (e) => {
+      let val = e.target.value.trim();
+      if (val && !val.startsWith('#')) val = '#' + val;
+      if (val.length > 7) val = val.slice(0, 7);
+      e.target.value = val.toUpperCase();
+      if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+        applyBrandColorChange(val);
+      }
+    });
+    document.getElementById(id)?.addEventListener('blur', (e) => {
+      let val = e.target.value.trim();
+      if (!val || !/^#[0-9A-Fa-f]{6}$/.test(val)) {
+        e.target.value = brandColorHex;
+      } else {
+        applyBrandColorChange(val, true);
+      }
+    });
   });
 
   // --- Copy Visual Prompt ---
