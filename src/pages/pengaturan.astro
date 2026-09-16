@@ -89,6 +89,110 @@ const baseUrl = import.meta.env.BASE_URL;
         </div>
       </div>
 
+      <!-- Card Penjelasan: Apa Itu SumoPod? -->
+      <div class="mt-8 bg-white border-2 border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="p-6 sm:p-8 border-b border-slate-100 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-100/70 text-indigo-700 text-xs font-semibold mb-2">
+              <span>🇮🇩</span>
+              <span>Karya Anak Bangsa</span>
+            </div>
+            <h2 class="text-xl font-bold text-slate-800">Apa Itu SumoPod?</h2>
+            <p class="text-sm text-slate-500 mt-0.5">Mengenal platform cloud dan AI Gateway yang menggerakkan generator otomatis STORIQ.</p>
+          </div>
+          <a 
+            href="https://sumopod.com/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-xl text-xs font-bold transition-colors shrink-0 self-start sm:self-center cursor-pointer"
+          >
+            <span>Kunjungi sumopod.com</span>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+
+        <div class="p-6 sm:p-8 space-y-6">
+          <!-- Ringkasan Resmi -->
+          <div class="prose prose-sm max-w-none text-slate-600 leading-relaxed space-y-3">
+            <p>
+              <strong class="text-slate-800">SumoPod</strong> (<a href="https://sumopod.com/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline font-semibold">sumopod.com</a>) adalah platform cloud modern (*Platform-as-a-Service* / PaaS) yang dikembangkan oleh <strong>PT Koding Kreasi Indonesia (KodingWorks)</strong>. SumoPod dirancang untuk menyederhanakan manajemen kontainer, hosting aplikasi, dan penyediaan <strong>AI API Gateway</strong> bagi developer, bisnis, dan kreator konten di Indonesia.
+            </p>
+            <p>
+              Di dalam ekosistem <strong>STORIQ</strong>, SumoPod bertindak sebagai jembatan cerdas (*AI Gateway*) yang menghubungkan aplikasi dengan model-model kecerdasan buatan kelas dunia (seperti DeepSeek dan model LLM lainnya) secara aman menggunakan konsep <em>Bring Your Own Key</em> (BYOK).
+            </p>
+          </div>
+
+          <!-- Grid Keunggulan SumoPod -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl border border-slate-200/90 bg-slate-50/60 hover:bg-slate-50 transition-colors">
+              <div class="flex items-center gap-2 mb-2 font-bold text-slate-800 text-sm">
+                <span>⚡</span>
+                <h4>AI API OpenAI-Compatible</h4>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Menyediakan akses mudah dan cepat ke model Generative AI canggih melalui antarmuka API standar industri tanpa konfigurasi yang rumit.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200/90 bg-slate-50/60 hover:bg-slate-50 transition-colors">
+              <div class="flex items-center gap-2 mb-2 font-bold text-slate-800 text-sm">
+                <span>🇮🇩</span>
+                <h4>Infrastruktur Server Lokal</h4>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Didukung data center berlatensi rendah di Jakarta dan metode pembayaran lokal (Rupiah & QRIS) tanpa keharusan kartu kredit luar negeri.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200/90 bg-slate-50/60 hover:bg-slate-50 transition-colors">
+              <div class="flex items-center gap-2 mb-2 font-bold text-slate-800 text-sm">
+                <span>🔒</span>
+                <h4>Privasi & Keamanan Terjamin</h4>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Kunci API dikelola langsung oleh pengguna dan hanya tersimpan di memori browser lokal, menjaga kerahasiaan data dan kuota penggunaan.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl border border-slate-200/90 bg-slate-50/60 hover:bg-slate-50 transition-colors">
+              <div class="flex items-center gap-2 mb-2 font-bold text-slate-800 text-sm">
+                <span>🚀</span>
+                <h4>Cocok untuk Otomasi Konten</h4>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Sangat ideal dipasangkan dengan STORIQ untuk mengubah ide mentah menjadi naskah artikel blog panjang, carousel, dan copywriting secara instan.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cara Mendapatkan API Key SumoPod -->
+          <div class="pt-6 border-t border-slate-100">
+            <h3 class="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
+              <span>📋</span>
+              <span>Cara Mendapatkan API Key SumoPod:</span>
+            </h3>
+            <ol class="text-xs sm:text-sm text-slate-600 space-y-2.5 list-decimal list-inside pl-1">
+              <li class="leading-relaxed">
+                Buka website resmi di <a href="https://sumopod.com/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline font-semibold">sumopod.com</a> dan lakukan pendaftaran akun (gratis).
+              </li>
+              <li class="leading-relaxed">
+                Masuk ke dashboard akun Anda, lalu navigasikan ke menu <strong>API Keys</strong> / <strong>AI Services</strong>.
+              </li>
+              <li class="leading-relaxed">
+                Klik tombol <strong>Create New API Key</strong>, lalu salin (*copy*) kunci API yang dihasilkan.
+              </li>
+              <li class="leading-relaxed">
+                Kembali ke halaman ini, tempelkan (*paste*) kuncinya ke form di atas, lalu klik <strong>"Simpan & Hubungkan"</strong>.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
