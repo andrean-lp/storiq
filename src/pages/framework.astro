@@ -5,223 +5,285 @@ import Footer from '../components/Footer.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
-const frameworksList = [
+const frameworks = [
   {
     id: 'storiq10',
-    title: 'STORIQ 10 Elemen',
-    creator: 'STORIQ Original',
-    badge: 'Paling Lengkap',
-    color: 'blue',
-    desc: 'Framework komprehensif yang dirancang khusus dengan menggabungkan psikologi bercerita dan arsitektur konversi (CRO). Framework ini memandu audiens dari kondisi tidak sadar masalah (unaware) hingga mantap mengambil tindakan.',
-    usage: 'Paling efektif untuk artikel blog, landing page, dan presentasi bisnis yang bertujuan langsung pada konversi/penjualan.',
-    steps: [
-      { num: '1', title: 'Context', detail: 'Pahami dunia dan kondisi audiens saat ini' },
-      { num: '2', title: 'Character', detail: 'Posisikan audiens sebagai protagonis/tokoh utama' },
-      { num: '3', title: 'Conflict', detail: 'Tunjukkan gap atau masalah nyata yang mereka rasakan' },
-      { num: '4', title: 'Desire', detail: 'Gambarkan kondisi ideal yang mereka inginkan' },
-      { num: '5', title: 'Discovery', detail: 'Buka perspektif baru ("Oh, ternyata ada cara!")' },
-      { num: '6', title: 'Mechanism', detail: 'Jelaskan cara kerja solusi secara sederhana' },
-      { num: '7', title: 'Proof', detail: 'Berikan bukti nyata (data, testimoni, studi kasus)' },
-      { num: '8', title: 'Transformation', detail: 'Tunjukkan perubahan before → after yang konkret' },
-      { num: '9', title: 'Risk Reduction', detail: 'Kurangi persepsi risiko (garansi, ekspektasi jelas)' },
-      { num: '10', title: 'Action', detail: 'Berikan langkah selanjutnya yang natural dan relevan' }
-    ]
+    name: 'STORIQ 10 Elemen',
+    creator: 'STORIQ Original (CRO & Psychology)',
+    badge: 'Paling Komprehensif',
+    desc: 'Framework terlengkap yang memadukan psikologi narasi dan Conversion Rate Optimization (CRO). Membimbing pembaca dari kondisi tidak sadar masalah (unaware) hingga siap mengambil aksi nyata.',
+    bestFor: 'Artikel blog mendalam, landing page produk, dan materi presentasi penawaran.',
+    points: [
+      'Context: Pahami kondisi dan lingkungan pembaca saat ini.',
+      'Character: Posisikan audiens sebagai tokoh utama (protagonis).',
+      'Conflict: Munculkan rasa frustrasi atau gap masalah yang belum terselesaikan.',
+      'Desire & Discovery: Gambarkan resolusi masa depan dan cara pandang baru.',
+      'Mechanism & Proof: Jelaskan cara kerja solusi secara logis dengan data/bukti konkret.',
+      'Transformation & Action: Tunjukkan kontras before-after dan ajak bertindak.'
+    ],
+    previewTitle: 'Contoh Blueprint Narasi STORIQ 10',
+    previewExample: {
+      hook: 'Banyak orang mengira konsistensi itu soal disiplin besi, padahal masalah sebenarnya ada pada sistem energi.',
+      conflict: 'Setiap hari merasa harus posting, tapi kehabisan ide di menit ke-10.',
+      mechanism: 'Repurposing Engine memecah 1 ide inti menjadi 10 turunan format tanpa menulis ulang.',
+      cta: 'Mulai bangun bank ide Anda sekarang sebelum burnout melanda.'
+    }
   },
   {
     id: 'heros_journey',
-    title: "The Hero's Journey",
+    name: "The Hero's Journey",
     creator: 'Joseph Campbell / Christopher Vogler',
-    badge: 'Legendaris',
-    color: 'amber',
-    desc: 'Kerangka naratif paling terkenal di dunia yang memetakan pola cerita mitologi hingga film Hollywood (seperti Star Wars). Dalam bisnis, framework ini menempatkan pelanggan sebagai Pahlawan (Hero) dan Brand sebagai Pemandu (Mentor).',
-    usage: 'Sangat cocok untuk konten inspiratif, studi kasus pelanggan, atau menceritakan kisah perjalanan hidup founder.',
-    steps: [
-      { num: '1', title: 'Status Quo', detail: 'Audiens berada di zona nyaman mereka, namun ada yang kurang.' },
-      { num: '2', title: 'Call to Adventure', detail: 'Tantangan, masalah, atau krisis mendadak muncul.' },
-      { num: '3', title: 'Meeting the Mentor', detail: 'Brand Anda hadir sebagai mentor pembawa alat/insight baru.' },
-      { num: '4', title: 'Crossing the Threshold', detail: 'Audiens mulai melangkah dan mencoba solusi yang ditawarkan.' },
-      { num: '5', title: 'The Ordeal', detail: 'Tantangan terbesar yang dihadapai dan berhasil diatasi.' },
-      { num: '6', title: 'The Reward', detail: 'Hasil gemilang dan transformasi positif yang dibawa pulang.' }
-    ]
+    badge: 'Format Legendaris',
+    desc: 'Kerangka narasi mitologi paling terkenal di dunia yang digunakan film-film box office. Dalam bisnis, pelanggan adalah sang Pahlawan (Hero) dan Brand adalah sang Pemandu (Mentor/Yoda).',
+    bestFor: 'Kisah perjalanan founder, studi kasus transformasi klien, dan video dokumenter.',
+    points: [
+      'Status Quo: Audiens berada di zona nyaman namun ada keresahan terpendam.',
+      'Call to Adventure: Panggilan tantangan atau krisis mendadak muncul.',
+      'Meeting the Mentor: Brand Anda hadir membawakan panduan dan alat baru.',
+      'Crossing the Threshold: Langkah berani pertama untuk mencoba solusi.',
+      'The Ordeal & Reward: Melewati ujian berat dan memetik hasil gemilang.'
+    ],
+    previewTitle: "Blueprint The Hero's Journey",
+    previewExample: {
+      hook: 'Tiga tahun lalu, bisnis saya hampir gulung tikar karena biaya iklan melonjak 400%.',
+      conflict: 'Uang tabungan menipis, tim mulai cemas, dan strategi lama tidak lagi manjur.',
+      mechanism: 'Saya beralih ke konten organik berbasis storytelling yang membangun kepercayaan jangka panjang.',
+      cta: 'Jika Anda sedang di fase terberat, tonton video ini untuk melihat solusinya.'
+    }
   },
   {
     id: 'storybrand',
-    title: 'The StoryBrand Framework',
+    name: 'The StoryBrand Framework (SB7)',
     creator: 'Donald Miller',
-    badge: 'Terpopuler di B2B',
-    color: 'emerald',
-    desc: 'Framework pemasaran yang sangat populer. Memadatkan perjalanan panjang pahlawan menjadi 7 elemen kunci yang langsung fokus pada pesan pemasaran agar tidak membingungkan audiens.',
-    usage: 'Sangat direkomendasikan untuk copywriting website, bio profil, dan skrip elevator pitch.',
-    steps: [
-      { num: '1', title: 'A Character', detail: 'Siapa pahlawannya (audiens) dan apa yang mereka inginkan?' },
-      { num: '2', title: 'Has a Problem', detail: 'Jelaskan masalah eksternal, internal, dan filosofis mereka.' },
-      { num: '3', title: 'And Meets a Guide', detail: 'Hadirkan brand Anda sebagai pemandu yang empati & berotoritas.' },
-      { num: '4', title: 'Who Gives a Plan', detail: 'Berikan 3 langkah yang sangat mudah untuk memulai.' },
-      { num: '5', title: 'Calls to Action', detail: 'Tantang mereka untuk bertindak secara langsung (beli/daftar).' },
-      { num: '6', title: 'Avoids Failure', detail: 'Bantu mereka menghindari konsekuensi buruk/kegagalan.' },
-      { num: '7', title: 'Ends in Success', detail: 'Gambarkan secara visual kesuksesan yang akan mereka raih.' }
-    ]
+    badge: 'Standar Pemasaran B2B',
+    desc: 'Menyederhanakan perjalanan cerita menjadi 7 elemen kunci pemasaran yang tajam. Fokus utamanya adalah kejelasan pesan agar audiens tidak mengalami kebingungan kognitif.',
+    bestFor: 'Copywriting homepage website, bio media sosial, dan pitch deck bisnis.',
+    points: [
+      'Karakter: Ketahui apa yang diinginkan oleh calon pelanggan.',
+      'Memiliki Masalah: Masalah eksternal (fakta), internal (emosi), dan filosofis.',
+      'Bertemu Pemandu: Tunjukkan empati dan otoritas tanpa bersikap sombong.',
+      'Menerima Rencana: Berikan 3 langkah yang sangat jelas dan mudah.',
+      'Panggilan Bertindak & Akhir Sukses: Ajakan bertindak dengan gambaran hasil positif.'
+    ],
+    previewTitle: 'Blueprint StoryBrand SB7',
+    previewExample: {
+      hook: 'Kelola seluruh stok dan keuangan tokomu tanpa perlu pusing mencatat manual.',
+      conflict: 'Sering tekor di akhir bulan karena stok barang tidak sinkron dengan catatan kasir.',
+      mechanism: 'Gunakan 3 langkah: Hubungkan perangkat -> Input produk -> Pantau omzet real-time.',
+      cta: 'Coba gratis selama 14 hari tanpa kartu kredit.'
+    }
   },
   {
-    id: 'andy_raskin',
-    title: 'Normal, Explosion, New Normal',
-    creator: 'Andy Raskin',
-    badge: 'Strategic Narrative',
-    color: 'violet',
-    desc: 'Bukan sekadar framework konten, melainkan kerangka "Strategic Narrative" level korporasi. Fokus utamanya bukan pada produk, melainkan pada pergeseran besar (shift) yang sedang terjadi di dunia.',
-    usage: 'Pilihan terbaik untuk pitch deck startup, presentasi visi perusahaan, atau manifesto brand.',
-    steps: [
-      { num: '1', title: 'The Old Normal', detail: 'Cara lama orang melakukan sesuatu (Status Quo).' },
-      { num: '2', title: 'The Explosion', detail: 'Perubahan/disrupsi besar di dunia yang membuat cara lama usang.' },
-      { num: '3', title: 'The New Normal', detail: 'Kondisi ideal (Promised Land) yang tercipta berkat disrupsi.' },
-      { num: '4', title: 'Magic Gifts', detail: 'Fitur/produk Anda yang membantu orang bertahan di New Normal.' },
-      { num: '5', title: 'The Proof', detail: 'Bukti nyata bahwa strategi dan alat ini benar-benar bekerja.' }
-    ]
+    id: 'pas',
+    name: 'Problem - Agitate - Solve (PAS)',
+    creator: 'Dan Kennedy',
+    badge: 'Formula Copywriting Tercepat',
+    desc: 'Formula copywriting klasik paling efektif di dunia untuk memicu rasa urgensi. Membuka masalah, memperdalam rasa sakitnya, lalu memberikan solusi sebagai obat penawarnya.',
+    bestFor: 'Postingan LinkedIn, carousel edukasi problem-aware, dan email broadcast promosi.',
+    points: [
+      'Problem: Sebutkan satu masalah spesifik yang dialami audiens saat ini.',
+      'Agitate: Gali konsekuensi buruk jika masalah tersebut dibiarkan berlarut-larut.',
+      'Solve: Hadirkan solusi Anda sebagai jawaban paling masuk akal dan praktis.'
+    ],
+    previewTitle: 'Blueprint Formula PAS',
+    previewExample: {
+      hook: 'Sudah posting setiap hari tapi followers dan penjualan tetap jalan di tempat?',
+      conflict: 'Makin hari engagement makin turun, waktu habis untuk bikin konten yang tidak menghasilkan.',
+      mechanism: 'Yang salah bukan algoritmanya, tapi struktur hook dan value yang Anda tawarkan.',
+      cta: 'Gunakan template storytelling ini untuk postingan Anda selanjutnya.'
+    }
   },
   {
-    id: 'pixar',
-    title: "Pixar's Story Spine",
-    creator: 'Kenn Adams / Pixar',
-    badge: 'Animasi & Emosi',
-    color: 'rose',
-    desc: 'Tulang punggung dari setiap film animasi Pixar (Toy Story, Finding Nemo, dll). Framework ini memaksakan hubungan sebab-akibat yang kuat sehingga cerita terasa mengalir lancar secara emosional.',
-    usage: 'Sempurna untuk format pendek seperti video script TikTok/Reels, atau carousel Instagram.',
-    steps: [
-      { num: '1', title: 'Once upon a time...', detail: 'Bangun konteks: Siapa mereka dan di mana mereka berada?' },
-      { num: '2', title: 'Every day...', detail: 'Rutinitas atau masalah yang mereka hadapi terus berulang.' },
-      { num: '3', title: 'Until one day...', detail: 'Titik balik atau penemuan baru yang mengubah segalanya.' },
-      { num: '4', title: 'Because of that...', detail: 'Dampak pertama atau langkah aksi dari penemuan tersebut.' },
-      { num: '5', title: 'Because of that...', detail: 'Dampak lanjutan atau rintangan yang berhasil dilalui.' },
-      { num: '6', title: 'Until finally...', detail: 'Resolusi akhir, transformasi, dan pesan moral cerita.' }
-    ]
+    id: 'aida',
+    name: 'Attention - Interest - Desire - Action (AIDA)',
+    creator: 'E. St. Elmo Lewis',
+    badge: 'Fondasi Periklanan Modern',
+    desc: 'Struktur bertahap klasik yang memandu perhatian audiens secara alami: menarik perhatian, membangun ketertarikan, memantik keinginan kuat, hingga mendorong aksi nyata.',
+    bestFor: 'Iklan bersponsor (Meta/Google Ads), carousel produk, dan landing page singkat.',
+    points: [
+      'Attention: Hook visual atau kalimat kontras yang menghentikan scroll.',
+      'Interest: Fakta menarik, studi kasus, atau data unik yang menahan rasa penasaran.',
+      'Desire: Menunjukkan bagaimana hidup audiens berubah setelah memiliki solusi.',
+      'Action: Perintah yang jelas tentang apa yang harus diklik atau dibeli sekarang.'
+    ],
+    previewTitle: 'Blueprint Formula AIDA',
+    previewExample: {
+      hook: '90% kreator menyerah di 3 bulan pertama karena alasan yang sama.',
+      conflict: 'Bukan karena malas, tapi karena kelelahan membuat konten dari nol setiap platform.',
+      mechanism: 'Dengan teknik atomisasi konten, 1 artikel bisa menjadi 10 postingan dalam 15 menit.',
+      cta: 'Download panduan gratisnya lewat link di bio.'
+    }
   },
   {
-    id: 'three_act',
-    title: 'The Three-Act Structure',
-    creator: 'Klasik Yunani / Aristoteles',
-    badge: 'Dasar Literasi',
-    color: 'slate',
-    desc: 'Struktur bercerita tertua dan paling mendasar. Sederhana namun sangat kokoh untuk membagi informasi ke dalam urutan logis (Awal, Tengah, Akhir).',
-    usage: 'Pilihan yang aman untuk segala jenis tulisan, mulai dari artikel opini, thread X/Twitter, hingga email newsletter.',
-    steps: [
-      { num: 'I', title: 'Setup (Babak 1)', detail: 'Kenalkan karakter utama, setting, dan "Inciting Incident" (pemicu masalah).' },
-      { num: 'II', title: 'Confrontation (Babak 2)', detail: 'Bagian terpanjang: Perjuangan mencari solusi, hambatan, dan ketegangan (rising action).' },
-      { num: 'III', title: 'Resolution (Babak 3)', detail: 'Klimaks tercapai, masalah terselesaikan, dan perubahan permanen terjadi.' }
-    ]
-  },
-  {
-    id: 'golden_circle',
-    title: 'Golden Circle',
-    creator: 'Simon Sinek',
-    badge: 'Kepemimpinan',
-    color: 'yellow',
-    desc: 'Banyak bisnis berkomunikasi dari "luar ke dalam" (Apa → Bagaimana → Kenapa). Framework ini membalik urutan tersebut untuk langsung menyasar bagian otak pengambil keputusan dan perasaan.',
-    usage: 'Gunakan saat menulis halaman "Tentang Kami", merekrut karyawan, atau mengumumkan peluncuran brand.',
-    steps: [
-      { num: '1', title: 'WHY', detail: 'Mulailah dengan tujuan, alasan, atau keyakinan utama Anda. (Inspirasi)' },
-      { num: '2', title: 'HOW', detail: 'Jelaskan proses, nilai-nilai, atau bagaimana Anda mewujudkan WHY tersebut. (Diferensiasi)' },
-      { num: '3', title: 'WHAT', detail: 'Sebutkan apa bentuk nyata/produk/layanan yang Anda tawarkan. (Hasil)' }
-    ]
+    id: 'bab',
+    name: 'Before - After - Bridge (BAB)',
+    creator: 'Social Media Copywriting Standard',
+    badge: 'Format Paling Sederhana & Kuat',
+    desc: 'Formula narasi super ringkas yang menunjukkan kontras tajam antara kondisi sengsara saat ini (Before), kondisi ideal impian (After), dan solusi Anda sebagai jembatannya (Bridge).',
+    bestFor: 'Cuitan singkat di X/Twitter, postingan Threads, dan caption Instagram ringkas.',
+    points: [
+      'Before: Tunjukkan situasi frustrasi yang sedang dialami audiens saat ini.',
+      'After: Bayangkan situasi jika masalah tersebut sudah lenyap sepenuhnya.',
+      'Bridge: Berikan cara, alat, atau metodologi Anda untuk menyeberang ke kondisi After.'
+    ],
+    previewTitle: 'Blueprint Formula BAB',
+    previewExample: {
+      hook: 'Dulu: Butuh waktu 4 jam hanya untuk membuat 1 slide carousel.',
+      conflict: 'Sekarang: 1 artikel selesai diolah menjadi 4 format berbeda dalam 10 menit.',
+      mechanism: 'Jembatannya: Gunakan framework storytelling terstruktur sebelum menulis.',
+      cta: 'Coba gratis generatornya hari ini.'
+    }
   }
 ];
 ---
 
-<Base title="Framework Storytelling — STORIQ" description="Pelajari 7 Framework Storytelling Kelas Dunia yang digunakan oleh brand raksasa dan copywriter top dunia.">
+<Base
+  title="Fitur & Framework Storytelling — STORIQ"
+  description="Pelajari 6 framework narasi teruji di STORIQ untuk mengubah ide biasa menjadi konten yang menjual dan berdampak."
+>
   <Header slot="header" />
 
-  <!-- HERO SECTION -->
-  <section class="bg-navy-900 pt-16 pb-20 relative overflow-hidden border-b border-navy-800">
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
-    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-semibold mb-6">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-        Direktori Framework
-      </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-5 leading-tight">
-        7 Framework Storytelling Dunia
-      </h1>
-      <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-        Pelajari struktur narasi yang digunakan oleh <i>brand</i> raksasa, penulis naskah Hollywood, hingga pimpinan bisnis top dunia. Semuanya terintegrasi langsung dalam <strong class="text-white">STORIQ Engine</strong>.
-      </p>
+  <!-- Hero Section -->
+  <section class="py-14 sm:py-20 text-center max-w-4xl mx-auto px-4">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold mb-5">
+      <span>✨</span>
+      <span>Arsitektur Storytelling</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+      Fitur Lengkap untuk Konten Nyata
+    </h1>
+    <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+      Kombinasi framework storytelling dunia, formula konversi, dan dekomposisi atom konten untuk merancang perjalanan psikologi pembaca dari penasaran hingga percaya.
+    </p>
+
+    <!-- Filter Category Pills (seperti Dikasir) -->
+    <div class="flex flex-wrap justify-center items-center gap-2 mt-8 max-w-3xl mx-auto">
+      {frameworks.map((f) => (
+        <a
+          href={`#${f.id}`}
+          class="px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 hover:border-indigo-300 hover:bg-indigo-50/50 text-slate-700 hover:text-indigo-700 text-xs font-semibold shadow-2xs transition-all"
+        >
+          {f.name}
+        </a>
+      ))}
     </div>
   </section>
 
-  <!-- CONTENT SECTION -->
-  <section class="bg-slate-50 py-16">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="space-y-12">
-        {frameworksList.map((fw) => {
-          const colorMap = {
-            blue: 'bg-blue-100 text-blue-700 border-blue-200',
-            amber: 'bg-amber-100 text-amber-700 border-amber-200',
-            emerald: 'bg-emerald-100 text-emerald-700 border-emerald-200',
-            violet: 'bg-violet-100 text-violet-700 border-violet-200',
-            rose: 'bg-rose-100 text-rose-700 border-rose-200',
-            slate: 'bg-slate-200 text-slate-700 border-slate-300',
-            yellow: 'bg-yellow-100 text-yellow-700 border-yellow-200'
-          };
-          
-          return (
-            <div id={fw.id} class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden scroll-mt-24">
-              <!-- Card Header -->
-              <div class="p-6 sm:p-8 border-b border-slate-100">
-                <div class="flex flex-wrap gap-2 items-center mb-3">
-                  <span class={`text-xs font-bold px-2.5 py-1 rounded-full border uppercase tracking-wider ${colorMap[fw.color as keyof typeof colorMap]}`}>
-                    {fw.badge}
-                  </span>
-                  <span class="text-sm font-medium text-slate-500">
-                    Oleh: {fw.creator}
-                  </span>
+  <!-- Alternating 2-Column Section (Z-Pattern seperti Dikasir) -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-24 space-y-16 sm:space-y-20">
+    {frameworks.map((f, idx) => {
+      const isEven = idx % 2 === 1;
+      return (
+        <div id={f.id} class="scroll-mt-24 pt-4">
+          <div class:list={[
+            'grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-10 shadow-2xs hover:border-indigo-200 transition-all',
+          ]}>
+            <!-- Left Info Column -->
+            <div class:list={[
+              'lg:col-span-6 space-y-5',
+              isEven ? 'lg:order-2' : 'lg:order-1'
+            ]}>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span class="px-2.5 py-0.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold">
+                  {f.badge}
+                </span>
+                <span class="text-xs text-slate-400 font-medium">{f.creator}</span>
+              </div>
+
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                {f.name}
+              </h2>
+
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {f.desc}
+              </p>
+
+              <!-- Checklist Points with green ticks -->
+              <div class="space-y-2.5 pt-2">
+                <div class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">
+                  Langkah Inti Framework:
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">{fw.title}</h2>
-                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">{fw.desc}</p>
-                
-                <div class="mt-4 inline-flex items-start gap-2 bg-slate-50 p-3 rounded-lg border border-slate-200 text-sm">
-                  <span class="text-lg">💡</span>
-                  <div>
-                    <strong class="text-slate-800 block mb-0.5">Kapan sebaiknya digunakan?</strong>
-                    <span class="text-slate-600">{fw.usage}</span>
+                {f.points.map((pt) => (
+                  <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                    <span class="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                    <span class="leading-relaxed">{pt}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div class="pt-3">
+                <a
+                  href={`${baseUrl}generator/?framework=${f.id}`}
+                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm shadow-xs transition-colors"
+                >
+                  <span>Gunakan Framework Ini</span>
+                  <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Mockup / Preview Box Column -->
+            <div class:list={[
+              'lg:col-span-6',
+              isEven ? 'lg:order-1' : 'lg:order-2'
+            ]}>
+              <div class="bg-slate-50 rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs">
+                <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4 text-xs font-semibold text-slate-700">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    <span class="ml-1 font-mono text-[11px] text-slate-500">{f.previewTitle}</span>
+                  </div>
+                  <span class="text-[10px] uppercase font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Simulasi</span>
+                </div>
+
+                <div class="space-y-3.5 text-xs leading-relaxed">
+                  <div class="bg-white p-3.5 rounded-xl border border-slate-200/70 shadow-2xs">
+                    <div class="text-[10px] font-bold text-indigo-600 uppercase tracking-wider mb-1">🎣 Hook & Pembuka</div>
+                    <p class="text-slate-800 font-medium">"{f.previewExample.hook}"</p>
+                  </div>
+                  <div class="bg-white p-3.5 rounded-xl border border-slate-200/70 shadow-2xs">
+                    <div class="text-[10px] font-bold text-rose-600 uppercase tracking-wider mb-1">⚡ Konflik Relatable</div>
+                    <p class="text-slate-700">"{f.previewExample.conflict}"</p>
+                  </div>
+                  <div class="bg-white p-3.5 rounded-xl border border-slate-200/70 shadow-2xs">
+                    <div class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mb-1">💡 Solusi & Mekanisme</div>
+                    <p class="text-slate-700">"{f.previewExample.mechanism}"</p>
+                  </div>
+                  <div class="bg-white p-3.5 rounded-xl border border-slate-200/70 shadow-2xs">
+                    <div class="text-[10px] font-bold text-blue-600 uppercase tracking-wider mb-1">🎯 Call to Action (CTA)</div>
+                    <p class="text-slate-800 font-medium">"{f.previewExample.cta}"</p>
                   </div>
                 </div>
               </div>
-
-              <!-- Card Steps -->
-              <div class="p-6 sm:p-8 bg-slate-50/50">
-                <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Struktur Framework</h3>
-                <div class="space-y-4">
-                  {fw.steps.map((step, index) => (
-                    <div class="flex gap-4">
-                      <div class="flex flex-col items-center">
-                        <div class="w-8 h-8 rounded-full bg-navy-800 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-sm">
-                          {step.num}
-                        </div>
-                        {index !== fw.steps.length - 1 && (
-                          <div class="w-px h-full bg-slate-200 my-1 min-h-[1.5rem]"></div>
-                        )}
-                      </div>
-                      <div class="pb-4 pt-1">
-                        <h4 class="text-base font-bold text-slate-800 mb-1">{step.title}</h4>
-                        <p class="text-sm text-slate-600">{step.detail}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
+          </div>
+        </div>
+      );
+    })}
 
-  <!-- CTA -->
-  <section class="bg-blue-600 text-white py-16 text-center">
-    <div class="max-w-2xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4">Mulai Bereksperimen</h2>
-      <p class="text-blue-100 mb-8 text-lg">Pilih salah satu dari 7 framework di atas dan hasilkan berbagai format konten dalam hitungan detik menggunakan AI.</p>
-      <a href={`${baseUrl}generator/`} class="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
-        Buka STORIQ Generator →
-      </a>
+    <!-- Bottom Request Banner -->
+    <div class="bg-slate-900 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-xl">
+      <div class="max-w-xl mx-auto space-y-4">
+        <h3 class="text-xl sm:text-2xl font-extrabold tracking-tight">
+          Ada Formula Cerita yang Kamu Butuhkan?
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Kami selalu memperluas pustaka storytelling. Silakan ajukan formula favoritmu melalui GitHub Discussions atau Issues.
+        </p>
+        <div class="pt-2">
+          <a
+            href="https://github.com/andrean-lp/storiq/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm"
+          >
+            <span>Request Framework di GitHub</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 

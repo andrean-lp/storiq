@@ -1,0 +1,210 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const versions = [
+  {
+    version: 'v1.5.0',
+    badge: 'Rilis saat ini',
+    badgeColor: 'indigo',
+    date: 'Sep 2026',
+    items: [
+      'Redesign antarmuka menyeluruh mengadopsi Clean Modern Light Theme Dikasir.',
+      'Penambahan kartu dan prompt khusus serial 🧵 Threads / Twitter (fokus copywriting murni).',
+      'Penambahan halaman linimasa Roadmap dan panduan Kontribusi komunitas.',
+      'Peningkatan responsivitas navigasi mobile dan desktop.'
+    ]
+  },
+  {
+    version: 'v1.4.0',
+    badge: 'Selesai',
+    badgeColor: 'emerald',
+    date: 'Sep 2026',
+    items: [
+      'Fitur perintah langsung generate gambar visual (DALL-E / Imagen bawaan AI).',
+      'Format visual: Single Image, Carousel Instagram, dan Poster Infografis vertikal.',
+      'Instruksi copy-prompt yang terintegrasi pada alur obrolan AI yang sama.'
+    ]
+  },
+  {
+    version: 'v1.3.0',
+    badge: 'Selesai',
+    badgeColor: 'emerald',
+    date: 'Sep 2026',
+    items: [
+      'Restrukturisasi generator menjadi sub-rute mandiri (/prompt-generator dan /api-key-sumopod).',
+      'Penyederhanaan alur manual menjadi 3 langkah cepat: Ide -> Prompt & Paste -> Hasil Visual.',
+      'Tombol pintas navigasi langsung ke ChatGPT, Google Gemini, dan Claude.',
+      'Validasi form interaktif (tombol otomatis disable jika field belum lengkap).'
+    ]
+  },
+  {
+    version: 'v1.2.0',
+    badge: 'Selesai',
+    badgeColor: 'emerald',
+    date: 'Sep 2026',
+    items: [
+      'Integrasi otomatisasi AI API via SumoPod BYOK (Bring Your Own Key) gratis.',
+      'Verifikasi instan API Key langsung dari sisi client browser.',
+      'Penyimpanan aman preferensi API di localStorage lokal perangkat pengguna.'
+    ]
+  },
+  {
+    version: 'v1.1.0',
+    badge: 'Selesai',
+    badgeColor: 'emerald',
+    date: 'Ags 2026',
+    items: [
+      "Ekspansi formula storytelling: The Hero's Journey, StoryBrand, PAS, AIDA, dan BAB.",
+      'Arsitektur dekomposisi atom konten (Hook, Konflik, Insight, Transformasi, CTA).'
+    ]
+  },
+  {
+    version: 'v1.0.0',
+    badge: 'Selesai',
+    badgeColor: 'emerald',
+    date: 'Ags 2026',
+    items: [
+      'Peluncuran awal STORIQ Content Repurposing Engine berbasis storytelling.',
+      'Framework inti STORIQ 10 Elemen (Context hingga Action).',
+      'Website statis ringan menggunakan Astro dan hosting gratis GitHub Pages.'
+    ]
+  }
+];
+
+const futurePlans = [
+  {
+    icon: '📄',
+    title: 'Export Dokumen & Markdown',
+    desc: 'Unduh hasil olahan artikel dan konten repurposing ke dalam format .md, .docx, atau file teks siap publikasi dalam satu klik.'
+  },
+  {
+    icon: '🎨',
+    title: 'Integrasi Template Canva & Figma',
+    desc: 'Generate susunan slide dan tata letak teks yang sudah diformat khusus untuk di-copy paste langsung ke kanvas Canva atau Figma.'
+  },
+  {
+    icon: '⚡',
+    title: 'Dukungan AI Lokal (Ollama / WebLLM)',
+    desc: 'Kemampuan menjalankan model bahasa terbuka (Llama 3 / Mistral) secara privat langsung di browser atau mesin lokal tanpa internet.'
+  }
+];
+---
+
+<Base
+  title="Roadmap & Perjalanan STORIQ"
+  description="Linimasa pengembangan STORIQ dari rilis awal hingga rencana fitur masa depan."
+>
+  <Header slot="header" />
+
+  <!-- Hero Section -->
+  <section class="py-14 sm:py-20 text-center max-w-4xl mx-auto px-4">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold mb-5">
+      <span>🗺️</span>
+      <span>Roadmap Pengembangan</span>
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+      Perjalanan STORIQ
+    </h1>
+    <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+      Dari ide framework storytelling sederhana menjadi content repurposing engine yang lengkap — dan terus dikembangkan bersama komunitas kreator.
+    </p>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 pb-20">
+    <div class="relative border-l-2 border-slate-200 ml-4 sm:ml-8 space-y-12">
+      {versions.map((v) => (
+        <div class="relative pl-8 sm:pl-10 group">
+          <!-- Bullet dot -->
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-white bg-indigo-600 shadow-xs ring-4 ring-indigo-50"></div>
+
+          <!-- Header Card -->
+          <div class="flex flex-wrap items-center gap-2.5 mb-3">
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900">{v.version}</h2>
+            <span class:list={[
+              'text-xs font-semibold px-2.5 py-0.5 rounded-full border',
+              v.badgeColor === 'indigo'
+                ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+            ]}>
+              {v.badge}
+            </span>
+            <span class="text-xs text-slate-400 font-medium ml-auto">{v.date}</span>
+          </div>
+
+          <!-- Items Box -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs hover:border-indigo-200 hover:shadow-xs transition-all">
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              {v.items.map((item) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Future Roadmap / Arah ke Depan -->
+  <section class="bg-slate-50/80 border-t border-slate-200/80 py-16 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Arah Pengembangan ke Depan
+        </h2>
+        <p class="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Prioritas fitur baru dirancang berdasarkan kebutuhan nyata para kreator konten, penulis, dan praktisi bisnis.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {futurePlans.map((plan) => (
+          <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-2xs hover:shadow-md hover:border-indigo-200 transition-all">
+            <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">
+              {plan.icon}
+            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-2">{plan.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{plan.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Community Callout Box -->
+      <div class="mt-14 bg-slate-900 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-xl">
+        <div class="relative z-10 max-w-xl mx-auto">
+          <h3 class="text-xl sm:text-2xl font-extrabold tracking-tight mb-3">
+            Roadmap Dibentuk oleh Komunitas
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+            Punya ide fitur baru? Menemukan bug atau punya saran formula storytelling? Semua masukan sangat terbuka di repositori GitHub kami.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="https://github.com/andrean-lp/storiq/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm"
+            >
+              <span>💡 Buat Issue / Masukan</span>
+            </a>
+            <a
+              href={`${baseUrl}kontribusi/`}
+              class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-xs sm:text-sm border border-white/20 transition-colors"
+            >
+              <span>Panduan Kontribusi →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Base>

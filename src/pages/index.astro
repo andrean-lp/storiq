@@ -5,134 +5,98 @@ import Footer from '../components/Footer.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
-// 6-step workflow data
-const workflowSteps = [
+// 12 fitur utama bergaya Dikasir
+const coreFeatures = [
   {
-    step: '01',
-    title: 'Masukkan Ide',
-    desc: 'Tuliskan topik bahasan, target audiens, dan tujuan kontenmu — bahkan ide 1-2 kalimat pun cukup.',
     icon: '💡',
-    badge: 'Langkah Awal',
+    title: '100% Gratis & Bebas',
+    desc: 'Semua fitur terbuka penuh tanpa tier berbayar, paywall tersembunyi, maupun watermark.'
   },
   {
-    step: '02',
-    title: 'Pilih Framework',
-    desc: 'Pilih formula storytelling teruji: STORIQ 10 Elemen, PAS, AIDA, atau Before-After-Bridge.',
     icon: '📐',
-    badge: 'Strukturasi',
+    title: 'Framework Storytelling',
+    desc: 'Dibangun di atas formula naratif teruji: STORIQ 10 Elemen, PAS, AIDA, Hero\'s Journey, dan BAB.'
   },
   {
-    step: '03',
-    title: 'Buat Story Blueprint',
-    desc: 'Bangun alur narasi yang kokoh: dari hook yang memikat, konflik yang relatable, hingga resolusi bernilai.',
-    icon: '🗺️',
-    badge: 'Arsitektur Cerita',
-  },
-  {
-    step: '04',
-    title: 'Generate Konten',
-    desc: 'Hasilkan draft konten berkualitas tinggi yang mengalir alami dengan tone pilihanmu.',
     icon: '⚡',
-    badge: 'Produksi AI',
+    title: 'Dua Mode Penggunaan',
+    desc: 'Gunakan Mode Manual (Prompt Generator) untuk ChatGPT/Gemini, atau Mode Otomatis via API SumoPod.'
   },
   {
-    step: '05',
-    title: 'Pecah ke Content Atoms',
-    desc: 'Ekstraksi elemen penting: hook tajam, punchline, quotes berbobot, poin edukatif, dan CTA kuat.',
-    icon: '🔬',
-    badge: 'Dekomposisi',
+    icon: '🧵',
+    title: 'Serial Threads & X',
+    desc: 'Pecah ide panjang menjadi utas postingan ringkas, padat insight, dan nyaman dibaca cepat di smartphone.'
   },
   {
-    step: '06',
-    title: 'Repurpose ke Banyak Format',
-    desc: 'Sebarkan ke berbagai format media: artikel, carousel IG, video script, thread, hingga LinkedIn.',
-    icon: '🚀',
-    badge: 'Multi-Channel',
+    icon: '🎨',
+    title: 'Visual Prompt Bawaan',
+    desc: 'Langsung render gambar via fitur bawaan AI (DALL-E / Imagen) untuk Single Image, Carousel, dan Infografis.'
   },
-];
-
-// Output formats
-const outputFormats = [
   {
-    icon: '📝',
-    name: 'Artikel Blog',
-    platform: 'Blog & Medium',
-    desc: '800-1200 kata dengan hook memikat, struktur sub-heading yang rapi, dan SEO-ready.',
-    badge: 'Long-form',
+    icon: '🔒',
+    title: 'Privasi Terjamin (BYOK)',
+    desc: 'API Key disimpan aman hanya di browser lokal Anda (localStorage), tidak pernah dikirim ke server luar.'
   },
   {
     icon: '📱',
-    name: 'Carousel IG',
-    platform: 'Instagram & LinkedIn',
-    desc: '8-10 slide visual terstruktur: cover pemikat swipe, problem relatable, insight, dan CTA.',
-    badge: 'Visual Slides',
-  },
-  {
-    icon: '💬',
-    name: 'Caption Social Media',
-    platform: 'IG, FB, & Threads',
-    desc: 'Hook baris pertama, cerita ringkas bernilai, spasi nyaman dibaca, dan rekomendasi hashtag.',
-    badge: 'Micro-content',
-  },
-  {
-    icon: '🎬',
-    name: 'Video Script',
-    platform: 'TikTok, Reels, & Shorts',
-    desc: 'Hook 0-5 detik penahan scroll, narasi 60-120 detik, dilengkapi panduan visual [Visual Note].',
-    badge: 'Short Video',
-  },
-  {
-    icon: '🐦',
-    name: 'X/Twitter Thread',
-    platform: 'X (Twitter)',
-    desc: '8-12 cuitan punchy, hook provokatif, satu insight per tweet, dan CTA bookmark.',
-    badge: 'Viral Thread',
-  },
-  {
-    icon: '💡',
-    name: 'Quote Image',
-    platform: 'Story, Feed, & Pin',
-    desc: '5-8 kutipan bermakna yang berdiri sendiri (standalone), inspiratif, dan shareable.',
-    badge: 'Shareable Quotes',
-  },
-  {
-    icon: '💼',
-    name: 'LinkedIn Post',
-    platform: 'LinkedIn',
-    desc: 'Gaya profesional-personal berformat storytelling, studi kasus, atau pembelajaran karier.',
-    badge: 'Professional',
-  },
-  {
-    icon: '📌',
-    name: 'Pinterest Pin',
-    platform: 'Pinterest',
-    desc: 'Judul SEO-friendly tinggi klik, deskripsi targeted, dan 5-8 keyword pencarian relevan.',
-    badge: 'SEO Traffic',
-  },
-];
-
-// Why STORIQ cards
-const whyFeatures = [
-  {
-    icon: '🎁',
-    title: '100% Gratis Tanpa Biaya',
-    desc: 'Tidak ada tier berbayar, tidak ada paywall tersembunyi, dan tanpa watermark. Semua fitur terbuka penuh.',
+    title: 'Mobile-First & Ringan',
+    desc: 'Antarmuka super cepat dan responsif, nyaman diakses langsung dari ponsel tanpa lag.'
   },
   {
     icon: '🌐',
-    title: 'Open Source di GitHub',
-    desc: 'Kode sumber terbuka di bawah lisensi MIT. Transparan, aman, dan bisa kamu kembangkan sesuka hati.',
+    title: 'Open Source MIT',
+    desc: 'Kode sumber terbuka di GitHub. Bebas Anda fork, modifikasi, dan gunakan untuk kebutuhan komersial.'
+  },
+  {
+    icon: '📝',
+    title: 'Artikel Blog & Medium',
+    desc: 'Hasilkan artikel 800-1200 kata dengan hook memikat, struktur sub-heading rapi, dan siap publish.'
+  },
+  {
+    icon: '🎬',
+    title: 'Skrip Video Pendek',
+    desc: 'Dilengkapi panduan visual 0-5 detik penahan scroll untuk TikTok, Instagram Reels, dan YouTube Shorts.'
   },
   {
     icon: '🤖',
-    title: 'Powered by Your Favorite AI',
-    desc: 'Hubungkan AI pilihanmu sendiri: Google Gemini, Groq (Llama 3), Mistral, atau OpenRouter secara bebas.',
+    title: 'Dukungan Multi-AI',
+    desc: 'Kompatibel dengan model AI terdepan: ChatGPT (OpenAI), Claude, Google Gemini, Llama 3, dan DeepSeek.'
   },
   {
-    icon: '📱',
-    title: 'Mobile Friendly & Ringan',
-    desc: 'Tampilan responsif dan cepat dibuka di smartphone. Catat dan olah idemu langsung kapan saja di mana saja.',
+    icon: '🚀',
+    title: 'Tanpa Login Apapun',
+    desc: 'Langsung buka website dan pakai seketika. Tidak perlu daftar akun, verifikasi email, atau langganan.'
+  }
+];
+
+const stats = [
+  { value: '100%', label: 'Gratis & Bebas Iklan' },
+  { value: '10+', label: 'Elemen Storytelling' },
+  { value: 'MIT', label: 'Lisensi Open Source' },
+  { value: '4+', label: 'Format Repurpose' },
+];
+
+const faqs = [
+  {
+    q: 'Apakah STORIQ benar-benar gratis?',
+    a: 'Ya, 100% gratis tanpa biaya tersembunyi. Proyek ini dibangun sebagai kontribusi open source untuk komunitas kreator dan pemilik bisnis di Indonesia.'
   },
+  {
+    q: 'Bagaimana cara kerja dua mode di STORIQ?',
+    a: 'Mode 1 (Prompt Generator) cocok jika Anda ingin meng-copy prompt berkualitas dan menjalankannya langsung di ChatGPT, Gemini, atau Claude. Mode 2 (API Key SumoPod) memungkinkan Anda meng-generate konten langsung di dalam STORIQ secara otomatis menggunakan API key gratis.'
+  },
+  {
+    q: 'Apakah API key saya aman di Mode SumoPod?',
+    a: 'Sangat aman. STORIQ adalah aplikasi statis (Client-Side). API Key Anda hanya disimpan di memori browser lokal (localStorage) Anda sendiri dan langsung berkomunikasi ke endpoint penyedia AI tanpa melalui server perantara.'
+  },
+  {
+    q: 'Apakah hasil visual langsung me-render gambar?',
+    a: 'Ya! Untuk Single Image, Carousel Instagram, dan Infografis, prompt visual kami sudah dilengkapi perintah render langsung sehingga AI (seperti ChatGPT Plus DALL-E atau Gemini Imagen) akan otomatis menghasilkan gambar.'
+  },
+  {
+    q: 'Apakah konten Threads juga membuat gambar?',
+    a: 'Khusus Threads, kami memfokuskan prompt 100% pada kekuatan teks/copywriting (hook, isi daging, dan kalimat pemantik diskusi) karena ekosistem Threads berakar pada kenyamanan membaca teks cepat.'
+  }
 ];
 ---
 
@@ -143,492 +107,348 @@ const whyFeatures = [
   <Header slot="header" />
 
   <!-- 1. HERO SECTION -->
-  <section class="relative bg-gradient-to-b from-navy-900 via-navy-800 to-navy-900 text-white pt-16 pb-20 sm:pt-24 sm:pb-28 overflow-hidden border-b border-navy-700">
-    <!-- Ambient background glow decoration -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-blue-600/15 blur-[120px] rounded-full"></div>
-      <div class="absolute top-1/2 -right-48 w-80 h-80 bg-blue-500/10 blur-[90px] rounded-full"></div>
-      <div class="absolute -bottom-20 -left-48 w-80 h-80 bg-sky-500/10 blur-[90px] rounded-full"></div>
-    </div>
+  <section class="pt-14 pb-16 sm:pt-20 sm:pb-24 overflow-hidden relative text-center">
+    <!-- Subtle gradient background glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-indigo-50/70 via-indigo-50/20 to-transparent pointer-events-none -z-10"></div>
 
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-medium mb-6 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        100% Gratis • Tanpa Login • Langsung Pakai
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <!-- Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold mb-6 shadow-2xs">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>✨ Open Source • 100% Gratis • Tanpa Login</span>
       </div>
 
-      <!-- Headline -->
-      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight sm:leading-tight md:leading-tight mb-6 text-white">
-        Satu Ide. <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-blue-200">Banyak Peluang.</span>
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.18] mb-6">
+        Content Repurposing Engine<br class="hidden sm:inline" />
+        <span class="bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-500 bg-clip-text text-transparent">
+          Gratis & Open Source
+        </span>
       </h1>
 
       <!-- Subheadline -->
-      <p class="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-        Ubah satu ide menjadi artikel, carousel, caption, quote, video script — semua berbasis framework storytelling yang terstruktur.
+      <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
+        Ubah satu ide menjadi artikel berbobot, slide carousel, poster infografis, hingga serial threads — semua terstruktur berbasis formula storytelling yang memikat.
       </p>
 
-      <!-- Two CTAs -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto mb-14">
+      <!-- Dual CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-md mx-auto mb-14">
         <a
           href={`${baseUrl}generator/`}
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-base transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 active:translate-y-0"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-600/20 hover:shadow-indigo-600/30 hover:-translate-y-0.5 transition-all"
         >
-          <span>Mulai Sekarang</span>
-          <span aria-hidden="true">→</span>
+          <span>Buka Generator</span>
+          <span aria-hidden="true">&rarr;</span>
         </a>
         <a
           href={`${baseUrl}framework/`}
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-navy-700/80 hover:bg-navy-700 text-slate-200 hover:text-white font-semibold text-base border border-navy-600 hover:border-slate-500 transition-all"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm border border-slate-200 shadow-2xs hover:border-slate-300 transition-all"
         >
           Pelajari Framework
         </a>
       </div>
 
-      <!-- Hero Visual / Preview Box -->
-      <div class="max-w-3xl mx-auto rounded-2xl bg-navy-800/80 border border-navy-700/90 p-5 sm:p-7 shadow-2xl backdrop-blur-sm text-left">
-        <div class="flex items-center justify-between border-b border-navy-700 pb-3 mb-5 text-xs text-slate-400">
+      <!-- App Mockup Window (macOS style frame) -->
+      <div class="max-w-4xl mx-auto rounded-2xl bg-white border border-slate-200/90 shadow-xl shadow-slate-200/60 overflow-hidden text-left">
+        <!-- Window Header -->
+        <div class="bg-slate-50/90 px-4 py-3 border-b border-slate-200 flex items-center justify-between text-xs text-slate-500">
           <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-            <span class="ml-2 font-mono text-slate-300 font-medium">storiq-repurposing-engine</span>
+            <span class="w-3 h-3 rounded-full bg-rose-400 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+            <span class="ml-2 font-mono text-[11px] text-slate-400 hidden sm:inline-block">storiq.web.id/generator</span>
           </div>
-          <span class="text-blue-400 font-medium hidden sm:inline-block">Storytelling Blueprint Ready</span>
+          <div class="flex items-center gap-2 font-medium text-indigo-600 text-xs">
+            <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+            <span>Repurposing Active</span>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-          <!-- Input Preview -->
-          <div class="md:col-span-5 bg-navy-900/90 rounded-xl p-4 border border-navy-700">
-            <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
-              <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+        <!-- Window Mockup Body -->
+        <div class="p-5 sm:p-7 bg-white grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <!-- Input Side -->
+          <div class="md:col-span-5 bg-slate-50 rounded-xl p-4 border border-slate-200/70">
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
               Input: 1 Ide Dasar
             </div>
-            <p class="text-sm text-slate-200 font-medium mb-2">
-              "Cara konsisten bikin konten setiap hari tanpa burnout."
+            <p class="text-xs sm:text-sm font-semibold text-slate-800 leading-snug mb-3">
+              "Cara konsisten bikin konten setiap hari tanpa merasa burnout."
             </p>
-            <div class="flex flex-wrap gap-1.5 text-[11px] text-slate-400">
-              <span class="bg-navy-800 px-2 py-0.5 rounded border border-navy-700">Framework: STORIQ 10</span>
-              <span class="bg-navy-800 px-2 py-0.5 rounded border border-navy-700">Tone: Santai</span>
+            <div class="flex flex-wrap gap-1.5 text-[11px]">
+              <span class="bg-white px-2 py-0.5 rounded-md border border-slate-200 text-slate-600 font-medium">📐 STORIQ 10</span>
+              <span class="bg-white px-2 py-0.5 rounded-md border border-slate-200 text-slate-600 font-medium">☕ Santai</span>
             </div>
           </div>
 
-          <!-- Flow Arrow / Engine Indicator -->
-          <div class="md:col-span-2 flex flex-col items-center justify-center py-2 text-blue-400 font-mono text-xs">
-            <div class="p-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-400 mb-1">
-              <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
+          <!-- Process Center Indicator -->
+          <div class="md:col-span-2 flex flex-col items-center justify-center text-center py-2">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-lg mb-1 shadow-2xs">
+              ⚡
             </div>
-            <span class="text-[11px] font-semibold text-blue-300">STORIQ</span>
+            <span class="text-[11px] font-bold text-indigo-600 uppercase tracking-wider">STORIQ</span>
           </div>
 
-          <!-- Output Preview -->
-          <div class="md:col-span-5 bg-navy-900/90 rounded-xl p-4 border border-navy-700">
-            <div class="flex items-center justify-between text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
-              <span class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                Output: 8 Format Konten
+          <!-- Output Side -->
+          <div class="md:col-span-5 bg-slate-50 rounded-xl p-4 border border-slate-200/70">
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                Output Terdistribusi
               </span>
-              <span class="text-emerald-400 text-[11px] font-normal">Siap Pakai</span>
+              <span class="text-emerald-600 font-semibold text-[10px]">4+ Format</span>
             </div>
-            <div class="grid grid-cols-2 gap-1.5 text-xs text-slate-300">
-              <div class="flex items-center gap-1.5 bg-navy-800/80 px-2 py-1 rounded border border-navy-700/60">
-                <span>📝</span>
-                <span class="truncate">Artikel Blog</span>
+            <div class="grid grid-cols-2 gap-2 text-xs text-slate-700">
+              <div class="bg-white p-2 rounded-lg border border-slate-200 flex items-center gap-1.5 shadow-2xs">
+                <span>🖼️</span>
+                <span class="truncate font-medium">Single Image</span>
               </div>
-              <div class="flex items-center gap-1.5 bg-navy-800/80 px-2 py-1 rounded border border-navy-700/60">
+              <div class="bg-white p-2 rounded-lg border border-slate-200 flex items-center gap-1.5 shadow-2xs">
                 <span>📱</span>
-                <span class="truncate">Carousel IG</span>
+                <span class="truncate font-medium">Carousel IG</span>
               </div>
-              <div class="flex items-center gap-1.5 bg-navy-800/80 px-2 py-1 rounded border border-navy-700/60">
-                <span>🎬</span>
-                <span class="truncate">Video Script</span>
+              <div class="bg-white p-2 rounded-lg border border-slate-200 flex items-center gap-1.5 shadow-2xs">
+                <span>📊</span>
+                <span class="truncate font-medium">Infografis</span>
               </div>
-              <div class="flex items-center gap-1.5 bg-navy-800/80 px-2 py-1 rounded border border-navy-700/60">
-                <span>🐦</span>
-                <span class="truncate">X Thread</span>
+              <div class="bg-white p-2 rounded-lg border border-slate-200 flex items-center gap-1.5 shadow-2xs">
+                <span>🧵</span>
+                <span class="truncate font-medium">Threads / X</span>
               </div>
             </div>
-            <p class="text-[11px] text-slate-400 mt-2 text-center">
-              + Caption IG, Quotes, LinkedIn Post, Pinterest Pin
-            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- 2. PROBLEM SECTION -->
-  <section class="bg-white py-16 sm:py-24 border-b border-slate-100">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="inline-block text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-3 py-1 rounded-full mb-3 border border-rose-100">
-          Tantangan Kreator
-        </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-          Punya Ide Bagus, Tapi Mandek di Satu Format?
-        </h2>
-        <p class="text-base text-slate-600 mt-4 leading-relaxed">
-          Pernah ngalamin ini? Kamu dapat ide cemerlang waktu lagi santai atau di jalan. Tapi begitu buka laptop atau HP mau bikin konten, energi mendadak habis sebelum posting.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-        <!-- Pain Point 1 -->
-        <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-6 sm:p-7 hover:border-slate-300 transition-colors flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl mb-5">
-              🧩
-            </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-3">
-              Bingung Mau Bikin Konten Apa dari Ide yang Ada
-            </h3>
-            <p class="text-sm text-slate-600 leading-relaxed">
-              Ide cuma numpuk di catatan handphone. Begitu duduk mau bikin konten, kamu bingung menyusun alur ceritanya dari mana, apa hook pembukanya, dan bagaimana membuatnya relevan bagi audiens.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200/60 text-xs font-medium text-rose-600">
-            Dampak: Ide cemerlang terlupakan begitu saja.
-          </div>
-        </div>
-
-        <!-- Pain Point 2 -->
-        <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-6 sm:p-7 hover:border-slate-300 transition-colors flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-5">
-              ⏳
-            </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-3">
-              Capek Bikin Konten dari Nol untuk Setiap Platform
-            </h3>
-            <p class="text-sm text-slate-600 leading-relaxed">
-              Habis waktu berjam-jam nulis artikel blog, lalu harus peras otak lagi bikin slide carousel Instagram, mikir script Reels, dan susun thread Twitter. Waktumu habis di format, bukan berkarya.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200/60 text-xs font-medium text-amber-600">
-            Dampak: Burnout dan kehabisan tenaga setiap minggu.
-          </div>
-        </div>
-
-        <!-- Pain Point 3 -->
-        <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-6 sm:p-7 hover:border-slate-300 transition-colors flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-slate-200 text-slate-700 flex items-center justify-center text-2xl mb-5">
-              📉
-            </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-3">
-              Konten Terasa Datar Karena Tidak Ada Struktur Cerita
-            </h3>
-            <p class="text-sm text-slate-600 leading-relaxed">
-              Sudah rajin posting tiap hari tapi interaksi sepi? Masalahnya seringkali bukan topikmu, melainkan penyampaiannya yang hambar tanpa hook emosional, konflik yang relate, dan alur narasi yang jelas.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200/60 text-xs font-medium text-slate-700">
-            Dampak: Konten dilewati begitu saja oleh audiens.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. SOLUTION SECTION -->
-  <section class="bg-slate-50 py-16 sm:py-24 border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="inline-block text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-100/70 px-3 py-1 rounded-full mb-3 border border-blue-200/60">
-          Solusi Praktis
-        </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-          STORIQ Bantu Kamu Dari Ide Sampai Banyak Konten
-        </h2>
-        <p class="text-lg font-medium text-blue-600 mt-2">
-          Content Repurposing Engine berbasis storytelling
-        </p>
-        <p class="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
-          STORIQ memandu kamu melalui workflow 6 langkah terstruktur. Alih-alih menulis acak, kamu membangun fondasi cerita yang solid yang kemudian dapat bertransformasi ke beragam format secara instan.
-        </p>
-      </div>
-
-      <!-- 6-step workflow grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {workflowSteps.map((step) => (
-          <div class="relative bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-2xl" role="img" aria-label={step.title}>
-                  {step.icon}
-                </span>
-                <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
-                  LANGKAH {step.step}
-                </span>
-              </div>
-              <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                {step.title}
-              </h3>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                {step.desc}
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
-              <span>{step.badge}</span>
-              <span class="text-blue-500 font-semibold group-hover:translate-x-0.5 transition-transform">Tahap {step.step} →</span>
-            </div>
+      <!-- Stats Bar (4 columns like Dikasir) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-14 max-w-3xl mx-auto border-t border-slate-200/70 mt-14">
+        {stats.map((s) => (
+          <div class="text-center">
+            <div class="text-2xl sm:text-4xl font-extrabold text-indigo-600 tracking-tight">{s.value}</div>
+            <div class="text-xs text-slate-500 font-medium mt-1">{s.label}</div>
           </div>
         ))}
       </div>
-
-      <!-- Quick Action Prompt to Framework -->
-      <div class="mt-12 text-center">
-        <a
-          href={`${baseUrl}framework/`}
-          class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline"
-        >
-          <span>Pelajari rincian Framework STORIQ 10 Elemen</span>
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
     </div>
   </section>
 
-  <!-- 4. TWO MODES SECTION -->
-  <section class="bg-white py-16 sm:py-24 border-b border-slate-100">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+  <!-- 2. TAMPILAN APLIKASI / MODE SHOWCASE -->
+  <section class="py-16 sm:py-20 bg-slate-50/60 border-t border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="inline-block text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full mb-3 border border-emerald-100">
-          Fleksibilitas Penuh
-        </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-          Dua Cara Pakai, Pilih yang Nyaman
+        <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase mb-2 block">Tampilan Aplikasi</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Dua Mode Fleksibel Sesuai Kenyamananmu
         </h2>
-        <p class="text-base text-slate-600 mt-4 leading-relaxed">
-          STORIQ dirancang fleksibel untuk semua orang. Mau yang serba otomatis dengan API key sendiri, atau manual copy-paste ke ChatGPT tanpa setup? Keduanya tersedia gratis!
+        <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Pilih metode manual jika Anda menyukai ChatGPT/Claude, atau metode otomatis jika ingin hasil instan.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- API Key SumoPod -->
-        <div class="order-2 rounded-2xl border-2 border-blue-500/80 bg-gradient-to-b from-blue-50/50 to-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative">
-          <div class="absolute -top-3 right-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-            Tingkat Lanjut
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Mode 1 Card -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-7 shadow-2xs hover:shadow-md hover:border-indigo-200 transition-all flex flex-col justify-between">
           <div>
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl shadow-md shadow-blue-500/20">
-                ⚡
-              </div>
-              <div>
-                <span class="text-xs font-semibold uppercase tracking-wider text-blue-600">Otomatis</span>
-                <h3 class="text-xl font-extrabold text-slate-900">API Key SumoPod</h3>
-              </div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-5">
+              📋
             </div>
-            
-            <p class="text-sm text-slate-600 mb-6 leading-relaxed">
-              <strong>SumoPod BYOK:</strong> Gunakan API key SumoPod kamu sendiri. Generate hasil konten lengkap langsung di dalam antarmuka STORIQ tanpa perlu berpindah tab.
-            </p>
-
-            <ul class="space-y-3 text-sm text-slate-700 mb-8">
-              <li class="flex items-start gap-2.5">
-                <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span><strong>Sekali Klik:</strong> Generate artikel, carousel, atau script langsung dalam hitungan detik.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span><strong>Privasi Terjamin:</strong> API key hanya disimpan di browser (localStorage) perangkatmu, tidak pernah dikirim ke server kami.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span><strong>Tanpa Fallback Diam-diam:</strong> STORIQ memakai model yang kamu pilih secara konsisten.</span>
-              </li>
-            </ul>
-          </div>
-
-          <a
-            href={`${baseUrl}generator/api-key-sumopod/`}
-            class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors text-center"
-          >
-            Gunakan SumoPod BYOK →
-          </a>
-        </div>
-
-        <!-- Prompt Generator (Manual) -->
-        <div class="order-1 rounded-2xl border-2 border-amber-500/80 bg-gradient-to-b from-amber-50/50 to-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative">
-          <div class="absolute -top-3 right-6 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-            Rekomendasi
-          </div>
-          <div>
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl shadow-md shadow-amber-500/20">
-                📋
-              </div>
-              <div>
-                <span class="text-xs font-semibold uppercase tracking-wider text-amber-600">Manual</span>
-                <h3 class="text-xl font-extrabold text-slate-900">Prompt Generator</h3>
-              </div>
+            <div class="inline-block px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold mb-2">
+              Paling Populer
             </div>
-            
-            <p class="text-sm text-slate-600 mb-6 leading-relaxed">
-              <strong>Tanpa Setup:</strong> Belum punya API key? Tidak masalah sama sekali! STORIQ akan meracik prompt terstruktur lengkap dengan instruksi storytelling siap pakai.
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Prompt Generator (Manual)</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+              Isi ide Anda &rarr; Dapatkan master prompt &rarr; Paste di ChatGPT / Claude / Gemini &rarr; Paste hasil kembali untuk mendapatkan prompt visual.
             </p>
-
-            <ul class="space-y-3 text-sm text-slate-700 mb-8">
-              <li class="flex items-start gap-2.5">
-                <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span><strong>100% Zero Setup:</strong> Tanpa daftar akun API, tanpa instalasi, langsung bisa dipakai saat ini juga.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span><strong>Mega-Prompt Terstruktur:</strong> Termasuk context setting, framework rule, dan instruksi format spesifik.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span><strong>Bebas Paste ke Mana Saja:</strong> Kompatibel dengan ChatGPT (Free), Claude, DeepSeek, atau Copilot favoritmu.</span>
-              </li>
-            </ul>
           </div>
-
           <a
             href={`${baseUrl}generator/prompt-generator/`}
-            class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-semibold text-sm transition-colors text-center"
+            class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold text-xs sm:text-sm transition-colors"
           >
-            Buat Prompt Siap Copy →
+            <span>Gunakan Prompt Generator</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Mode 2 Card -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-7 shadow-2xs hover:shadow-md hover:border-indigo-200 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-5">
+              ⚡
+            </div>
+            <div class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold mb-2">
+              Otomatis Sekali Klik
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">API Key SumoPod (Otomatis)</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+              Hubungkan API Key gratis SumoPod (BYOK) &rarr; Klik Generate &rarr; Artikel dan seluruh prompt visual selesai otomatis dalam beberapa detik.
+            </p>
+          </div>
+          <a
+            href={`${baseUrl}generator/api-key-sumopod/`}
+            class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm shadow-xs transition-colors"
+          >
+            <span>Gunakan Mode Otomatis</span>
+            <span>&rarr;</span>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. OUTPUT FORMATS SECTION -->
-  <section class="bg-navy-800 text-white py-16 sm:py-24 border-b border-navy-700">
+  <!-- 3. FITUR LENGKAP UNTUK BISNIS NYATA (Grid 12 Kartu bergaya Dikasir) -->
+  <section class="py-16 sm:py-24 bg-white border-t border-slate-200/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="inline-block text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-500/15 px-3 py-1 rounded-full mb-3 border border-blue-400/20">
-          Multichannel Repurposing
-        </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-snug">
-          Satu Artikel, Banyak Format
+        <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase mb-2 block">Fitur Lengkap</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Semua yang Kamu Butuhkan untuk Distribusi Konten
         </h2>
-        <p class="text-base text-slate-300 mt-4 leading-relaxed">
-          Jangan biarkan ide berhargamu berhenti di satu platform. STORIQ menyiapkan cetak biru konten untuk diekspansi ke 8 format media populer:
+        <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Dirancang untuk kreator, affiliate marketer, konsultan, dan pemilik bisnis yang ingin hadir di banyak channel tanpa kelelahan.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {outputFormats.map((item) => (
-          <div class="rounded-xl bg-navy-900/90 border border-navy-700 p-5 hover:border-blue-500/50 hover:bg-navy-900 transition-all flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-3xl" role="img" aria-label={item.name}>
-                  {item.icon}
-                </span>
-                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-blue-500/15 text-blue-300 border border-blue-400/20">
-                  {item.badge}
-                </span>
-              </div>
-              <h3 class="text-base font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">
-                {item.name}
-              </h3>
-              <p class="text-xs text-slate-400 font-medium mb-3">
-                {item.platform}
-              </p>
-              <p class="text-xs text-slate-300 leading-relaxed">
-                {item.desc}
-              </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {coreFeatures.map((f) => (
+          <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-150">
+            <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">
+              {f.icon}
             </div>
-            <div class="mt-4 pt-3 border-t border-navy-800 text-[11px] text-blue-400 font-medium flex items-center justify-between">
-              <span>Generate Format</span>
-              <span aria-hidden="true">→</span>
-            </div>
+            <h3 class="text-base font-bold text-slate-900 mb-2">{f.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{f.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 6. WHY STORIQ SECTION -->
-  <section class="bg-white py-16 sm:py-24 border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="inline-block text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full mb-3 border border-blue-100">
-          Keunggulan
+  <!-- 4. TECH STACK MODERN (Badges Bar seperti Dikasir) -->
+  <section class="py-14 bg-slate-50/80 border-t border-slate-200/80 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 block">Tech Stack Modern</span>
+      <div class="flex flex-wrap justify-center items-center gap-2.5 text-xs font-semibold text-slate-700">
+        <span class="px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-2xs flex items-center gap-1.5">
+          🚀 Astro 5
         </span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-          Kenapa Memilih STORIQ?
+        <span class="px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-2xs flex items-center gap-1.5">
+          🎨 Tailwind CSS v4
+        </span>
+        <span class="px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-2xs flex items-center gap-1.5">
+          ⚡ TypeScript
+        </span>
+        <span class="px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-2xs flex items-center gap-1.5">
+          🤖 Google Gemini 2.5
+        </span>
+        <span class="px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-2xs flex items-center gap-1.5">
+          🔌 SumoPod AI
+        </span>
+        <span class="px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-2xs flex items-center gap-1.5">
+          🐙 GitHub Pages
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. INSTALASI DALAM HITUNGAN MENIT (Terminal Box seperti Dikasir) -->
+  <section class="py-16 sm:py-20 bg-white border-t border-slate-200/80">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Jalankan Sendiri dalam Hitungan Menit
         </h2>
-        <p class="text-base text-slate-600 mt-4 leading-relaxed">
-          Dibuat dengan filosofi <em class="not-italic font-semibold text-slate-800">"Free. Useful. Real Impact."</em> untuk membantu content creator, solopreneur, dan marketer Indonesia tumbuh lebih cepat.
+        <p class="mt-2 text-xs sm:text-sm text-slate-600">
+          Ingin deploy ke server atau domainmu sendiri? Fork dan jalankan dengan mudah.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {whyFeatures.map((feat) => (
-          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-slate-300 transition-colors flex flex-col">
-            <div class="w-12 h-12 rounded-xl bg-white text-slate-900 shadow-sm border border-slate-200 flex items-center justify-center text-2xl mb-4">
-              {feat.icon}
-            </div>
-            <h3 class="text-base font-bold text-slate-900 mb-2">
-              {feat.title}
-            </h3>
-            <p class="text-sm text-slate-600 leading-relaxed">
-              {feat.desc}
+      <div class="bg-slate-900 rounded-2xl p-5 sm:p-6 text-slate-200 font-mono text-xs sm:text-sm shadow-xl overflow-x-auto">
+        <div class="flex items-center gap-2 pb-3 mb-4 border-b border-slate-800 text-slate-500 text-xs">
+          <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+          <span class="ml-2 text-slate-400">Terminal</span>
+        </div>
+        <pre class="leading-relaxed"><code>git clone https://github.com/andrean-lp/storiq.git
+cd storiq
+npm install
+npm run dev
+
+# Aplikasi aktif di http://localhost:4321/storiq/</code></pre>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href={`${baseUrl}kontribusi/`} class="text-xs text-indigo-600 hover:text-indigo-700 font-semibold inline-flex items-center gap-1">
+          <span>Baca Panduan Kontribusi Lengkap</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PERTANYAAN UMUM (FAQ) -->
+  <section class="py-16 sm:py-20 bg-slate-50/60 border-t border-slate-200/80">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Pertanyaan Umum
+        </h2>
+        <p class="mt-2 text-xs sm:text-sm text-slate-600">
+          Jawaban untuk hal-hal yang sering ditanyakan seputar STORIQ.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="group bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-2xs open:border-indigo-200 transition-all">
+            <summary class="font-bold text-slate-800 text-xs sm:text-sm cursor-pointer list-none flex items-center justify-between gap-4">
+              <span>{faq.q}</span>
+              <span class="text-slate-400 group-open:rotate-180 transition-transform duration-200 text-base">&darr;</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3 font-normal">
+              {faq.a}
             </p>
-          </div>
+          </details>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 7. CTA SECTION -->
-  <section class="relative bg-gradient-to-br from-navy-900 via-navy-800 to-blue-900 text-white py-16 sm:py-24 overflow-hidden">
-    <!-- Ambient light glow -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[550px] h-[300px] bg-blue-500/20 blur-[100px] rounded-full"></div>
-    </div>
+  <!-- 7. BIG CALLOUT BANNER CTA (Indigo Gradient Container seperti Dikasir) -->
+  <section class="py-16 sm:py-24 bg-white border-t border-slate-200/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="bg-gradient-to-r from-indigo-600 via-indigo-700 to-violet-700 rounded-3xl p-8 sm:p-14 text-center text-white shadow-xl shadow-indigo-600/15 relative overflow-hidden">
+        <!-- Glow circles -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-indigo-400/20 rounded-full blur-2xl pointer-events-none"></div>
 
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-        Siap Mulai?
-      </h2>
-      <p class="text-lg sm:text-xl text-blue-200 font-medium mb-3">
-        Gratis. Tanpa login. Tanpa email. Langsung pakai.
-      </p>
-      <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto mb-8 leading-relaxed">
-        Ubah ide yang menumpuk di kepalamu menjadi deretan konten storytelling berbobot yang siap diposting sekarang juga.
-      </p>
+        <div class="relative z-10 max-w-xl mx-auto">
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
+            Siap Buat Konten dengan STORIQ?
+          </h2>
+          <p class="text-xs sm:text-sm text-indigo-100 leading-relaxed mb-8">
+            Ubah satu ide menjadi puluhan konten bernilai hari ini juga. 100% gratis, tanpa bayar, dan tanpa login.
+          </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-10">
-        <a
-          href={`${baseUrl}generator/`}
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-base transition-all shadow-xl shadow-blue-600/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 active:translate-y-0"
-        >
-          <span>Buka Generator</span>
-          <span aria-hidden="true">→</span>
-        </a>
-        <a
-          href={`${baseUrl}panduan/`}
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-base border border-white/20 transition-colors"
-        >
-          Lihat Panduan
-        </a>
-      </div>
-
-      <div class="pt-8 border-t border-navy-700/60 max-w-md mx-auto">
-        <p class="text-xs sm:text-sm text-slate-400">
-          Dibuat oleh <a href="https://andrean-lp.github.io/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 font-medium underline underline-offset-2">Andre Wahyu Hermawan</a> — Landing Page Strategist &amp; CRO
-        </p>
+          <div class="flex flex-wrap justify-center items-center gap-3">
+            <a
+              href={`${baseUrl}generator/`}
+              class="px-6 py-3.5 rounded-xl bg-white text-indigo-700 font-bold text-xs sm:text-sm shadow-md hover:bg-indigo-50 hover:-translate-y-0.5 transition-all"
+            >
+              Buka Generator Sekarang
+            </a>
+            <a
+              href="https://github.com/andrean-lp/storiq"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-6 py-3.5 rounded-xl bg-white/15 text-white font-bold text-xs sm:text-sm border border-white/20 hover:bg-white/20 transition-all inline-flex items-center gap-1.5"
+            >
+              ⭐ Star di GitHub
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <Footer slot="footer" />
 </Base>

@@ -1,63 +1,43 @@
 ---
 const year = new Date().getFullYear();
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<footer class="bg-navy-900 text-slate-400 border-t border-navy-700">
-  <div class="max-w-6xl mx-auto px-4 py-10">
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Brand -->
-      <div>
-        <p class="text-white font-bold text-lg mb-2">STORIQ</p>
-        <p class="text-sm leading-relaxed">
-          Content Repurposing Engine berbasis storytelling.
-          Satu ide, satu cerita, banyak format.
-        </p>
-        <p class="text-sm mt-3">
-          Free. Useful. Real Impact.
-        </p>
-      </div>
-
-      <!-- Links -->
-      <div>
-        <p class="text-white font-semibold text-sm mb-3">Navigasi</p>
-        <ul class="space-y-2 text-sm">
-          <li><a href={`${import.meta.env.BASE_URL}`} class="hover:text-white transition-colors">Home</a></li>
-          <li><a href={`${import.meta.env.BASE_URL}generator/`} class="hover:text-white transition-colors">Generator</a></li>
-          <li><a href={`${import.meta.env.BASE_URL}framework/`} class="hover:text-white transition-colors">Framework</a></li>
-          <li><a href={`${import.meta.env.BASE_URL}panduan/`} class="hover:text-white transition-colors">Panduan</a></li>
-        </ul>
-      </div>
-
-      <!-- Creator -->
-      <div>
-        <p class="text-white font-semibold text-sm mb-3">Dibuat oleh</p>
-        <p class="text-sm">Andre Wahyu Hermawan</p>
-        <p class="text-sm">Landing Page Strategist & CRO</p>
-        <a
-          href="https://andrean-lp.github.io/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block mt-2 text-sm text-blue-400 hover:text-blue-300 transition-colors"
-        >
-          andrean-lp.github.io →
+<footer class="bg-white border-t border-slate-200/80 text-slate-600 transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 text-center md:text-left">
+      <!-- Brand & Info -->
+      <div class="max-w-sm">
+        <a href={baseUrl} class="inline-flex items-center gap-2.5 text-slate-900 font-extrabold text-base tracking-tight mb-2">
+          <div class="w-7 h-7 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+            S
+          </div>
+          <span>STORIQ</span>
         </a>
-        <div class="mt-3">
-          <a
-            href="https://github.com/andrean-lp/storiq"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors"
-          >
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            Star di GitHub ⭐
-          </a>
-        </div>
+        <p class="text-xs text-slate-500 leading-relaxed mt-1">
+          Content Repurposing Engine berbasis storytelling. Satu ide cerita, puluhan format konten siap pakai.
+        </p>
+        <p class="text-[11px] text-slate-400 mt-2">
+          100% Gratis • Tanpa Login • Open Source di GitHub
+        </p>
+      </div>
+
+      <!-- Quick Nav Links -->
+      <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-medium text-slate-600">
+        <a href={`${baseUrl}framework/`} class="hover:text-indigo-600 transition-colors">Fitur</a>
+        <a href={`${baseUrl}panduan/`} class="hover:text-indigo-600 transition-colors">Dokumentasi</a>
+        <a href={`${baseUrl}roadmap/`} class="hover:text-indigo-600 transition-colors">Roadmap</a>
+        <a href={`${baseUrl}kontribusi/`} class="hover:text-indigo-600 transition-colors">Kontribusi</a>
+        <a href={`${baseUrl}generator/`} class="hover:text-indigo-600 transition-colors">Generator</a>
+        <a href="https://github.com/andrean-lp/storiq" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition-colors">GitHub</a>
+        <a href="https://andrean-lp.github.io/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition-colors">Portfolio</a>
       </div>
     </div>
 
-    <div class="mt-8 pt-6 border-t border-navy-700 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-slate-500">
-      <p>© {year} Andre Wahyu Hermawan. MIT License.</p>
-      <p>"One idea can go further than you think."</p>
+    <!-- Bottom Copyright & License -->
+    <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-400">
+      <p>© {year} Dibuat oleh <a href="https://andrean-lp.github.io/" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-indigo-600 font-medium">Andre Wahyu Hermawan</a> • Lisensi MIT.</p>
+      <p class="italic text-[11px] text-slate-400">"Satu ide bisa berkembang lebih jauh dari yang kamu bayangkan."</p>
     </div>
   </div>
 </footer>

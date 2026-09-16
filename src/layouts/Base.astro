@@ -32,11 +32,11 @@ const baseUrl = import.meta.env.BASE_URL;
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-white text-slate-800 font-sans antialiased">
+  <body class="min-h-screen bg-[#fafbfc] text-slate-900 font-sans antialiased selection:bg-indigo-500 selection:text-white flex flex-col justify-between">
     <slot name="header">
       <Fragment set:html="" />
     </slot>
-    <main>
+    <main class="flex-grow">
       <slot />
     </main>
     <slot name="footer">

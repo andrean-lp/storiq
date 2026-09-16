@@ -4,279 +4,198 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
+
+const docSections = [
+  {
+    category: 'Mulai Cepat',
+    items: [
+      {
+        title: 'Getting Started',
+        desc: 'Panduan setup lengkap dari input ide dasar pertama hingga menghasilkan konten multi-format.',
+        href: `${baseUrl}generator/`
+      },
+      {
+        title: 'Konfigurasi API Key SumoPod',
+        desc: 'Cara mendaftar akun gratis di SumoPod, generate API key, dan menyimpannya di browser.',
+        href: `${baseUrl}generator/api-key-sumopod/`
+      },
+      {
+        title: 'Mode Manual vs Mode Otomatis',
+        desc: 'Kapan sebaiknya memakai Prompt Generator dan kapan memakai API Key SumoPod.',
+        href: `${baseUrl}generator/`
+      },
+      {
+        title: 'Indeks Framework Storytelling',
+        desc: "Penjelasan lengkap 6 formula narasi: STORIQ 10, Hero's Journey, StoryBrand, PAS, AIDA, BAB.",
+        href: `${baseUrl}framework/`
+      }
+    ]
+  },
+  {
+    category: 'Integrasi API & Model AI',
+    items: [
+      {
+        title: 'Google Gemini 2.5 Flash',
+        desc: 'Model cepat dan cerdas dengan kuota gratis melimpah untuk penulisan long-form.',
+        href: 'https://aistudio.google.com/'
+      },
+      {
+        title: 'SumoPod AI Platform',
+        desc: 'Penyedia gateway AI gratis tanpa kartu kredit untuk integrasi otomatis STORIQ.',
+        href: 'https://sumopod.com/'
+      },
+      {
+        title: 'Groq Cloud (Llama 3.3)',
+        desc: 'Inference super cepat dengan latensi terendah untuk eksperimen prompt kilat.',
+        href: 'https://console.groq.com/'
+      },
+      {
+        title: 'Keamanan Client-Side (BYOK)',
+        desc: 'Penjelasan arsitektur keamanan: API key Anda tidak pernah singgah di server kami.',
+        href: `${baseUrl}pengaturan/`
+      }
+    ]
+  },
+  {
+    category: 'Format Distribusi Konten',
+    items: [
+      {
+        title: 'Artikel Blog & Medium',
+        desc: 'Struktur artikel 800-1200 kata dengan sub-heading SEO-friendly dan hook pemikat.',
+        href: `${baseUrl}generator/prompt-generator/`
+      },
+      {
+        title: 'Carousel Instagram & LinkedIn',
+        desc: 'Panduan slide visual berurutan: cover swipe, problem framing, dan call to action.',
+        href: `${baseUrl}generator/prompt-generator/`
+      },
+      {
+        title: 'Poster Infografis Vertikal',
+        desc: 'Perintah otomatis generate visual 9:16 atau 4:5 berisi ringkasan data penting.',
+        href: `${baseUrl}generator/prompt-generator/`
+      },
+      {
+        title: 'Serial 🧵 Threads / Twitter (X)',
+        desc: 'Utas 3-5 postingan pendek yang fokus 100% pada kekuatan copywriting teks.',
+        href: `${baseUrl}generator/prompt-generator/`
+      }
+    ]
+  },
+  {
+    category: 'Storytelling & Konversi Playbook',
+    items: [
+      {
+        title: 'Formula Hook 3 Detik Pertama',
+        desc: 'Teknik membuka cerita yang langsung menghentikan jari audiens saat scrolling.',
+        href: `${baseUrl}framework/#storiq10`
+      },
+      {
+        title: 'Menyusun Konflik yang Relatable',
+        desc: 'Cara menggali masalah nyata audiens tanpa terkesan menghakimi atau menggurui.',
+        href: `${baseUrl}framework/#pas`
+      },
+      {
+        title: 'Call to Action (CTA) yang Bernilai',
+        desc: 'Mengubah pembaca pasif menjadi pengikut loyal atau pembeli tanpa hard-selling.',
+        href: `${baseUrl}framework/#aida`
+      },
+      {
+        title: 'Atomisasi Ide Konten',
+        desc: 'Metode memecah 1 topik besar menjadi 10 turunan konten mikro yang saling menguatkan.',
+        href: `${baseUrl}framework/#bab`
+      }
+    ]
+  }
+];
 ---
 
 <Base
-  title="Panduan & Tutorial STORIQ - Integrasi SumoPod"
-  description="Panduan langkah demi langkah menggunakan STORIQ dan cara mendapatkan API key dari SumoPod."
+  title="Dokumentasi Lengkap — STORIQ"
+  description="Semua panduan penggunaan, integrasi API, dan formula storytelling STORIQ tersedia secara terbuka."
 >
   <Header slot="header" />
 
-  <!-- ==================== 1. HERO SECTION ==================== -->
-  <section class="bg-navy-800 text-white py-14 sm:py-20 relative overflow-hidden border-b border-navy-700">
-    <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-400 text-xs sm:text-sm font-medium mb-6">
-        <span>📚</span>
-        <span>Tutorial & Panduan Praktis</span>
-      </div>
-
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white">
-        Panduan Lengkap <span class="text-blue-400">STORIQ</span>
-      </h1>
-      <p class="mt-6 text-slate-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-light">
-        Pelajari cara menggunakan STORIQ dari nol sampai bisa melakukan 
-        <strong class="font-semibold text-white">content repurposing otomatis</strong> menggunakan integrasi API SumoPod.
-      </p>
+  <!-- Hero Section -->
+  <section class="py-14 sm:py-20 text-center max-w-4xl mx-auto px-4">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold mb-5">
+      <span>📖</span>
+      <span>Dokumentasi</span>
     </div>
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+      Dokumentasi Lengkap
+    </h1>
+    <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+      Semua panduan penggunaan dan API tersedia secara terbuka di repository GitHub — selalu terbaru, ikut berkembang bersama kode.
+    </p>
   </section>
 
-  <!-- ==================== 2. CARA PAKAI STORIQ ==================== -->
-  <section class="bg-white py-16 sm:py-24 relative" id="cara-pakai">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="text-center mb-12 sm:mb-16">
-        <h2 class="text-sm font-bold text-blue-600 tracking-widest uppercase mb-3">Workflow Dasar</h2>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Cara Pakai STORIQ</h3>
-        <p class="mt-4 text-slate-500 max-w-xl mx-auto">
-          Proses merubah satu ide abstrak menjadi puluhan format konten matang siap unggah.
-        </p>
-      </div>
-
-      <!-- Timeline Steps -->
-      <div class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
-        
-        <!-- Step 1 -->
-        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-blue-600 text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-            1
-          </div>
-          <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] p-5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-            <h4 class="font-bold text-slate-800 text-lg mb-2">Buka Generator & Isi Konteks</h4>
-            <p class="text-sm text-slate-600 leading-relaxed">
-              Masuk ke halaman <strong>Generator</strong>. Isi <span class="font-medium text-slate-800">Topik Utama</span> (ide dasar kamu), 
-              <span class="font-medium text-slate-800">Target Audiens</span>, dan 
-              <span class="font-medium text-slate-800">Tujuan Konten</span>. Semakin spesifik, semakin bagus hasilnya.
-            </p>
-          </div>
+  <!-- Categorized Documentation Grid (2-Column seperti Dikasir) -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 pb-24 space-y-12">
+    {docSections.map((sec) => (
+      <section>
+        <!-- Category Title with blue bar -->
+        <div class="flex items-center gap-2.5 mb-5">
+          <span class="w-4 h-0.5 bg-indigo-600 rounded-full inline-block"></span>
+          <h2 class="text-sm sm:text-base font-bold text-slate-900">{sec.category}</h2>
         </div>
 
-        <!-- Step 2 -->
-        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-blue-600 text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-            2
-          </div>
-          <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] p-5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-            <h4 class="font-bold text-slate-800 text-lg mb-2">Pilih Tone & Framework</h4>
-            <p class="text-sm text-slate-600 leading-relaxed">
-              Tentukan nada bicara (Tone) yang sesuai dengan brand kamu. Kemudian pilih <strong>Framework Storytelling</strong>.
-              Kami sangat menyarankan memilih <em>STORIQ 10 Elemen</em> untuk hasil konten persuasif yang menyeluruh.
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-amber-500 text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-            3
-          </div>
-          <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] p-5 rounded-2xl bg-amber-50 border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
-            <div class="inline-block px-2 py-0.5 bg-amber-200 text-amber-800 text-xs font-bold rounded mb-2">PILIH MODE</div>
-            <h4 class="font-bold text-slate-800 text-lg mb-2">Pilih Mode Eksekusi</h4>
-            <ul class="text-sm text-slate-600 leading-relaxed space-y-2 list-disc ml-4">
-              <li>
-                <strong class="text-slate-800">Prompt Generator (Manual):</strong> STORIQ akan merakit prompt rahasia super detail. Copy dan paste ke ChatGPT/Claude kamu sendiri.
-              </li>
-              <li>
-                <strong class="text-slate-800">SumoPod BYOK (Otomatis):</strong> STORIQ akan langsung berkomunikasi dengan AI dan men-generate hasilnya di layar yang sama. (Membutuhkan integrasi API).
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-blue-600 text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-            4
-          </div>
-          <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] p-5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-            <h4 class="font-bold text-slate-800 text-lg mb-2">Dapatkan Hasil & Repurpose</h4>
-            <p class="text-sm text-slate-600 leading-relaxed">
-              Setelah mendapatkan konten utama (Artikel), gunakan tombol-tombol <strong>Repurpose</strong> di bagian bawah hasil untuk menyulapnya menjadi bentuk lain dalam 1x klik: 
-              <em>Carousel IG, Thread X, Video Script, LinkedIn Post, dll.</em>
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 3. TUTORIAL SUMOPOD ==================== -->
-  <section class="bg-slate-50 py-16 sm:py-24 border-y border-slate-200" id="api-gratis">
-    <div class="max-w-5xl mx-auto px-4">
-      
-      <div class="text-center mb-10">
-        <div class="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider rounded-full mb-4">
-          PANDUAN INTEGRASI (MODE OTOMATIS)
-        </div>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-4">
-          Cara Mendapatkan API Key <span class="text-blue-600">SumoPod</span>
-        </h2>
-        <p class="text-slate-600 max-w-2xl mx-auto">
-          Untuk menggunakan fitur <strong>Generate Otomatis</strong>, STORIQ terintegrasi penuh dengan ekosistem SumoPod. Ikuti langkah singkat di bawah ini.
-        </p>
-      </div>
-
-      <!-- Keamanan Badge -->
-      <div class="bg-white border border-slate-200 rounded-xl p-5 sm:p-6 mb-12 shadow-sm flex flex-col sm:flex-row items-center gap-5 sm:gap-6 max-w-3xl mx-auto">
-        <div class="w-14 h-14 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center shrink-0 text-2xl border border-amber-100">
-          🔒
-        </div>
-        <div class="text-center sm:text-left">
-          <h4 class="font-bold text-slate-800 mb-1">Apakah API Key Kamu Aman di STORIQ?</h4>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            <strong>Ya, 100% aman!</strong> STORIQ adalah aplikasi <em>static client-side</em> tanpa server database. 
-            Kunci API kamu divalidasi dan <strong>hanya disimpan di memori browser lokalmu</strong> (<code>localStorage</code>). 
-            Tidak ada pihak ketiga yang bisa melihat atau mencurinya.
-          </p>
-        </div>
-      </div>
-
-      <!-- Langkah SumoPod -->
-      <div class="max-w-3xl mx-auto">
-        <div class="bg-white border-2 border-blue-100 rounded-2xl overflow-hidden shadow-lg shadow-blue-900/5 relative">
-          
-          <!-- Card Header -->
-          <div class="bg-blue-50/50 p-6 sm:p-8 border-b border-blue-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center border border-slate-200 text-2xl shrink-0">
-                ⚡
-              </div>
+        <!-- 2-Column Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {sec.items.map((item) => (
+            <a
+              href={item.href}
+              target={item.href.startsWith('http') ? '_blank' : '_self'}
+              rel={item.href.startsWith('http') ? 'noopener noreferrer' : ''}
+              class="group bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs hover:border-indigo-200 hover:shadow-xs transition-all flex items-start justify-between gap-3"
+            >
               <div>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
-                  SumoPod API
+                <h3 class="text-sm font-bold text-slate-900 group-hover:text-indigo-600 transition-colors flex items-center gap-1.5">
+                  <span>{item.title}</span>
+                  {item.href.startsWith('http') && (
+                    <span class="text-[10px] text-slate-400 font-normal">↗</span>
+                  )}
                 </h3>
-                <p class="text-slate-500 text-sm mt-1">Platform Agregator AI Frontiers</p>
+                <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
-            </div>
-            <a href="https://sumopod.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">
-              Buka sumopod.com
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+              <span class="text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-0.5 transition-all text-sm shrink-0 mt-0.5">
+                &rarr;
+              </span>
             </a>
-          </div>
-
-          <!-- Card Content -->
-          <div class="p-6 sm:p-8">
-            <h4 class="font-bold text-slate-800 text-sm tracking-wider uppercase mb-5 flex items-center gap-2">
-              <span class="text-blue-500">📋</span> LANGKAH-LANGKAH:
-            </h4>
-            
-            <ul class="space-y-4">
-              <li class="flex gap-4 items-start">
-                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold mt-0.5">1</span>
-                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  Buka website resmi SumoPod di <a href="https://sumopod.com/" target="_blank" class="text-blue-600 hover:underline font-medium">sumopod.com</a>.
-                </p>
-              </li>
-              <li class="flex gap-4 items-start">
-                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold mt-0.5">2</span>
-                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  Lakukan pendaftaran (Register) lalu <strong>Login</strong> ke dashboard utama SumoPod.
-                </p>
-              </li>
-              <li class="flex gap-4 items-start">
-                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold mt-0.5">3</span>
-                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  Pada sidebar sebelah kiri, cari bagian <strong>SERVICES</strong>, lalu klik menu <strong>AI</strong>.
-                </p>
-              </li>
-              <li class="flex gap-4 items-start">
-                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold mt-0.5">4</span>
-                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  Di halaman AI Models, pilih tab <strong>API Keys</strong>.
-                </p>
-              </li>
-              <li class="flex gap-4 items-start">
-                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold mt-0.5">5</span>
-                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  Klik tombol biru <strong>+ API Key</strong> di pojok kanan atas untuk membuat key baru.
-                </p>
-              </li>
-              <li class="flex gap-4 items-start">
-                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold mt-0.5">6</span>
-                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  Klik <strong>Copy</strong> pada kode string (<code>sk-sumo...</code>) yang muncul.
-                </p>
-              </li>
-              <li class="flex gap-4 items-start">
-                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold mt-0.5">7</span>
-                <div class="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  Buka menu <a href={`${baseUrl}pengaturan/`} class="text-blue-600 hover:underline font-medium">Pengaturan STORIQ</a>.
-                  Tempelkan (<em>paste</em>) API key tersebut, lalu klik <strong>Simpan & Hubungkan</strong>. Selesai!
-                </div>
-              </li>
-            </ul>
-          </div>
-          
+          ))}
         </div>
-      </div>
+      </section>
+    ))}
 
-    </div>
-  </section>
-
-  <!-- ==================== 4. FAQ / BANTUAN ==================== -->
-  <section class="bg-white py-16 sm:py-24">
-    <div class="max-w-3xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">Pertanyaan Seputar API</h2>
-      </div>
-
-      <div class="space-y-6">
-        <!-- FAQ 1 -->
-        <div class="border border-slate-200 rounded-xl p-6 bg-slate-50 hover:bg-white transition-colors">
-          <h4 class="font-bold text-slate-800 text-lg mb-2">Apakah saya wajib punya API Key?</h4>
-          <p class="text-slate-600 leading-relaxed text-sm">
-            <strong>Tidak wajib.</strong> STORIQ memiliki fitur "Prompt Generator". Kamu cukup klik generate prompt, lalu copy hasilnya dan paste secara manual ke ChatGPT atau Claude yang biasa kamu gunakan. Hasil akhirnya sama sempurnanya!
-          </p>
-        </div>
-
-        <!-- FAQ 2 -->
-        <div class="border border-slate-200 rounded-xl p-6 bg-slate-50 hover:bg-white transition-colors">
-          <h4 class="font-bold text-slate-800 text-lg mb-2">Error "API Key tidak valid" saat dihubungkan?</h4>
-          <p class="text-slate-600 leading-relaxed text-sm">
-            Pastikan kamu menyalin (copy) <em>seluruh</em> karakter key tanpa ada spasi yang terpotong. 
-            Jika masih gagal, coba buat API Key baru (Create new API Key) di dashboard SumoPod dan gunakan key yang baru tersebut.
-          </p>
-        </div>
-        
-        <!-- FAQ 3 -->
-        <div class="border border-slate-200 rounded-xl p-6 bg-slate-50 hover:bg-white transition-colors">
-          <h4 class="font-bold text-slate-800 text-lg mb-2">Di mana data API Key saya disimpan?</h4>
-          <p class="text-slate-600 leading-relaxed text-sm">
-            API key yang kamu masukkan hanya tersimpan di <code>localStorage</code> pada browser di HP atau laptopmu sendiri. Saat kamu menutup browser dan membukanya lagi, key tersebut masih ada. Namun jika kamu ganti perangkat, kamu harus memasukkannya lagi.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="bg-gradient-to-br from-navy-900 to-navy-800 text-white py-16 px-4">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold mb-4">Siap Membuat Konten?</h2>
-      <p class="text-slate-300 mb-8 text-lg">Pilih jalur manual atau otomatis, semuanya didesain gratis untukmu.</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href={`${baseUrl}generator/`} class="px-8 py-3.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold text-lg transition-colors shadow-lg shadow-blue-500/30">
-          Buka Generator →
+    <!-- Bottom Help Box (seperti Dikasir) -->
+    <div class="bg-white rounded-2xl border border-slate-200/80 p-8 text-center shadow-2xs max-w-2xl mx-auto space-y-4">
+      <h3 class="text-lg font-bold text-slate-900">
+        Dokumentasi Kurang Jelas?
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md mx-auto">
+        Dokumentasi kami juga open source — perbaiki dan buat PR di GitHub, atau tanyakan langsung melalui forum diskusi komunitas.
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-3 pt-2">
+        <a
+          href="https://github.com/andrean-lp/storiq"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm shadow-xs transition-colors"
+        >
+          Lihat Semua Docs di GitHub
         </a>
-        <a href={`${baseUrl}pengaturan/`} class="px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-lg font-semibold text-lg transition-colors">
-          Hubungkan API Key
+        <a
+          href="https://github.com/andrean-lp/storiq/issues"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs sm:text-sm border border-slate-200 shadow-2xs transition-colors"
+        >
+          Tanya di Issues / Discussions
         </a>
       </div>
     </div>
-  </section>
+  </div>
 
   <Footer slot="footer" />
 </Base>
