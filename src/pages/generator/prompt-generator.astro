@@ -31,19 +31,14 @@ const baseUrl = import.meta.env.BASE_URL;
           <span class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center font-bold">1</span>
           <span class="hidden sm:block">Ide</span>
         </button>
-        <div class="flex-1 h-0.5 bg-navy-600 mx-1 sm:mx-2"></div>
+        <div class="flex-1 h-0.5 bg-navy-600 mx-2 sm:mx-4"></div>
         <button data-step="2" class="step-dot flex flex-col items-center gap-1">
           <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">2</span>
           <span class="hidden sm:block">Prompt</span>
         </button>
-        <div class="flex-1 h-0.5 bg-navy-600 mx-1 sm:mx-2"></div>
+        <div class="flex-1 h-0.5 bg-navy-600 mx-2 sm:mx-4"></div>
         <button data-step="3" class="step-dot flex flex-col items-center gap-1">
           <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">3</span>
-          <span class="hidden sm:block">Proses</span>
-        </button>
-        <div class="flex-1 h-0.5 bg-navy-600 mx-1 sm:mx-2"></div>
-        <button data-step="4" class="step-dot flex flex-col items-center gap-1">
-          <span class="w-8 h-8 rounded-full bg-navy-600 flex items-center justify-center font-bold">4</span>
           <span class="hidden sm:block">Visual</span>
         </button>
       </div>
@@ -170,31 +165,22 @@ const baseUrl = import.meta.env.BASE_URL;
               ⚠️ Jangan lupa copy hasil dari AI kalian untuk digunakan pada proses selanjutnya!
             </p>
           </div>
+
+          <!-- Paste AI Content directly in Step 2 -->
+          <div class="mt-6 pt-6 border-t border-slate-200">
+            <label for="pasted-content" class="block text-sm font-semibold text-slate-700 mb-1">
+              📥 Paste Hasil Konten dari AI di Sini:
+            </label>
+            <p class="text-xs text-slate-500 mb-3">
+              Setelah mendapatkan tulisan dari ChatGPT / Claude / Gemini, tempelkan hasilnya di sini untuk lanjut membuat konten visual.
+            </p>
+            <textarea id="pasted-content" rows="8" placeholder="Paste konten dari AI di sini..." class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-slate-800 font-mono text-sm resize-none bg-white"></textarea>
+          </div>
         </div>
       </div>
 
       <div class="mt-8 flex justify-between items-center">
         <button onclick="goToStep(1)" class="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
-          ← Kembali
-        </button>
-        <button onclick="goToStep(3)" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
-          Lanjut ke Proses →
-        </button>
-      </div>
-    </section>
-
-    <!-- STEP 3: Proses -->
-    <section id="step-3" class="step-panel hidden">
-      <h2 class="text-2xl font-bold text-slate-800 mb-1">⚙️ Proses Konten</h2>
-      <p class="text-slate-500 mb-6">Paste hasil artikel/tulisan dari AI kalian di bawah ini untuk lanjut me-repurpose ke format visual.</p>
-      
-      <div class="mb-6">
-        <label for="pasted-content" class="block text-sm font-medium text-slate-700 mb-1">Hasil Konten AI</label>
-        <textarea id="pasted-content" rows="12" placeholder="Paste konten dari AI di sini..." class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-slate-800 font-mono text-sm resize-none"></textarea>
-      </div>
-
-      <div class="mt-8 flex justify-between items-center">
-        <button onclick="goToStep(2)" class="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors">
           ← Kembali
         </button>
         <button onclick="processPastedContent()" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
@@ -203,8 +189,8 @@ const baseUrl = import.meta.env.BASE_URL;
       </div>
     </section>
 
-    <!-- STEP 4: Hasil & Visual -->
-    <section id="step-4" class="step-panel hidden">
+    <!-- STEP 3: Hasil & Visual -->
+    <section id="step-3" class="step-panel hidden">
       <div class="flex items-center justify-between mb-1">
         <h2 class="text-2xl font-bold text-slate-800">✨ Hasil & Repurpose Visual</h2>
       </div>
@@ -248,6 +234,9 @@ const baseUrl = import.meta.env.BASE_URL;
       </div>
 
       <div class="flex flex-col sm:flex-row gap-3">
+        <button onclick="goToStep(2)" class="py-3 px-6 border border-slate-300 text-slate-700 rounded-lg font-medium hover:bg-slate-50 transition-colors text-sm text-center">
+          ← Kembali ke Prompt
+        </button>
         <button onclick="goToStep(1)" class="flex-1 py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors text-sm text-center">
           ✏️ Buat Ide Baru (Mulai dari Awal)
         </button>
@@ -374,8 +363,8 @@ const baseUrl = import.meta.env.BASE_URL;
       showToast('⚠️ Paste dulu konten dari AI kalian ya!');
       return;
     }
-    // Go to step 4
-    goToStep(4);
+    // Go to step 3 (Hasil & Visual)
+    goToStep(3);
   };
 
   // --- Copy Visual Prompt ---
