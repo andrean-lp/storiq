@@ -191,97 +191,6 @@ const baseUrl = import.meta.env.BASE_URL;
           </div>
         </div>
 
-        <!-- Fitur Karakter Tanpa Wajah (Faceless) -->
-        <div class="mt-4 p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
-          <label class="flex items-start gap-3.5 cursor-pointer select-none">
-            <div class="flex items-center h-5 mt-0.5">
-              <input
-                type="checkbox"
-                id="toggle-faceless-sumopod"
-                class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer transition-all"
-              />
-            </div>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                  👤 Karakter Tanpa Wajah (Faceless Illustration)
-                </span>
-                <span class="text-[11px] font-semibold px-2.5 py-0.5 bg-amber-50 text-amber-700 rounded-full border border-amber-200">
-                  Tanpa Alis, Mata, Hidung & Mulut
-                </span>
-              </div>
-              <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                Centang untuk <strong>menghilangkan alis, mata, hidung, dan mulut</strong> saat generate gambar berkarakter manusia (gaya ilustrasi 3D clay / flat vector tanpa fitur wajah — sangat cocok untuk infografis edukatif, modern, dan syar'i).
-              </p>
-            </div>
-          </label>
-        </div>
-
-        <!-- Fitur Warna Utama Brand (Primary Brand Color) -->
-        <div class="mt-3 p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
-          <label class="flex items-start gap-3.5 cursor-pointer select-none">
-            <div class="flex items-center h-5 mt-0.5">
-              <input
-                type="checkbox"
-                id="toggle-brand-color-sumopod"
-                class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer transition-all"
-              />
-            </div>
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                  🎨 Warna Utama Brand (Primary Brand Color)
-                </span>
-                <span class="text-[11px] font-semibold px-2.5 py-0.5 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200/60">
-                  Seragamkan Feed Sosmed
-                </span>
-              </div>
-              <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                Centang untuk menetapkan <strong>kode warna utama brand</strong> (contoh: <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-[11px] font-mono">#4F46E5</code> atau <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-[11px] font-mono">#0055A5</code>) agar seluruh gambar dan cover memiliki nuansa warna yang seragam di Instagram, LinkedIn, & blog.
-              </p>
-            </div>
-          </label>
-
-          <!-- Color Input Area (Muncul saat dicentang) -->
-          <div id="brand-color-container-sumopod" class="mt-3 pt-3 border-t border-slate-100 hidden">
-            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-              <div class="flex items-center gap-2.5">
-                <div class="relative w-10 h-10 rounded-lg overflow-hidden border border-slate-300 shadow-2xs shrink-0 cursor-pointer">
-                  <input
-                    type="color"
-                    id="color-picker-sumopod"
-                    value="#4F46E5"
-                    class="absolute -top-2 -left-2 w-14 h-14 cursor-pointer border-0 p-0"
-                    title="Klik untuk memilih warna dari palet"
-                  />
-                </div>
-                <div class="relative">
-                  <input
-                    type="text"
-                    id="color-hex-sumopod"
-                    value="#4F46E5"
-                    placeholder="#4F46E5"
-                    maxlength="7"
-                    class="w-28 px-3 py-2 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none"
-                  />
-                </div>
-              </div>
-
-              <!-- Quick Presets -->
-              <div class="flex items-center gap-1.5 flex-wrap">
-                <span class="text-[11px] text-slate-400 mr-1 font-medium">Preset:</span>
-                <button type="button" onclick="setBrandColorPresetSumopod('#4F46E5')" class="w-6 h-6 rounded-full bg-[#4F46E5] hover:scale-110 transition-transform shadow-xs" title="Indigo (#4F46E5)"></button>
-                <button type="button" onclick="setBrandColorPresetSumopod('#2563EB')" class="w-6 h-6 rounded-full bg-[#2563EB] hover:scale-110 transition-transform shadow-xs" title="Royal Blue (#2563EB)"></button>
-                <button type="button" onclick="setBrandColorPresetSumopod('#0284C7')" class="w-6 h-6 rounded-full bg-[#0284C7] hover:scale-110 transition-transform shadow-xs" title="Sky Cyan (#0284C7)"></button>
-                <button type="button" onclick="setBrandColorPresetSumopod('#059669')" class="w-6 h-6 rounded-full bg-[#059669] hover:scale-110 transition-transform shadow-xs" title="Emerald (#059669)"></button>
-                <button type="button" onclick="setBrandColorPresetSumopod('#EA580C')" class="w-6 h-6 rounded-full bg-[#EA580C] hover:scale-110 transition-transform shadow-xs" title="Orange (#EA580C)"></button>
-                <button type="button" onclick="setBrandColorPresetSumopod('#DC2626')" class="w-6 h-6 rounded-full bg-[#DC2626] hover:scale-110 transition-transform shadow-xs" title="Red (#DC2626)"></button>
-                <button type="button" onclick="setBrandColorPresetSumopod('#0F172A')" class="w-6 h-6 rounded-full bg-[#0F172A] hover:scale-110 transition-transform shadow-xs" title="Dark Slate (#0F172A)"></button>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Visual Repurpose Section -->
         <div class="mt-8 border-t border-slate-200 pt-8">
           <div class="bg-indigo-50/60 border border-indigo-200 rounded-xl p-5 mb-5">
@@ -289,72 +198,95 @@ const baseUrl = import.meta.env.BASE_URL;
             <p class="text-xs sm:text-sm text-indigo-700">Pecah artikel di atas menjadi konten visual. Copy prompt di bawah ini dan paste ke AI favoritmu untuk membuat konsep grafisnya.</p>
           </div>
 
-          <!-- Pengaturan Desain Visual (Faceless & Warna Brand) di Repurpose Visual -->
-          <div class="bg-white border border-slate-200 rounded-xl p-4 mb-5 shadow-2xs space-y-3.5">
-            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Pengaturan Desain Visual (Opsional)</span>
-              <span class="text-[11px] text-slate-500 hidden sm:inline">Prompt di bawah ter-update otomatis</span>
-            </div>
-
-            <!-- Faceless Toggle -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <label class="flex items-center gap-3 cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  id="toggle-faceless-sumopod-repurpose"
-                  class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer"
-                />
-                <div>
-                  <span class="text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                    👤 Karakter Tanpa Wajah (Faceless)
-                  </span>
-                  <span class="text-[11px] text-slate-500 block sm:inline">
-                    Tanpa alis, mata, hidung & mulut
-                  </span>
-                </div>
-              </label>
-              <span id="faceless-badge-sumopod" class="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-slate-100 text-slate-600 self-start sm:self-center">
-                Standar (Wajah Utuh)
-              </span>
-            </div>
-
-            <!-- Brand Color Toggle -->
-            <div class="pt-3 border-t border-slate-100">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <label class="flex items-center gap-3 cursor-pointer select-none">
+          <!-- Opsi Pengaturan Visual: Karakter Tanpa Wajah & Warna Utama Brand -->
+          <div class="space-y-3 mb-6">
+            <!-- Fitur Karakter Tanpa Wajah (Faceless) -->
+            <div class="p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
+              <label class="flex items-start gap-3.5 cursor-pointer select-none">
+                <div class="flex items-center h-5 mt-0.5">
                   <input
                     type="checkbox"
-                    id="toggle-brand-color-sumopod-repurpose"
-                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer"
+                    id="toggle-faceless-sumopod"
+                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer transition-all"
                   />
-                  <div>
-                    <span class="text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                      🎨 Warna Utama Brand (Primary Color)
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                      👤 Karakter Tanpa Wajah (Faceless Illustration)
                     </span>
-                    <span class="text-[11px] text-slate-500 block sm:inline">
-                      Seragamkan nuansa feed sosmed
+                    <span class="text-[11px] font-semibold px-2.5 py-0.5 bg-amber-50 text-amber-700 rounded-full border border-amber-200">
+                      Tanpa Alis, Mata, Hidung & Mulut
                     </span>
                   </div>
-                </label>
+                  <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                    Centang untuk <strong>menghilangkan alis, mata, hidung, dan mulut</strong> saat generate gambar berkarakter manusia (gaya ilustrasi 3D clay / flat vector tanpa fitur wajah — sangat cocok untuk infografis edukatif, modern, dan syar'i).
+                  </p>
+                </div>
+              </label>
+            </div>
 
-                <!-- Color Picker & Input di Repurpose Visual -->
-                <div id="brand-color-controls-sumopod-repurpose" class="flex items-center gap-2 hidden">
-                  <div class="relative w-8 h-8 rounded-lg overflow-hidden border border-slate-300 shadow-2xs shrink-0 cursor-pointer">
-                    <input
-                      type="color"
-                      id="color-picker-sumopod-repurpose"
-                      value="#4F46E5"
-                      class="absolute -top-2 -left-2 w-12 h-12 cursor-pointer border-0 p-0"
-                    />
-                  </div>
+            <!-- Fitur Warna Utama Brand (Primary Brand Color) -->
+            <div class="p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
+              <label class="flex items-start gap-3.5 cursor-pointer select-none">
+                <div class="flex items-center h-5 mt-0.5">
                   <input
-                    type="text"
-                    id="color-hex-sumopod-repurpose"
-                    value="#4F46E5"
-                    placeholder="#4F46E5"
-                    maxlength="7"
-                    class="w-24 px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none"
+                    type="checkbox"
+                    id="toggle-brand-color-sumopod"
+                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer transition-all"
                   />
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                      🎨 Warna Utama Brand (Primary Brand Color)
+                    </span>
+                    <span class="text-[11px] font-semibold px-2.5 py-0.5 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200/60">
+                      Seragamkan Feed Sosmed
+                    </span>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                    Centang untuk menetapkan <strong>kode warna utama brand</strong> (contoh: <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-[11px] font-mono">#4F46E5</code> atau <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-[11px] font-mono">#0055A5</code>) agar seluruh gambar dan cover memiliki nuansa warna yang seragam di Instagram, LinkedIn, & blog.
+                  </p>
+                </div>
+              </label>
+
+              <!-- Color Input Area (Muncul saat dicentang) -->
+              <div id="brand-color-container-sumopod" class="mt-3 pt-3 border-t border-slate-100 hidden">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                  <div class="flex items-center gap-2.5">
+                    <div class="relative w-10 h-10 rounded-lg overflow-hidden border border-slate-300 shadow-2xs shrink-0 cursor-pointer">
+                      <input
+                        type="color"
+                        id="color-picker-sumopod"
+                        value="#4F46E5"
+                        class="absolute -top-2 -left-2 w-14 h-14 cursor-pointer border-0 p-0"
+                        title="Klik untuk memilih warna dari palet"
+                      />
+                    </div>
+                    <div class="relative">
+                      <input
+                        type="text"
+                        id="color-hex-sumopod"
+                        value="#4F46E5"
+                        placeholder="#4F46E5"
+                        maxlength="7"
+                        class="w-28 px-3 py-2 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Quick Presets -->
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="text-[11px] text-slate-400 mr-1 font-medium">Preset Cepat:</span>
+                    <button type="button" onclick="setBrandColorPresetSumopod('#4F46E5')" class="w-6 h-6 rounded-full bg-[#4F46E5] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Indigo (#4F46E5)"></button>
+                    <button type="button" onclick="setBrandColorPresetSumopod('#2563EB')" class="w-6 h-6 rounded-full bg-[#2563EB] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Royal Blue (#2563EB)"></button>
+                    <button type="button" onclick="setBrandColorPresetSumopod('#0284C7')" class="w-6 h-6 rounded-full bg-[#0284C7] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Sky Cyan (#0284C7)"></button>
+                    <button type="button" onclick="setBrandColorPresetSumopod('#059669')" class="w-6 h-6 rounded-full bg-[#059669] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Emerald (#059669)"></button>
+                    <button type="button" onclick="setBrandColorPresetSumopod('#EA580C')" class="w-6 h-6 rounded-full bg-[#EA580C] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Orange (#EA580C)"></button>
+                    <button type="button" onclick="setBrandColorPresetSumopod('#DC2626')" class="w-6 h-6 rounded-full bg-[#DC2626] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Red (#DC2626)"></button>
+                    <button type="button" onclick="setBrandColorPresetSumopod('#0F172A')" class="w-6 h-6 rounded-full bg-[#0F172A] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Dark Slate (#0F172A)"></button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -688,22 +620,8 @@ const baseUrl = import.meta.env.BASE_URL;
 
   function updateFacelessModeSumopod(active, notify = true) {
     isFacelessActiveSumopod = active;
-    const chk1 = document.getElementById('toggle-faceless-sumopod');
-    const chk2 = document.getElementById('toggle-faceless-sumopod-repurpose');
-    const badge = document.getElementById('faceless-badge-sumopod');
-
-    if (chk1) chk1.checked = active;
-    if (chk2) chk2.checked = active;
-
-    if (badge) {
-      if (active) {
-        badge.textContent = '✓ Tanpa Wajah Aktif';
-        badge.className = 'text-xs px-2.5 py-0.5 rounded-full font-semibold bg-amber-100 text-amber-800 border border-amber-300 shrink-0';
-      } else {
-        badge.textContent = 'Standar (Wajah Utuh)';
-        badge.className = 'text-xs px-2.5 py-0.5 rounded-full font-semibold bg-slate-100 text-slate-600 shrink-0';
-      }
-    }
+    const chk = document.getElementById('toggle-faceless-sumopod');
+    if (chk) chk.checked = active;
 
     renderVisualPromptsSumopod();
 
@@ -717,21 +635,13 @@ const baseUrl = import.meta.env.BASE_URL;
 
   function updateBrandColorModeSumopod(active, notify = true) {
     isBrandColorActiveSumopod = active;
-    const chk1 = document.getElementById('toggle-brand-color-sumopod');
-    const chk2 = document.getElementById('toggle-brand-color-sumopod-repurpose');
-    const container1 = document.getElementById('brand-color-container-sumopod');
-    const controls2 = document.getElementById('brand-color-controls-sumopod-repurpose');
+    const chk = document.getElementById('toggle-brand-color-sumopod');
+    const container = document.getElementById('brand-color-container-sumopod');
 
-    if (chk1) chk1.checked = active;
-    if (chk2) chk2.checked = active;
-
-    if (container1) {
-      if (active) container1.classList.remove('hidden');
-      else container1.classList.add('hidden');
-    }
-    if (controls2) {
-      if (active) controls2.classList.remove('hidden');
-      else controls2.classList.add('hidden');
+    if (chk) chk.checked = active;
+    if (container) {
+      if (active) container.classList.remove('hidden');
+      else container.classList.add('hidden');
     }
 
     renderVisualPromptsSumopod();
@@ -748,17 +658,12 @@ const baseUrl = import.meta.env.BASE_URL;
     const sanitized = sanitizeHex(hex);
     brandColorHexSumopod = sanitized;
 
-    const inputHex1 = document.getElementById('color-hex-sumopod');
-    const picker1 = document.getElementById('color-picker-sumopod');
-    const inputHex2 = document.getElementById('color-hex-sumopod-repurpose');
-    const picker2 = document.getElementById('color-picker-sumopod-repurpose');
+    const inputHex = document.getElementById('color-hex-sumopod');
+    const picker = document.getElementById('color-picker-sumopod');
 
-    if (inputHex1 && inputHex1.value !== sanitized) inputHex1.value = sanitized;
-    if (inputHex2 && inputHex2.value !== sanitized) inputHex2.value = sanitized;
-
-    if (/^#[0-9A-Fa-f]{6}$/.test(sanitized)) {
-      if (picker1) picker1.value = sanitized;
-      if (picker2) picker2.value = sanitized;
+    if (inputHex && inputHex.value !== sanitized) inputHex.value = sanitized;
+    if (/^#[0-9A-Fa-f]{6}$/.test(sanitized) && picker) {
+      picker.value = sanitized;
     }
 
     renderVisualPromptsSumopod();
@@ -777,25 +682,18 @@ const baseUrl = import.meta.env.BASE_URL;
   document.getElementById('toggle-faceless-sumopod')?.addEventListener('change', (e) => {
     updateFacelessModeSumopod(e.target.checked);
   });
-  document.getElementById('toggle-faceless-sumopod-repurpose')?.addEventListener('change', (e) => {
-    updateFacelessModeSumopod(e.target.checked);
-  });
 
   document.getElementById('toggle-brand-color-sumopod')?.addEventListener('change', (e) => {
     updateBrandColorModeSumopod(e.target.checked);
   });
-  document.getElementById('toggle-brand-color-sumopod-repurpose')?.addEventListener('change', (e) => {
-    updateBrandColorModeSumopod(e.target.checked);
+
+  document.getElementById('color-picker-sumopod')?.addEventListener('input', (e) => {
+    applyBrandColorChangeSumopod(e.target.value);
   });
 
-  ['color-picker-sumopod', 'color-picker-sumopod-repurpose'].forEach(id => {
-    document.getElementById(id)?.addEventListener('input', (e) => {
-      applyBrandColorChangeSumopod(e.target.value);
-    });
-  });
-
-  ['color-hex-sumopod', 'color-hex-sumopod-repurpose'].forEach(id => {
-    document.getElementById(id)?.addEventListener('input', (e) => {
+  const colorHexSumopodInput = document.getElementById('color-hex-sumopod');
+  if (colorHexSumopodInput) {
+    colorHexSumopodInput.addEventListener('input', (e) => {
       let val = e.target.value.trim();
       if (val && !val.startsWith('#')) val = '#' + val;
       if (val.length > 7) val = val.slice(0, 7);
@@ -804,7 +702,7 @@ const baseUrl = import.meta.env.BASE_URL;
         applyBrandColorChangeSumopod(val);
       }
     });
-    document.getElementById(id)?.addEventListener('blur', (e) => {
+    colorHexSumopodInput.addEventListener('blur', (e) => {
       let val = e.target.value.trim();
       if (!val || !/^#[0-9A-Fa-f]{6}$/.test(val)) {
         e.target.value = brandColorHexSumopod;
@@ -812,7 +710,7 @@ const baseUrl = import.meta.env.BASE_URL;
         applyBrandColorChangeSumopod(val, true);
       }
     });
-  });
+  }
 
   // --- Copy Visual Prompt ---
   window.copyVisualPrompt = function(type) {
