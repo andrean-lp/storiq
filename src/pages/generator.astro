@@ -273,34 +273,43 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
           <div id="output-text" class="px-4 py-4 prose prose-sm max-w-none text-slate-700 whitespace-pre-wrap leading-relaxed"></div>
         </div>
 
-        <!-- Actions (Repurpose) -->
-        <div class="mt-6 border-t border-slate-200 pt-5">
-          <h4 class="text-sm font-semibold text-slate-800 mb-3">🔄 Repurpose Konten Ini Ke:</h4>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
-            <button onclick="repurposeContent('carousel')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
-              📱 Carousel IG
-            </button>
-            <button onclick="repurposeContent('thread')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
-              🐦 X Thread
-            </button>
-            <button onclick="repurposeContent('caption')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
-              💬 Caption
-            </button>
-            <button onclick="repurposeContent('video')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
-              🎬 Video Script
-            </button>
-            <button onclick="repurposeContent('quote')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
-              💡 Quote Image
-            </button>
-            <button onclick="repurposeContent('linkedin')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
-              💼 LinkedIn Post
-            </button>
-            <button onclick="repurposeContent('pinterest')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
-              📌 Pinterest Pin
-            </button>
-            <button onclick="repurposeContent('blog')" class="p-2 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 text-xs font-medium text-slate-700 transition-colors flex items-center justify-center gap-1.5">
-              📝 Artikel Blog
-            </button>
+        <!-- Actions (Repurpose Prompts) -->
+        <div class="mt-8 border-t border-slate-200 pt-6">
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+            <h4 class="font-bold text-blue-800 text-sm mb-1">🎨 Repurpose ke Visual</h4>
+            <p class="text-xs text-blue-700">Pecah artikel/konten di atas menjadi format visual. Copy prompt di bawah ini dan paste ke chat AI yang sama untuk mendapatkan ide desainnya.</p>
+          </div>
+          
+          <div class="space-y-4 mb-6">
+            <!-- Single Image -->
+            <div class="border border-slate-200 rounded-lg p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-semibold text-sm text-slate-800">🖼️ Single Image</span>
+                <button onclick="copyVisualPrompt('single')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
+              </div>
+              <p id="prompt-single" class="text-xs text-slate-500 font-mono bg-slate-50 p-2 rounded">Berdasarkan konten di atas, tolong rangkum menjadi 1 pesan inti yang paling nendang untuk dijadikan postingan Single Image. Buatkan visual direction (ide gambar/ilustrasi) dan copy singkat untuk ditaruh di dalam gambar.</p>
+            </div>
+
+            <!-- Carousel -->
+            <div class="border border-slate-200 rounded-lg p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-semibold text-sm text-slate-800">📱 Carousel</span>
+                <button onclick="copyVisualPrompt('carousel')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
+              </div>
+              <p id="prompt-carousel" class="text-xs text-slate-500 font-mono bg-slate-50 p-2 rounded">Berdasarkan konten di atas, tolong pecah menjadi 5-7 slide Carousel. Untuk setiap slide, berikan:
+1. Teks Headline (max 10 kata)
+2. Teks Body (max 2 kalimat)
+3. Visual Direction (ide visual/ikon pendukung yang relevan)</p>
+            </div>
+
+            <!-- Infografis -->
+            <div class="border border-slate-200 rounded-lg p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-semibold text-sm text-slate-800">📊 Infografis</span>
+                <button onclick="copyVisualPrompt('infografis')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
+              </div>
+              <p id="prompt-infografis" class="text-xs text-slate-500 font-mono bg-slate-50 p-2 rounded">Berdasarkan konten di atas, tolong ekstrak data, langkah-langkah, atau poin utama untuk dijadikan desain Infografis. Berikan struktur hierarki informasinya (Judul utama, sub-judul, poin-poin singkat) agar mudah didesain secara visual.</p>
+            </div>
           </div>
           <button onclick="goToStep(1)" class="w-full py-3 border border-slate-300 text-slate-600 rounded-lg font-medium hover:bg-slate-50 transition-colors text-sm">
             ✏️ Buat Ide Baru (Mulai dari Awal)
@@ -490,15 +499,10 @@ import { FRAMEWORKS, OUTPUT_FORMATS } from '../scripts/prompts.js';
     document.getElementById('output-text').textContent = pasted;
   };
 
-  // --- Repurpose Content ---
-  window.repurposeContent = function(format) {
-    const apiKey = document.getElementById('apikey').value.trim();
-    if (apiKey) {
-      generateWithAPI(format);
-    } else {
-      generatePrompt(format);
-      goToStep(2); // Kembali ke step 2 untuk copy prompt baru
-    }
+  // --- Copy Visual Prompt ---
+  window.copyVisualPrompt = function(type) {
+    const text = document.getElementById(`prompt-${type}`).innerText;
+    navigator.clipboard.writeText(text).then(() => showToast('📋 Prompt visual berhasil di-copy!'));
   };
 
   // --- Mode 2: Generate with API (SumoPod) ---
