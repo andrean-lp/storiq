@@ -182,6 +182,32 @@ const baseUrl = import.meta.env.BASE_URL;
                 <strong>Catatan:</strong> Hasil artikel yang kamu dapatkan dari AI ini bisa langsung kamu gunakan untuk konten artikel di <strong>WordPress</strong>, <strong>Blogger</strong>, <strong>Medium</strong>, maupun <strong>Substack</strong>!
               </p>
             </div>
+
+            <!-- Fitur Karakter Tanpa Wajah (Faceless) -->
+            <div class="mt-3 p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
+              <label class="flex items-start gap-3.5 cursor-pointer select-none">
+                <div class="flex items-center h-5 mt-0.5">
+                  <input
+                    type="checkbox"
+                    id="toggle-faceless-step2"
+                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer transition-all"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                      👤 Karakter Tanpa Wajah (Faceless Illustration)
+                    </span>
+                    <span class="text-[11px] font-semibold px-2.5 py-0.5 bg-amber-50 text-amber-700 rounded-full border border-amber-200">
+                      Tanpa Alis, Mata, Hidung & Mulut
+                    </span>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                    Centang untuk <strong>menghilangkan alis, mata, hidung, dan mulut</strong> saat generate gambar berkarakter manusia (gaya ilustrasi 3D clay / flat vector tanpa fitur wajah — sangat cocok untuk infografis edukatif, modern, dan syar'i).
+                  </p>
+                </div>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -203,9 +229,31 @@ const baseUrl = import.meta.env.BASE_URL;
       </div>
       <p class="text-slate-500 mb-6">Gunakan prompt di bawah ini untuk mengubah kontenmu menjadi format desain visual.</p>
 
-      <div class="bg-indigo-50/60 border border-indigo-200 rounded-lg p-4 mb-6">
+      <div class="bg-indigo-50/60 border border-indigo-200 rounded-lg p-4 mb-5">
         <h4 class="font-bold text-indigo-900 text-sm mb-1">🎨 Repurpose ke Visual</h4>
         <p class="text-xs text-indigo-700">Pecah artikel/konten di atas menjadi format visual. Copy prompt di bawah ini dan paste ke chat AI yang sama untuk mendapatkan ide desainnya.</p>
+      </div>
+
+      <!-- Status & Toggle Mode Faceless di Step 3 -->
+      <div class="bg-white border border-slate-200 rounded-xl p-3.5 sm:p-4 mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+        <label class="flex items-center gap-3 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            id="toggle-faceless-step3"
+            class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer"
+          />
+          <div>
+            <span class="text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-1.5">
+              👤 Mode Karakter Tanpa Wajah (Faceless)
+            </span>
+            <span class="text-[11px] text-slate-500 block sm:inline">
+              Otomatis hilangkan alis, mata, hidung, & mulut pada prompt visual
+            </span>
+          </div>
+        </label>
+        <span id="faceless-badge-step3" class="text-xs px-2.5 py-1 rounded-full font-semibold bg-slate-100 text-slate-600 self-start sm:self-center">
+          Standar (Wajah Utuh)
+        </span>
       </div>
       
       <div class="space-y-4 mb-6">
@@ -442,6 +490,87 @@ const baseUrl = import.meta.env.BASE_URL;
     // Go to step 3 (Hasil & Visual)
     goToStep(3);
   };
+
+  // --- Faceless Mode & Visual Prompts ---
+  const visualPromptTemplates = {
+    single: {
+      normal: `Berdasarkan konten di atas:
+1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, rasio 1:1 (square), gaya modern, clean, dan relatable.
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram.`,
+      faceless: `Berdasarkan konten di atas:
+1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, rasio 1:1 (square), gaya modern, clean, dan relatable.
+* PENTING (ATURAN WAJAH): Jika terdapat karakter / figur manusia dalam gambar, WAJIB dibuat TANPA fitur wajah (FACELESS: hilangkan alis, mata, hidung, dan mulut — permukaan wajah polos mulus / blank smooth face, hanya rambut, telinga, pakaian, dan gestur tubuh yang tampak, gaya 3D clay / clean vector seperti poster infografis edukatif).
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (tambahkan deskripsi: "faceless minimalist character, blank smooth face, no facial features, no eyes, no eyebrows, no nose, no mouth, modern 3D clay illustration, clean aesthetic").`
+    },
+    carousel: {
+      normal: `Berdasarkan konten di atas:
+1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
+2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), rasio 1:1 atau 4:5 portrait, gaya clean & modern.
+3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu.`,
+      faceless: `Berdasarkan konten di atas:
+1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
+2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), rasio 1:1 atau 4:5 portrait, gaya clean & modern.
+* PENTING (ATURAN WAJAH): Jika ada ilustrasi karakter manusia pada cover/slide, WAJIB dibuat TANPA fitur wajah (FACELESS: hilangkan alis, mata, hidung, dan mulut — wajah polos mulus / blank smooth face, gaya 3D infografis modern).
+3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu (sertakan: "faceless character, blank smooth face, no eyes, no eyebrows, no nose, no mouth, 3D clay style").`
+    },
+    infografis: {
+      normal: `Berdasarkan konten di atas:
+1. Rangkum poin-poin utama, data, atau langkah-langkah secara terstruktur dan ringkas.
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram.`,
+      faceless: `Berdasarkan konten di atas:
+1. Rangkum poin-poin utama, data, atau langkah-langkah secara terstruktur dan ringkas.
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.
+* PENTING (ATURAN WAJAH): Jika terdapat karakter / figur manusia pada poster infografis, WAJIB dibuat TANPA fitur wajah (FACELESS: hilangkan alis, mata, hidung, dan mulut — permukaan wajah polos mulus / blank smooth face, hanya rambut dan gestur tubuh, gaya 3D infografis edukatif).
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (sertakan: "faceless 3D character, blank smooth face, no facial features, no eyes, no nose, no mouth, no eyebrows, educational infographic poster design").`
+    }
+  };
+
+  let isFacelessActive = false;
+
+  function updateFacelessMode(active, notify = true) {
+    isFacelessActive = active;
+    const chkStep2 = document.getElementById('toggle-faceless-step2');
+    const chkStep3 = document.getElementById('toggle-faceless-step3');
+    const badgeStep3 = document.getElementById('faceless-badge-step3');
+
+    if (chkStep2) chkStep2.checked = active;
+    if (chkStep3) chkStep3.checked = active;
+
+    if (badgeStep3) {
+      if (active) {
+        badgeStep3.textContent = '✓ Tanpa Wajah Aktif';
+        badgeStep3.className = 'text-xs px-2.5 py-1 rounded-full font-semibold bg-amber-100 text-amber-800 border border-amber-300 shrink-0';
+      } else {
+        badgeStep3.textContent = 'Standar (Wajah Utuh)';
+        badgeStep3.className = 'text-xs px-2.5 py-1 rounded-full font-semibold bg-slate-100 text-slate-600 shrink-0';
+      }
+    }
+
+    const mode = active ? 'faceless' : 'normal';
+    ['single', 'carousel', 'infografis'].forEach(type => {
+      const el = document.getElementById(`prompt-${type}`);
+      if (el && visualPromptTemplates[type]) {
+        el.innerText = visualPromptTemplates[type][mode];
+      }
+    });
+
+    if (notify) {
+      showToast(active 
+        ? '👤 Mode Faceless diaktifkan: Alis, mata, hidung & mulut ditiadakan' 
+        : '👤 Mode visual standar diaktifkan'
+      );
+    }
+  }
+
+  document.getElementById('toggle-faceless-step2')?.addEventListener('change', (e) => {
+    updateFacelessMode(e.target.checked);
+  });
+  document.getElementById('toggle-faceless-step3')?.addEventListener('change', (e) => {
+    updateFacelessMode(e.target.checked);
+  });
 
   // --- Copy Visual Prompt ---
   window.copyVisualPrompt = function(type) {
