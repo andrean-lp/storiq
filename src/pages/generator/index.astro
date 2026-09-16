@@ -1,0 +1,136 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Base title="Pilih Mode Generator — STORIQ" description="Pilih mode generator STORIQ: Prompt Generator (Manual) atau API Key SumoPod (Otomatis).">
+  <Header slot="header" />
+
+  <div class="max-w-4xl mx-auto px-4 py-12 sm:py-16">
+    <!-- Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
+        Langkah 1: Tentukan Mode
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+        Pilih Cara Kamu Membuat Konten
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg">
+        STORIQ menyediakan dua cara untuk mengubah satu ide menjadi konten berkualitas. Pilih mode yang paling nyaman untuk alur kerjamu.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+      
+      <!-- Option 1: Prompt Generator (Manual) -->
+      <div class="bg-white border-2 border-slate-200 hover:border-blue-500 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 hover:shadow-xl group relative">
+        <div class="absolute -top-3 left-6">
+          <span class="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+            ⭐ Paling Populer • 100% Gratis
+          </span>
+        </div>
+
+        <div>
+          <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+            📋
+          </div>
+          
+          <h2 class="text-2xl font-bold text-slate-900 mb-2">
+            Prompt Generator
+          </h2>
+          <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+            STORIQ merakit prompt rahasia super terstruktur untuk kamu copy dan paste ke ChatGPT, Gemini, atau Claude.
+          </p>
+
+          <div class="space-y-3 pt-4 border-t border-slate-100 mb-8">
+            <div class="flex items-start gap-2.5 text-sm text-slate-700">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Tanpa API Key</strong> — langsung pakai tanpa registrasi apapun</span>
+            </div>
+            <div class="flex items-start gap-2.5 text-sm text-slate-700">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Bebas AI</strong> — gunakan ChatGPT, Claude, atau Gemini favoritmu</span>
+            </div>
+            <div class="flex items-start gap-2.5 text-sm text-slate-700">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Alur 4 Langkah</strong>: Ide → Salin Prompt → Proses → Hasil Visual</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <a
+            href={`${baseUrl}generator/prompt-generator/`}
+            class="w-full py-4 bg-slate-900 hover:bg-blue-600 text-white rounded-xl font-bold text-center block transition-all shadow-md hover:shadow-blue-500/20"
+          >
+            Pilih Prompt Generator →
+          </a>
+          <p class="text-center text-xs text-slate-400 mt-3">Rekomendasi untuk pemula & tanpa biaya</p>
+        </div>
+      </div>
+
+      <!-- Option 2: API Key SumoPod (Otomatis) -->
+      <div class="bg-white border-2 border-slate-200 hover:border-blue-500 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 hover:shadow-xl group relative">
+        <div class="absolute -top-3 left-6">
+          <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+            ⚡ Otomatis • Cepat & Praktis
+          </span>
+        </div>
+
+        <div>
+          <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+            🤖
+          </div>
+
+          <h2 class="text-2xl font-bold text-slate-900 mb-2">
+            API Key SumoPod
+          </h2>
+          <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+            Hubungkan API Key SumoPod milikmu (BYOK). Konten langsung di-generate otomatis di dalam STORIQ dengan teknologi AI streaming.
+          </p>
+
+          <div class="space-y-3 pt-4 border-t border-slate-100 mb-8">
+            <div class="flex items-start gap-2.5 text-sm text-slate-700">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Otomatis 1-Klik</strong> — tidak perlu bolak-balik buka tab ChatGPT</span>
+            </div>
+            <div class="flex items-start gap-2.5 text-sm text-slate-700">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Aman & Privat</strong> — API key hanya disimpan di browser lokalmu</span>
+            </div>
+            <div class="flex items-start gap-2.5 text-sm text-slate-700">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span><strong>Alur Cepat</strong>: Masukkan Ide → Generate Artikel Langsung → Hasil Visual</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <a
+            href={`${baseUrl}generator/api-key-sumopod/`}
+            class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-center block transition-all shadow-md hover:shadow-blue-600/30"
+          >
+            Pilih API Key SumoPod →
+          </a>
+          <p class="text-center text-xs text-slate-400 mt-3">
+            Belum punya key? <a href={`${baseUrl}panduan/`} class="text-blue-600 hover:underline">Baca panduan SumoPod</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Help Notice -->
+    <div class="mt-12 text-center">
+      <p class="text-sm text-slate-500">
+        Bingung mau pilih yang mana? Kamu bisa mulai dengan <a href={`${baseUrl}generator/prompt-generator/`} class="text-blue-600 font-medium hover:underline">Prompt Generator</a> terlebih dahulu.
+      </p>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</Base>
