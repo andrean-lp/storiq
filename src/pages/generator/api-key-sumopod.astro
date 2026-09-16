@@ -292,12 +292,20 @@ const baseUrl = import.meta.env.BASE_URL;
             </div>
           </div>
           
-          <div class="space-y-4 mb-8">
+          <!-- Label Kategori: Format Generate Gambar (Visual AI) -->
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3 py-1 rounded-lg flex items-center gap-1.5">
+              🎨 Format Generate Gambar (Visual AI)
+            </span>
+            <span class="text-[11px] text-slate-500 hidden sm:inline">Menerapkan opsi tanpa wajah & warna brand di atas</span>
+          </div>
+
+          <div class="space-y-4 mb-6">
             <!-- Single Image -->
             <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-2xs">
               <div class="flex justify-between items-center mb-2">
                 <span class="font-semibold text-sm text-slate-800">🖼️ Single Image</span>
-                <button onclick="copyVisualPrompt('single')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
+                <button onclick="copyVisualPrompt('single')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors cursor-pointer">Copy Prompt</button>
               </div>
               <p id="prompt-single" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas:
 1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
@@ -309,7 +317,7 @@ const baseUrl = import.meta.env.BASE_URL;
             <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-2xs">
               <div class="flex justify-between items-center mb-2">
                 <span class="font-semibold text-sm text-slate-800">📱 Carousel</span>
-                <button onclick="copyVisualPrompt('carousel')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
+                <button onclick="copyVisualPrompt('carousel')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors cursor-pointer">Copy Prompt</button>
               </div>
               <p id="prompt-carousel" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas:
 1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
@@ -321,19 +329,33 @@ const baseUrl = import.meta.env.BASE_URL;
             <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-2xs">
               <div class="flex justify-between items-center mb-2">
                 <span class="font-semibold text-sm text-slate-800">📊 Infografis</span>
-                <button onclick="copyVisualPrompt('infografis')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
+                <button onclick="copyVisualPrompt('infografis')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors cursor-pointer">Copy Prompt</button>
               </div>
               <p id="prompt-infografis" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas:
 1. Rangkum poin-poin utama, data, atau langkah-langkah secara terstruktur dan ringkas.
 2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.
 3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram.</p>
             </div>
+          </div>
 
+          <!-- Garis Pemisah Antara Format Gambar dan Format Naskah/Teks -->
+          <div class="relative my-8">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-slate-200"></div>
+            </div>
+            <div class="relative flex justify-center">
+              <span class="bg-white px-4 py-1.5 text-xs font-bold text-slate-700 rounded-full border border-slate-200 shadow-2xs flex items-center gap-1.5">
+                ✍️ Format Naskah & Teks (Tanpa Generate Gambar)
+              </span>
+            </div>
+          </div>
+
+          <div class="space-y-4 mb-6">
             <!-- Threads -->
             <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-2xs">
               <div class="flex justify-between items-center mb-2">
                 <span class="font-semibold text-sm text-slate-800">🧵 Threads</span>
-                <button onclick="copyVisualPrompt('threads')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
+                <button onclick="copyVisualPrompt('threads')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors cursor-pointer">Copy Prompt</button>
               </div>
               <p id="prompt-threads" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas:
 1. Rangkum dan ubah menjadi serial postingan Threads / Twitter (3-5 post ringkas, punchy, dan padat insight).
@@ -345,7 +367,7 @@ const baseUrl = import.meta.env.BASE_URL;
             <div class="border border-slate-200 rounded-xl p-4 bg-white shadow-2xs">
               <div class="flex justify-between items-center mb-2">
                 <span class="font-semibold text-sm text-slate-800">▶️ YouTube Video Script</span>
-                <button onclick="copyVisualPrompt('youtube')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors">Copy Prompt</button>
+                <button onclick="copyVisualPrompt('youtube')" class="text-xs px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-md font-medium transition-colors cursor-pointer">Copy Prompt</button>
               </div>
               <p id="prompt-youtube" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas:
 1. Susun Video Script YouTube lengkap (durasi 5-8 menit, gaya storytelling edukatif dan engaging).
