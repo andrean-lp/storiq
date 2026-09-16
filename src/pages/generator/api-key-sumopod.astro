@@ -27,14 +27,14 @@ const baseUrl = import.meta.env.BASE_URL;
   <div class="bg-slate-50/90 border-b border-slate-200/80 py-4 px-4">
     <div class="max-w-3xl mx-auto">
       <div class="flex items-center justify-between text-xs sm:text-sm" id="step-indicators">
-        <button data-step="1" class="step-dot active flex flex-col items-center gap-1">
-          <span class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">1</span>
-          <span class="hidden sm:block">Ide Konten</span>
+        <button data-step="1" class="step-dot active flex flex-col items-center gap-1 cursor-pointer">
+          <span class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-xs transition-colors">1</span>
+          <span class="hidden sm:block font-medium text-xs text-indigo-600">Ide Konten</span>
         </button>
-        <div class="flex-1 h-0.5 bg-slate-200 text-slate-500 mx-2 sm:mx-4"></div>
-        <button data-step="2" class="step-dot flex flex-col items-center gap-1">
-          <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center font-bold">2</span>
-          <span class="hidden sm:block">Hasil & Visual</span>
+        <div class="flex-1 h-0.5 bg-slate-200 mx-2 sm:mx-4"></div>
+        <button data-step="2" class="step-dot flex flex-col items-center gap-1 cursor-pointer">
+          <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm shadow-xs transition-colors">2</span>
+          <span class="hidden sm:block font-medium text-xs text-slate-500">Hasil & Visual</span>
         </button>
       </div>
     </div>
@@ -415,8 +415,22 @@ const baseUrl = import.meta.env.BASE_URL;
 </Base>
 
 <style>
-  .step-dot.active span:first-child { background-color: #3b82f6; }
-  .step-dot.completed span:first-child { background-color: #22c55e; }
+  .step-dot.active span:first-child { 
+    background-color: #4f46e5 !important; 
+    color: #ffffff !important; 
+  }
+  .step-dot.active span:last-child { 
+    color: #4f46e5 !important; 
+    font-weight: 700 !important; 
+  }
+  .step-dot.completed span:first-child { 
+    background-color: #10b981 !important; 
+    color: #ffffff !important; 
+  }
+  .step-dot.completed span:last-child { 
+    color: #10b981 !important; 
+    font-weight: 600 !important; 
+  }
 </style>
 
 <script>
@@ -446,15 +460,31 @@ const baseUrl = import.meta.env.BASE_URL;
     document.querySelectorAll('.step-dot').forEach(dot => {
       const s = parseInt(dot.dataset.step);
       const circle = dot.querySelector('span:first-child');
+      const label = dot.querySelector('span:last-child');
       dot.classList.remove('active', 'completed');
       if (s < step) {
         dot.classList.add('completed');
-        circle.style.backgroundColor = '#22c55e';
+        circle.style.backgroundColor = '#10b981';
+        circle.style.color = '#ffffff';
+        if (label) {
+          label.style.color = '#10b981';
+          label.style.fontWeight = '600';
+        }
       } else if (s === step) {
         dot.classList.add('active');
-        circle.style.backgroundColor = '#3b82f6';
+        circle.style.backgroundColor = '#4f46e5';
+        circle.style.color = '#ffffff';
+        if (label) {
+          label.style.color = '#4f46e5';
+          label.style.fontWeight = '700';
+        }
       } else {
         circle.style.backgroundColor = '';
+        circle.style.color = '';
+        if (label) {
+          label.style.color = '';
+          label.style.fontWeight = '';
+        }
       }
     });
 
