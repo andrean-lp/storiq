@@ -259,7 +259,7 @@ const faqs = [
 
             <!-- Center Branch Connector Lines (SVG Animated Curves on Desktop) -->
             <div class="hidden md:flex items-center justify-center w-28 shrink-0 self-stretch">
-              <svg class="w-full h-[360px] overflow-visible pointer-events-none" viewBox="0 0 100 360" fill="none">
+              <svg class="w-full h-[400px] overflow-visible pointer-events-none" viewBox="0 0 100 400" fill="none">
                 <defs>
                   <!-- Gradient for dashed pulse -->
                   <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -269,39 +269,44 @@ const faqs = [
                 </defs>
 
                 <!-- Base static guide lines (gray) -->
-                <path d="M 0 180 C 50 180, 50 25, 100 25" stroke="#e2e8f0" stroke-width="1.5" />
-                <path d="M 0 180 C 50 180, 50 87, 100 87" stroke="#e2e8f0" stroke-width="1.5" />
-                <path d="M 0 180 C 50 180, 50 149, 100 149" stroke="#e2e8f0" stroke-width="1.5" />
-                <path d="M 0 180 C 50 180, 50 211, 100 211" stroke="#e2e8f0" stroke-width="1.5" />
-                <path d="M 0 180 C 50 180, 50 273, 100 273" stroke="#e2e8f0" stroke-width="1.5" />
-                <path d="M 0 180 C 50 180, 50 335, 100 335" stroke="#e2e8f0" stroke-width="1.5" />
+                <path d="M 0 200 C 50 200, 50 22, 100 22" stroke="#e2e8f0" stroke-width="1.5" />
+                <path d="M 0 200 C 50 200, 50 81, 100 81" stroke="#e2e8f0" stroke-width="1.5" />
+                <path d="M 0 200 C 50 200, 50 141, 100 141" stroke="#e2e8f0" stroke-width="1.5" />
+                <path d="M 0 200 C 50 200, 50 200, 100 200" stroke="#e2e8f0" stroke-width="1.5" />
+                <path d="M 0 200 C 50 200, 50 259, 100 259" stroke="#e2e8f0" stroke-width="1.5" />
+                <path d="M 0 200 C 50 200, 50 319, 100 319" stroke="#e2e8f0" stroke-width="1.5" />
+                <path d="M 0 200 C 50 200, 50 378, 100 378" stroke="#e2e8f0" stroke-width="1.5" />
 
                 <!-- Animated Dashed Curves -->
-                <path d="M 0 180 C 50 180, 50 25, 100 25" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" />
-                <path d="M 0 180 C 50 180, 50 87, 100 87" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -0.3s;" />
-                <path d="M 0 180 C 50 180, 50 149, 100 149" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -0.6s;" />
-                <path d="M 0 180 C 50 180, 50 211, 100 211" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -0.9s;" />
-                <path d="M 0 180 C 50 180, 50 273, 100 273" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -1.2s;" />
-                <path d="M 0 180 C 50 180, 50 335, 100 335" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -1.5s;" />
+                <path d="M 0 200 C 50 200, 50 22, 100 22" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" />
+                <path d="M 0 200 C 50 200, 50 81, 100 81" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -0.3s;" />
+                <path d="M 0 200 C 50 200, 50 141, 100 141" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -0.6s;" />
+                <path d="M 0 200 C 50 200, 50 200, 100 200" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -0.9s;" />
+                <path d="M 0 200 C 50 200, 50 259, 100 259" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -1.2s;" />
+                <path d="M 0 200 C 50 200, 50 319, 100 319" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -1.5s;" />
+                <path d="M 0 200 C 50 200, 50 378, 100 378" stroke="url(#flowGrad)" stroke-width="2" stroke-dasharray="6 8" class="animate-flow-dash" style="animation-delay: -1.8s;" />
 
                 <!-- Flowing Pulse Dots (Pure SVG animateMotion, 60fps) -->
                 <circle r="3.5" fill="#4f46e5">
-                  <animateMotion path="M 0 180 C 50 180, 50 25, 100 25" dur="2.2s" repeatCount="indefinite" />
+                  <animateMotion path="M 0 200 C 50 200, 50 22, 100 22" dur="2.1s" repeatCount="indefinite" />
                 </circle>
                 <circle r="3.5" fill="#4f46e5">
-                  <animateMotion path="M 0 180 C 50 180, 50 87, 100 87" dur="2.2s" begin="0.35s" repeatCount="indefinite" />
+                  <animateMotion path="M 0 200 C 50 200, 50 81, 100 81" dur="2.1s" begin="0.3s" repeatCount="indefinite" />
                 </circle>
                 <circle r="3.5" fill="#4f46e5">
-                  <animateMotion path="M 0 180 C 50 180, 50 149, 100 149" dur="2.2s" begin="0.7s" repeatCount="indefinite" />
+                  <animateMotion path="M 0 200 C 50 200, 50 141, 100 141" dur="2.1s" begin="0.6s" repeatCount="indefinite" />
                 </circle>
                 <circle r="3.5" fill="#4f46e5">
-                  <animateMotion path="M 0 180 C 50 180, 50 211, 100 211" dur="2.2s" begin="1.05s" repeatCount="indefinite" />
+                  <animateMotion path="M 0 200 C 50 200, 50 200, 100 200" dur="2.1s" begin="0.9s" repeatCount="indefinite" />
                 </circle>
                 <circle r="3.5" fill="#4f46e5">
-                  <animateMotion path="M 0 180 C 50 180, 50 273, 100 273" dur="2.2s" begin="1.4s" repeatCount="indefinite" />
+                  <animateMotion path="M 0 200 C 50 200, 50 259, 100 259" dur="2.1s" begin="1.2s" repeatCount="indefinite" />
                 </circle>
                 <circle r="3.5" fill="#4f46e5">
-                  <animateMotion path="M 0 180 C 50 180, 50 335, 100 335" dur="2.2s" begin="1.75s" repeatCount="indefinite" />
+                  <animateMotion path="M 0 200 C 50 200, 50 319, 100 319" dur="2.1s" begin="1.5s" repeatCount="indefinite" />
+                </circle>
+                <circle r="3.5" fill="#4f46e5">
+                  <animateMotion path="M 0 200 C 50 200, 50 378, 100 378" dur="2.1s" begin="1.8s" repeatCount="indefinite" />
                 </circle>
               </svg>
             </div>
@@ -309,14 +314,14 @@ const faqs = [
             <!-- Mobile Downward Indicator (< md) -->
             <div class="flex md:hidden flex-col items-center my-1 text-indigo-500 font-mono text-xs">
               <span class="animate-bounce text-base">↓</span>
-              <span class="text-[10px] font-semibold text-indigo-600 uppercase tracking-wider">Otomatis Terurai ke 6 Format</span>
+              <span class="text-[10px] font-semibold text-indigo-600 uppercase tracking-wider">Otomatis Terurai ke 7 Format</span>
             </div>
 
-            <!-- Right Destination Stack Cards (6 Platforms) -->
-            <div class="w-full max-w-[320px] flex flex-col justify-between h-[360px] shrink-0">
+            <!-- Right Destination Stack Cards (7 Platforms) -->
+            <div class="w-full max-w-[320px] flex flex-col justify-between h-[400px] shrink-0">
               
               <!-- 1. Instagram Carousel -->
-              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2.5 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
+              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
                 <div class="flex items-center gap-2.5">
                   <div class="w-8 h-8 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center shrink-0 shadow-2xs">
                     <svg class="w-4 h-4 text-[#E1306C]" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -335,7 +340,7 @@ const faqs = [
               </div>
 
               <!-- 2. Threads -->
-              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2.5 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
+              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
                 <div class="flex items-center gap-2.5">
                   <div class="w-8 h-8 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center shrink-0 shadow-2xs">
                     <svg class="w-4 h-4 text-black" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -353,8 +358,27 @@ const faqs = [
                 </div>
               </div>
 
-              <!-- 3. WordPress / Blog -->
-              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2.5 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
+              <!-- 3. YouTube Video Script -->
+              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center shrink-0 shadow-2xs">
+                    <svg class="w-4 h-4 text-[#FF0000]" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <title>YouTube</title>
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-slate-900 leading-tight">YouTube</h4>
+                    <p class="text-[10px] font-mono text-emerald-600 font-medium">video script • 8-10 menit</p>
+                  </div>
+                </div>
+                <div class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold shrink-0">
+                  ✓
+                </div>
+              </div>
+
+              <!-- 4. WordPress / Blog -->
+              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
                 <div class="flex items-center gap-2.5">
                   <div class="w-8 h-8 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center shrink-0 shadow-2xs">
                     <svg class="w-4 h-4 text-[#21759B]" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -372,8 +396,8 @@ const faqs = [
                 </div>
               </div>
 
-              <!-- 4. X (Twitter) -->
-              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2.5 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
+              <!-- 5. X (Twitter) -->
+              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
                 <div class="flex items-center gap-2.5">
                   <div class="w-8 h-8 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center shrink-0 shadow-2xs">
                     <svg class="w-3.5 h-3.5 text-black" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -391,8 +415,8 @@ const faqs = [
                 </div>
               </div>
 
-              <!-- 5. LinkedIn -->
-              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2.5 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
+              <!-- 6. LinkedIn -->
+              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
                 <div class="flex items-center gap-2.5">
                   <div class="w-8 h-8 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center shrink-0 shadow-2xs">
                     <svg class="w-4 h-4 text-[#0A66C2]" role="img" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -410,8 +434,8 @@ const faqs = [
                 </div>
               </div>
 
-              <!-- 6. TikTok & Reels Script -->
-              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2.5 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
+              <!-- 7. TikTok & Reels Script -->
+              <div class="bg-white rounded-xl border border-slate-200/90 px-3.5 py-2 shadow-2xs hover:border-indigo-300 hover:shadow-xs transition-all flex items-center justify-between gap-3">
                 <div class="flex items-center gap-2.5">
                   <div class="w-8 h-8 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center shrink-0 shadow-2xs">
                     <svg class="w-4 h-4 text-black" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
