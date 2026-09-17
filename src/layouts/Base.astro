@@ -22,7 +22,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={`https://andrean-lp.github.io/storiq/`} />
+    <meta property="og:url" content={Astro.url.href} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -32,6 +32,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta property="og:image" content="https://andrean-lp.github.io/storiq/logo.webp" />
     <meta name="twitter:image" content="https://andrean-lp.github.io/storiq/logo.webp" />
 
+    <link rel="canonical" href={Astro.url.href} />
     <link rel="icon" type="image/webp" href={`${baseUrl}favicon.webp`} />
     <link rel="icon" type="image/png" href={`${baseUrl}favicon.png`} />
     <link rel="apple-touch-icon" href={`${baseUrl}logo-128.webp`} />

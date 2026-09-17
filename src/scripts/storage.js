@@ -6,15 +6,27 @@
 const PREFIX = 'storiq_';
 
 export function saveApiKey(provider, key) {
-  localStorage.setItem(`${PREFIX}apikey_${provider}`, key);
+  try {
+    localStorage.setItem(`${PREFIX}apikey_${provider}`, key);
+  } catch (e) {
+    console.warn('Gagal menyimpan API key ke localStorage:', e);
+  }
 }
 
 export function getApiKey(provider) {
-  return localStorage.getItem(`${PREFIX}apikey_${provider}`) || '';
+  try {
+    return localStorage.getItem(`${PREFIX}apikey_${provider}`) || '';
+  } catch {
+    return '';
+  }
 }
 
 export function removeApiKey(provider) {
-  localStorage.removeItem(`${PREFIX}apikey_${provider}`);
+  try {
+    localStorage.removeItem(`${PREFIX}apikey_${provider}`);
+  } catch (e) {
+    console.warn('Gagal menghapus API key dari localStorage:', e);
+  }
 }
 
 export function getPreferences() {
@@ -26,12 +38,20 @@ export function getPreferences() {
 }
 
 export function savePreferences(prefs) {
-  const current = getPreferences();
-  localStorage.setItem(`${PREFIX}prefs`, JSON.stringify({ ...current, ...prefs }));
+  try {
+    const current = getPreferences();
+    localStorage.setItem(`${PREFIX}prefs`, JSON.stringify({ ...current, ...prefs }));
+  } catch (e) {
+    console.warn('Gagal menyimpan preferensi ke localStorage:', e);
+  }
 }
 
 export function clearAll() {
-  Object.keys(localStorage)
-    .filter(k => k.startsWith(PREFIX))
-    .forEach(k => localStorage.removeItem(k));
+  try {
+    Object.keys(localStorage)
+      .filter(k => k.startsWith(PREFIX))
+      .forEach(k => localStorage.removeItem(k));
+  } catch (e) {
+    console.warn('Gagal menghapus seluruh storage STORIQ:', e);
+  }
 }

@@ -55,22 +55,22 @@ const baseUrl = import.meta.env.BASE_URL;
       <div class="space-y-5">
         <div>
           <label for="topik" class="block text-sm font-medium text-slate-700 mb-1">Topik / Ide Utama</label>
-          <textarea id="topik" rows="3" placeholder="Contoh: Kenapa landing page yang bagus belum tentu menghasilkan konversi?" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none resize-none text-slate-800"></textarea>
+          <textarea id="topik" rows="3" placeholder="Contoh: Kenapa landing page yang bagus belum tentu menghasilkan konversi?" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none resize-none text-slate-800"></textarea>
         </div>
 
         <div>
           <label for="audiens" class="block text-sm font-medium text-slate-700 mb-1">Target Audiens</label>
-          <input id="audiens" type="text" placeholder="Contoh: Pemilik bisnis online, marketer pemula" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none text-slate-800" />
+          <input id="audiens" type="text" placeholder="Contoh: Pemilik bisnis online, marketer pemula" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none text-slate-800" />
         </div>
 
         <div>
           <label for="tujuan" class="block text-sm font-medium text-slate-700 mb-1">Tujuan Konten</label>
-          <input id="tujuan" type="text" placeholder="Contoh: Edukasi + personal branding" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none text-slate-800" />
+          <input id="tujuan" type="text" placeholder="Contoh: Edukasi + personal branding" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none text-slate-800" />
         </div>
 
         <div>
           <label for="tone" class="block text-sm font-medium text-slate-700 mb-1">Tone of Voice / Gaya Bahasa</label>
-          <select id="tone" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none bg-white text-slate-800">
+          <select id="tone" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none bg-white text-slate-800">
             <option value="santai">🗣️ Santai & Friendly</option>
             <option value="profesional">💼 Profesional</option>
             <option value="edukatif">📚 Edukatif & Informatif</option>
@@ -174,9 +174,9 @@ const baseUrl = import.meta.env.BASE_URL;
             <p class="text-xs text-slate-500 mb-3">
               Setelah mendapatkan tulisan dari ChatGPT / Claude / Gemini, tempelkan hasilnya di sini untuk lanjut membuat konten visual.
             </p>
-            <textarea id="pasted-content" rows="8" placeholder="Paste konten dari AI di sini..." class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none text-slate-800 font-mono text-sm resize-none bg-white"></textarea>
+            <textarea id="pasted-content" rows="8" placeholder="Paste konten dari AI di sini..." class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none text-slate-800 font-mono text-sm resize-none bg-white"></textarea>
 
-            <div class="mt-3 flex items-start gap-2.5 text-xs text-slate-600 bg-indigo-50/60/80 border border-indigo-200 rounded-xl p-3.5">
+            <div class="mt-3 flex items-start gap-2.5 text-xs text-slate-600 bg-indigo-50/80 border border-indigo-200 rounded-xl p-3.5">
               <span class="text-base leading-none shrink-0">💡</span>
               <p class="leading-relaxed">
                 <strong>Catatan:</strong> Hasil artikel yang kamu dapatkan dari AI ini bisa langsung kamu gunakan untuk konten artikel di <strong>WordPress</strong>, <strong>Blogger</strong>, <strong>Medium</strong>, maupun <strong>Substack</strong>!
@@ -1377,7 +1377,7 @@ Menurutmu bagaimana? Tulis pendapat atau pengalamanmu di kolom komentar ya! 👇
     if (btn) {
       btn.disabled = !isValid;
       if (isValid) {
-        btn.className = 'px-6 py-3 bg-indigo-600 text-white hover:bg-indigo-600 text-white rounded-lg font-medium transition-all shadow-md hover:shadow-indigo-600/20 cursor-pointer';
+        btn.className = 'px-6 py-3 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-lg font-medium transition-all shadow-md hover:shadow-indigo-600/20 cursor-pointer';
       } else {
         btn.className = 'px-6 py-3 bg-slate-200 text-slate-400 cursor-not-allowed rounded-lg font-medium transition-all';
       }
@@ -1391,7 +1391,7 @@ Menurutmu bagaimana? Tulis pendapat atau pengalamanmu di kolom komentar ya! 👇
     if (btn) {
       btn.disabled = !isValid;
       if (isValid) {
-        btn.className = 'px-6 py-3 bg-indigo-600 text-white hover:bg-indigo-600 text-white rounded-lg font-medium transition-all shadow-md hover:shadow-indigo-600/20 cursor-pointer';
+        btn.className = 'px-6 py-3 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-lg font-medium transition-all shadow-md hover:shadow-indigo-600/20 cursor-pointer';
       } else {
         btn.className = 'px-6 py-3 bg-slate-200 text-slate-400 cursor-not-allowed rounded-lg font-medium transition-all';
       }
@@ -1403,10 +1403,50 @@ Menurutmu bagaimana? Tulis pendapat atau pengalamanmu di kolom komentar ya! 👇
   });
   document.getElementById('pasted-content')?.addEventListener('input', checkStep2Validation);
 
-  // Check on load
-  document.addEventListener('DOMContentLoaded', () => {
+  // --- Auto-select Framework dari URL jika diarahkan dari halaman Framework ---
+  function selectFrameworkFromURL() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const fw = params.get('framework');
+      if (fw) {
+        const radio = document.querySelector(`input[name="framework"][value="${fw}"]`);
+        if (radio) {
+          radio.checked = true;
+          document.querySelectorAll('.framework-option').forEach(opt => {
+            opt.classList.remove('border-indigo-600', 'bg-indigo-50/60');
+            opt.classList.add('border-slate-200');
+            const dot = opt.querySelector('.w-2\\.5');
+            if (dot) dot.remove();
+          });
+          const label = radio.closest('label');
+          if (label) {
+            label.classList.remove('border-slate-200');
+            label.classList.add('border-indigo-600', 'bg-indigo-50/60');
+            const circle = label.querySelector('.w-5');
+            if (circle && !circle.querySelector('.w-2\\.5')) {
+              const inner = document.createElement('span');
+              inner.className = 'w-2.5 h-2.5 rounded-full bg-indigo-600 text-white';
+              circle.appendChild(inner);
+            }
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Gagal membaca parameter framework dari URL:', e);
+    }
+  }
+
+  // --- Inisialisasi aman tanpa race condition DOM ---
+  function initPromptGenerator() {
+    selectFrameworkFromURL();
     checkStep1Validation();
     checkStep2Validation();
     renderActiveCaption();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPromptGenerator);
+  } else {
+    initPromptGenerator();
+  }
 </script>
