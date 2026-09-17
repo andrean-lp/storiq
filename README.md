@@ -268,13 +268,13 @@ STORIQ menggunakan **[MIT License](LICENSE)** — lisensi open source yang palin
 
 ---
 
-## 👤 Dibuat oleh
+## 💡 Tentang STORIQ
 
-**Andre Wahyu Hermawan**  
-Landing Page Strategist & Conversion Rate Optimization (CRO)
+**STORIQ** adalah Content Repurposing Engine berbasis storytelling yang dirancang untuk membantu kreator, marketer, dan penulis di Indonesia mengubah ide menjadi beragam format konten siap pakai secara gratis dan open source.
 
-- 🌐 Portfolio: [andrean-lp.github.io](https://andrean-lp.github.io/)
-- 💻 GitHub: [@andrean-lp](https://github.com/andrean-lp)
+- 🌐 Website: [andrean-lp.github.io/storiq](https://andrean-lp.github.io/storiq/)
+- 💻 Repositori: [github.com/andrean-lp/storiq](https://github.com/andrean-lp/storiq)
+- 📖 Framework: [Framework Storytelling](https://andrean-lp.github.io/storiq/framework/)
 
 > *"Memberikan nilai secara gratis hari ini bisa membuka peluang yang jauh lebih besar di masa depan."*
 

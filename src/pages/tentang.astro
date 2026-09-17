@@ -10,64 +10,74 @@ const ecosystem = [
   { icon: '▶️', name: 'YouTube', desc: 'Tutorial & Edukasi CRO' },
   { icon: '🔍', name: 'Blog & SEO', desc: 'Discovery Organik' },
   { icon: '📬', name: 'Newsletter', desc: 'Hubungan & Insight' },
-  { icon: '🚀', name: 'Personal Brand', desc: 'Dampak & Reputasi' },
+  { icon: '🚀', name: 'Komunitas', desc: 'Kreator & Pengembang' },
   { icon: '🛠️', name: 'STORIQ Generator', desc: 'Produktivitas Kreator' },
 ];
 ---
 
 <Base
-  title="Tentang STORIQ — Cerita di Balik Tools Ini"
-  description="Kenalan dengan STORIQ dan Andre Wahyu Hermawan, Landing Page Strategist & CRO yang membuatnya."
+  title="Tentang STORIQ — Content Repurposing Engine Berbasis Storytelling"
+  description="Kenalan dengan STORIQ — Content Repurposing Engine berbasis storytelling yang 100% gratis, tanpa login, dan open source."
 >
   <Header slot="header" />
 
   <!-- Hero Section -->
   <section class="py-14 sm:py-20 text-center max-w-4xl mx-auto px-4">
     <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold mb-5">
-      <span>👤</span>
-      <span>Profil & Filosofi</span>
+      <span>🚀</span>
+      <span>Visi & Misi</span>
     </div>
     <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
       Tentang STORIQ
     </h1>
     <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-      Cerita di balik tools ini — dan alasan mengapa dibangun 100% gratis serta open source untuk kreator Indonesia.
+      Misi dan filosofi di balik tools ini — alasan mengapa STORIQ dibangun 100% gratis, tanpa login, serta open source untuk seluruh kreator Indonesia.
     </p>
   </section>
 
   <div class="max-w-3xl mx-auto px-4 sm:px-6 pb-24 space-y-12">
-    <!-- Creator Profile Card -->
+    <!-- STORIQ Product & Mission Card -->
     <section class="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-2xs">
       <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
-        <div class="w-20 h-20 bg-indigo-600 rounded-2xl flex items-center justify-center text-3xl text-white font-extrabold shrink-0 shadow-md shadow-indigo-600/25">
-          A
-        </div>
+        <img
+          src={`${baseUrl}logo-128.webp`}
+          alt="STORIQ Logo"
+          width="80"
+          height="80"
+          class="w-20 h-20 rounded-2xl shadow-md shadow-indigo-600/20 object-cover shrink-0"
+          loading="eager"
+        />
         <div>
-          <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Andre Wahyu Hermawan</h2>
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900">STORIQ</h2>
           <p class="text-xs sm:text-sm font-semibold text-indigo-600 mt-1">
-            Landing Page Strategist & Conversion Rate Optimization (CRO)
+            Content Repurposing Engine Berbasis Storytelling
           </p>
           <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
-            Saya mendalami Storytelling, Copywriting, Psikologi Website, dan Conversion Rate Optimization. Saya percaya bahwa konten yang baik selalu berakar pada cerita yang baik — dan struktur narasi yang tepat dapat mengubah cara siapa pun menyampaikan ide.
+            STORIQ dirancang untuk membantu kreator konten, penulis, marketer, dan pemilik bisnis mengubah satu ide inti menjadi beragam format konten siap pakai — mulai dari Carousel media sosial, Hook & Thread, Video Script, hingga Artikel Blog — menggunakan arsitektur narasi dan psikologi konversi yang terstruktur.
           </p>
           <div class="flex flex-wrap justify-center sm:justify-start gap-2.5 mt-4">
             <a
-              href="https://andrean-lp.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 text-xs font-semibold bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 px-3.5 py-1.5 rounded-lg transition-colors"
+              href={`${baseUrl}generator/`}
+              class="inline-flex items-center gap-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white px-3.5 py-1.5 rounded-lg shadow-2xs transition-colors"
             >
-              <span>🌐</span>
-              <span>Portfolio Web</span>
+              <span>⚡</span>
+              <span>Buka Generator</span>
             </a>
             <a
-              href="https://github.com/andrean-lp"
+              href={`${baseUrl}framework/`}
+              class="inline-flex items-center gap-1.5 text-xs font-semibold bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 px-3.5 py-1.5 rounded-lg transition-colors"
+            >
+              <span>📖</span>
+              <span>Pelajari Framework</span>
+            </a>
+            <a
+              href="https://github.com/andrean-lp/storiq"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center gap-1.5 text-xs font-semibold bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 px-3.5 py-1.5 rounded-lg transition-colors"
             >
               <span>💻</span>
-              <span>GitHub @andrean-lp</span>
+              <span>GitHub Repositori</span>
             </a>
           </div>
         </div>
@@ -86,10 +96,10 @@ const ecosystem = [
           <strong class="text-slate-800 font-semibold">Masalahnya sederhana:</strong> banyak orang memiliki ide berharga, namun bingung bagaimana mengemasnya menjadi konten yang menarik perhatian. Tulisan terasa datar, postingan sepi engagement, dan kreator kehabisan energi membuat konten baru dari nol untuk tiap platform.
         </p>
         <p>
-          Setelah bertahun-tahun merancang landing page yang menghasilkan konversi, saya menyadari satu hal: <strong class="text-slate-800 font-semibold">storytelling bukan sekadar bakat, melainkan skill terstruktur yang bisa dipelajari jika ada framework-nya.</strong>
+          Kenyataannya, <strong class="text-slate-800 font-semibold">storytelling bukan sekadar bakat seni bawaan, melainkan skill terstruktur yang bisa dipelajari dan diotomatisasi jika ada framework yang tepat.</strong>
         </p>
         <p>
-          STORIQ hadir untuk menjembatani jurang tersebut. Memberikan framework narasi dan tools agar siapa saja — content creator, marketer, penulis, pemilik bisnis UMKM — dapat menghasilkan konten yang terstruktur, berdampak, dan bernilai tinggi.
+          STORIQ hadir untuk menjembatani jurang tersebut. Memberikan framework narasi dan tools generator agar siapa saja — content creator, marketer, penulis, pemilik bisnis UMKM — dapat menghasilkan konten yang terstruktur, berdampak, dan bernilai tinggi tanpa hambatan biaya langganan.
         </p>
       </div>
 
@@ -112,7 +122,7 @@ const ecosystem = [
         </div>
         <div class="bg-slate-50 border border-slate-200/70 rounded-2xl p-4">
           <p class="text-xs sm:text-sm text-slate-700 italic">
-            "Biarkan value yang bekerja. Orang tidak perlu dipaksa. Kalau karyamu benar-benar berguna, mereka akan datang dan merekomendasikannya sendiri."
+            "Biarkan value yang bekerja. Orang tidak perlu dipaksa. Kalau sebuah tools benar-benar berguna dan menyelesaikan masalah nyata, orang akan datang dan merekomendasikannya sendiri."
           </p>
         </div>
         <div class="bg-slate-50 border border-slate-200/70 rounded-2xl p-4">
