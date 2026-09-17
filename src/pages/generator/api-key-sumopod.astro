@@ -220,7 +220,7 @@ const baseUrl = import.meta.env.BASE_URL;
                     </span>
                   </div>
                   <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                    Centang untuk mengatur prompt agar AI menghasilkan gambar dengan <strong>ukuran 1080 x 1350 piksel (rasio 4:5 potret vertikal)</strong> — format standar yang mengisi layar lebih luas di feed Instagram & LinkedIn.
+                    Centang untuk mengatur prompt agar AI menghasilkan gambar dengan <strong>ukuran 1080 x 1350 piksel (rasio 4:5 potret vertikal)</strong> — format standar yang mengisi layar lebih luas di feed Instagram & LinkedIn. Jika tidak dicentang, default ukuran adalah <strong>Feed Persegi (rasio 1:1, 1080 x 1080 piksel)</strong>.
                     <span class="block mt-1 text-[11px] text-slate-400 italic">
                       *Catatan: Hanya berlaku untuk Single Image dan Carousel (tidak berlaku untuk Infografis).
                     </span>
@@ -483,8 +483,8 @@ const baseUrl = import.meta.env.BASE_URL;
               </div>
               <p id="prompt-single" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas:
 1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
-2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, rasio 1:1 (square), gaya modern, clean, dan relatable.
-3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram.</p>
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, ukuran 1080 x 1080 piksel (rasio 1:1 persegi/square — format standar feed), gaya modern, clean, dan relatable.
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (tambahkan deskripsi: "modern 3D clay illustration, clean aesthetic, 1080x1080 pixels resolution, square 1:1 aspect ratio").</p>
               <div class="mt-2.5 pt-2 flex flex-wrap items-center gap-1.5 sm:gap-2 border-t border-slate-100">
                 <span class="text-[11px] font-medium text-slate-400">Cocok untuk:</span>
                 <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/80 text-slate-700 text-[11px] font-medium">
@@ -535,15 +535,15 @@ const baseUrl = import.meta.env.BASE_URL;
               </div>
               <p id="prompt-carousel" class="text-xs text-slate-500 font-mono bg-slate-50 p-2.5 rounded leading-relaxed">Berdasarkan konten artikel di atas:
 1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
-2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), rasio 1:1 atau 4:5 portrait, gaya clean & modern.
-3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu.
-4. ATURAN ALUR GENERASI SLIDE: Setelah gambar Slide 1 selesai dibuat, berikan instruksi penutup singkat: "👉 Ketik LANJUT untuk membuat visual SLIDE 2" agar saya bisa melanjutkan pembuatan visual Slide 2 s/d 5 satu per satu secara berurutan dengan alur, karakter, dan warna brand yang sama persis.</p>
+2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), ukuran 1080 x 1080 piksel (rasio 1:1 persegi/square — format standar feed), gaya clean & modern.
+3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu (sertakan: "clean modern carousel cover, 3D clay style, 1080x1080 px, square 1:1 aspect ratio").
+4. ATURAN ALUR GENERASI SLIDE: Setelah gambar Slide 1 selesai dibuat, berikan instruksi penutup singkat: "👉 Ketik LANJUT untuk membuat visual SLIDE 2" agar saya bisa melanjutkan pembuatan visual Slide 2 s/d 5 satu per satu secara berurutan dengan alur, ukuran gambar (rasio 1:1 persegi/square, ukuran 1080 x 1080 piksel), karakter, dan warna brand yang sama persis.</p>
               
               <!-- Tips Edukasi Carousel -->
               <div class="mt-2.5 p-2.5 rounded-lg bg-amber-50/80 border border-amber-200/70 text-[11px] text-amber-900 flex items-start gap-2 leading-relaxed">
                 <span class="shrink-0 text-sm">💡</span>
                 <div>
-                  <strong class="font-semibold text-amber-950">Tips Mendapatkan 5 Slide Lengkap di ChatGPT:</strong> Mesin AI merender gambar 1 per 1 agar resolusi tetap tajam (HD 1080×1350). Setelah Slide 1 selesai, cukup balas di chat ChatGPT: <strong>"LANJUT"</strong> (atau klik tombol <em>Copy Prompt Lanjutan</em> di atas) untuk otomatis men-generate Slide 2 s/d 5 secara berurutan.
+                  <strong class="font-semibold text-amber-950">Tips Mendapatkan 5 Slide Lengkap di ChatGPT:</strong> Mesin AI merender gambar 1 per 1 agar resolusi tetap tajam (resolusi HD tajam). Setelah Slide 1 selesai, cukup balas di chat ChatGPT: <strong>"LANJUT"</strong> (atau klik tombol <em>Copy Prompt Lanjutan</em> di atas) untuk otomatis men-generate Slide 2 s/d 5 secara berurutan.
                 </div>
               </div>
               <div class="mt-2.5 pt-2 flex flex-wrap items-center gap-1.5 sm:gap-2 border-t border-slate-100">
@@ -972,11 +972,11 @@ const baseUrl = import.meta.env.BASE_URL;
         : '';
 
       const sizeDescIndo = isPortrait
-        ? 'ukuran 1080 x 1350 piksel (rasio 4:5 potret vertikal — ukuran standar feed Instagram & LinkedIn yang optimal)'
-        : 'rasio 1:1 (square)';
+        ? 'ukuran 1080 x 1350 piksel (rasio 4:5 potret vertikal — format feed Instagram & LinkedIn yang optimal)'
+        : 'ukuran 1080 x 1080 piksel (rasio 1:1 persegi/square — format standar feed)';
       const sizeDescEnglish = isPortrait
         ? ', 1080x1350 pixels resolution, portrait 4:5 aspect ratio'
-        : '';
+        : ', 1080x1080 pixels resolution, square 1:1 aspect ratio';
 
       return `${prefix}
 1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
@@ -994,16 +994,19 @@ const baseUrl = import.meta.env.BASE_URL;
 
       const sizeDescIndo = isPortrait
         ? 'ukuran 1080 x 1350 piksel (rasio 4:5 potret vertikal yang pas & optimal untuk feed Instagram & LinkedIn)'
-        : 'rasio 1:1 atau 4:5 portrait';
+        : 'ukuran 1080 x 1080 piksel (rasio 1:1 persegi/square — format standar feed)';
       const sizeDescEnglish = isPortrait
         ? ', 1080x1350 px, vertical portrait 4:5 ratio'
-        : '';
+        : ', 1080x1080 px, square 1:1 aspect ratio';
+      const sizeDescNext = isPortrait
+        ? 'rasio 4:5 potret vertikal, ukuran 1080 x 1350 piksel'
+        : 'rasio 1:1 persegi/square, ukuran 1080 x 1080 piksel';
 
       return `${prefix}
 1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
 2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), ${sizeDescIndo}, gaya clean & modern.${faceInstruction}${colorInstruction}${typographyInstruction}
 3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu (sertakan: "clean modern carousel cover, 3D clay style${faceEnglish}${colorEnglish}${typographyEnglish}${sizeDescEnglish}").
-4. ATURAN ALUR GENERASI SLIDE: Setelah gambar Slide 1 selesai dibuat, berikan instruksi penutup singkat: "👉 Ketik LANJUT untuk membuat visual SLIDE 2" agar saya bisa melanjutkan pembuatan visual Slide 2 s/d 5 satu per satu secara berurutan dengan alur, karakter, dan warna brand yang sama persis.`;
+4. ATURAN ALUR GENERASI SLIDE: Setelah gambar Slide 1 selesai dibuat, berikan instruksi penutup singkat: "👉 Ketik LANJUT untuk membuat visual SLIDE 2" agar saya bisa melanjutkan pembuatan visual Slide 2 s/d 5 satu per satu secara berurutan dengan alur, ukuran gambar (${sizeDescNext}), karakter, dan warna brand yang sama persis.`;
     }
 
     if (type === 'infografis') {
@@ -1052,7 +1055,7 @@ const baseUrl = import.meta.env.BASE_URL;
     if (notify) {
       showToast(active 
         ? '📱 Format Potret (1080x1350 px, 4:5) diaktifkan untuk Single Image & Carousel!' 
-        : '📱 Format visual kembali ke ukuran standar'
+        : '📱 Format visual kembali ke Feed Persegi (1080x1080 px, 1:1)'
       );
     }
   }
@@ -1275,11 +1278,26 @@ const baseUrl = import.meta.env.BASE_URL;
   };
 
   window.copyCarouselFollowUpSumopod = function() {
+    const sizeInstruction = isPortraitActiveSumopod
+      ? 'rasio 4:5 potret vertikal, ukuran 1080 x 1350 piksel'
+      : 'rasio 1:1 persegi/square, ukuran 1080 x 1080 piksel';
+
+    let extraGuide = '';
+    if (isFacelessActiveSumopod) {
+      extraGuide += '\n- Karakter manusia: WAJIB faceless (tanpa alis, mata, hidung, mulut — permukaan wajah polos mulus).';
+    }
+    if (isBrandColorActiveSumopod) {
+      extraGuide += `\n- Warna Brand: Dominan Primary Color ${primaryColorHexSumopod} dan aksen Secondary Color ${secondaryColorHexSumopod}.`;
+    }
+    if (isTypographyActiveSumopod) {
+      extraGuide += `\n- Tipografi: Font "${primaryFontValSumopod}" untuk Headline dan "${secondaryFontValSumopod}" untuk Subjudul / Body Text.`;
+    }
+
     const text = `Bagus! Sekarang lanjutkan generate gambar visual untuk SLIDE BERIKUTNYA sesuai alur konten artikel yang sudah kamu buat di atas.
 
 Instruksi:
-1. Buatkan dan tampilkan langsung gambar visual untuk slide berikutnya (rasio 4:5 potret vertikal, ukuran 1080 x 1350 piksel).
-2. Wajib pertahankan konsistensi karakter orang, gaya ilustrasi 3D clay, warna dominan dan aksen brand yang sama persis seperti Slide 1.
+1. Buatkan dan tampilkan langsung gambar visual untuk slide berikutnya (${sizeInstruction}).
+2. Wajib pertahankan konsistensi karakter orang, gaya ilustrasi 3D clay, warna dominan dan aksen brand yang sama persis seperti Slide 1.${extraGuide}
 3. Setelah gambar ini selesai, berikan lagi ajakan: "👉 Ketik LANJUT untuk membuat visual slide berikutnya".`;
     navigator.clipboard.writeText(text).then(() => showToast('📋 Prompt Lanjutan Slide 2-5 disalin! Paste ke ChatGPT.'));
   };
