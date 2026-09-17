@@ -215,10 +215,8 @@ const baseUrl = import.meta.env.BASE_URL;
     // Password visibility toggle
     window.toggleKeyVisibility = function(inputId) {
       const input = document.getElementById(inputId) as HTMLInputElement;
-      if (input.type === 'password') {
-        input.type = 'text';
-      } else {
-        input.type = 'password';
+      if (input) {
+        input.type = input.type === 'password' ? 'text' : 'password';
       }
     };
 
@@ -226,7 +224,7 @@ const baseUrl = import.meta.env.BASE_URL;
     window.saveSumopodKey = async function(e) {
       e.preventDefault();
       const input = document.getElementById('apikey-sumopod') as HTMLInputElement;
-      const key = input.value.trim();
+      const key = input ? input.value.trim() : '';
       const msg = document.getElementById('sumopod-message');
       const btn = e.target.querySelector('button[type="submit"]') as HTMLButtonElement;
       

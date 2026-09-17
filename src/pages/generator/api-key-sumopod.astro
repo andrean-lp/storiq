@@ -862,8 +862,10 @@ const baseUrl = import.meta.env.BASE_URL;
       return;
     }
 
-    const provider = document.getElementById('provider').value;
-    const apiKey = document.getElementById('apikey').value.trim();
+    const providerEl = document.getElementById('provider') as HTMLInputElement;
+    const apiKeyEl = document.getElementById('apikey') as HTMLInputElement;
+    const provider = providerEl?.value || 'sumopod';
+    const apiKey = apiKeyEl?.value.trim() || getApiKey('sumopod');
 
     if (!apiKey) {
       showToast('⚠️ Hubungkan API Key SumoPod di Pengaturan terlebih dahulu!');
@@ -913,12 +915,13 @@ const baseUrl = import.meta.env.BASE_URL;
 
   // --- Copy & Download ---
   window.copyOutput = function() {
-    const text = document.getElementById('output-text').textContent;
-    navigator.clipboard.writeText(text).then(() => showToast('📋 Konten berhasil di-copy!'));
+    const text = document.getElementById('output-text')?.textContent || '';
+    copyTextSafely(text, '📋 Konten berhasil di-copy!');
   };
 
   window.downloadOutput = function() {
-    const text = document.getElementById('output-text').textContent;
+    const text = document.getElementById('output-text')?.textContent || '';
+    if (!text) return;
     const blob = new Blob([text], { type: 'text/markdown' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -1271,10 +1274,45 @@ const baseUrl = import.meta.env.BASE_URL;
     handleSecondaryFontChangeSumopod();
   });
 
+  // --- Robust Clipboard Helper with execCommand Fallback ---
+  function copyTextSafely(text, successMessage) {
+    if (!text) return;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text)
+        .then(() => showToast(successMessage))
+        .catch(() => fallbackCopy(text, successMessage));
+    } else {
+      fallbackCopy(text, successMessage);
+    }
+  }
+
+  function fallbackCopy(text, successMessage) {
+    try {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      textarea.style.top = '0';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textarea);
+      if (successful) {
+        showToast(successMessage);
+      } else {
+        showToast('⚠️ Gagal menyalin teks otomatis.');
+      }
+    } catch {
+      showToast('⚠️ Gagal menyalin teks otomatis.');
+    }
+  }
+
   // --- Copy Visual Prompt ---
   window.copyVisualPrompt = function(type) {
-    const text = document.getElementById(`prompt-${type}`).innerText;
-    navigator.clipboard.writeText(text).then(() => showToast('📋 Prompt visual berhasil di-copy!'));
+    const el = document.getElementById(`prompt-${type}`);
+    const text = el ? (el.innerText || el.textContent || '') : '';
+    copyTextSafely(text, '📋 Prompt visual berhasil di-copy!');
   };
 
   window.copyCarouselFollowUpSumopod = function() {
@@ -1293,13 +1331,13 @@ const baseUrl = import.meta.env.BASE_URL;
       extraGuide += `\n- Tipografi: Font "${primaryFontValSumopod}" untuk Headline dan "${secondaryFontValSumopod}" untuk Subjudul / Body Text.`;
     }
 
-    const text = `Bagus! Sekarang lanjutkan generate gambar visual untuk SLIDE BERIKUTNYA sesuai alur konten artikel yang sudah kamu buat di atas.
+    const text = `Bagus! Sekarang lanjutkan generate gambar visual untuk slide berikutnya sesuai alur konten artikel yang sudah kamu buat di atas.
 
 Instruksi:
 1. Buatkan dan tampilkan langsung gambar visual untuk slide berikutnya (${sizeInstruction}).
 2. Wajib pertahankan konsistensi karakter orang, gaya ilustrasi 3D clay, warna dominan dan aksen brand yang sama persis seperti Slide 1.${extraGuide}
 3. Setelah gambar ini selesai, berikan lagi ajakan: "👉 Ketik LANJUT untuk membuat visual slide berikutnya".`;
-    navigator.clipboard.writeText(text).then(() => showToast('📋 Prompt Lanjutan Slide 2-5 disalin! Paste ke ChatGPT.'));
+    copyTextSafely(text, '📋 Prompt Lanjutan Slide 2-5 disalin! Paste ke ChatGPT.');
   };
 
   // --- Social Media Caption Feature (SumoPod) ---
@@ -1324,7 +1362,7 @@ Instruksi:
     }
     const sentences = text.split(/[.!?]\s+/).filter(s => s.trim().length > 20 && s.trim().length < 130);
     if (sentences.length >= 3) {
-      return sentences.slice(0, 3).map(s => s.trim());
+      return lines.length > 0 && sentences.length >= 3 ? sentences.slice(0, 3).map(s => s.trim()) : sentences.slice(0, 3).map(s => s.trim());
     }
     return [
       `Pahami akar masalah seputar ${fallbackTopic || 'isu ini'}`,
@@ -1362,15 +1400,14 @@ Menurutmu bagaimana? Tulis pendapat atau pengalamanmu di kolom komentar ya! 👇
   window.copyCaptionSumopod = function() {
     const el = document.getElementById('caption-content-sumopod');
     if (!el) return;
-    const text = el.textContent;
-    navigator.clipboard.writeText(text).then(() => {
-      showToast('📋 Caption berhasil di-copy! Siap dipaste sebelum posting.');
-    });
+    const text = el.textContent || '';
+    copyTextSafely(text, '📋 Caption berhasil di-copy! Siap dipaste sebelum posting.');
   };
 
   // --- Toast ---
   function showToast(msg) {
     const toast = document.getElementById('toast');
+    if (!toast) return;
     toast.textContent = msg;
     toast.classList.remove('translate-y-20', 'opacity-0');
     setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 2500);
