@@ -222,15 +222,19 @@ storiq/
 
 ## 🤝 Kontribusi
 
-Kontribusi dari siapa saja sangat dihargai! Berikut cara berkontribusi:
+Kontribusi dari siapa saja — developer, copywriter, maupun kreator — sangat kami nantikan!
 
+Panduan lengkap, standar branch, arsitektur, dan checklist pull request dapat dibaca di:
+👉 **[Panduan Kontribusi (CONTRIBUTING.md)](CONTRIBUTING.md)**
+
+Silakan juga membaca [Code of Conduct](CODE_OF_CONDUCT.md) dan [Kebijakan Keamanan](SECURITY.md) kami.
+
+### Alur Singkat:
 1. **Fork** repository ini
-2. **Buat branch** baru (`git checkout -b fitur/nama-fitur`)
-3. **Commit** perubahanmu (`git commit -m 'Tambah fitur X'`)
-4. **Push** ke branch (`git push origin fitur/nama-fitur`)
-5. **Buat Pull Request** dan jelaskan perubahanmu
-
-Kontribusi bisa berupa: perbaikan bug, penambahan fitur, perbaikan dokumentasi, penambahan template prompt, atau ide-ide baru.
+2. **Buat branch** baru (`git checkout -b feat/nama-fitur`)
+3. **Commit** perubahanmu (`git commit -m 'feat: tambah template hook baru'`)
+4. **Push** ke branch (`git push origin feat/nama-fitur`)
+5. **Buka Pull Request** dan jelaskan dampak perubahannya
 
 ---
 
