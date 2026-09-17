@@ -198,8 +198,37 @@ const baseUrl = import.meta.env.BASE_URL;
             <p class="text-xs sm:text-sm text-indigo-700">Pecah artikel di atas menjadi konten visual. Copy prompt di bawah ini dan paste ke AI favoritmu untuk membuat konsep grafisnya.</p>
           </div>
 
-          <!-- Opsi Pengaturan Visual: Karakter Tanpa Wajah & Warna Utama Brand -->
+          <!-- Opsi Pengaturan Visual: Format Potret, Karakter Tanpa Wajah & Warna Utama Brand -->
           <div class="space-y-3 mb-6">
+            <!-- Fitur Format Potret (Vertical / Rasio 4:5) -->
+            <div class="p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
+              <label class="flex items-start gap-3.5 cursor-pointer select-none">
+                <div class="flex items-center h-5 mt-0.5">
+                  <input
+                    type="checkbox"
+                    id="toggle-portrait-sumopod"
+                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer transition-all"
+                  />
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                      📱 Format Potret (Vertical)
+                    </span>
+                    <span class="text-[11px] font-semibold px-2.5 py-0.5 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200/70">
+                      1080 x 1350 px (Rasio 4:5)
+                    </span>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                    Centang untuk mengatur prompt agar AI menghasilkan gambar dengan <strong>ukuran 1080 x 1350 piksel (rasio 4:5 potret vertikal)</strong> — format standar yang mengisi layar lebih luas di feed Instagram & LinkedIn.
+                    <span class="block mt-1 text-[11px] text-slate-400 italic">
+                      *Catatan: Hanya berlaku untuk Single Image dan Carousel (tidak berlaku untuk Infografis).
+                    </span>
+                  </p>
+                </div>
+              </label>
+            </div>
+
             <!-- Fitur Karakter Tanpa Wajah (Faceless) -->
             <div class="p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
               <label class="flex items-start gap-3.5 cursor-pointer select-none">
@@ -728,6 +757,8 @@ const baseUrl = import.meta.env.BASE_URL;
   };
 
   // --- Visual Settings (Faceless & Brand Color) ---
+  // --- Visual Settings (Portrait, Faceless & Brand Color) ---
+  let isPortraitActiveSumopod = false;
   let isFacelessActiveSumopod = false;
   let isBrandColorActiveSumopod = false;
   let brandColorHexSumopod = '#4F46E5';
@@ -739,7 +770,7 @@ const baseUrl = import.meta.env.BASE_URL;
     return cleaned.toUpperCase();
   }
 
-  function getVisualPromptSumopod(type, isFaceless, isColorActive, colorHex) {
+  function getVisualPromptSumopod(type, isFaceless, isColorActive, colorHex, isPortrait = false) {
     const prefix = 'Berdasarkan konten artikel di atas:';
     const colorInstruction = isColorActive
       ? `\n* WARNA UTAMA BRAND: Wajib terapkan warna primer brand kode hex ${colorHex} (beserta palet aksen turunan senada) sebagai warna dominan pada elemen grafis, badge teks, latar/frame, atau pakaian karakter agar feed media sosial seragam dan konsisten.`
@@ -756,10 +787,17 @@ const baseUrl = import.meta.env.BASE_URL;
         ? ', faceless minimalist character, blank smooth face, no facial features, no eyes, no eyebrows, no nose, no mouth'
         : '';
 
+      const sizeDescIndo = isPortrait
+        ? 'ukuran 1080 x 1350 piksel (rasio 4:5 potret vertikal — ukuran standar feed Instagram & LinkedIn yang optimal)'
+        : 'rasio 1:1 (square)';
+      const sizeDescEnglish = isPortrait
+        ? ', 1080x1350 pixels resolution, portrait 4:5 aspect ratio'
+        : '';
+
       return `${prefix}
 1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
-2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, rasio 1:1 (square), gaya modern, clean, dan relatable.${faceInstruction}${colorInstruction}
-3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (tambahkan deskripsi: "modern 3D clay illustration, clean aesthetic${faceEnglish}${colorEnglish}").`;
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, ${sizeDescIndo}, gaya modern, clean, dan relatable.${faceInstruction}${colorInstruction}
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (tambahkan deskripsi: "modern 3D clay illustration, clean aesthetic${faceEnglish}${colorEnglish}${sizeDescEnglish}").`;
     }
 
     if (type === 'carousel') {
@@ -770,10 +808,17 @@ const baseUrl = import.meta.env.BASE_URL;
         ? ', faceless character, blank smooth face, no eyes, no eyebrows, no nose, no mouth'
         : '';
 
+      const sizeDescIndo = isPortrait
+        ? 'ukuran 1080 x 1350 piksel (rasio 4:5 potret vertikal yang pas & optimal untuk feed Instagram & LinkedIn)'
+        : 'rasio 1:1 atau 4:5 portrait';
+      const sizeDescEnglish = isPortrait
+        ? ', 1080x1350 px, vertical portrait 4:5 ratio'
+        : '';
+
       return `${prefix}
 1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
-2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), rasio 1:1 atau 4:5 portrait, gaya clean & modern.${faceInstruction}${colorInstruction}
-3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu (sertakan: "clean modern carousel cover, 3D clay style${faceEnglish}${colorEnglish}").`;
+2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), ${sizeDescIndo}, gaya clean & modern.${faceInstruction}${colorInstruction}
+3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu (sertakan: "clean modern carousel cover, 3D clay style${faceEnglish}${colorEnglish}${sizeDescEnglish}").`;
     }
 
     if (type === 'infografis') {
@@ -797,9 +842,24 @@ const baseUrl = import.meta.env.BASE_URL;
     ['single', 'carousel', 'infografis'].forEach(type => {
       const el = document.getElementById(`prompt-${type}`);
       if (el) {
-        el.innerText = getVisualPromptSumopod(type, isFacelessActiveSumopod, isBrandColorActiveSumopod, brandColorHexSumopod);
+        el.innerText = getVisualPromptSumopod(type, isFacelessActiveSumopod, isBrandColorActiveSumopod, brandColorHexSumopod, isPortraitActiveSumopod);
       }
     });
+  }
+
+  function updatePortraitModeSumopod(active, notify = true) {
+    isPortraitActiveSumopod = active;
+    const chk = document.getElementById('toggle-portrait-sumopod');
+    if (chk) chk.checked = active;
+
+    renderVisualPromptsSumopod();
+
+    if (notify) {
+      showToast(active 
+        ? '📱 Format Potret (1080x1350 px, 4:5) diaktifkan untuk Single Image & Carousel!' 
+        : '📱 Format visual kembali ke ukuran standar'
+      );
+    }
   }
 
   function updateFacelessModeSumopod(active, notify = true) {
@@ -862,6 +922,10 @@ const baseUrl = import.meta.env.BASE_URL;
       updateBrandColorModeSumopod(true, false);
     }
   };
+
+  document.getElementById('toggle-portrait-sumopod')?.addEventListener('change', (e) => {
+    updatePortraitModeSumopod(e.target.checked);
+  });
 
   document.getElementById('toggle-faceless-sumopod')?.addEventListener('change', (e) => {
     updateFacelessModeSumopod(e.target.checked);
