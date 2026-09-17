@@ -265,7 +265,7 @@ const baseUrl = import.meta.env.BASE_URL;
           </label>
         </div>
 
-        <!-- Fitur Warna Utama Brand (Primary Brand Color) -->
+        <!-- Fitur Warna Brand (Primary & Secondary Color) -->
         <div class="p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
           <label class="flex items-start gap-3.5 cursor-pointer select-none">
             <div class="flex items-center h-5 mt-0.5">
@@ -278,53 +278,192 @@ const baseUrl = import.meta.env.BASE_URL;
             <div class="flex-1">
               <div class="flex items-center gap-2 flex-wrap">
                 <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                  🎨 Warna Utama Brand (Primary Brand Color)
+                  🎨 Warna Brand
                 </span>
                 <span class="text-[11px] font-semibold px-2.5 py-0.5 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200/60">
-                  Seragamkan Feed Sosmed
+                  Primary & Secondary Color
                 </span>
               </div>
               <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                Centang untuk menetapkan <strong>kode warna utama brand</strong> (contoh: <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-[11px] font-mono">#4F46E5</code> atau <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-[11px] font-mono">#0055A5</code>) agar seluruh gambar dan cover memiliki nuansa warna yang seragam di Instagram, LinkedIn, & blog.
+                Centang untuk menetapkan kombinasi <strong>Primary Color</strong> (warna utama) dan <strong>Secondary Color</strong> (warna sekunder / aksen) agar seluruh gambar dan cover memiliki nuansa visual yang seragam di Instagram, LinkedIn, & blog.
               </p>
             </div>
           </label>
 
           <!-- Color Input Area (Muncul saat dicentang) -->
           <div id="brand-color-container" class="mt-3 pt-3 border-t border-slate-100 hidden">
-            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-              <div class="flex items-center gap-2.5">
-                <div class="relative w-10 h-10 rounded-lg overflow-hidden border border-slate-300 shadow-2xs shrink-0 cursor-pointer">
-                  <input
-                    type="color"
-                    id="color-picker"
-                    value="#4F46E5"
-                    class="absolute -top-2 -left-2 w-14 h-14 cursor-pointer border-0 p-0"
-                    title="Klik untuk memilih warna dari palet"
-                  />
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Primary Color -->
+              <div class="p-3 bg-slate-50 border border-slate-200/80 rounded-xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span id="preview-dot-primary" class="w-2.5 h-2.5 rounded-full bg-[#4F46E5] inline-block shadow-2xs"></span>
+                    Primary Color
+                  </span>
+                  <span class="text-[10px] text-slate-500 font-medium">Warna Utama</span>
                 </div>
-                <div class="relative">
+                <div class="flex items-center gap-2">
+                  <div class="relative w-9 h-9 rounded-lg overflow-hidden border border-slate-300 shadow-2xs shrink-0 cursor-pointer">
+                    <input
+                      type="color"
+                      id="color-picker-primary"
+                      value="#4F46E5"
+                      class="absolute -top-2 -left-2 w-13 h-13 cursor-pointer border-0 p-0"
+                      title="Pilih Primary Color"
+                    />
+                  </div>
                   <input
                     type="text"
-                    id="color-hex"
+                    id="color-hex-primary"
                     value="#4F46E5"
                     placeholder="#4F46E5"
                     maxlength="7"
-                    class="w-28 px-3 py-2 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none"
+                    class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none bg-white"
+                  />
+                </div>
+                <!-- Quick Presets for Primary -->
+                <div class="flex items-center gap-1.5 pt-0.5 flex-wrap">
+                  <span class="text-[10px] text-slate-400 font-medium mr-0.5">Preset:</span>
+                  <button type="button" onclick="setPrimaryColorPreset('#4F46E5')" class="w-4.5 h-4.5 rounded-full bg-[#4F46E5] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Indigo (#4F46E5)"></button>
+                  <button type="button" onclick="setPrimaryColorPreset('#2563EB')" class="w-4.5 h-4.5 rounded-full bg-[#2563EB] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Royal Blue (#2563EB)"></button>
+                  <button type="button" onclick="setPrimaryColorPreset('#0284C7')" class="w-4.5 h-4.5 rounded-full bg-[#0284C7] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Sky Cyan (#0284C7)"></button>
+                  <button type="button" onclick="setPrimaryColorPreset('#059669')" class="w-4.5 h-4.5 rounded-full bg-[#059669] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Emerald (#059669)"></button>
+                  <button type="button" onclick="setPrimaryColorPreset('#EA580C')" class="w-4.5 h-4.5 rounded-full bg-[#EA580C] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Orange (#EA580C)"></button>
+                  <button type="button" onclick="setPrimaryColorPreset('#0F172A')" class="w-4.5 h-4.5 rounded-full bg-[#0F172A] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Dark Slate (#0F172A)"></button>
+                </div>
+              </div>
+
+              <!-- Secondary Color -->
+              <div class="p-3 bg-slate-50 border border-slate-200/80 rounded-xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <span id="preview-dot-secondary" class="w-2.5 h-2.5 rounded-full bg-[#F59E0B] inline-block shadow-2xs"></span>
+                    Secondary Color
+                  </span>
+                  <span class="text-[10px] text-slate-500 font-medium">Warna Sekunder / Aksen</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="relative w-9 h-9 rounded-lg overflow-hidden border border-slate-300 shadow-2xs shrink-0 cursor-pointer">
+                    <input
+                      type="color"
+                      id="color-picker-secondary"
+                      value="#F59E0B"
+                      class="absolute -top-2 -left-2 w-13 h-13 cursor-pointer border-0 p-0"
+                      title="Pilih Secondary Color"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    id="color-hex-secondary"
+                    value="#F59E0B"
+                    placeholder="#F59E0B"
+                    maxlength="7"
+                    class="w-full px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-800 uppercase focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none bg-white"
+                  />
+                </div>
+                <!-- Quick Presets for Secondary -->
+                <div class="flex items-center gap-1.5 pt-0.5 flex-wrap">
+                  <span class="text-[10px] text-slate-400 font-medium mr-0.5">Preset:</span>
+                  <button type="button" onclick="setSecondaryColorPreset('#F59E0B')" class="w-4.5 h-4.5 rounded-full bg-[#F59E0B] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Amber (#F59E0B)"></button>
+                  <button type="button" onclick="setSecondaryColorPreset('#10B981')" class="w-4.5 h-4.5 rounded-full bg-[#10B981] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Emerald (#10B981)"></button>
+                  <button type="button" onclick="setSecondaryColorPreset('#06B6D4')" class="w-4.5 h-4.5 rounded-full bg-[#06B6D4] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Cyan (#06B6D4)"></button>
+                  <button type="button" onclick="setSecondaryColorPreset('#EC4899')" class="w-4.5 h-4.5 rounded-full bg-[#EC4899] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Pink (#EC4899)"></button>
+                  <button type="button" onclick="setSecondaryColorPreset('#8B5CF6')" class="w-4.5 h-4.5 rounded-full bg-[#8B5CF6] hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="Purple (#8B5CF6)"></button>
+                  <button type="button" onclick="setSecondaryColorPreset('#FFFFFF')" class="w-4.5 h-4.5 rounded-full bg-[#FFFFFF] border border-slate-300 hover:scale-110 transition-transform cursor-pointer shadow-2xs" title="White (#FFFFFF)"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fitur Tipografi Brand (Typography) -->
+        <div class="p-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl transition-all shadow-2xs">
+          <label class="flex items-start gap-3.5 cursor-pointer select-none">
+            <div class="flex items-center h-5 mt-0.5">
+              <input
+                type="checkbox"
+                id="toggle-typography"
+                class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 cursor-pointer transition-all"
+              />
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                  🔤 Tipografi Brand (Typography)
+                </span>
+                <span class="text-[11px] font-semibold px-2.5 py-0.5 bg-purple-50 text-purple-700 rounded-full border border-purple-200/70">
+                  Primary & Secondary Font
+                </span>
+              </div>
+              <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                Centang untuk menentukan jenis <strong>Primary Font</strong> (untuk Headline / Judul Utama) dan <strong>Secondary Font</strong> (untuk Subjudul & Body Text) agar hierarki tipografi visual tetap selaras dengan identitas brand.
+              </p>
+            </div>
+          </label>
+
+          <!-- Typography Input Area (Muncul saat dicentang) -->
+          <div id="typography-container" class="mt-3 pt-3 border-t border-slate-100 hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Primary Font -->
+              <div class="p-3 bg-slate-50 border border-slate-200/80 rounded-xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    🔤 Primary Font
+                  </span>
+                  <span class="text-[10px] text-slate-500 font-medium">Headline / Judul Utama</span>
+                </div>
+                <div class="space-y-1.5">
+                  <select
+                    id="font-select-primary"
+                    class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs font-semibold text-slate-800 bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none cursor-pointer"
+                  >
+                    <option value="Poppins">Poppins (Modern, Populer & Geometris)</option>
+                    <option value="Plus Jakarta Sans">Plus Jakarta Sans (Tech, Bersih & Elegan)</option>
+                    <option value="Montserrat">Montserrat (Tegas, Kokoh & Bold)</option>
+                    <option value="Inter">Inter (Minimalis & Netral)</option>
+                    <option value="Playfair Display">Playfair Display (Serif Mewah & Editorial)</option>
+                    <option value="Cabinet Grotesk">Cabinet Grotesk (Desain Trendy & Kreatif)</option>
+                    <option value="Sora">Sora (Futuristik & Modern)</option>
+                    <option value="Clash Display">Clash Display (Bold & Standout)</option>
+                    <option value="custom">✏️ Custom / Tulis Font Sendiri...</option>
+                  </select>
+                  <input
+                    type="text"
+                    id="font-custom-primary"
+                    placeholder="Tulis nama font custom (contoh: Bebas Neue)"
+                    class="w-full px-3 py-1.5 border border-slate-300 rounded-lg text-xs text-slate-800 bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none hidden"
                   />
                 </div>
               </div>
 
-              <!-- Quick Presets -->
-              <div class="flex items-center gap-1.5 flex-wrap">
-                <span class="text-[11px] text-slate-400 mr-1 font-medium">Preset Cepat:</span>
-                <button type="button" onclick="setBrandColorPreset('#4F46E5')" class="w-6 h-6 rounded-full bg-[#4F46E5] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Indigo (#4F46E5)"></button>
-                <button type="button" onclick="setBrandColorPreset('#2563EB')" class="w-6 h-6 rounded-full bg-[#2563EB] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Royal Blue (#2563EB)"></button>
-                <button type="button" onclick="setBrandColorPreset('#0284C7')" class="w-6 h-6 rounded-full bg-[#0284C7] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Sky Cyan (#0284C7)"></button>
-                <button type="button" onclick="setBrandColorPreset('#059669')" class="w-6 h-6 rounded-full bg-[#059669] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Emerald (#059669)"></button>
-                <button type="button" onclick="setBrandColorPreset('#EA580C')" class="w-6 h-6 rounded-full bg-[#EA580C] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Orange (#EA580C)"></button>
-                <button type="button" onclick="setBrandColorPreset('#DC2626')" class="w-6 h-6 rounded-full bg-[#DC2626] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Red (#DC2626)"></button>
-                <button type="button" onclick="setBrandColorPreset('#0F172A')" class="w-6 h-6 rounded-full bg-[#0F172A] hover:scale-110 transition-transform shadow-xs cursor-pointer" title="Dark Slate (#0F172A)"></button>
+              <!-- Secondary Font -->
+              <div class="p-3 bg-slate-50 border border-slate-200/80 rounded-xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    🔡 Secondary Font
+                  </span>
+                  <span class="text-[10px] text-slate-500 font-medium">Subjudul & Body Text</span>
+                </div>
+                <div class="space-y-1.5">
+                  <select
+                    id="font-select-secondary"
+                    class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs font-semibold text-slate-800 bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none cursor-pointer"
+                  >
+                    <option value="Inter">Inter (Ultra Readable & Bersih)</option>
+                    <option value="Plus Jakarta Sans">Plus Jakarta Sans (Modern & Rapi)</option>
+                    <option value="Roboto">Roboto (Fleksibel & Standar)</option>
+                    <option value="Open Sans">Open Sans (Ramah & Natural)</option>
+                    <option value="Poppins">Poppins (Konsisten & Geometris)</option>
+                    <option value="Lora">Lora (Serif Hangat & Nyaman Dibaca)</option>
+                    <option value="custom">✏️ Custom / Tulis Font Sendiri...</option>
+                  </select>
+                  <input
+                    type="text"
+                    id="font-custom-secondary"
+                    placeholder="Tulis nama font custom (contoh: DM Sans)"
+                    class="w-full px-3 py-1.5 border border-slate-300 rounded-lg text-xs text-slate-800 bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none hidden"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -763,11 +902,15 @@ const baseUrl = import.meta.env.BASE_URL;
     goToStep(3);
   };
 
-  // --- Visual Settings (Portrait, Faceless & Brand Color) ---
+  // --- Visual Settings (Portrait, Faceless, Brand Color & Typography) ---
   let isPortraitActive = false;
   let isFacelessActive = false;
   let isBrandColorActive = false;
-  let brandColorHex = '#4F46E5';
+  let primaryColorHex = '#4F46E5';
+  let secondaryColorHex = '#F59E0B';
+  let isTypographyActive = false;
+  let primaryFontVal = 'Poppins';
+  let secondaryFontVal = 'Inter';
 
   function sanitizeHex(val) {
     let cleaned = val.trim();
@@ -776,13 +919,21 @@ const baseUrl = import.meta.env.BASE_URL;
     return cleaned.toUpperCase();
   }
 
-  function getVisualPrompt(type, isFaceless, isColorActive, colorHex, isPortrait = false, isSumopod = false) {
+  function getVisualPrompt(type, isFaceless, isColorActive, primaryColor, secondaryColor, isPortrait = false, isTypography = false, primaryFont = 'Poppins', secondaryFont = 'Inter', isSumopod = false) {
     const prefix = isSumopod ? 'Berdasarkan konten artikel di atas:' : 'Berdasarkan konten di atas:';
+    
     const colorInstruction = isColorActive
-      ? `\n* WARNA UTAMA BRAND: Wajib terapkan warna primer brand kode hex ${colorHex} (beserta palet aksen turunan senada) sebagai warna dominan pada elemen grafis, badge teks, latar/frame, atau pakaian karakter agar feed media sosial seragam dan konsisten.`
+      ? `\n* PANDUAN WARNA BRAND: Wajib terapkan Primary Color ${primaryColor} sebagai warna dominan (latar belakang, busana karakter, atau frame desain utama) dan Secondary Color ${secondaryColor} sebagai warna sekunder / aksen kontras (badge penegas, ornamen visual, ikon, atau tombol highlight) agar tampilan feed media sosial selaras dan profesional.`
       : '';
     const colorEnglish = isColorActive
-      ? `, primary brand color hex ${colorHex}, cohesive brand visual identity palette`
+      ? `, primary brand color ${primaryColor}, secondary accent color ${secondaryColor}, cohesive brand visual palette`
+      : '';
+
+    const typographyInstruction = isTypography
+      ? `\n* PANDUAN TIPOGRAFI BRAND: Pada seluruh teks di dalam desain, gunakan gaya font "${primaryFont}" untuk Headline / Judul Utama (tebal, tegas, kontras tinggi) serta font "${secondaryFont}" untuk Subjudul / Body Text / Penjelas agar keterbacaan rapi dan berkelas.`
+      : '';
+    const typographyEnglish = isTypography
+      ? `, typography pairing: bold "${primaryFont}" for headlines and clean "${secondaryFont}" for body text`
       : '';
 
     if (type === 'single') {
@@ -802,8 +953,8 @@ const baseUrl = import.meta.env.BASE_URL;
 
       return `${prefix}
 1. Rangkum 1 pesan inti & teks copy singkat untuk di dalam gambar.
-2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, ${sizeDescIndo}, gaya modern, clean, dan relatable.${faceInstruction}${colorInstruction}
-3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (tambahkan deskripsi: "modern 3D clay illustration, clean aesthetic${faceEnglish}${colorEnglish}${sizeDescEnglish}").`;
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan tampilkan langsung gambar ilustrasinya (gunakan fitur image generation / DALL-E / Imagen bawaanmu) yang memvisualisasikan konsep tersebut, ${sizeDescIndo}, gaya modern, clean, dan relatable.${faceInstruction}${colorInstruction}${typographyInstruction}
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (tambahkan deskripsi: "modern 3D clay illustration, clean aesthetic${faceEnglish}${colorEnglish}${typographyEnglish}${sizeDescEnglish}").`;
     }
 
     if (type === 'carousel') {
@@ -823,8 +974,8 @@ const baseUrl = import.meta.env.BASE_URL;
 
       return `${prefix}
 1. Susun alur 5 slide Carousel (Headline max 10 kata + Body max 2 kalimat untuk tiap slide).
-2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), ${sizeDescIndo}, gaya clean & modern.${faceInstruction}${colorInstruction}
-3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu (sertakan: "clean modern carousel cover, 3D clay style${faceEnglish}${colorEnglish}${sizeDescEnglish}").`;
+2. LANGSUNG GENERATE GAMBAR COVER SEKARANG: Buatkan dan tampilkan langsung gambar desain visual untuk SLIDE 1 (Cover / Hook) yang paling eye-catching (gunakan fitur image generation / DALL-E / Imagen bawaanmu), ${sizeDescIndo}, gaya clean & modern.${faceInstruction}${colorInstruction}${typographyInstruction}
+3. Sertakan prompt Bahasa Inggris untuk slide berikutnya jika ingin di-generate satu per satu (sertakan: "clean modern carousel cover, 3D clay style${faceEnglish}${colorEnglish}${typographyEnglish}${sizeDescEnglish}").`;
     }
 
     if (type === 'infografis') {
@@ -837,8 +988,8 @@ const baseUrl = import.meta.env.BASE_URL;
 
       return `${prefix}
 1. Rangkum poin-poin utama, data, atau langkah-langkah secara terstruktur dan ringkas.
-2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.${faceInstruction}${colorInstruction}
-3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (sertakan: "educational infographic poster design, modern 3D vector illustration${faceEnglish}${colorEnglish}").`;
+2. LANGSUNG GENERATE GAMBAR SEKARANG: Buatkan dan render langsung visual desain poster INFOGRAFIS lengkap (format vertikal 9:16 atau 4:5, gaya clean, modern, informatif dengan ikon/elemen visual pendukung) menggunakan fitur image generation / DALL-E / Imagen bawaanmu.${faceInstruction}${colorInstruction}${typographyInstruction}
+3. Sertakan juga prompt Bahasa Inggris siap pakai untuk Midjourney / Flux / Ideogram (sertakan: "educational infographic poster design, modern 3D vector illustration${faceEnglish}${colorEnglish}${typographyEnglish}").`;
     }
 
     return '';
@@ -848,7 +999,18 @@ const baseUrl = import.meta.env.BASE_URL;
     ['single', 'carousel', 'infografis'].forEach(type => {
       const el = document.getElementById(`prompt-${type}`);
       if (el) {
-        el.innerText = getVisualPrompt(type, isFacelessActive, isBrandColorActive, brandColorHex, isPortraitActive, false);
+        el.innerText = getVisualPrompt(
+          type,
+          isFacelessActive,
+          isBrandColorActive,
+          primaryColorHex,
+          secondaryColorHex,
+          isPortraitActive,
+          isTypographyActive,
+          primaryFontVal,
+          secondaryFontVal,
+          false
+        );
       }
     });
   }
@@ -898,36 +1060,108 @@ const baseUrl = import.meta.env.BASE_URL;
 
     if (notify) {
       showToast(active 
-        ? `🎨 Warna brand (${brandColorHex}) diaktifkan pada prompt visual!` 
+        ? `🎨 Warna brand diaktifkan: Primary (${primaryColorHex}) & Secondary (${secondaryColorHex})` 
         : '🎨 Warna brand dinonaktifkan'
       );
     }
   }
 
-  function applyBrandColorChange(hex, notify = false) {
+  function applyPrimaryColorChange(hex, notify = false) {
     const sanitized = sanitizeHex(hex);
-    brandColorHex = sanitized;
+    primaryColorHex = sanitized;
 
-    const inputHex = document.getElementById('color-hex');
-    const picker = document.getElementById('color-picker');
+    const inputHex = document.getElementById('color-hex-primary');
+    const picker = document.getElementById('color-picker-primary');
+    const dot = document.getElementById('preview-dot-primary');
 
     if (inputHex && inputHex.value !== sanitized) inputHex.value = sanitized;
-    if (/^#[0-9A-Fa-f]{6}$/.test(sanitized) && picker) {
-      picker.value = sanitized;
+    if (/^#[0-9A-Fa-f]{6}$/.test(sanitized) && picker) picker.value = sanitized;
+    if (dot) dot.style.backgroundColor = sanitized;
+
+    renderVisualPrompts();
+    if (notify) showToast(`🎨 Primary color diubah ke ${sanitized}`);
+  }
+
+  function applySecondaryColorChange(hex, notify = false) {
+    const sanitized = sanitizeHex(hex);
+    secondaryColorHex = sanitized;
+
+    const inputHex = document.getElementById('color-hex-secondary');
+    const picker = document.getElementById('color-picker-secondary');
+    const dot = document.getElementById('preview-dot-secondary');
+
+    if (inputHex && inputHex.value !== sanitized) inputHex.value = sanitized;
+    if (/^#[0-9A-Fa-f]{6}$/.test(sanitized) && picker) picker.value = sanitized;
+    if (dot) dot.style.backgroundColor = sanitized;
+
+    renderVisualPrompts();
+    if (notify) showToast(`🎨 Secondary color diubah ke ${sanitized}`);
+  }
+
+  window.setPrimaryColorPreset = function(hex) {
+    applyPrimaryColorChange(hex, true);
+    if (!isBrandColorActive) updateBrandColorMode(true, false);
+  };
+
+  window.setSecondaryColorPreset = function(hex) {
+    applySecondaryColorChange(hex, true);
+    if (!isBrandColorActive) updateBrandColorMode(true, false);
+  };
+
+  function updateTypographyMode(active, notify = true) {
+    isTypographyActive = active;
+    const chk = document.getElementById('toggle-typography');
+    const container = document.getElementById('typography-container');
+
+    if (chk) chk.checked = active;
+    if (container) {
+      if (active) container.classList.remove('hidden');
+      else container.classList.add('hidden');
     }
 
     renderVisualPrompts();
+
     if (notify) {
-      showToast(`🎨 Warna brand diubah ke ${sanitized}`);
+      showToast(active 
+        ? `🔤 Tipografi brand diaktifkan: ${primaryFontVal} & ${secondaryFontVal}` 
+        : '🔤 Tipografi brand dinonaktifkan'
+      );
     }
   }
 
-  window.setBrandColorPreset = function(hex) {
-    applyBrandColorChange(hex, true);
-    if (!isBrandColorActive) {
-      updateBrandColorMode(true, false);
+  function handlePrimaryFontChange() {
+    const select = document.getElementById('font-select-primary');
+    const customInput = document.getElementById('font-custom-primary');
+    if (!select) return;
+
+    if (select.value === 'custom') {
+      if (customInput) {
+        customInput.classList.remove('hidden');
+        primaryFontVal = customInput.value.trim() || 'Custom Sans';
+      }
+    } else {
+      if (customInput) customInput.classList.add('hidden');
+      primaryFontVal = select.value;
     }
-  };
+    renderVisualPrompts();
+  }
+
+  function handleSecondaryFontChange() {
+    const select = document.getElementById('font-select-secondary');
+    const customInput = document.getElementById('font-custom-secondary');
+    if (!select) return;
+
+    if (select.value === 'custom') {
+      if (customInput) {
+        customInput.classList.remove('hidden');
+        secondaryFontVal = customInput.value.trim() || 'Custom Sans';
+      }
+    } else {
+      if (customInput) customInput.classList.add('hidden');
+      secondaryFontVal = select.value;
+    }
+    renderVisualPrompts();
+  }
 
   document.getElementById('toggle-portrait')?.addEventListener('change', (e) => {
     updatePortraitMode(e.target.checked);
@@ -941,30 +1175,71 @@ const baseUrl = import.meta.env.BASE_URL;
     updateBrandColorMode(e.target.checked);
   });
 
-  document.getElementById('color-picker')?.addEventListener('input', (e) => {
-    applyBrandColorChange(e.target.value);
+  document.getElementById('toggle-typography')?.addEventListener('change', (e) => {
+    updateTypographyMode(e.target.checked);
   });
 
-  const colorHexInput = document.getElementById('color-hex');
-  if (colorHexInput) {
-    colorHexInput.addEventListener('input', (e) => {
+  document.getElementById('color-picker-primary')?.addEventListener('input', (e) => {
+    applyPrimaryColorChange(e.target.value);
+  });
+
+  document.getElementById('color-picker-secondary')?.addEventListener('input', (e) => {
+    applySecondaryColorChange(e.target.value);
+  });
+
+  const colorHexPrimaryInput = document.getElementById('color-hex-primary');
+  if (colorHexPrimaryInput) {
+    colorHexPrimaryInput.addEventListener('input', (e) => {
       let val = e.target.value.trim();
       if (val && !val.startsWith('#')) val = '#' + val;
       if (val.length > 7) val = val.slice(0, 7);
       e.target.value = val.toUpperCase();
-      if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
-        applyBrandColorChange(val);
-      }
+      if (/^#[0-9A-Fa-f]{6}$/.test(val)) applyPrimaryColorChange(val);
     });
-    colorHexInput.addEventListener('blur', (e) => {
+    colorHexPrimaryInput.addEventListener('blur', (e) => {
       let val = e.target.value.trim();
       if (!val || !/^#[0-9A-Fa-f]{6}$/.test(val)) {
-        e.target.value = brandColorHex;
+        e.target.value = primaryColorHex;
       } else {
-        applyBrandColorChange(val, true);
+        applyPrimaryColorChange(val, true);
       }
     });
   }
+
+  const colorHexSecondaryInput = document.getElementById('color-hex-secondary');
+  if (colorHexSecondaryInput) {
+    colorHexSecondaryInput.addEventListener('input', (e) => {
+      let val = e.target.value.trim();
+      if (val && !val.startsWith('#')) val = '#' + val;
+      if (val.length > 7) val = val.slice(0, 7);
+      e.target.value = val.toUpperCase();
+      if (/^#[0-9A-Fa-f]{6}$/.test(val)) applySecondaryColorChange(val);
+    });
+    colorHexSecondaryInput.addEventListener('blur', (e) => {
+      let val = e.target.value.trim();
+      if (!val || !/^#[0-9A-Fa-f]{6}$/.test(val)) {
+        e.target.value = secondaryColorHex;
+      } else {
+        applySecondaryColorChange(val, true);
+      }
+    });
+  }
+
+  document.getElementById('font-select-primary')?.addEventListener('change', () => {
+    handlePrimaryFontChange();
+  });
+
+  document.getElementById('font-custom-primary')?.addEventListener('input', () => {
+    handlePrimaryFontChange();
+  });
+
+  document.getElementById('font-select-secondary')?.addEventListener('change', () => {
+    handleSecondaryFontChange();
+  });
+
+  document.getElementById('font-custom-secondary')?.addEventListener('input', () => {
+    handleSecondaryFontChange();
+  });
 
   // --- Copy Visual Prompt ---
   window.copyVisualPrompt = function(type) {
