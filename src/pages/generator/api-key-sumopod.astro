@@ -614,13 +614,21 @@ const baseUrl = import.meta.env.BASE_URL;
                 <span class="font-bold text-sm text-slate-800 flex items-center gap-1.5">
                   💬 Caption Media Sosial (Siap Posting)
                 </span>
-                <button onclick="copyCaptionSumopod()" class="text-xs px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-xs hover:shadow-indigo-500/20 active:scale-95">
-                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                  </svg>
-                  <span>Copy Caption</span>
-                </button>
+                <div class="flex items-center gap-2">
+                  <button onclick="renderActiveCaptionSumopod(true)" title="Rangkum ulang caption dari naskah artikel" class="text-xs px-3 py-1.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/90 rounded-lg font-medium transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-2xs active:scale-95">
+                    <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                    </svg>
+                    <span>Rangkum Ulang</span>
+                  </button>
+                  <button onclick="copyCaptionSumopod()" class="text-xs px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-xs hover:shadow-indigo-500/20 active:scale-95">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                    </svg>
+                    <span>Copy Caption</span>
+                  </button>
+                </div>
               </div>
 
               <p class="text-xs text-slate-500 mb-2.5">
@@ -765,6 +773,7 @@ const baseUrl = import.meta.env.BASE_URL;
   import { buildPrompt } from '../../scripts/prompts.js';
   import { generate } from '../../scripts/ai-client.js';
   import { getApiKey } from '../../scripts/storage.js';
+  import { generateDynamicSocialCaption } from '../../scripts/caption-generator.js';
 
   // --- State ---
   let currentStep = 1;
@@ -1340,62 +1349,26 @@ Instruksi:
     copyTextSafely(text, '📋 Prompt Lanjutan Slide 2-5 disalin! Paste ke ChatGPT.');
   };
 
-  // --- Social Media Caption Feature (SumoPod) ---
-  function extractKeyTakeawaysSumopod(text, fallbackTopic) {
-    if (!text) {
-      return [
-        `Pahami akar masalah seputar ${fallbackTopic || 'isu ini'}`,
-        `Terapkan strategi praktis langkah demi langkah`,
-        `Lakukan evaluasi & jaga konsistensi hasil`
-      ];
-    }
-    const lines = text.split('\n')
-      .map(l => l.trim())
-      .filter(l => l.length > 12 && (
-        /^[\d\-*•]/.test(l) || 
-        l.startsWith('###') || 
-        l.startsWith('**') ||
-        /^(Langkah|Poin|Tips|Kunci|Strategi|Solusi)/i.test(l)
-      ));
-    if (lines.length >= 3) {
-      return lines.slice(0, 3).map(l => l.replace(/^[\d\-*•#]+\.?\s*/, '').replace(/^\*\*|\*\*$/g, '').trim());
-    }
-    const sentences = text.split(/[.!?]\s+/).filter(s => s.trim().length > 20 && s.trim().length < 130);
-    if (sentences.length >= 3) {
-      return lines.length > 0 && sentences.length >= 3 ? sentences.slice(0, 3).map(s => s.trim()) : sentences.slice(0, 3).map(s => s.trim());
-    }
-    return [
-      `Pahami akar masalah seputar ${fallbackTopic || 'isu ini'}`,
-      `Terapkan strategi praktis langkah demi langkah`,
-      `Lakukan evaluasi & jaga konsistensi hasil`
-    ];
-  }
-
-  function generateSocialCaptionSumopod() {
-    const topik = document.getElementById('topik')?.value.trim() || 'Strategi Menghasilkan Konten Berdampak';
-    const article = document.getElementById('output-text')?.textContent.trim() || '';
-    const points = extractKeyTakeawaysSumopod(article, topik);
-
-    return `🔥 ${topik}
-
-Banyak yang mengira kunci sukses seputar topik ini rumit, padahal solusinya berakar dari pemahaman prinsip dasarnya yang tepat.
-
-Poin penting yang wajib kamu ingat:
-📌 ${points[0]}
-📌 ${points[1]}
-📌 ${points[2]}
-
-👉 Cek visual di atas untuk rangkuman intinya!
-
-Menurutmu bagaimana? Tulis pendapat atau pengalamanmu di kolom komentar ya! 👇`;
-  }
-
-  function renderActiveCaptionSumopod() {
+  // --- Social Media Caption Feature (Dynamic & Context-Aware) ---
+  window.renderActiveCaptionSumopod = function(showFeedback = false) {
     const el = document.getElementById('caption-content-sumopod');
-    if (el) {
-      el.textContent = generateSocialCaptionSumopod();
+    if (!el) return;
+    const topik = document.getElementById('topik')?.value.trim() || '';
+    const audiens = document.getElementById('audiens')?.value.trim() || '';
+    const tone = document.getElementById('tone')?.value || 'santai';
+    const article = document.getElementById('output-text')?.textContent.trim() || '';
+
+    el.textContent = generateDynamicSocialCaption({
+      text: article,
+      topik: topik || 'Strategi Menghasilkan Konten Berdampak',
+      audiens,
+      tone
+    });
+
+    if (showFeedback) {
+      showToast('✨ Caption berhasil dirangkum ulang dari naskah artikel!');
     }
-  }
+  };
 
   window.copyCaptionSumopod = function() {
     const el = document.getElementById('caption-content-sumopod');

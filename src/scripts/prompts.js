@@ -91,7 +91,10 @@ INSTRUKSI PENTING:
 3. Isi (3-5 sub-bagian) — setiap sub-bagian punya heading dan insight
 4. Kesimpulan — rangkuman + CTA natural
 5. Panjang: 800-1200 kata
-6. Sertakan 2-3 quote atau data yang mendukung`,
+6. Sertakan 2-3 quote atau data yang mendukung
+7. Di bagian akhir artikel, sertakan bagian naskah caption siap posting dengan format:
+[CAPTION MEDIA SOSIAL]
+(Tulis naskah caption 100-200 kata yang merangkum inti artikel dengan hook pemikat, 3 poin utama, CTA interaktif, dan 3-5 hashtag relevan)`,
 
     carousel: `\n\nBuat CAROUSEL INSTAGRAM (8-10 slide) dengan struktur:
 Slide 1 — COVER: Judul yang bikin orang berhenti scroll (max 8 kata)
@@ -108,7 +111,11 @@ Format output:
 
 [Slide 2]
 (teks slide)
-...dst`,
+...dst
+
+Di baris paling akhir, tambahkan naskah caption siap pakai:
+[CAPTION MEDIA SOSIAL]
+(Naskah caption ringkas 80-150 kata yang merangkum pesan carousel, ajakan swipe/baca, CTA diskusi, dan hashtag relevan)`,
 
     caption: `\n\nBuat CAPTION SOCIAL MEDIA dengan struktur:
 1. Hook (1 kalimat pertama yang bikin berhenti scroll)
