@@ -1389,10 +1389,8 @@ Instruksi:
   // --- Form Validation (Disable Button until Filled) ---
   function checkFormValidation() {
     const topik = document.getElementById('topik')?.value.trim();
-    const audiens = document.getElementById('audiens')?.value.trim();
-    const tujuan = document.getElementById('tujuan')?.value.trim();
     const btn = document.getElementById('btn-generate-api');
-    const isValid = !!(topik && audiens && tujuan);
+    const isValid = !!topik;
 
     if (btn) {
       btn.disabled = !isValid;

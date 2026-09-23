@@ -1394,11 +1394,9 @@ Instruksi:
   // --- Real-time Form Validation (Disable Button until Filled) ---
   function checkStep1Validation() {
     const topik = document.getElementById('topik')?.value.trim();
-    const audiens = document.getElementById('audiens')?.value.trim();
-    const tujuan = document.getElementById('tujuan')?.value.trim();
     const btn = document.getElementById('btn-next-step-1');
     
-    const isValid = !!(topik && audiens && tujuan);
+    const isValid = !!topik;
     if (btn) {
       btn.disabled = !isValid;
       if (isValid) {

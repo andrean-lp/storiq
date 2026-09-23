@@ -144,5 +144,12 @@ const navLinks = [
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
-  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  const icon = document.getElementById('menu-icon');
+
+  btn?.addEventListener('click', () => {
+    const isClosed = menu?.classList.toggle('hidden');
+    if (icon) {
+      icon.setAttribute('d', isClosed ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18L18 6M6 6l12 12');
+    }
+  });
 </script>
