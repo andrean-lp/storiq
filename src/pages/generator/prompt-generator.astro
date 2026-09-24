@@ -67,23 +67,10 @@ const baseUrl = import.meta.env.BASE_URL;
       </div>
 
       <div class="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-7 shadow-2xs space-y-5">
-        <div>
-          <label for="direct-article-content" class="block text-sm font-bold text-slate-800 mb-1.5 flex items-center justify-between">
-            <span>Naskah Artikel / Konten Tulisan</span>
-            <span class="text-[11px] font-normal text-slate-400">Minimal 1 paragraf</span>
-          </label>
-          <textarea
-            id="direct-article-content"
-            rows="8"
-            placeholder="Paste teks artikel blog, draft tulisan, atau materi yang ingin kamu pecah di sini..."
-            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none text-slate-800 text-sm leading-relaxed"
-          ></textarea>
-        </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="direct-topik" class="block text-xs font-bold text-slate-700 mb-1">
-              Judul / Topik Artikel <span class="text-slate-400 font-normal">(opsional / auto-detect)</span>
+            <label for="direct-topik" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">
+              Judul / Topik Artikel <span class="text-slate-400 font-normal text-xs">(opsional / auto-detect)</span>
             </label>
             <input
               id="direct-topik"
@@ -94,7 +81,7 @@ const baseUrl = import.meta.env.BASE_URL;
           </div>
 
           <div>
-            <label for="direct-tone" class="block text-xs font-bold text-slate-700 mb-1">
+            <label for="direct-tone" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">
               Tone of Voice / Gaya Repurpose
             </label>
             <select
@@ -108,6 +95,19 @@ const baseUrl = import.meta.env.BASE_URL;
               <option value="storytelling">📖 Storytelling (bercerita)</option>
             </select>
           </div>
+        </div>
+
+        <div>
+          <label for="direct-article-content" class="block text-sm font-bold text-slate-800 mb-1.5 flex items-center justify-between">
+            <span>Naskah Artikel / Konten Tulisan</span>
+            <span class="text-[11px] font-normal text-slate-400">Minimal 1 paragraf</span>
+          </label>
+          <textarea
+            id="direct-article-content"
+            rows="8"
+            placeholder="Paste teks artikel blog, draft tulisan, atau materi yang ingin kamu pecah di sini..."
+            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none text-slate-800 text-sm leading-relaxed"
+          ></textarea>
         </div>
 
         <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -919,7 +919,7 @@ const baseUrl = import.meta.env.BASE_URL;
     if (mode === 'article') {
       // Style active tab: article
       if (tabArticle) {
-        tabArticle.className = 'pb-3 px-3 text-xs sm:text-sm font-bold border-b-2 border-emerald-600 text-emerald-700 flex items-center gap-2 cursor-pointer transition-all';
+        tabArticle.className = 'pb-3 px-3 text-xs sm:text-sm font-bold border-b-2 border-indigo-600 text-indigo-700 flex items-center gap-2 cursor-pointer transition-all';
       }
       if (tabIdea) {
         tabIdea.className = 'pb-3 px-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 cursor-pointer transition-all';
@@ -1650,7 +1650,7 @@ Instruksi:
     if (btn) {
       btn.disabled = !isValid;
       if (isValid) {
-        btn.className = 'w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-emerald-600/20 cursor-pointer';
+        btn.className = 'w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-indigo-600/20 cursor-pointer';
       } else {
         btn.className = 'w-full sm:w-auto px-6 py-3 bg-slate-200 text-slate-400 cursor-not-allowed rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-xs';
       }
