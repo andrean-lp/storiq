@@ -110,16 +110,13 @@ const baseUrl = import.meta.env.BASE_URL;
           ></textarea>
         </div>
 
-        <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p class="text-xs text-slate-400 text-center sm:text-left">
-            💡 Format visual carousel, caption medsos, threads, & reels akan dibuat otomatis.
-          </p>
+        <div class="pt-4 border-t border-slate-100">
           <button
             id="btn-direct-process"
             type="button"
             onclick="processDirectArticle()"
             disabled
-            class="w-full sm:w-auto px-6 py-3 bg-slate-200 text-slate-400 cursor-not-allowed rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-xs"
+            class="w-full py-3.5 px-6 bg-slate-200 text-slate-400 cursor-not-allowed rounded-xl font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xs"
           >
             <span>⚡</span>
             <span>Repurpose Content Sekarang</span>
@@ -1650,9 +1647,9 @@ Instruksi:
     if (btn) {
       btn.disabled = !isValid;
       if (isValid) {
-        btn.className = 'w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-indigo-600/20 cursor-pointer';
+        btn.className = 'w-full py-3.5 px-6 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-xl font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-indigo-600/20 cursor-pointer';
       } else {
-        btn.className = 'w-full sm:w-auto px-6 py-3 bg-slate-200 text-slate-400 cursor-not-allowed rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-xs';
+        btn.className = 'w-full py-3.5 px-6 bg-slate-200 text-slate-400 cursor-not-allowed rounded-xl font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xs';
       }
     }
   }
