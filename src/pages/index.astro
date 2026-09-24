@@ -104,6 +104,18 @@ const faqs = [
   title="STORIQ — Content Repurposing Engine Berbasis Storytelling"
   description="Ubah satu ide menjadi artikel, carousel, caption, quote, video script — semua berbasis framework storytelling yang terstruktur."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    }))
+  })} />
   <Header slot="header" />
 
   <!-- 1. HERO SECTION -->
