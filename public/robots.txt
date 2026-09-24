@@ -1,0 +1,40 @@
+# robots.txt for STORIQ (https://andrean-lp.github.io/storiq/)
+User-agent: *
+Allow: /
+
+# Explicit permissions for Generative AI engines & LLM Crawlers (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# Sitemaps & LLM Context Files
+Sitemap: https://andrean-lp.github.io/storiq/sitemap.xml
+# LLM Knowledge standard: https://llmstxt.org
+# LLMs.txt: https://andrean-lp.github.io/storiq/llms.txt
+# LLMs-full.txt: https://andrean-lp.github.io/storiq/llms-full.txt

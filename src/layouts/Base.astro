@@ -37,10 +37,55 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta name="twitter:image" content="https://andrean-lp.github.io/storiq/logo.webp" />
 
     <link rel="canonical" href={Astro.url.href} />
+    <link rel="alternate" type="text/plain" href={`${baseUrl}llms.txt`} title="LLM Context" />
     <link rel="icon" type="image/webp" href={`${baseUrl}favicon.webp`} />
     <link rel="icon" type="image/png" href={`${baseUrl}favicon.png`} />
     <link rel="apple-touch-icon" href={`${baseUrl}logo-128.webp`} />
     <title>{title}</title>
+
+    <!-- Schema.org JSON-LD for Search & AI Engines (GEO) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://andrean-lp.github.io/storiq/#webapp",
+          "name": "STORIQ",
+          "alternateName": "STORIQ Content Repurposing Engine",
+          "url": "https://andrean-lp.github.io/storiq/",
+          "description": "Content Repurposing Engine berbasis storytelling: ubah 1 ide atau artikel jadi Carousel 3D Clay, Caption Medsos, Threads, LinkedIn, dan Video Script gratis tanpa login.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Andre Wahyu Hermawan",
+            "jobTitle": "Landing Page Strategist & CRO",
+            "url": "https://andrean-lp.github.io/"
+          },
+          "featureList": [
+            "Content Repurposing dari 1 Ide atau Artikel",
+            "Framework Storytelling (STORIQ 10 Elemen, Hero's Journey, StoryBrand)",
+            "Prompt Generator Carousel 3D Clay untuk Midjourney / ChatGPT",
+            "Multi-Platform Caption Generator (Instagram, LinkedIn, Threads)",
+            "Video Script Reels & TikTok Generator",
+            "100% Gratis, Tanpa Login, Client-Side Privacy"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://andrean-lp.github.io/storiq/#website",
+          "url": "https://andrean-lp.github.io/storiq/",
+          "name": "STORIQ",
+          "description": "Content Repurposing Engine & Storytelling Framework",
+          "inLanguage": "id-ID"
+        }
+      ]
+    })} />
   </head>
   <body class="min-h-screen bg-[#fafbfc] text-slate-900 font-sans antialiased selection:bg-indigo-500 selection:text-white flex flex-col justify-between">
     <slot name="header">

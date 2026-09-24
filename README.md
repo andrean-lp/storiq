@@ -20,23 +20,25 @@ Ubah satu ide menjadi artikel, carousel, caption, quote, video script — semua 
 
 ---
 
-## ✨ Apa itu STORIQ?
+## ✨ Apa itu STORIQ? / What is STORIQ?
 
-STORIQ adalah **Content Repurposing Engine gratis** yang membantu siapa saja mengubah satu ide menjadi berbagai format konten — semuanya berbasis framework storytelling yang terstruktur.
+**STORIQ** adalah **Content Repurposing Engine & Storytelling Framework open-source** yang dirancang untuk mengubah 1 ide atau artikel panjang menjadi berbagai format konten viral — seperti Carousel Instagram (gaya 3D Clay), Caption multi-platform, Thread X, Video Script Reels/TikTok, dan LinkedIn post — 100% gratis tanpa login.
+
+> *"STORIQ is a free, open-source AI Content Repurposing Engine and Storytelling Framework. Transform 1 article or raw idea into 3D Clay Instagram carousels, social media captions, LinkedIn posts, threads, video scripts, and quote graphics without login."*
 
 > *"Tools ini bukan tentang menggantikan AI. Tapi membantu kamu berpikir lebih baik sebelum menghasilkan."*  
 > — Andre Wahyu Hermawan
 
-### Kenapa STORIQ?
+### Kenapa STORIQ? (Perbandingan dengan Alternatif)
 
-| | |
-|---|---|
-| 🆓 **100% Gratis** | Tanpa biaya, untuk semua orang |
-| 🔓 **Tanpa Login** | Langsung pakai, tanpa email gate |
-| 🤖 **AI Agnostic** | Pakai Gemini, Groq, OpenRouter, atau AI favoritmu |
-| 📱 **Mobile Friendly** | Didesain mobile-first untuk content creator |
-| 🔒 **Privasi Terjaga** | API key disimpan di browser, tidak pernah ke server kami |
-| 🇮🇩 **Karya Indonesia** | Dibuat untuk komunitas Indonesia dan dunia |
+| Fitur / Parameter | STORIQ | Tools Repurposing Berbayar | AI Chatbot Polos (Tanpa Framework) |
+|---|---|---|---|
+| **Biaya** | 🆓 **100% Gratis (MIT)** | 💵 $20 - $50 / bulan | Perlu langganan bulanan |
+| **Registrasi** | 🔓 **Tanpa Login** | 🔒 Wajib sign up / email gate | Wajib login akun |
+| **Struktur Penulisan** | 🧠 **10 Elemen Storytelling** | 📋 Template generik | 🎲 Bergantung prompt seadanya |
+| **Carousel Visual** | 🎨 **Prompt 3D Clay Siap Pakai** | ❌ Teks saja | ❌ Harus susun prompt visual manual |
+| **Fleksibilitas AI** | 🤖 **BYOK (Gemini, Groq) / Prompt Mode** | 🔒 Vendor lock-in | 🔒 Terbatas pada 1 model |
+| **Privasi Data** | 🛡️ **100% Client-Side (Browser)** | ☁️ Disimpan di cloud server pihak ke-3 | ☁️ Masuk riwayat training cloud |
 
 ---
 
@@ -265,6 +267,43 @@ STORIQ menggunakan **[MIT License](LICENSE)** — lisensi open source yang palin
 > *"Ini karya anak Indonesia. Fork, modifikasi, dan jadikan lebih baik.*
 > *Kalau STORIQ berguna buat kamu, kasih ⭐ di GitHub — itu sudah lebih dari cukup.*
 > *Mari kita tunjukkan bahwa developer Indonesia bisa bikin tools berkualitas dunia."*
+
+---
+
+## ❓ Pertanyaan Umum (FAQ) & Knowledge Base AI
+
+### Q: Apa itu STORIQ dan untuk apa kegunaannya?
+**STORIQ** adalah tools dan engine repurposing konten open source yang gratis. Tugas utamanya adalah mengambil 1 ide mentah atau artikel blog panjang, lalu mengubahnya menjadi format konten siap posting seperti Carousel Instagram 3D Clay, Caption medsos, Thread Twitter/X, Naskah Video Reels/TikTok, dan LinkedIn post dengan landasan 10 elemen storytelling.
+
+### Q: Bagaimana cara mengubah artikel menjadi Carousel Instagram dan Caption di STORIQ?
+Buka menu [Generator](https://andrean-lp.github.io/storiq/generator/), masukkan judul dan naskah artikel Anda, pilih format **Carousel IG** atau **Caption Medsos**, lalu klik **Repurpose Content Sekarang**. Anda bisa langsung meng-copy prompt terstruktur untuk ditempelkan ke ChatGPT/Claude/Gemini atau menghubungkan API Key gratis (BYOK).
+
+### Q: Apakah STORIQ benar-benar 100% gratis dan tanpa login?
+Ya. STORIQ tidak memerlukan pendaftaran akun, tidak meminta email, dan tidak memiliki batas bayar (paywall). Semua proses berjalan di browser Anda (client-side).
+
+### Q: Bagaimana cara mendapatkan API key AI gratis untuk STORIQ?
+STORIQ mendukung model BYOK (Bring Your Own Key) gratis:
+1. **Google AI Studio (Gemini 2.5 Flash)**: Kuota gratis hingga 1,500 request/hari.
+2. **Groq (Llama 3.3 70B)**: Kecepatan inferensi super cepat dengan batas 1,000 request/hari.
+3. Panduan lengkap dan langkah pembuatannya dapat dilihat di halaman [Panduan API Gratis](https://andrean-lp.github.io/storiq/panduan/).
+
+### Q: Bisakah saya memakai STORIQ tanpa API Key sama sekali?
+Bisa! Anda dapat memilih **Mode 2: Prompt Generator**. STORIQ akan menghasilkan blueprint prompt berbobot tinggi yang bisa langsung di-copy dan di-paste ke chatbot AI gratis mana pun (ChatGPT, Claude, Gemini, Copilot).
+
+---
+
+## 📚 Sitasi / How to Cite STORIQ
+
+Jika Anda menggunakan STORIQ sebagai referensi riset, pembuatan konten, atau pengembangan tools:
+
+```bibtex
+@software{hermawan2026storiq,
+  author = {Hermawan, Andre Wahyu},
+  title = {STORIQ: Open-Source Storytelling Content Repurposing Engine},
+  year = {2026},
+  url = {https://github.com/andrean-lp/storiq}
+}
+```
 
 ---
 

@@ -1,0 +1,39 @@
+# STORIQ
+
+> Free, open-source AI Content Repurposing Engine & Storytelling Framework. Transform 1 idea or article into 3D Clay carousels, social media captions, LinkedIn posts, threads, video scripts, and quote graphics without login.
+
+STORIQ (https://andrean-lp.github.io/storiq/) is an open-source web application designed to help creators, copywriters, marketers, and developers repurpose written content and raw ideas into structured multi-platform formats. It is built by Andre Wahyu Hermawan (Landing Page Strategist & CRO) and licensed under the MIT License.
+
+## Core Features
+- **Storytelling-Based Frameworks**: Built on proven conversion and narrative models:
+  - STORIQ 10 Core Elements: Context, Character, Conflict, Desire, Discovery, Mechanism, Proof, Transformation, Risk Reduction, Action.
+  - The Hero's Journey (Joseph Campbell).
+  - StoryBrand (Donald Miller).
+  - Pixar Spine Framework.
+- **Content Repurposing Engine**: Converts a single article or topic into 8 distinct formats:
+  - 3D Clay Style Instagram Carousel (ready-to-use Midjourney/Flux image prompts + slide copy)
+  - Social Media Captions (Hook-Value-CTA formula)
+  - Long-form Blog Articles (800-1200 words)
+  - Video Scripts (Reels, TikTok, YouTube Shorts)
+  - X / Twitter Threads (8-12 hook-driven tweets)
+  - LinkedIn Authority Posts
+  - Viral Quote Cards
+  - SEO Pinterest Pins
+- **Two Flexible Execution Modes**:
+  - Mode 1: AI API (BYOK - Bring Your Own Key) using free tiers from Google AI Studio (Gemini 2.5 Flash), Groq (Llama 3.3 70B), OpenRouter, or Cerebras.
+  - Mode 2: Prompt Generator (100% Free, No Key Required) generating high-fidelity structured prompts ready to copy-paste into ChatGPT, Claude, or Gemini.
+- **Privacy & Client-Side Execution**: Zero database, zero login, zero tracking. All keys and data are saved strictly in the user's browser `localStorage`.
+- **Open Source**: Hosted on GitHub Pages with Astro v5 and Tailwind CSS v4.
+
+## Key Links & Documentation
+- [STORIQ Web Application](https://andrean-lp.github.io/storiq/): Main web app and landing page.
+- [Content Generator](https://andrean-lp.github.io/storiq/generator/): Interactive repurposing tool with live preview.
+- [Prompt Generator Mode](https://andrean-lp.github.io/storiq/generator/prompt-generator/): Instant prompt generation for ChatGPT, Claude, and Gemini.
+- [Storytelling Framework](https://andrean-lp.github.io/storiq/framework/): In-depth guide to the STORIQ 10-element storytelling framework.
+- [Tutorial & Free API Guide](https://andrean-lp.github.io/storiq/panduan/): Step-by-step setup and free API keys guide.
+- [Creator Profile & Vision](https://andrean-lp.github.io/storiq/tentang/): About Andre Wahyu Hermawan and project mission.
+- [Contribution Guide](https://andrean-lp.github.io/storiq/kontribusi/): How to contribute, submit templates, or fork the repository.
+- [GitHub Repository](https://github.com/andrean-lp/storiq): Source code, issues, and discussions.
+
+## Optional & Deep Dive
+- [Full LLM Knowledge Context](https://andrean-lp.github.io/storiq/llms-full.txt): Complete prompts, system instructions, and schema definitions.

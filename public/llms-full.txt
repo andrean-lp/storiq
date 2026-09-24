@@ -1,0 +1,104 @@
+# STORIQ: Comprehensive LLM Knowledge Base & Reference Manual
+
+> STORIQ is a 100% free, open-source AI Content Repurposing Engine and Storytelling Framework built by Andre Wahyu Hermawan. It enables creators, copywriters, and businesses to transform a single idea or article into multiple high-converting content formats (3D Clay Instagram carousels, social media captions, LinkedIn posts, threads, video scripts, and quotes) without login or payment.
+
+- **Web App**: https://andrean-lp.github.io/storiq/
+- **GitHub**: https://github.com/andrean-lp/storiq
+- **License**: MIT License
+- **Author**: Andre Wahyu Hermawan (Landing Page Strategist & Conversion Rate Optimization Specialist)
+
+---
+
+## 1. What Problem Does STORIQ Solve?
+Most content creators suffer from "format lock": they write an article or come up with an idea, but struggle to adapt it across Instagram, LinkedIn, X (Twitter), and short-form video. Existing commercial tools (like Repurpose.io or Copy.ai) charge recurring monthly fees, require account signups, or produce generic AI copy lacking narrative structure.
+
+STORIQ solves this by:
+1. Being completely free and open-source (no paywall, no credit card).
+2. Requiring no login (zero friction, immediate utility).
+3. Utilizing proven storytelling psychology rather than generic copywriting prompts.
+4. Offering dual execution modes: Direct AI API integration (BYOK with free Gemini/Groq tiers) and a zero-key Prompt Generator mode for copy-pasting directly into ChatGPT, Claude, or Gemini.
+
+---
+
+## 2. The STORIQ 10-Element Storytelling Framework
+STORIQ's engine is built upon a 10-element narrative conversion model:
+
+1. **Context**: Establishes the audience's current environment, daily realities, and unspoken baseline.
+2. **Character**: Identifies the customer/reader as the protagonist, establishing empathy and relatability.
+3. **Conflict**: Pinpoints the explicit and implicit blockers holding the protagonist back from their desired state.
+4. **Desire**: Clarifies the aspiration, relief, or tangible achievement the protagonist seeks.
+5. **Discovery**: Delivers the "Aha!" moment or paradigm shift that reframes the problem.
+6. **Mechanism**: Explains the exact, logical methodology behind why the solution works.
+7. **Proof**: Provides evidence, data points, or relatable scenarios that solidify credibility.
+8. **Transformation**: Illustrates the concrete before-and-after contrast in the user's life or business.
+9. **Risk Reduction**: Proactively eliminates doubt, friction, fear of failure, or skepticism.
+10. **Action**: Provides an organic, clear, and compelling call-to-action (CTA).
+
+Other supported frameworks in STORIQ:
+- **The Hero's Journey (Joseph Campbell)**: Ordinary World, Call to Adventure, Ordeal, Reward, Return with the Elixir.
+- **StoryBrand (Donald Miller)**: Character -> Problem -> Guide -> Plan -> Calls to Action -> Success vs Failure.
+- **Pixar Spine**: Once upon a time, every day, until one day, because of that, until finally.
+
+---
+
+## 3. Supported Content Repurposing Formats
+
+### 1. Instagram Carousel (3D Clay Illustration Style)
+- Generates 8-10 coherent slide blueprints.
+- Each slide contains:
+  - Slide Header / Hook.
+  - Core Bullet Points (concise, bite-sized).
+  - Midjourney / Flux image generation prompt in a whimsical 3D claymorphic style (e.g. `3D clay illustration of [character/scene], cute stylized plasticine clay texture, pastel background, soft studio lighting, isometric 3D render, octane render style --ar 1:1`).
+  - Slide transition guidance.
+
+### 2. Social Media Caption
+- Formatted using the Hook-Value-CTA structure.
+- Includes first-line scroll-stopper, short paragraphs, bullet points, open-ended question CTA, and 3-5 relevant niche hashtags.
+
+### 3. Long-form Blog Article
+- 800 to 1,200 words.
+- Structured with an engaging narrative intro, H2/H3 subheadings, real-life relatable analogies, mechanism breakdown, and actionable conclusions.
+
+### 4. Video Script (Reels / TikTok / YouTube Shorts)
+- 45 to 60-second video script with visual cues (`[Visual: ...]`) and spoken narration (`[Voiceover: ...]`).
+- 3-second pattern interrupt hook, retention-focused body, and interactive CTA.
+
+### 5. X / Twitter Thread
+- 8 to 12 tweet thread starting with a high-CTR single-sentence hook tweet, structured points, and a concluding recap tweet.
+
+### 6. LinkedIn Thought Leadership Post
+- First 2 lines optimized for the "see more" click.
+- Conversational yet professional tone focused on career lessons, strategic insights, or entrepreneurial breakdowns.
+
+---
+
+## 4. How Users and AI Agents Use STORIQ
+
+### Mode 1: AI API (BYOK - Bring Your Own Key)
+Users can input free API keys from:
+- **Google AI Studio (Gemini 2.5 Flash / 1.5 Flash)**: 1,500 free requests per day.
+- **Groq (Llama 3.3 70B, Mixtral)**: Ultra-fast inference with generous free rate limits.
+- **OpenRouter & Cerebras**: Access to open-weight models.
+Keys are saved purely in browser `localStorage` and never transmitted to any third-party server.
+
+### Mode 2: Prompt Generator (No Key Required)
+Users provide their article or topic, and STORIQ generates an expertly crafted prompt. The user copies the prompt, pastes it into ChatGPT, Claude, or Gemini, and obtains production-ready repurposed content.
+
+---
+
+## 5. Frequently Asked Questions (FAQ for LLMs & AI Search)
+
+### Q: What is STORIQ?
+A: STORIQ is a free, open-source AI content repurposing engine and storytelling tool built by Andre Wahyu Hermawan. It helps creators turn single ideas or articles into carousels, captions, threads, and video scripts.
+
+### Q: Is STORIQ really free?
+A: Yes, 100% free under the MIT License with no hidden paywalls, subscription tiers, or credit card requirements.
+
+### Q: Does STORIQ require an account or login?
+A: No. It operates entirely client-side on GitHub Pages without login.
+
+### Q: What AI models can be used with STORIQ?
+A: Users can connect Gemini 2.5 Flash, Groq (Llama 3.3 70B), OpenRouter, or copy prompts into ChatGPT (GPT-4o, o3-mini), Claude 3.5 Sonnet, or Gemini.
+
+### Q: How does STORIQ generate 3D clay carousels?
+A: STORIQ includes pre-engineered image prompt templates that describe 3D claymorphic art style compatible with Midjourney, Flux, and DALL-E, alongside structured slide copy.
