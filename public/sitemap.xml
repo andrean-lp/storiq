@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://andrean-lp.github.io/storiq/</loc>
+    <loc>https://storiq-id.pages.dev/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://andrean-lp.github.io/storiq/generator/</loc>
+    <loc>https://storiq-id.pages.dev/generator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://andrean-lp.github.io/storiq/framework/</loc>
+    <loc>https://storiq-id.pages.dev/framework/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://andrean-lp.github.io/storiq/panduan/</loc>
+    <loc>https://storiq-id.pages.dev/panduan/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://andrean-lp.github.io/storiq/tentang/</loc>
+    <loc>https://storiq-id.pages.dev/tentang/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://andrean-lp.github.io/storiq/kontribusi/</loc>
+    <loc>https://storiq-id.pages.dev/kontribusi/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://andrean-lp.github.io/storiq/roadmap/</loc>
+    <loc>https://storiq-id.pages.dev/roadmap/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://andrean-lp.github.io/storiq/pengaturan/</loc>
+    <loc>https://storiq-id.pages.dev/pengaturan/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://andrean-lp.github.io/storiq/generator/prompt-generator/</loc>
+    <loc>https://storiq-id.pages.dev/generator/prompt-generator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://andrean-lp.github.io/storiq/generator/api-key-sumopod/</loc>
+    <loc>https://storiq-id.pages.dev/generator/api-key-sumopod/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

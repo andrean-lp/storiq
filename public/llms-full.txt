@@ -2,7 +2,7 @@
 
 > STORIQ is a 100% free, open-source AI Content Repurposing Engine and Storytelling Framework built by Andre Wahyu Hermawan. It enables creators, copywriters, and businesses to transform a single idea or article into multiple high-converting content formats (3D Clay Instagram carousels, social media captions, LinkedIn posts, threads, video scripts, and quotes) without login or payment.
 
-- **Web App**: https://andrean-lp.github.io/storiq/
+- **Web App**: https://storiq-id.pages.dev/
 - **GitHub**: https://github.com/andrean-lp/storiq
 - **License**: MIT License
 - **Author**: Andre Wahyu Hermawan (Landing Page Strategist & Conversion Rate Optimization Specialist)

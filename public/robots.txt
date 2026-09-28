@@ -1,4 +1,4 @@
-# robots.txt for STORIQ (https://andrean-lp.github.io/storiq/)
+# robots.txt for STORIQ (https://storiq-id.pages.dev/)
 User-agent: *
 Allow: /
 
@@ -34,7 +34,7 @@ User-agent: Diffbot
 Allow: /
 
 # Sitemaps & LLM Context Files
-Sitemap: https://andrean-lp.github.io/storiq/sitemap.xml
+Sitemap: https://storiq-id.pages.dev/sitemap.xml
 # LLM Knowledge standard: https://llmstxt.org
-# LLMs.txt: https://andrean-lp.github.io/storiq/llms.txt
-# LLMs-full.txt: https://andrean-lp.github.io/storiq/llms-full.txt
+# LLMs.txt: https://storiq-id.pages.dev/llms.txt
+# LLMs-full.txt: https://storiq-id.pages.dev/llms-full.txt
